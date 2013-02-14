@@ -1,0 +1,63 @@
+Goal: Create a git repo with all available Unix history
+
+Branches {{{1
+Research-Development
+	Contains the files from the releases committed at their
+	last modification date.
+	After each release all files are deleted.
+Research-Release
+	Contains a complete tree of the current release.
+	Created on date of the newest file file in a specific release
+	by copying over the files from development.
+	Parent is the release's newest file in the -Development branch.
+	Tagged with the name of the release
+	Deleted before a new release is issued
+	Contains
+		http://unixarchive.cn-k.de/4BSD/Distributions/
+		4.2BSD
+		4.3BSD
+		4.3BSD-Reno
+		4.3BSD-Tahoe
+		4.4BSD-Alpha
+		Net2
+
+BSD-Development
+	The parent is Research-Release v7
+	As above
+BSD-SCCS
+	The parent is Research-Release v7
+	A recursive import of the SCCS repos
+BSD-Release
+	As above
+	In addition each release's commit is marked as a mege with the
+	SCCS branch at the timepoint of its creation.
+
+FreeBSD
+	A pull from the FreeBSD git conversion site
+
+Data sources {{{1
+A good map to all available material is
+http://minnie.tuhs.org/cgi-bin/utree.pl
+
+A map of merges can be glanced from
+http://upload.wikimedia.org/wikipedia/commons/1/11/Unix-history.svg
+
+Bell Labs
+http://www.tuhs.org/archive_sites.html
+v1 http://unix-jun72.googlecode.com/files/svntree-20081216.tar.gz
+v3 http://unixarchive.cn-k.de/PDP-11/Distributions/research/Dennis_v3/nsys.tar.gz
+v5
+v6
+v7
+
+BSD-SCCS {{{1
+http://www.mckusick.com/csrg/index.html
+
+Method
+Find newest file in a directory
+find . -type f | xargs stat -c %y | sort | tail -1
+
+Acks {{{1
+BSD contributor names
+Anatole Shaw
+Era Eriksson
