@@ -1,0 +1,39 @@
+UNIX is a registered trademark in the United States and other countries,
+licensed exclusively through X/Open Company, Ltd.
+
+Caldera owns the copyright on these versions of UNIX (as well as others):
+1st, 2nd, 3rd, 4th, 5th, 6th & 7th Editions, PWB/UNIX, Mini UNIX, and 32V.
+See Caldera-license.pdf for their license conditions for these systems.
+
+Any portions of 1BSD, 2BSD, 2.xBSD, 3BSD and 4.xBSD which are substantially
+derived from the Caldera UNIX systems above are also copyright Caldera.
+
+Depending on where the software was developed, those portions of 1BSD, 2BSD,
+2.xBSD, 3BSD and 4.xBSD which are not substantially derived from the Caldera
+UNIX systems above are either copyright the Regents of the University of
+California, or by the authors of the software. Please read the individual
+software files to determine ownership and copyright status.
+
+All versions of Ultrix-11, and the V7M version of UNIX, are copyright Compaq.
+
+Venix versions 1 and 2 are copyright by VenturCom.
+
+Douglas Comer and Prentice-Hall own the copyright on the Xinu operating system.
+
+The AUSAM modifications to 6th Edition UNIX are copyright the University
+of New South Wales.
+
+The port of 6th Edition UNIX to the Interdata 7/32 is copyright the
+University of Wollongong, Australia.
+
+Other software packages in this archive, such as PDP-11 emulators, disk &
+tape image manipulations tools, are copyright by their respective authors.
+
+The organisation of the Unix Archive, the documents describing this archive's
+contents & organisation, and the HTML files in the directories TUHS_Html &
+PUPS_Html are copyright Warren Toomey.
+
+There are bound to be omissions of copyright in this file. Please email me
+if there are other copyright notices that can be added here.
+
+	Warren Toomey, wkt@tuhs.org
