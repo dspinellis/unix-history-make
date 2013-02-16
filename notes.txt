@@ -57,6 +57,25 @@ Method
 Find newest file in a directory
 find . -type f | xargs stat -c %y | sort | tail -1
 
+Snapshot contributors {{{1
+Dick Haight's find, cpio and expr
+http://doc.cat-v.org/unix/find-history
+
+Dennis M. Ritchie C, as, UNIXIO
+S. R. Bourne sh
+Stephen C. Johnson yacc, lint
+Alfred V. Aho awk
+J. F. Maranzano adb
+L. E. McMahon sed
+Stuart I. Feldman make
+J. F. Ossanna troff
+Stuart I. Feldman f77
+Brian W. Kernighan v7ratfor, m4, eqn
+Michael E. Lesk tbl, refer
+R. H. Morris dc, bc
+D. A. Nowitz uucp
+ TMG [11] that was implemented by McIlroy
+
 Acks {{{1
 BSD contributor names
 Anatole Shaw
