@@ -80,6 +80,7 @@ s./crypt\.. 	Robert Morris <research!rhm>
 s1/bc\.y 	Robert Morris <research!rhm>
 
 # From V1 manual OWNER section
+s1/fed..\.s	Robert Morris and Ken Thompson <research!{rhm,ken}>
 s1/form.\.s	Robert Morris and Ken Thompson <research!{rhm,ken}>
 
 # Login name supplied by bwk
