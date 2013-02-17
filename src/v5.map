@@ -41,7 +41,9 @@ usr/source/s2/wc\.c	Joe Ossanna <research!jfo>
 # According to V1/man
 usr/sys/ken/.*		Ken Thompson <research!ken>
 usr/source/s1/bas.\.s	Ken Thompson <research!ken>
+usr/source/s1/cal\.c	Ken Thompson <research!ken>
 usr/source/s1/dc.\.s	Ken Thompson <research!ken>
+usr/mdec/dli\.s		Ken Thompson <research!ken>
 usr/mdec/dtf\.s		Ken Thompson <research!ken>
 usr/source/s1/ed.\.s	Ken Thompson <research!ken>
 usr/source/s2/mail\.c	Ken Thompson <research!ken>

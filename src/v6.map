@@ -57,6 +57,7 @@ s2/wc\.c	Joe Ossanna <research!jfo>
 # According to V1/man
 usr/sys/ken/.*	Ken Thompson <research!ken>
 s1/bas\.s	Ken Thompson <research!ken>
+s1/cal\.c	Ken Thompson <research!ken>
 # rhm has written the V7 doc manual. Perhaps he wrote the version?
 s1/dc.\.s	Ken Thompson <research!ken>
 mdec/dtf\.s	Ken Thompson <research!ken>
