@@ -22,8 +22,8 @@ main::HELP_MESSAGE
 {
 	my ($fh) = @_;
 	print $fh qq{
-Usage $0: [-c contributor_map] [-m commit] [-p path_map] directory branch_name tag
-from_sha tz_offset
+Usage: $0 [-c contributor_map] [-m commit] [-p path_map] directory branch_name tag
+tz_offset
 -c	Specify a map of the tree's parts tree written by
 	specific contributors
 -m	Specify the commit from which the release will be merged
@@ -33,7 +33,8 @@ from_sha tz_offset
 }
 
 our($opt_c, $opt_m, $opt_p);
-if (!getopts('c:m:p:') || $#ARGV + 1 != 5) {
+if (!getopts('c:m:p:') || $#ARGV + 1 != 4) {
+	print STDERR $#ARGV;
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 }
@@ -41,8 +42,6 @@ if (!getopts('c:m:p:') || $#ARGV + 1 != 5) {
 my $directory = shift;
 my $branch = shift;
 my $tag = shift;
-my $from_sha = shift;
-my $devel_from_sha = $from_sha;
 my $tz_offset = shift;
 
 $opt_p = $directory unless defined($opt_p);
@@ -76,9 +75,11 @@ gather_files
 binmode STDOUT;
 my $mark = 1;
 
+my $first_mtime;
 # First create the blobs
 for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 	print "# $fi{$name}->{mtime} $name\n";
+	$first_mtime = $fi{$name}->{mtime} unless defined($first_mtime);
 	$fi{$name}->{id} = $mark;
 	print "blob\n";
 	print "mark :$mark\n";
@@ -91,6 +92,16 @@ for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 }
 
 # The actual development commits
+print "# Start development commits from a clean slate\n";
+print "commit refs/heads/$branch-Development\n";
+my $author = committer('///');
+print "author $author $first_mtime $tz_offset\n";
+print "committer $author $first_mtime $tz_offset\n";
+print data("Start development on $branch $tag\n\nDelete all prior development files");
+print "from refs/heads/$branch-Development^0\n";
+print "merge $opt_m\n" if (defined($opt_m));
+print "deleteall\n";
+
 print "# Development commits\n";
 my $last_mtime;
 my $last_devel_mark;
@@ -98,6 +109,7 @@ for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 	print "# $fi{$name}->{mtime} $name\n";
 	print "commit refs/heads/$branch-Development\n";
 	print "mark :$mark\n";
+	$last_devel_mark = $mark++;
 	my $commit_path = $name;
 	$commit_path =~ s/$opt_p// if ($opt_p);
 	my $author = committer($commit_path);
@@ -105,33 +117,32 @@ for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 	print "committer $author $fi{$name}->{mtime} $tz_offset\n";
 	$last_mtime = $fi{$name}->{mtime};
 	print data("$branch $tag development\n\nAdd file $commit_path");
-	if (defined($devel_from_sha)) {
-		print "from $devel_from_sha\n";
-		undef $devel_from_sha;
-	}
-	if (defined($opt_m)) {
-		print "merge $opt_m\n";
-		undef $opt_m;
-	}
-	$last_devel_mark = $mark;
 	print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
-	$mark++;
 }
 
 # Now issue a release
 print "# Release\n";
 print "commit refs/heads/$branch-Release\n";
-my $author = committer('///');
+print "mark :$mark\n";
+my $release_mark = $mark++;
+$author = committer('///');
 print "author $author $last_mtime $tz_offset\n";
 print "committer $author $last_mtime $tz_offset\n";
 print data("$branch $tag release\n\nSnapshot of all files from the development branch");
-print "from $from_sha\n";
+print "from refs/heads/$branch-Release^0\n";
 print "merge :$last_devel_mark\n";
 for my $name (keys %fi) {
 	my $commit_path = $name;
 	$commit_path =~ s/$opt_p// if ($opt_p);
 	print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 }
+
+# Tag the release
+print "tag $branch-$tag\n";
+print "from :$release_mark\n";
+print "tagger $author $last_mtime $tz_offset\n";
+print data("Tagged $tag release snapshot of $branch with $tag\n\nSource directory: $directory");
+
 
 # Signify that we're finished
 print "done\n";

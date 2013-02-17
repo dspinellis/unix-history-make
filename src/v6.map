@@ -1,0 +1,97 @@
+# Sort by autho initials and then program path
+
+# Brian W. Kernighan. Ratfor—a preprocessor for a rational Fortran.
+# Software: Practice & Experience, 5(4):395–406, 1975.
+rat/.*		Brian W. Kernighan <research!bwk>
+
+# Regarding the user name see http://www.cs.bell-labs.com/who/dmr/index.html
+usr/sys/dmr/.*	Dennis Ritchie <research!dmr>
+
+# The actual files correspond to documentation dmr wrote and
+# owner listed in V1/man
+# http://minnie.tuhs.org/cgi-bin/utree.pl?file=V1/man/man1
+c/.*		Dennis Ritchie <research!dmr>
+as/.*		Dennis Ritchie <research!dmr>
+iolib/.*	Dennis Ritchie <research!dmr>
+s1/bcd\.c	Dennis Ritchie <research!dmr>
+s1/cmp\.c	Dennis Ritchie <research!dmr>
+s1/date\.c	Dennis Ritchie <research!dmr>
+s1/find\.c	Dennis Ritchie <research!dmr>
+s1/db.\.s	Dennis Ritchie <research!dmr>
+s1/du\.s	Dennis Ritchie <research!dmr>
+s1/ld\.c	Dennis Ritchie <research!dmr>
+s2/strip\.s	Dennis Ritchie <research!dmr>
+
+# OWNER listed in V1/man
+s1/ls\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
+s2/mesg\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
+s2/nm\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
+s2/su\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
+s2/tty\.s	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
+s2/who\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
+s2/write\.s	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
+
+# "The first interesting language to appear was a version of McClure's TMG
+# that was implemented by McIlroy"
+tmg/.*	Doug McIlroy <research!doug>
+# http://www.cs.bell-labs.com/who/doug/index.html
+# Text- and data-processing utilities:
+# spell, diff, sort, join, graph, speak, etc.
+s1/diff.*	Doug McIlroy <research!doug>
+s2/sort\.c	Doug McIlroy <research!doug>
+
+# See A.J. Cole. Macro Processors (Cambridge University Press, 1981)
+# "The M6 macro processor available with UNIX was designed by McIlroy
+# and Morris.
+m6/.* 		Doug McIlroy and Robert Morris <research!{doug,rtm}>
+# http://cm.bell-labs.com/cm/cs/who/dmr/hist.html
+
+
+# Login name supplied by bwk
+# Contribution through authorship of NROFF/TROFF User's Manual
+s7/.*		Joe Ossanna <research!jfo>
+# Listed as OWNER in V1 manual
+s2/wc\.c	Joe Ossanna <research!jfo>
+
+# See http://www.cs.bell-labs.com/who/ken/index.html
+# According to V1/man
+usr/sys/ken/.*	Ken Thompson <research!ken>
+s1/bas\.s	Ken Thompson <research!ken>
+# rhm has written the V7 doc manual. Perhaps he wrote the version?
+s1/dc.\.s	Ken Thompson <research!ken>
+mdec/dtf\.s	Ken Thompson <research!ken>
+s1/ed.\.c	Ken Thompson <research!ken>
+s2/mail.\.c	Ken Thompson <research!ken>
+# J. R. Mashey. Using a command language as a high-level programming language
+# ICSE 1976: "The shell was originally written by K. Thompson"
+# The V1 OWNER section claims: "dmr, ken"
+s2/sh.\.c	Ken Thompson <research!ken>
+s2/sum.\.s	Ken Thompson <research!ken>
+
+# According to authoroship of TBL-A Program to Format Tables
+s2/tbl\.c	Michael Lesk <research!mel>
+
+# [Morris] was also the author of the series of crypt programs
+# that came with early Unix, including the final one distributed with the
+# Seventh Edition
+# http://cm.bell-labs.com/cm/cs/who/dmr/crypt.html
+s./crypt\.. 	Robert Morris <research!rhm>
+# According to authorship of BC-An Arbitrary Precision Desk-Calculator Language
+s1/bc\.y 	Robert Morris <research!rhm>
+
+# From V1 manual OWNER section
+s1/form.\.s	Robert Morris and Ken Thompson <research!{rhm,ken}>
+
+# Login name supplied by bwk
+# Contribution according to CSTR-32
+yacc/.*		Steve Johnson <research!scj>
+
+
+# Default
+# Regarding the order of names
+# "The reader will not, on the average, go far wrong if he reads each
+# occurrence of `we' with unclear antecedent as `Thompson, with some
+# assistance from me.'"
+# http://cm.bell-labs.com/cm/cs/who/dmr/hist.html
+# ... and OWNER section in remaining manual pages of V1
+.*		Ken Thompson and Dennis Ritchie <research!{ken,dmr}>

@@ -41,6 +41,8 @@ http://minnie.tuhs.org/cgi-bin/utree.pl
 
 A map of merges can be glanced from
 http://upload.wikimedia.org/wikipedia/commons/1/11/Unix-history.svg
+and details from
+http://minnie.tuhs.org/Unix_History/index.html
 
 Bell Labs
 http://www.tuhs.org/archive_sites.html
@@ -58,6 +60,11 @@ Find newest file in a directory
 find . -type f | xargs stat -c %y | sort | tail -1
 
 Snapshot contributors {{{1
+
+The first edition manual pages list the "owner" of specific
+elements.
+http://minnie.tuhs.org/cgi-bin/utree.pl?file=V1/man
+
 Dick Haight's find, cpio and expr
 http://doc.cat-v.org/unix/find-history
 

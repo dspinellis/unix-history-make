@@ -16,11 +16,14 @@ git commit -a -m "Add license"
 git branch Research-Development
 git branch Research-Release
 
-SHA=`git rev-parse Research-Development`
 
 cd ..
-perl import-dir.pl -c v5.map /vol/nbk/old-unix/v5 Research V5 $SHA -0500 |
-tee foo |
+SHA=`cd import; git rev-parse Research-Release`
+perl import-dir.pl -m $SHA -c v5.map /vol/nbk/old-unix/v5 Research V5 -0500 |
+(cd import ; git fast-import --stats --done --quiet)
+
+SHA=`cd import; git rev-parse Research-Release`
+perl import-dir.pl -m $SHA -c v6.map /vol/nbk/old-unix/v6 Research V6 -0500 |
 (cd import ; git fast-import --stats --done --quiet)
 
 #git repack --window=50 -a -d -f
