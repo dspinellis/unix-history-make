@@ -1,11 +1,11 @@
 # Regarding the user name see http://www.cs.bell-labs.com/who/dmr/index.html
-usr/sys/dmr/.*	Dennis Ritchie <dmr@bell-labs.com>
+usr/sys/dmr/.*	Dennis Ritchie <research!dmr>
 
 # Regarding the user name see http://www.cs.bell-labs.com/who/dmr/index.html
-usr/c/.*	Dennis Ritchie <dmr@bell-labs.com>
+usr/c/.*	Dennis Ritchie <research!dmr>
 
 # See http://www.cs.bell-labs.com/who/ken/index.html
-usr/sys/ken/.*	Ken Thompson <ken@bell-labs.com>
+usr/sys/ken/.*	Ken Thompson <research!ken>
 
 # Default
 # Regarding the order of names
@@ -13,4 +13,4 @@ usr/sys/ken/.*	Ken Thompson <ken@bell-labs.com>
 # occurrence of `we' with unclear antecedent as `Thompson, with some
 # assistance from me.'"
 # http://cm.bell-labs.com/cm/cs/who/dmr/hist.html
-.*	Ken Thompson and Dennis Ritchie <{ken,dmr}@bell-labs.com>
+.*	Ken Thompson and Dennis Ritchie <research!{ken,dmr}>
