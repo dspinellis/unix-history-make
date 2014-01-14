@@ -59,7 +59,14 @@ Method
 Find newest file in a directory
 find . -type f | xargs stat -c %y | sort | tail -1
 
+Contributor names
+http://unix.stackexchange.com/questions/64025/who-are-these-bsd-unix-contributors#comment92758_64025
+
 Snapshot contributors {{{1
+
+List by Michael S. Mahoney
+http://www.princeton.edu/~hos/Mahoney/unixpeople.htm
+Michael S. Mahoney. \"In the Beginning: Unix at Bell Labs\". . 2013-02-18. URL:http://www.princeton.edu/~hos/Mahoney/unixpeople.htm. Accessed: 2013-02-18. (Archived by WebCite® at http://www.webcitation.org/6EWDj7eVc)
 
 The first edition manual pages list the "owner" of specific
 elements.
@@ -68,8 +75,12 @@ http://minnie.tuhs.org/cgi-bin/utree.pl?file=V1/man
 Dick Haight's find, cpio and expr
 http://doc.cat-v.org/unix/find-history
 
+History of Unix manual pages reconstructed from primary sources
+http://manpages.bsd.lv/history.html
+
+Based on published documentation in Part II {{{2
 Dennis M. Ritchie C, as, UNIXIO
-S. R. Bourne sh
+S. R. Bourne V7 sh
 Stephen C. Johnson yacc, lint
 Alfred V. Aho awk
 J. F. Maranzano adb
@@ -83,7 +94,29 @@ R. H. Morris dc, bc
 D. A. Nowitz uucp
  TMG [11] that was implemented by McIlroy
 
+Contributor logins {{{2
+From bwk:
+srb S. R. Bourne
+rhaight? D. Haight
+scj S. C. Johnson
+jfm J. F. Maranzano
+sif S. I. Feldman
+jfo J. F. Ossanna
+mel M. E. Lesk
+rhm R. H. Morris
+dan D. A. Nowitz
+
+L. E. McMahon is lem
+Found by matching photo in
+http://senseis.xmp.net/?LeeMcMahon
+with Faceserver image
+http://sydney.edu.au/engineering/it/faces/album/faces.pgrad/com/bell-labs/research/lem/
+
+
 Acks {{{1
-BSD contributor names
+BSD contributor names {{{2
 Anatole Shaw
 Era Eriksson
+Bell Labs login {{{2
+Arnold D. Robbins
+Brian W. Kernighan
