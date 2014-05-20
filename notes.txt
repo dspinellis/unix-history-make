@@ -1,17 +1,17 @@
-Goal: Create a git repo with all available Unix history
+Goal: Consolidate data concerning the evolution of a Unix system
+in a form that helps the study of the system's evolution,
+by entering them into a revision repository.
 
 Branches {{{1
-Research-Development
+Research-Development-*
 	Contains the files from the releases committed at their
 	last modification date.
-	After each release all files are deleted.
+	This is merged after each release on the date of the newest file
+	in a specific release.
 Research-Release
-	Contains a complete tree of the current release.
-	Created on date of the newest file file in a specific release
-	by copying over the files from development.
-	Parent is the release's newest file in the -Development branch.
+	Contains a complete snapshot of each release by merging complete
+	development branches with a "theirs" strategy.
 	Tagged with the name of the release
-	Deleted before a new release is issued
 	Contains
 		http://unixarchive.cn-k.de/4BSD/Distributions/
 		4.2BSD
