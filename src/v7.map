@@ -17,8 +17,6 @@ usr/src/cmd/su\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 usr/src/cmd/tty\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 usr/src/cmd/who\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 usr/src/cmd/write\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/src/libc/.*			Dennis Ritchie <research!dmr>
-usr/man/man1/.*			Dennis Ritchie <research!dmr>
 
 usr/src/cmd/wc\.c		Joe Ossanna <research!jfo>
 
@@ -33,7 +31,6 @@ usr/src/cmd/mail\.c		Ken Thompson <research!ken>
 usr/src/cmd/diff.*		Doug McIlroy <research!doug>
 usr/src/cmd/graph\.c		Doug McIlroy <research!doug>
 usr/src/cmd/join\.c		Doug McIlroy <research!doug>
-usr/src/cmd/sort\.c		Doug McIlroy <research!doug>
 usr/src/cmd/spell/.*		Doug McIlroy <research!doug>
 
 
@@ -108,7 +105,6 @@ usr/src/cmd/as/.*	Dennis Ritchie <research!dmr>
 usr/src/cmd/awk/.*	Alfred V. Aho and Peter J. Weinberger and Brian W. Kernighan <research!{aho,pjw,bwk}>
 usr/src/cmd/bc\.y	Lorinda Cherry and Robert Morris <research!{XXX,rhm>
 usr/src/cmd/dc/.*	Lorinda Cherry and Robert Morris <research!{XXX,rhm>
-usr/src/cmd/ed\.c	Brian W. Kernighan <research!bwk>
 usr/src/cmd/eqn/.*	Brian W. Kernighan and Lorinda Cherry <research!{bwk,XXX}>
 usr/src/cmd/f77/.* 	S. I. Feldman and Peter J. Weinberger <research!{sif,pjw}>
 usr/src/cmd/learn/.*	Brian W. Kernighan and Michael E. Lesk <research!{bwk,mel}>
@@ -126,7 +122,7 @@ usr/src/cmd/tbl/.*	Michael E. Lesk <research!mel>
 usr/src/cmd/uucp/.*	D. A. Nowitz <research!dan>
 usr/src/cmd/yacc/.*	Stephen C. Johnson <research!scj>
 
-# Manual pages based on the preceding command authors
+# 7. Manual pages based on the preceding command authors
 # Initial list was created by passing the lines through
 # perl -ne 'if (s|usr/src/cmd/|usr/man/man1/|) { s/((\\\.)|(\/\.))[^        ]*/\\.1/; ($man) = split; print "# XXX " unless (-r $man); print }'
 # and the hand-tuned
@@ -149,7 +145,6 @@ usr/man/man1/mail\.1		Ken Thompson <research!ken>
 usr/man/man1/diff.*		Doug McIlroy <research!doug>
 usr/man/man1/graph\.1g		Doug McIlroy <research!doug>
 usr/man/man1/join\.1		Doug McIlroy <research!doug>
-usr/man/man1/sort\.1		Doug McIlroy <research!doug>
 usr/man/man1/spell\.1		Doug McIlroy <research!doug>
 usr/man/man1/crypt\.1		Robert Morris <research!rhm>
 usr/man/man1/adb\.1	J. F. Maranzano and S. R. Bourne <research!{adb,srb}>
@@ -157,7 +152,6 @@ usr/man/man1/as\.1	Dennis Ritchie <research!dmr>
 usr/man/man1/awk\.1	Alfred V. Aho and Peter J. Weinberger and Brian W. Kernighan <research!{aho,pjw,bwk}>
 usr/man/man1/bc\.1	Lorinda Cherry and Robert Morris <research!{XXX,rhm>
 usr/man/man1/dc\.1	Lorinda Cherry and Robert Morris <research!{XXX,rhm>
-usr/man/man1/ed\.1	Brian W. Kernighan <research!bwk>
 usr/man/man1/eqn\.1	Brian W. Kernighan and Lorinda Cherry <research!{bwk,XXX}>
 usr/man/man7/eqnchar\.7	Brian W. Kernighan and Lorinda Cherry <research!{bwk,XXX}>
 usr/man/man1/f77\.1	S. I. Feldman and Peter J. Weinberger <research!{sif,pjw}>
@@ -174,6 +168,63 @@ usr/man/man1/sh\.1	S. R. Bourne <research!srb>
 usr/man/man1/tbl\.1	Michael E. Lesk <research!mel>
 usr/man/man1/uucp\.1c	D. A. Nowitz <research!dan>
 usr/man/man1/yacc\.1	Stephen C. Johnson <research!scj>
+
+# 8. Commands based on http://www.princeton.edu/~hos/Mahoney/unixpeople.htm
+# ordered according to their order on the page
+usr/src/cmd/bas/.*	Ken Thompson <research!ken>
+usr/man/man1/bas\.1	Ken Thompson <research!ken>
+usr/src/cmd/f77/.*	Ken Thompson and Dennis Ritchie <research!{ken,dmr}>
+usr/man/man1/f77\.1	Ken Thompson and Dennis Ritchie <research!{ken,dmr}>
+usr/src/cmd/ed/.*	Ken Thompson and Dennis Ritchie <research!{ken,dmr}>
+usr/man/man1/ed\.1	Ken Thompson and Dennis Ritchie <research!{ken,dmr}>
+usr/src/cmd/roff/.*	Ken Thompson <research!ken>
+usr/man/man1/roff\.1	Ken Thompson <research!ken>
+# Also claimed by Doug McIlroy
+usr/src/cmd/sort\.c	Ken Thompson <research!ken>
+usr/man/man1/sort\.1	Ken Thompson <research!ken>
+usr/src/cmd/grep\.c	Ken Thompson and Lee E. McMahon <research!{ken,lem}>
+usr/man/man1/grep\.1	Ken Thompson and Lee E. McMahon <research!{ken,lem}>
+usr/src/cmd/uniq\.c	Ken Thompson <research!ken>
+usr/man/man1/uniq\.1	Ken Thompson <research!ken>
+usr/src/cmd/plot/.*	Ken Thompson <research!ken>
+usr/man/man1/plot\.1	Ken Thompson <research!ken>
+usr/src/libplot/.*	Ken Thompson <research!ken>
+usr/src/cmd/sa\.c	Ken Thompson <research!ken>
+usr/man/man1/sa\.1m	Ken Thompson <research!ken>
+usr/src/cmd/dd\.c	Ken Thompson <research!ken>
+usr/man/man1/dd\.1	Ken Thompson <research!ken>
+
+usr/src/libdbm/.*	Dennis Ritchie <research!dmr>
+usr/man/man3/dbm\.3x	Dennis Ritchie <research!dmr>
+
+usr/src/libm/.*		Robert Morris <research!rhm>
+usr/man/man3/.*\.3m	Robert Morris <research!rhm>
+usr/src/cmd/primes\.s	Robert Morris <research!rhm>
+usr/src/cmd/factor\.s	Robert Morris <research!rhm>
+usr/man/man1/factor\.1	Robert Morris <research!rhm>
+
+usr/src/cmd/look\.c	Doug McIlroy <research!doug>
+usr/man/man1/look\.1	Doug McIlroy <research!doug>
+
+usr/src/cmd/comm\.c	Lee E. McMahon <research!lem>
+usr/man/man1/comm\.1	Lee E. McMahon <research!lem>
+usr/man/man3/qsort\.3	Lee E. McMahon <research!lem>
+usr/src/libc/gen/qsort\.c	Lee E. McMahon <research!lem>
+usr/src/cmd/cu\.c	Lee E. McMahon <research!lem>
+usr/man/man1/cu\.1c	Lee E. McMahon <research!lem>
+
+usr/src/libI77/.*	Peter J. Weinberger <research!pjw>
+usr/src/libmp/.*	Peter J. Weinberger <research!pjw>
+usr/man/man3/mp.3x	Peter J. Weinberger <research!pjw>
+
+usr/src/cmd/egrep\.c	Alfred V. Aho <research!aho>
+usr/man/man1/egrep\.1	Alfred V. Aho <research!aho>
+usr/src/cmd/fgrep\.c	Alfred V. Aho <research!aho>
+usr/man/man1/fgrep\.1	Alfred V. Aho <research!aho>
+
+# 9. Default for C library
+usr/src/libc/.*			Dennis Ritchie <research!dmr>
+usr/man/man3/.*			Dennis Ritchie <research!dmr>
 
 # Default
 # Regarding the order of names
