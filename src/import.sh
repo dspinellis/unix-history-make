@@ -14,11 +14,13 @@ git init
 cp ../old-code-license LICENSE
 git add LICENSE
 git commit -a -m "Add license"
+git tag Epoch
 
 # Release branch
 git branch Research-Release
+EDITIONS='5 6 7'
 
-for i in {5,6}
+for i in $EDITIONS
 do
 	git branch Research-Development-v$i
 	SHA=`git rev-parse Research-Release`
@@ -45,7 +47,7 @@ same_text()
 }
 
 # Verify releases are the same
-for i in {5,6}
+for i in $EDITIONS
 do
 	git checkout Research-Development-v$i
 	if ! same_text . $OLD_UNIX/v$i

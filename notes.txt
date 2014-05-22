@@ -112,6 +112,11 @@ http://senseis.xmp.net/?LeeMcMahon
 with Faceserver image
 http://sydney.edu.au/engineering/it/faces/album/faces.pgrad/com/bell-labs/research/lem/
 
+Peter J. Weinberger pjw
+https://en.wikipedia.org/wiki/Peter_J._Weinberger
+
+Alfred V. Aho aho
+Based on the name of his Columbia page and email: http://www1.cs.columbia.edu/~aho
 
 Acks {{{1
 BSD contributor names {{{2
