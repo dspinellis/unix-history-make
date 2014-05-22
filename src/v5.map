@@ -17,13 +17,13 @@ usr/source/s1/du\.s	Dennis Ritchie <research!dmr>
 usr/source/s2/strip.\.s	Dennis Ritchie <research!dmr>
 
 # OWNER listed in V1/man
-usr/source/s1/ls\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
-usr/source/s2/mesg\.s	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
-usr/source/s2/nm\.s	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
-usr/source/s2/su\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
-usr/source/s2/tty\.s	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
-usr/source/s2/who\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
-usr/source/s2/write\.s	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
+usr/source/s1/ls\.c	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+usr/source/s2/mesg\.s	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+usr/source/s2/nm\.s	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+usr/source/s2/su\.c	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+usr/source/s2/tty\.s	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+usr/source/s2/who\.c	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+usr/source/s2/write\.s	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 
 # http://www.cs.bell-labs.com/who/doug/index.html
 # Text- and data-processing utilities:

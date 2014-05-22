@@ -23,13 +23,13 @@ s1/ld\.c	Dennis Ritchie <research!dmr>
 s2/strip\.s	Dennis Ritchie <research!dmr>
 
 # OWNER listed in V1/man
-s1/ls\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
-s2/mesg\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
-s2/nm\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
-s2/su\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
-s2/tty\.s	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
-s2/who\.c	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
-s2/write\.s	Dennis Ritchie and Ken Thompson <research!{dmr!ken}>
+s1/ls\.c	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+s2/mesg\.c	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+s2/nm\.c	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+s2/su\.c	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+s2/tty\.s	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+s2/who\.c	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+s2/write\.s	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 
 # "The first interesting language to appear was a version of McClure's TMG
 # that was implemented by McIlroy"
