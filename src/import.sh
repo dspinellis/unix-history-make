@@ -24,7 +24,7 @@ for i in $EDITIONS
 do
 	git branch Research-Development-v$i
 	SHA=`git rev-parse Research-Release`
-	(cd .. ; perl import-dir.pl -m $SHA -c v$i.map $OLD_UNIX/v$i Research V$i -0500 ) |
+	(cd .. ; perl import-dir.pl -f '(trap\.c)|(c00\.c)' -m $SHA -c v$i.map $OLD_UNIX/v$i Research V$i -0500 ) |
 	git fast-import --stats --done --quiet
 done
 

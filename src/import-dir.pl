@@ -23,18 +23,19 @@ main::HELP_MESSAGE
 {
 	my ($fh) = @_;
 	print $fh qq{
-Usage: $0 [-c contributor_map] [-m commit] [-p path_map] directory
-  branch_name version_name tz_offset
+Usage: $0 [-c contributor_map] [-f file_pattern] [-m commit] [-p path_map]
+  directory branch_name version_name tz_offset
 -c	Specify a map of the tree's parts tree written by
 	specific contributors
+-f	Regular expression of files to process
 -m	Specify the commit from which the release will be merged
 -p	Specify a regular expression to strip paths into committed ones
 	By default this is the supplied directory
 };
 }
 
-our($opt_c, $opt_m, $opt_p);
-if (!getopts('c:m:p:') || $#ARGV + 1 != 4) {
+our($opt_c, $opt_f, $opt_m, $opt_p);
+if (!getopts('c:f:m:p:') || $#ARGV + 1 != 4) {
 	print STDERR $#ARGV;
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
@@ -66,6 +67,7 @@ sub
 gather_files
 {
 	return unless (-f && -T);
+	return if ($opt_f && !m|/$opt_f$|);
 	my ($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, $ctime, $blksize, $blocks) = stat;
 	$fi{$_}->{mtime} = $mtime;
 	$fi{$_}->{size} = $size;
