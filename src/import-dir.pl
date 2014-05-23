@@ -102,7 +102,6 @@ print "author $author $first_mtime $tz_offset\n";
 print "committer $author $first_mtime $tz_offset\n";
 print data("Start development on $branch $version\n\nDelete all prior development files");
 # Specify merge instead of from to start with an empty slate
-print "merge refs/heads/$branch-Release^0\n";
 print "merge $opt_m\n" if (defined($opt_m));
 
 print "# Development commits\n";
