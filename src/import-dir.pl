@@ -131,8 +131,9 @@ $author = committer('///');
 print "author $author $last_mtime $tz_offset\n";
 print "committer $author $last_mtime $tz_offset\n";
 print data("$branch $version release\n\nSnapshot of all files from the development branch");
-print "from refs/heads/$branch-Release^0\n";
+print "from $opt_m\n" if (defined($opt_m));
 print "merge :$last_devel_mark\n";
+print "deleteall\n";
 for my $name (keys %fi) {
 	my $commit_path = $name;
 	$commit_path =~ s/$opt_p// if ($opt_p);
