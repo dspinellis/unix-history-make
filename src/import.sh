@@ -20,16 +20,20 @@ git tag Epoch
 git branch Research-Release
 EDITIONS='5 6 7'
 
-DEBUG=-f\ '(trap\.c)|(c00\.c)'
+# When debugging import only two representative files
+# DEBUG=-f\ '(trap\.c)|(c00\.c)'
 
 for i in $EDITIONS
 do
+	echo Working on $i
 	git branch Research-Development-v$i
 	SHA=`git rev-parse Research-Release`
-	(cd .. ; perl import-dir.pl $DEBUG -m $SHA -c v$i.map $OLD_UNIX/v$i Research V$i -0500 ) |
+	perl ../import-dir.pl $DEBUG -m $SHA -c ../v$i.map $OLD_UNIX/v$i Research V$i -0500 |
+	# tee ../dump-$i |
 	git fast-import --stats --done --quiet
 done
 
+git checkout Research-Release
 
 #git repack --window=50 -a -d -f
 
@@ -42,6 +46,7 @@ same_text()
 		BEGIN {$exit = 0}
 		chop;
 		if (!s/^Only in // || !s|: |/| || -T) {
+			next if (/LICENSE/);
 			$exit = 1;
 			print "$_\n"
 		}

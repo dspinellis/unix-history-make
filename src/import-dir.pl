@@ -78,6 +78,9 @@ gather_files
 binmode STDOUT;
 my $mark = 1;
 
+# Name of directory used for storing the previous snapshot
+my $backup = '.previous_snapshot';
+
 my $first_mtime;
 # First create the blobs
 for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
@@ -100,9 +103,23 @@ print "commit refs/heads/$branch-Development-$version\n";
 my $author = committer('///');
 print "author $author $first_mtime $tz_offset\n";
 print "committer $author $first_mtime $tz_offset\n";
-print data("Start development on $branch $version\n\nDelete all prior development files");
-# Specify merge instead of from to start with an empty slate
-print "merge $opt_m\n" if (defined($opt_m));
+print data("Start development on $branch $version\n\nBackup all prior development files");
+if (defined($opt_m)) {
+	print "from $opt_m\n";
+	# Create a directory of the previous snapshot
+	# This is required for git blame / log to detect file copy operations
+	# for new data added
+	my $empty_tree = `git mktree </dev/null`;
+	chop $empty_tree;
+	print "M 040000 $empty_tree $backup\n";
+
+	# Move all existing files into the backup directory
+	for my $entry (`git ls-tree --name-only $opt_m`) {
+		chop $entry;
+		next if ($entry eq 'LICENSE');
+		print "R $entry $backup/$entry\n";
+	}
+}
 
 print "# Development commits\n";
 my $last_mtime;
@@ -131,14 +148,14 @@ $author = committer('///');
 print "author $author $last_mtime $tz_offset\n";
 print "committer $author $last_mtime $tz_offset\n";
 print data("$branch $version release\n\nSnapshot of all files from the development branch");
-print "from $opt_m\n" if (defined($opt_m));
-print "merge :$last_devel_mark\n";
-print "deleteall\n";
+print "from :$last_devel_mark\n";
+print "merge $opt_m\n" if (defined($opt_m));
 for my $name (keys %fi) {
 	my $commit_path = $name;
 	$commit_path =~ s/$opt_p// if ($opt_p);
 	print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 }
+print "D $backup\n" if ($opt_m);
 
 # Tag the release
 print "tag $branch-$version\n";
