@@ -15,6 +15,7 @@ usr/src/cmd/mesg\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 usr/src/cmd/nm\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 usr/src/cmd/su\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 usr/src/cmd/tty\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+usr/src/cmd/wc\.c		Joe Ossanna <research!jfo>
 usr/src/cmd/who\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 usr/src/cmd/write\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 
