@@ -18,8 +18,6 @@ usr/src/cmd/tty\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 usr/src/cmd/who\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 usr/src/cmd/write\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
 
-usr/src/cmd/wc\.c		Joe Ossanna <research!jfo>
-
 # See http://www.cs.bell-labs.com/who/ken/index.html
 # According to V1/man
 usr/src/cmd/cal\.c		Ken Thompson <research!ken>
