@@ -37,7 +37,7 @@ done
 git checkout Research-Release
 
 # Add README file
-cp ../README.md .
+cp ../../README.md .
 git add README.md
 git commit -a -m "Add README file"
 
