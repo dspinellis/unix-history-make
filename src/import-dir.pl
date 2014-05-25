@@ -13,6 +13,12 @@ use Getopt::Std;
 use File::Find;
 use File::Copy;
 
+# A map from contributor ids to full names
+my %full_name;
+
+# Subsitute $ with an id to get a contributor's email address
+my $address_template;
+
 $main::VERSION = '0.1';
 
 # Exit after command processing error
@@ -23,19 +29,20 @@ main::HELP_MESSAGE
 {
 	my ($fh) = @_;
 	print $fh qq{
-Usage: $0 [-c contributor_map] [-f file_pattern] [-m commit] [-p path_map]
-  directory branch_name version_name tz_offset
+Usage: $0 [-c contributor_map] [-f file_pattern] [-m commit] [-n name_map]
+  [-p path_map] directory branch_name version_name tz_offset
 -c	Specify a map of the tree's parts tree written by
 	specific contributors
 -f	Regular expression of files to process
 -m	Specify the commit from which the release will be merged
+-n	Specify a map between contributor login names and full names
 -p	Specify a regular expression to strip paths into committed ones
 	By default this is the supplied directory
 };
 }
 
-our($opt_c, $opt_f, $opt_m, $opt_p);
-if (!getopts('c:f:m:p:') || $#ARGV + 1 != 4) {
+our($opt_c, $opt_f, $opt_m, $opt_n, $opt_p);
+if (!getopts('c:f:m:n:p:') || $#ARGV + 1 != 4) {
 	print STDERR $#ARGV;
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
@@ -50,6 +57,7 @@ $opt_p = $directory unless defined($opt_p);
 $opt_p .= '/' unless ($opt_p =~ m|/$|);
 $opt_p =~ s/([^\w])/\\$1/g;
 
+create_name_map() if (defined($opt_n));
 create_committer_map();
 
 # Collect text files
@@ -185,6 +193,7 @@ create_committer_map
 			s/^\s*//;
 			next if (/^$/);
 			my ($pattern, $committer) = split(/\t+/, $_);
+			$committer = add_name_email($committer);
 			push(@committer_map, {
 				pattern => $pattern,
 				committer => $committer
@@ -197,6 +206,84 @@ create_committer_map
 		pattern => '.*',
 		committer => 'Unknown <unknown@example.com>'
 	});
+}
+
+
+# Create a map from contributor ids to full names and populate address_template
+sub
+create_name_map
+{
+
+	open(my $in, '<', $opt_n) || die "Unable to open $opt_n: $!\n";
+	while (<$in>) {
+		chop;
+		s/#.*//;
+		s/^\s*//;
+		next if (/^$/);
+		# Address email format
+		# %A research!$1
+		if (/^%A (.*)/) {
+			$address_template = $1;
+			next;
+		}
+		my ($id, $name) = split(/:/, $_);
+		if (defined($full_name{$id})) {
+			print STDERR "Name for $id already defined as $full_name{$id}\n";
+			exit 1;
+		}
+		$full_name{$id} = $name;
+	}
+	close($in);
+}
+
+# Given a committer id (or full details) add full name and email if needed
+# Examples:
+# Jon Doe <joe@example.com> stays as is
+# jd becomes Jon Doe <joe@example.com>
+sub
+add_name_email
+{
+	my ($id) = @_;
+
+	# Return if id already contains an email field
+	return $id if ($id =~ m/</);
+
+	if ($id =~ m/,/) {
+		# Multiple names
+		my @ids = split(/,/, $id);
+		for my $i (@ids) {
+			check_name($i);
+		}
+		my @names = map { $full_name{$_} } @ids;
+		my $name = join(' and ', @names);
+		my $address = email_address("{$id}");
+		return "$name <$address>";
+	} else {
+		check_name($id);
+		my $address = email_address($id);
+		return "$full_name{$id} <$address>";
+	}
+}
+
+# Given a committer id, return the email address based on the
+# address template
+sub
+email_address
+{
+	my ($id) = @_;
+	my $address = $address_template;
+	$address =~ s/\$/$id/g;
+	return $address;
+}
+
+# Exit with an error if a full name is not defined for a given contributor id
+sub
+check_name
+{
+	my ($id) = @_;
+	return if (defined($full_name{$id}));
+	print STDERR "No full name defined for contributor id $id\n";
+	exit 1;
 }
 
 # Return the committer for the specified file path

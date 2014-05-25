@@ -4,43 +4,43 @@
 # 1. Owner listed in V1/man
 # http://minnie.tuhs.org/cgi-bin/utree.pl?file=V1/man/man1
 
-usr/src/cmd/cmp\.c		Dennis Ritchie <research!dmr>
-usr/src/cmd/date\.c		Dennis Ritchie <research!dmr>
-usr/src/cmd/find\.c		Dennis Ritchie <research!dmr>
-usr/src/cmd/du\.c		Dennis Ritchie <research!dmr>
-usr/src/cmd/ld\.c		Dennis Ritchie <research!dmr>
-usr/src/cmd/strip\.c		Dennis Ritchie <research!dmr>
-usr/src/cmd/ls\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/src/cmd/mesg\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/src/cmd/nm\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/src/cmd/su\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/src/cmd/tty\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/src/cmd/wc\.c		Joe Ossanna <research!jfo>
-usr/src/cmd/who\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/src/cmd/write\.c		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+usr/src/cmd/cmp\.c		dmr
+usr/src/cmd/date\.c		dmr
+usr/src/cmd/find\.c		dmr
+usr/src/cmd/du\.c		dmr
+usr/src/cmd/ld\.c		dmr
+usr/src/cmd/strip\.c		dmr
+usr/src/cmd/ls\.c		dmr,ken
+usr/src/cmd/mesg\.c		dmr,ken
+usr/src/cmd/nm\.c		dmr,ken
+usr/src/cmd/su\.c		dmr,ken
+usr/src/cmd/tty\.c		dmr,ken
+usr/src/cmd/wc\.c		jfo
+usr/src/cmd/who\.c		dmr,ken
+usr/src/cmd/write\.c		dmr,ken
 
 # See http://www.cs.bell-labs.com/who/ken/index.html
 # According to V1/man
-usr/src/cmd/cal\.c		Ken Thompson <research!ken>
-usr/src/cmd/mail\.c		Ken Thompson <research!ken>
+usr/src/cmd/cal\.c		ken
+usr/src/cmd/mail\.c		ken
 
 # 2. http://www.cs.bell-labs.com/who/doug/index.html
 # "Text- and data-processing utilities:
 # spell, diff, sort, join, graph, speak, etc."
-usr/src/cmd/diff.*		Doug McIlroy <research!doug>
-usr/src/cmd/graph\.c		Doug McIlroy <research!doug>
-usr/src/cmd/join\.c		Doug McIlroy <research!doug>
-usr/src/cmd/spell/.*		Doug McIlroy <research!doug>
+usr/src/cmd/diff.*		doug
+usr/src/cmd/graph\.c		doug
+usr/src/cmd/join\.c		doug
+usr/src/cmd/spell/.*		doug
 
 
 # 3. [Morris] was also the author of the series of crypt programs
 # that came with early Unix, including the final one distributed with the
 # Seventh Edition
 # http://cm.bell-labs.com/cm/cs/who/dmr/crypt.html
-usr/man/man1/crypt\.1		Robert Morris <research!rhm>
-usr/man/man3/crypt\.3		Robert Morris <research!rhm>
-usr/src/cmd/crypt\.c		Robert Morris <research!rhm>
-usr/src/libc/gen/crypt\.c	Robert Morris <research!rhm>
+usr/man/man1/crypt\.1		rhm
+usr/man/man3/crypt\.3		rhm
+usr/src/cmd/crypt\.c		rhm
+usr/src/libc/gen/crypt\.c	rhm
 
 
 # 4. Kernel ownership
@@ -48,11 +48,11 @@ usr/src/libc/gen/crypt\.c	Robert Morris <research!rhm>
 # ls ken  | xargs -n 1 find ../../../v7/usr/sys -name
 # ls dmr  | xargs -n 1 find ../../../v7/usr/sys -name
 # which establishes that ken was in charge of sys/sys and dmr of sys/dev
-usr/sys/dev/.*			Dennis Ritchie <research!dmr>
-usr/sys/sys/.*			Ken Thompson <research!ken>
+usr/sys/dev/.*			dmr
+usr/sys/sys/.*			ken
 # By inspection allocate manual pages accordingly
-usr/man/man4/.*			Dennis Ritchie <research!dmr>
-usr/man/man2/.*			Ken Thompson <research!ken>
+usr/man/man4/.*			dmr
+usr/man/man2/.*			ken
 
 # 5. Volume 2 of the manual (supplementary documents)
 # Based on the authors listed in each document
@@ -62,168 +62,168 @@ usr/man/man2/.*			Ken Thompson <research!ken>
 # find . -type f | xargs grep -A 2 \\.AU | more
 # Ordered by /usr/doc name
 
-usr/doc/adb/.*			J. F. Maranzano and S. R. Bourne <research!{adb,srb}>
-usr/doc/adv.ed/.*		Brian W. Kernighan <research!bwk>
-usr/doc/assembler		Dennis Ritchie <research!dmr>
-usr/doc/awk			Alfred V. Aho and Peter J. Weinberger and Brian W. Kernighan <research!{aho,pjw,bwk}>
-usr/doc/bc			Lorinda Cherry and Robert Morris <research!{XXX,rhm>
-usr/doc/beginners/.*		Brian W. Kernighan <research!bwk>
-usr/doc/cacm/.*			Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/doc/ctour/.*		Dennis Ritchie <research!dmr>
-usr/doc/dc			Lorinda Cherry and Robert Morris <research!{XXX,rhm>
-usr/doc/edtut/.*		Brian W. Kernighan <research!bwk>
-usr/doc/eqn/.*			Brian W. Kernighan and Lorinda Cherry <research!{bwk,XXX}>
-usr/doc/f77 			S. I. Feldman and Peter J. Weinberger <research!{sif,pjw}>
-usr/doc/implement		Ken Thompson <research!ken>
-usr/doc/iosys			Dennis Ritchie <research!dmr>
-usr/doc/learn/.*		Brian W. Kernighan and Michael E. Lesk <research!{bwk,mel}>
-usr/doc/lex			Michael E. Lesk and E. Schmidt <research!{mel,XXX}>
-usr/doc/lint			Steve Johnson <research!scj>
-usr/doc/m4			Brian W. Kernighan and Dennis Ritchie <research!{bwk,dmr}>
-usr/doc/make			S. I. Feldman <research!sif>
-usr/doc/msmacros/.*		Michael E. Lesk <research!mel>
-usr/doc/password		Robert Morris and Ken Thompson <research!{rhm,ken>
-usr/doc/porttour/.*		Steve Johnson <research!scj>
-usr/doc/ratfor/.*		Brian W. Kernighan <research!bwk>
-usr/doc/refer/.*		Michael E. Lesk <research!mel>
-usr/doc/regen			Charles B. Haley and Dennis M. Ritchie <research!{XXX,dmr}>
-usr/doc/security		Dennis Ritchie <research!dmr>
-usr/doc/sed			Lee E. McMahon <research!lem>
-usr/doc/setup			Charles B. Haley and Dennis M. Ritchie <research!{XXX,dmr}>
-usr/doc/shell/.*		S. R. Bourne <research!srb>
-usr/doc/tbl			Michael E. Lesk <research!mel>
-usr/doc/trofftut/.*		Brian W. Kernighan <research!bwk>
-usr/doc/uprog/.*		Brian W. Kernighan and Dennis Ritchie <research!{bwk,dmr}>
-usr/doc/uucp/.*			D. A. Nowitz <research!dan>
-usr/doc/yacc/.*			Stephen C. Johnson <research!scj>
+usr/doc/adb/.*			adb,srb
+usr/doc/adv.ed/.*		bwk
+usr/doc/assembler		dmr
+usr/doc/awk			aho,pjw,bwk
+usr/doc/bc			x-lc,rhm
+usr/doc/beginners/.*		bwk
+usr/doc/cacm/.*			dmr,ken
+usr/doc/ctour/.*		dmr
+usr/doc/dc			x-lc,rhm
+usr/doc/edtut/.*		bwk
+usr/doc/eqn/.*			bwk,x-lc
+usr/doc/f77 			sif,pjw
+usr/doc/implement		ken
+usr/doc/iosys			dmr
+usr/doc/learn/.*		bwk,mel
+usr/doc/lex			mel,x-es
+usr/doc/lint			scj
+usr/doc/m4			bwk,dmr
+usr/doc/make			sif
+usr/doc/msmacros/.*		mel
+usr/doc/password		rhm,ken
+usr/doc/porttour/.*		scj
+usr/doc/ratfor/.*		bwk
+usr/doc/refer/.*		mel
+usr/doc/regen			x-cbh,dmr
+usr/doc/security		dmr
+usr/doc/sed			lem
+usr/doc/setup			x-cbh,dmr
+usr/doc/shell/.*		srb
+usr/doc/tbl			mel
+usr/doc/trofftut/.*		bwk
+usr/doc/uprog/.*		bwk,dmr
+usr/doc/uucp/.*			dan
+usr/doc/yacc/.*			scj
 
 # 6. Commands based on Volume 2 authors
 # Ordered by the corresponding /usr/doc name
-usr/src/cmd/adb/.*		J. F. Maranzano and S. R. Bourne <research!{adb,srb}>
-usr/src/cmd/as/.*		Dennis Ritchie <research!dmr>
-usr/src/cmd/awk/.*		Alfred V. Aho and Peter J. Weinberger and Brian W. Kernighan <research!{aho,pjw,bwk}>
-usr/src/cmd/bc\.y		Lorinda Cherry and Robert Morris <research!{XXX,rhm>
-usr/src/cmd/dc/.*		Lorinda Cherry and Robert Morris <research!{XXX,rhm>
-usr/src/cmd/eqn/.*		Brian W. Kernighan and Lorinda Cherry <research!{bwk,XXX}>
-usr/src/cmd/f77/.* 		S. I. Feldman and Peter J. Weinberger <research!{sif,pjw}>
-usr/src/cmd/learn/.*		Brian W. Kernighan and Michael E. Lesk <research!{bwk,mel}>
-usr/src/cmd/lex/.*		Michael E. Lesk and E. Schmidt <research!{mel,XXX}>
-usr/src/cmd/lint/.*		Steve Johnson <research!scj>
-usr/src/cmd/m4/.*		Brian W. Kernighan and Dennis Ritchie <research!{bwk,dmr}>
-usr/src/cmd/make/.*		S. I. Feldman <research!sif>
-usr/lib/tmac/tmac\.s.*		Michael E. Lesk <research!mel>
-usr/src/cmd/c/.*		Steve Johnson <research!scj>
-usr/src/cmd/ratfor/.*		Brian W. Kernighan <research!bwk>
-usr/src/cmd/refer/.*		Michael E. Lesk <research!mel>
-usr/src/cmd/sed/.*		Lee E. McMahon <research!lem>
-usr/src/cmd/sh/.*		S. R. Bourne <research!srb>
-usr/src/cmd/tbl/.*		Michael E. Lesk <research!mel>
-usr/src/cmd/uucp/.*		D. A. Nowitz <research!dan>
-usr/src/cmd/yacc/.*		Stephen C. Johnson <research!scj>
+usr/src/cmd/adb/.*		adb,srb
+usr/src/cmd/as/.*		dmr
+usr/src/cmd/awk/.*		aho,pjw,bwk
+usr/src/cmd/bc\.y		x-lc,rhm
+usr/src/cmd/dc/.*		x-lc,rhm
+usr/src/cmd/eqn/.*		bwk,x-lc
+usr/src/cmd/f77/.* 		sif,pjw
+usr/src/cmd/learn/.*		bwk,mel
+usr/src/cmd/lex/.*		mel,x-es
+usr/src/cmd/lint/.*		scj
+usr/src/cmd/m4/.*		bwk,dmr
+usr/src/cmd/make/.*		sif
+usr/lib/tmac/tmac\.s.*		mel
+usr/src/cmd/c/.*		scj
+usr/src/cmd/ratfor/.*		bwk
+usr/src/cmd/refer/.*		mel
+usr/src/cmd/sed/.*		lem
+usr/src/cmd/sh/.*		srb
+usr/src/cmd/tbl/.*		mel
+usr/src/cmd/uucp/.*		dan
+usr/src/cmd/yacc/.*		scj
 
 # 7. Manual pages based on the preceding command authors
 # Initial list was created by passing the lines through
 # perl -ne 'if (s|usr/src/cmd/|usr/man/man1/|) { s/((\\\.)|(\/\.))[^        ]*/\\.1/; ($man) = split; print "# XXX " unless (-r $man); print }'
 # and the hand-tuned
-usr/man/man1/cmp\.1		Dennis Ritchie <research!dmr>
-usr/man/man1/date\.1		Dennis Ritchie <research!dmr>
-usr/man/man1/find\.1		Dennis Ritchie <research!dmr>
-usr/man/man1/du\.1		Dennis Ritchie <research!dmr>
-usr/man/man1/ld\.1		Dennis Ritchie <research!dmr>
-usr/man/man1/strip\.1		Dennis Ritchie <research!dmr>
-usr/man/man1/ls\.1		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/man/man1/mesg\.1		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/man/man1/nm\.1		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/man/man1/su\.1		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/man/man1/tty\.1		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/man/man1/who\.1		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/man/man1/write\.1		Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/man/man1/wc\.1		Joe Ossanna <research!jfo>
-usr/man/man1/cal\.1		Ken Thompson <research!ken>
-usr/man/man1/mail\.1		Ken Thompson <research!ken>
-usr/man/man1/diff.*		Doug McIlroy <research!doug>
-usr/man/man1/graph\.1g		Doug McIlroy <research!doug>
-usr/man/man1/join\.1		Doug McIlroy <research!doug>
-usr/man/man1/spell\.1		Doug McIlroy <research!doug>
-usr/man/man1/crypt\.1		Robert Morris <research!rhm>
-usr/man/man1/adb\.1		J. F. Maranzano and S. R. Bourne <research!{adb,srb}>
-usr/man/man1/as\.1		Dennis Ritchie <research!dmr>
-usr/man/man1/awk\.1		Alfred V. Aho and Peter J. Weinberger and Brian W. Kernighan <research!{aho,pjw,bwk}>
-usr/man/man1/bc\.1		Lorinda Cherry and Robert Morris <research!{XXX,rhm>
-usr/man/man1/dc\.1		Lorinda Cherry and Robert Morris <research!{XXX,rhm>
-usr/man/man1/eqn\.1		Brian W. Kernighan and Lorinda Cherry <research!{bwk,XXX}>
-usr/man/man7/eqnchar\.7		Brian W. Kernighan and Lorinda Cherry <research!{bwk,XXX}>
-usr/man/man1/f77\.1		S. I. Feldman and Peter J. Weinberger <research!{sif,pjw}>
-usr/man/man1/lex\.1		Michael E. Lesk and E. Schmidt <research!{mel,XXX}>
-usr/man/man1/lint\.1		Steve Johnson <research!scj>
-usr/man/man1/m4\.1		Brian W. Kernighan and Dennis Ritchie <research!{bwk,dmr}>
-usr/man/man1/make\.1		S. I. Feldman <research!sif>
-usr/man/man7/ms\.7		Michael E. Lesk <research!mel>
-usr/man/man1/cc\.1		Steve Johnson <research!scj>
-usr/man/man1/ratfor\.1		Brian W. Kernighan <research!bwk>
-usr/man/man1/refer\.1		Michael E. Lesk <research!mel>
-usr/man/man1/sed\.1		Lee E. McMahon <research!lem>
-usr/man/man1/sh\.1		S. R. Bourne <research!srb>
-usr/man/man1/tbl\.1		Michael E. Lesk <research!mel>
-usr/man/man1/uucp\.1c		D. A. Nowitz <research!dan>
-usr/man/man1/yacc\.1		Stephen C. Johnson <research!scj>
+usr/man/man1/cmp\.1		dmr
+usr/man/man1/date\.1		dmr
+usr/man/man1/find\.1		dmr
+usr/man/man1/du\.1		dmr
+usr/man/man1/ld\.1		dmr
+usr/man/man1/strip\.1		dmr
+usr/man/man1/ls\.1		dmr,ken
+usr/man/man1/mesg\.1		dmr,ken
+usr/man/man1/nm\.1		dmr,ken
+usr/man/man1/su\.1		dmr,ken
+usr/man/man1/tty\.1		dmr,ken
+usr/man/man1/who\.1		dmr,ken
+usr/man/man1/write\.1		dmr,ken
+usr/man/man1/wc\.1		jfo
+usr/man/man1/cal\.1		ken
+usr/man/man1/mail\.1		ken
+usr/man/man1/diff.*		doug
+usr/man/man1/graph\.1g		doug
+usr/man/man1/join\.1		doug
+usr/man/man1/spell\.1		doug
+usr/man/man1/crypt\.1		rhm
+usr/man/man1/adb\.1		adb,srb
+usr/man/man1/as\.1		dmr
+usr/man/man1/awk\.1		aho,pjw,bwk
+usr/man/man1/bc\.1		x-lc,rhm
+usr/man/man1/dc\.1		x-lc,rhm
+usr/man/man1/eqn\.1		bwk,x-lc
+usr/man/man7/eqnchar\.7		bwk,x-lc
+usr/man/man1/f77\.1		sif,pjw
+usr/man/man1/lex\.1		mel,x-es
+usr/man/man1/lint\.1		scj
+usr/man/man1/m4\.1		bwk,dmr
+usr/man/man1/make\.1		sif
+usr/man/man7/ms\.7		mel
+usr/man/man1/cc\.1		scj
+usr/man/man1/ratfor\.1		bwk
+usr/man/man1/refer\.1		mel
+usr/man/man1/sed\.1		lem
+usr/man/man1/sh\.1		srb
+usr/man/man1/tbl\.1		mel
+usr/man/man1/uucp\.1c		dan
+usr/man/man1/yacc\.1		scj
 
 # 8. Commands based on http://www.princeton.edu/~hos/Mahoney/unixpeople.htm
 # ordered according to their order on the page
-usr/src/cmd/bas/.*		Ken Thompson <research!ken>
-usr/man/man1/bas\.1		Ken Thompson <research!ken>
-usr/src/cmd/f77/.*		Ken Thompson and Dennis Ritchie <research!{ken,dmr}>
-usr/man/man1/f77\.1		Ken Thompson and Dennis Ritchie <research!{ken,dmr}>
-usr/src/cmd/ed/.*		Ken Thompson and Dennis Ritchie <research!{ken,dmr}>
-usr/man/man1/ed\.1		Ken Thompson and Dennis Ritchie <research!{ken,dmr}>
-usr/src/cmd/roff/.*		Ken Thompson <research!ken>
-usr/man/man1/roff\.1		Ken Thompson <research!ken>
+usr/src/cmd/bas/.*		ken
+usr/man/man1/bas\.1		ken
+usr/src/cmd/f77/.*		ken,dmr
+usr/man/man1/f77\.1		ken,dmr
+usr/src/cmd/ed/.*		ken,dmr
+usr/man/man1/ed\.1		ken,dmr
+usr/src/cmd/roff/.*		ken
+usr/man/man1/roff\.1		ken
 # Also claimed by Doug McIlroy
-usr/src/cmd/sort\.c		Ken Thompson <research!ken>
-usr/man/man1/sort\.1		Ken Thompson <research!ken>
-usr/src/cmd/grep\.c		Ken Thompson and Lee E. McMahon <research!{ken,lem}>
-usr/man/man1/grep\.1		Ken Thompson and Lee E. McMahon <research!{ken,lem}>
-usr/src/cmd/uniq\.c		Ken Thompson <research!ken>
-usr/man/man1/uniq\.1		Ken Thompson <research!ken>
-usr/src/cmd/plot/.*		Ken Thompson <research!ken>
-usr/man/man1/plot\.1		Ken Thompson <research!ken>
-usr/src/libplot/.*		Ken Thompson <research!ken>
-usr/src/cmd/sa\.c		Ken Thompson <research!ken>
-usr/man/man1/sa\.1m		Ken Thompson <research!ken>
-usr/src/cmd/dd\.c		Ken Thompson <research!ken>
-usr/man/man1/dd\.1		Ken Thompson <research!ken>
+usr/src/cmd/sort\.c		ken
+usr/man/man1/sort\.1		ken
+usr/src/cmd/grep\.c		ken,lem
+usr/man/man1/grep\.1		ken,lem
+usr/src/cmd/uniq\.c		ken
+usr/man/man1/uniq\.1		ken
+usr/src/cmd/plot/.*		ken
+usr/man/man1/plot\.1		ken
+usr/src/libplot/.*		ken
+usr/src/cmd/sa\.c		ken
+usr/man/man1/sa\.1m		ken
+usr/src/cmd/dd\.c		ken
+usr/man/man1/dd\.1		ken
 
-usr/src/libdbm/.*		Dennis Ritchie <research!dmr>
-usr/man/man3/dbm\.3x		Dennis Ritchie <research!dmr>
+usr/src/libdbm/.*		dmr
+usr/man/man3/dbm\.3x		dmr
 
-usr/src/libm/.*			Robert Morris <research!rhm>
-usr/man/man3/.*\.3m		Robert Morris <research!rhm>
-usr/src/cmd/primes\.s		Robert Morris <research!rhm>
-usr/src/cmd/factor\.s		Robert Morris <research!rhm>
-usr/man/man1/factor\.1		Robert Morris <research!rhm>
+usr/src/libm/.*			rhm
+usr/man/man3/.*\.3m		rhm
+usr/src/cmd/primes\.s		rhm
+usr/src/cmd/factor\.s		rhm
+usr/man/man1/factor\.1		rhm
 
-usr/src/cmd/look\.c		Doug McIlroy <research!doug>
-usr/man/man1/look\.1		Doug McIlroy <research!doug>
+usr/src/cmd/look\.c		doug
+usr/man/man1/look\.1		doug
 
-usr/src/cmd/comm\.c		Lee E. McMahon <research!lem>
-usr/man/man1/comm\.1		Lee E. McMahon <research!lem>
-usr/man/man3/qsort\.3		Lee E. McMahon <research!lem>
-usr/src/libc/gen/qsort\.c		Lee E. McMahon <research!lem>
-usr/src/cmd/cu\.c		Lee E. McMahon <research!lem>
-usr/man/man1/cu\.1c		Lee E. McMahon <research!lem>
+usr/src/cmd/comm\.c		lem
+usr/man/man1/comm\.1		lem
+usr/man/man3/qsort\.3		lem
+usr/src/libc/gen/qsort\.c		lem
+usr/src/cmd/cu\.c		lem
+usr/man/man1/cu\.1c		lem
 
-usr/src/libI77/.*		Peter J. Weinberger <research!pjw>
-usr/src/libmp/.*		Peter J. Weinberger <research!pjw>
-usr/man/man3/mp.3x		Peter J. Weinberger <research!pjw>
+usr/src/libI77/.*		pjw
+usr/src/libmp/.*		pjw
+usr/man/man3/mp.3x		pjw
 
-usr/src/cmd/egrep\.c		Alfred V. Aho <research!aho>
-usr/man/man1/egrep\.1		Alfred V. Aho <research!aho>
-usr/src/cmd/fgrep\.c		Alfred V. Aho <research!aho>
-usr/man/man1/fgrep\.1		Alfred V. Aho <research!aho>
+usr/src/cmd/egrep\.c		aho
+usr/man/man1/egrep\.1		aho
+usr/src/cmd/fgrep\.c		aho
+usr/man/man1/fgrep\.1		aho
 
 # 9. Default for C library
-usr/src/libc/.*			Dennis Ritchie <research!dmr>
-usr/man/man3/.*			Dennis Ritchie <research!dmr>
+usr/src/libc/.*			dmr
+usr/man/man3/.*			dmr
 
 # Default
 # Regarding the order of names
@@ -232,4 +232,4 @@ usr/man/man3/.*			Dennis Ritchie <research!dmr>
 # assistance from me.'"
 # http://cm.bell-labs.com/cm/cs/who/dmr/hist.html
 # ... and OWNER section in remaining manual pages of V1
-.*				Ken Thompson and Dennis Ritchie <research!{ken,dmr}>
+.*				ken,dmr

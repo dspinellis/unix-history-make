@@ -1,67 +1,67 @@
 # Sort by author initials and then program path
 
 # Regarding the user name see http://www.cs.bell-labs.com/who/dmr/index.html
-usr/sys/dmr/.*	Dennis Ritchie <research!dmr>
+usr/sys/dmr/.*	dmr
 
 # The actual files correspond to documentation dmr wrote and
 # owner listed in V1/man
 # http://minnie.tuhs.org/cgi-bin/utree.pl?file=V1/man/man1
-usr/c/.*		Dennis Ritchie <research!dmr>
-usr/source/s1/as..\.s	Dennis Ritchie <research!dmr>
-usr/source/s1/cmp.\.c	Dennis Ritchie <research!dmr>
+usr/c/.*		dmr
+usr/source/s1/as..\.s	dmr
+usr/source/s1/cmp.\.c	dmr
 # In adb manual: "[Ritchie's] earlier work with DB and CDB
 # led to many of the features found in ADB.
-usr/source/s1/cdb\.c	Dennis Ritchie <research!dmr>
-usr/source/s1/db.\.c	Dennis Ritchie <research!dmr>
-usr/source/s1/du\.s	Dennis Ritchie <research!dmr>
-usr/source/s2/strip.\.s	Dennis Ritchie <research!dmr>
+usr/source/s1/cdb\.c	dmr
+usr/source/s1/db.\.c	dmr
+usr/source/s1/du\.s	dmr
+usr/source/s2/strip.\.s	dmr
 
 # OWNER listed in V1/man
-usr/source/s1/ls\.c	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/source/s2/mesg\.s	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/source/s2/nm\.s	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/source/s2/su\.c	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/source/s2/tty\.s	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/source/s2/who\.c	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
-usr/source/s2/write\.s	Dennis Ritchie and Ken Thompson <research!{dmr,ken}>
+usr/source/s1/ls\.c	dmr,ken
+usr/source/s2/mesg\.s	dmr,ken
+usr/source/s2/nm\.s	dmr,ken
+usr/source/s2/su\.c	dmr,ken
+usr/source/s2/tty\.s	dmr,ken
+usr/source/s2/who\.c	dmr,ken
+usr/source/s2/write\.s	dmr,ken
 
 # http://www.cs.bell-labs.com/who/doug/index.html
 # Text- and data-processing utilities:
 # spell, diff, sort, join, graph, speak, etc.
-usr/source/s1/diff.*	Doug McIlroy <research!doug>
-usr/source/s2/sort\.c	Doug McIlroy <research!doug>
+usr/source/s1/diff.*	doug
+usr/source/s2/sort\.c	doug
 
 # Login name supplied by bwk
 # Contribution through authorship of NROFF/TROFF User's Manual
-usr/source/s7/roff.*	Joe Ossanna <research!jfo>
+usr/source/s7/roff.*	jfo
 # Listed as OWNER in V1 manual
-usr/source/s2/wc\.c	Joe Ossanna <research!jfo>
+usr/source/s2/wc\.c	jfo
 
 # See http://www.cs.bell-labs.com/who/ken/index.html
 # According to V1/man
-usr/sys/ken/.*		Ken Thompson <research!ken>
-usr/source/s1/bas.\.s	Ken Thompson <research!ken>
-usr/source/s1/cal\.c	Ken Thompson <research!ken>
-usr/source/s1/dc.\.s	Ken Thompson <research!ken>
-usr/mdec/dli\.s		Ken Thompson <research!ken>
-usr/mdec/dtf\.s		Ken Thompson <research!ken>
-usr/source/s1/ed.\.s	Ken Thompson <research!ken>
-usr/source/s2/mail\.c	Ken Thompson <research!ken>
+usr/sys/ken/.*		ken
+usr/source/s1/bas.\.s	ken
+usr/source/s1/cal\.c	ken
+usr/source/s1/dc.\.s	ken
+usr/mdec/dli\.s		ken
+usr/mdec/dtf\.s		ken
+usr/source/s1/ed.\.s	ken
+usr/source/s2/mail\.c	ken
 # J. R. Mashey. Using a command language as a high-level programming language
 # ICSE 1976: "The shell was originally written by K. Thompson"
 # The V1 OWNER section claims: "dmr, ken"
-usr/source/s2/sh\.c	Ken Thompson <research!ken>
-usr/source/s2/sum\.s	Ken Thompson <research!ken>
+usr/source/s2/sh\.c	ken
+usr/source/s2/sum\.s	ken
 
 # [Morris] was also the author of the series of crypt programs
 # that came with early Unix, including the final one distributed with the
 # Seventh Edition
 # http://cm.bell-labs.com/cm/cs/who/dmr/crypt.html
-usr/source/s./crypt\.s 	Robert Morris <research!rhm>
+usr/source/s./crypt\.s 	rhm
 
 # From V1 manual OWNER section
-usr/source/s1/fed..\.s	Robert Morris and Ken Thompson <research!{rhm,ken}>
-usr/source/s1/form.\.s	Robert Morris and Ken Thompson <research!{rhm,ken}>
+usr/source/s1/fed..\.s	rhm,ken
+usr/source/s1/form.\.s	rhm,ken
 
 # Default
 # Regarding the order of names
@@ -69,4 +69,4 @@ usr/source/s1/form.\.s	Robert Morris and Ken Thompson <research!{rhm,ken}>
 # occurrence of `we' with unclear antecedent as `Thompson, with some
 # assistance from me.'"
 # http://cm.bell-labs.com/cm/cs/who/dmr/hist.html
-.*	Ken Thompson and Dennis Ritchie <research!{ken,dmr}>
+.*	ken,dmr
