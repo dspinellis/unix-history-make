@@ -150,11 +150,6 @@ print "committer $author $last_mtime $tz_offset\n";
 print data("$branch $version release\n\nSnapshot of all files from the development branch");
 print "from :$last_devel_mark\n";
 print "merge $opt_m\n" if (defined($opt_m));
-for my $name (keys %fi) {
-	my $commit_path = $name;
-	$commit_path =~ s/$opt_p// if ($opt_p);
-	print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
-}
 print "D $backup\n" if ($opt_m);
 
 # Tag the release
