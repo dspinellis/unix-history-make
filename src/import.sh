@@ -89,3 +89,14 @@ do
 		exit 1
 	fi
 done
+
+echo Verify branches and merges
+for i in '|/' '|\'
+do
+	N_JOIN=`git log --graph | fgrep -c $i`
+	if [ $N_JOIN -lt $N_EXPECTED ]
+	then
+		echo "Found $N_JOIN instances of $i; expected $N_EXPECTED" 1>&2
+		exit 1
+	fi
+done
