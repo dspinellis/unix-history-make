@@ -1,9 +1,10 @@
 # Email address template
 %A research!$
 
-# Id (used in maps):Full name
+# Id (used in path maps):Full name
 adb:J. F. Maranzano
 aho:Alfred V. Aho
+bsb:Brenda S. Baker
 bwk:Brian W. Kernighan
 dan:D. A. Nowitz
 dmr:Dennis Ritchie

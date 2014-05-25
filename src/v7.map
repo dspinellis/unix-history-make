@@ -121,6 +121,7 @@ usr/src/cmd/ratfor/.*		bwk
 usr/src/cmd/refer/.*		mel
 usr/src/cmd/sed/.*		lem
 usr/src/cmd/sh/.*		srb
+usr/src/cmd/struct/.*		bsb
 usr/src/cmd/tbl/.*		mel
 usr/src/cmd/uucp/.*		dan
 usr/src/cmd/yacc/.*		scj
@@ -168,6 +169,7 @@ usr/man/man1/ratfor\.1		bwk
 usr/man/man1/refer\.1		mel
 usr/man/man1/sed\.1		lem
 usr/man/man1/sh\.1		srb
+usr/man/man1/struct\.1		bsb
 usr/man/man1/tbl\.1		mel
 usr/man/man1/uucp\.1c		dan
 usr/man/man1/yacc\.1		scj
