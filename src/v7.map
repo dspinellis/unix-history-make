@@ -62,7 +62,7 @@ usr/man/man2/.*			ken
 # find . -type f | xargs grep -A 2 \\.AU | more
 # Ordered by /usr/doc name
 
-usr/doc/adb/.*			adb,srb
+usr/doc/adb/.*			jfm,srb
 usr/doc/adv.ed/.*		bwk
 usr/doc/assembler		dmr
 usr/doc/awk			aho,pjw,bwk
@@ -101,7 +101,7 @@ usr/doc/yacc/.*			scj
 
 # 6. Commands based on Volume 2 authors
 # Ordered by the corresponding /usr/doc name
-usr/src/cmd/adb/.*		adb,srb
+usr/src/cmd/adb/.*		jfm,srb
 usr/src/cmd/as/.*		dmr
 usr/src/cmd/awk/.*		aho,pjw,bwk
 usr/src/cmd/bc\.y		x-lc,rhm
@@ -151,7 +151,7 @@ usr/man/man1/graph\.1g		doug
 usr/man/man1/join\.1		doug
 usr/man/man1/spell\.1		doug
 usr/man/man1/crypt\.1		rhm
-usr/man/man1/adb\.1		adb,srb
+usr/man/man1/adb\.1		jfm,srb
 usr/man/man1/as\.1		dmr
 usr/man/man1/awk\.1		aho,pjw,bwk
 usr/man/man1/bc\.1		x-lc,rhm
