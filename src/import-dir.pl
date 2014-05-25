@@ -2,9 +2,10 @@
 #
 # Import the specified directory as a series of time-ordered commits on the
 # specified branch name with a "-Development" -version-name suffix.
-# When starting, any files in branch name "-Development" -version-name
-# are deleted,
+# When starting, any files in merged branch are moved into a temporary
+# directory to allow log/blame to work across releases.
 # When done the branch is merged with the -Release branch,
+# the temporary directory is deleted,
 # and the release is tagged with the specified version name.
 
 use strict;
