@@ -21,11 +21,11 @@ git branch Research-Release
 EDITIONS='5 6 7'
 
 # When debugging import only two representative files
-# DEBUG=-f\ '(trap\.c)|(c00\.c)'
+# DEBUG=-f\ '(pipe\.c)|(c00\.c)'
 
 for i in $EDITIONS
 do
-	echo Working on $i
+	echo Import Research-Development-v$i
 	git branch Research-Development-v$i
 	SHA=`git rev-parse Research-Release`
 	perl ../import-dir.pl $DEBUG -m $SHA -c ../v$i.map $OLD_UNIX/v$i Research V$i -0500 |
@@ -61,10 +61,31 @@ fi
 # Verify releases are the same
 for i in $EDITIONS
 do
+	echo Verify content of Research-Development-v$i
 	git checkout Research-Development-v$i
 	if ! same_text . $OLD_UNIX/v$i
 	then
 		echo "Differences found" 1>&2
+		exit 1
+	fi
+done
+
+# Verify that log/blame work as expected
+N_EXPECTED=3
+git checkout Research-Release
+for i in  usr/src/cmd/c/c00.c usr/sys/sys/pipe.c
+do
+	echo Verify blame/log of $i
+	N_ADD=`git log --follow --simplify-merges $i | grep -c Add`
+	if [ $N_ADD -lt $N_EXPECTED ]
+	then
+		echo "Found $N_ADD additions for $i; expected $N_EXPECTED" 1>&2
+		exit 1
+	fi
+	N_BLAME=`git blame -C -C $i | awk '{print $1}' | wc -c`
+	if [ $N_BLAME -lt $N_EXPECTED ]
+	then
+		echo "Found $N_BLAME blames for $i; expected $N_EXPECTED" 1>&2
 		exit 1
 	fi
 done
