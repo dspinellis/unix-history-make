@@ -36,6 +36,11 @@ done
 
 git checkout Research-Release
 
+# Add README file
+cp ../README.md .
+git add README.md
+git commit -a -m "Add README file"
+
 #git repack --window=50 -a -d -f
 
 # Succeed if text files in the two specified directories
@@ -63,7 +68,7 @@ fi
 for i in $EDITIONS
 do
 	echo Verify content of Research-Development-v$i
-	git checkout Research-Development-v$i
+	git checkout Research-V$i
 	if ! same_text . $OLD_UNIX/v$i
 	then
 		echo "Differences found" 1>&2

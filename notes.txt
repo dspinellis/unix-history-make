@@ -118,13 +118,6 @@ https://en.wikipedia.org/wiki/Peter_J._Weinberger
 Alfred V. Aho aho
 Based on the name of his Columbia page and email: http://www1.cs.columbia.edu/~aho
 
-Acks {{{1
-BSD contributor names {{{2
-Anatole Shaw
-Era Eriksson
-Bell Labs login {{{2
-Arnold D. Robbins
-Brian W. Kernighan
 
 Commands {{{1
 
@@ -135,3 +128,15 @@ git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b
 git blame -C -C ...
 # For log use
 git log --follow
+
+Lessons learned {{{1
+Split responsibilities between kernel and device drivers
+Ability to follow file moves by keeping a lookaside copy of preceding snapshot
+
+New strategy {{{1
+First commit:
+rename old top directories to previous_version/...
+
+Last commit
+Remove previous_version
+
