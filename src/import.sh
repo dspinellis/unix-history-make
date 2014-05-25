@@ -41,7 +41,6 @@ cp ../../README.md .
 git add README.md
 git commit -a -m "Add README file"
 
-#git repack --window=50 -a -d -f
 
 # Succeed if text files in the two specified directories
 # are the same

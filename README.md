@@ -146,3 +146,4 @@ source that contains information that is currently missing.
 * The following poeple helped with Bell Labs login ids
  * Arnold D. Robbins
  * Brian W. Kernighan
+ * Doug McIlroy
