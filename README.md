@@ -30,6 +30,7 @@ The following branches are included in the `unix-history-repo`.
 * Research-Development-V6
 * Research-Development-V7
 * Research-Release
+
 The -Development branches contain a commit for every file that was added during the development of the corresponding system. The `Research-Release` branch has each development cycle merged into it.
 In addition, the following tags mark specific releases.
 * Epoch
@@ -116,21 +117,21 @@ You can help if you were there at the time, or if you can locate a
 source that contains information that is currently missing.
 * Look for errors and omissions in the files that map file paths to
   authors for the
-  [5th](https://github.com/dspinellis/unix-history-make/blob/master/v5.map),
-  [6th](https://github.com/dspinellis/unix-history-make/blob/master/v6.map), and
-  [7th](https://github.com/dspinellis/unix-history-make/blob/master/v7.map)
+  [5th](https://github.com/dspinellis/unix-history-make/blob/master/src/v5.map),
+  [6th](https://github.com/dspinellis/unix-history-make/blob/master/src/v6.map), and
+  [7th](https://github.com/dspinellis/unix-history-make/blob/master/src/v7.map)
   Edition Unix.
 * Look for parts of the system that have not yet been attributed in the
-  [5th](https://github.com/dspinellis/unix-history-make/blob/master/v5.unmatched),
-  [6th](https://github.com/dspinellis/unix-history-make/blob/master/v6.unmatched), and
-  [7th](https://github.com/dspinellis/unix-history-make/blob/master/v7.unmatched)
+  [5th](https://github.com/dspinellis/unix-history-make/blob/master/src/v5.unmatched),
+  [6th](https://github.com/dspinellis/unix-history-make/blob/master/src/v6.unmatched), and
+  [7th](https://github.com/dspinellis/unix-history-make/blob/master/src/v7.unmatched)
   Edition Unix, and propose suitable attributions.
 * Look for authors whose identifier starts with ```x-``` in the
-  [author id to name map file](https://github.com/dspinellis/unix-history-make/blob/master/bell.au),
+  [author id to name map file](https://github.com/dspinellis/unix-history-make/blob/master/src/bell.au),
   and provide or confirm their actual login identifier.
   (The one used is a guess.)
 * Contribute a path regular expression to contributor map file 
-  ( see [v7.map](https://github.com/dspinellis/unix-history-make/blob/master/v7.map)) for
+  ( see [v7.map](https://github.com/dspinellis/unix-history-make/blob/master/src/v7.map)) for
   [4.2BSD](http://www.tuhs.org/Archive/4BSD/Distributions/4.2BSD/),
   [4.3BSD](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD/),
   [4.3BSD-Reno](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD-Reno/),
