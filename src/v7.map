@@ -112,7 +112,9 @@ usr/src/cmd/lint/.*		scj
 usr/src/cmd/m4/.*		bwk,dmr
 usr/src/cmd/make/.*		sif
 usr/lib/tmac/tmac\.s.*		mel
-usr/src/cmd/c/.*		scj
+usr/src/cmd/c/.*		dmr
+usr/src/cmd/mip/.*		scj
+usr/src/cmd/pcc/.*		scj
 usr/src/cmd/ratfor/.*		bwk
 usr/src/cmd/refer/.*		mel
 usr/src/cmd/sed/.*		lem
