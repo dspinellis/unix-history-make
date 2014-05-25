@@ -20,6 +20,12 @@ my %full_name;
 # Subsitute $ with an id to get a contributor's email address
 my $address_template;
 
+# Map from file paths to committers, ordered in terms of precedence
+my @committer_map;
+
+# Committer responsible for releases. Set for path .*
+my $release_master;
+
 $main::VERSION = '0.1';
 
 # Exit after command processing error
@@ -109,9 +115,8 @@ for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 # The actual development commits
 print "# Start development commits from a clean slate\n";
 print "commit refs/heads/$branch-Development-$version\n";
-my $author = committer('///');
-print "author $author $first_mtime $tz_offset\n";
-print "committer $author $first_mtime $tz_offset\n";
+print "author $release_master $first_mtime $tz_offset\n";
+print "committer $release_master $first_mtime $tz_offset\n";
 print data("Start development on $branch $version\n\nBackup all prior development files");
 if (defined($opt_m)) {
 	print "from $opt_m\n";
@@ -153,10 +158,9 @@ print "# Release\n";
 print "commit refs/heads/$branch-Release\n";
 print "mark :$mark\n";
 my $release_mark = $mark++;
-$author = committer('///');
-print "author $author $last_mtime $tz_offset\n";
-print "committer $author $last_mtime $tz_offset\n";
-print data("$branch $version release\n\nSnapshot of all files from the development branch");
+print "author $release_master $last_mtime $tz_offset\n";
+print "committer $release_master $last_mtime $tz_offset\n";
+print data("$branch $version release\n\nSnapshot of the completed development branch");
 print "from :$last_devel_mark\n";
 print "merge $opt_m\n" if (defined($opt_m));
 print "D $backup\n" if ($opt_m);
@@ -164,7 +168,7 @@ print "D $backup\n" if ($opt_m);
 # Tag the release
 print "tag $branch-$version\n";
 print "from :$release_mark\n";
-print "tagger $author $last_mtime $tz_offset\n";
+print "tagger $release_master $last_mtime $tz_offset\n";
 print data("Tagged $version release snapshot of $branch with $version\n\nSource directory: $directory");
 
 
@@ -179,8 +183,6 @@ data
 	$d .= "\n" unless ($d =~ m/\n$/);
 	return "data " . length($d) . "\n" . $d;
 }
-
-my @committer_map;
 
 # Create a map from file paths to committers
 sub
@@ -199,14 +201,14 @@ create_committer_map
 				pattern => $pattern,
 				committer => $committer
 			});
+			$release_master = $committer if ($pattern eq '.*');
 		}
 		close($in);
 	}
-	# Final catch-all
-	push(@committer_map, {
-		pattern => '.*',
-		committer => 'Unknown <unknown@example.com>'
-	});
+	if (!defined($release_master)) {
+		print STDERR "No default committer specified\n";
+		exit 1;
+	}
 }
 
 
