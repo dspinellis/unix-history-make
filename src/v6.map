@@ -31,6 +31,8 @@ s2/tty\.s	dmr,ken
 s2/who\.c	dmr,ken
 s2/write\.s	dmr,ken
 
+fort/.*		dmr,ken
+
 # "The first interesting language to appear was a version of McClure's TMG
 # that was implemented by McIlroy"
 tmg/.*	doug
