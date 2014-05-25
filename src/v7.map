@@ -73,7 +73,7 @@ usr/doc/ctour/.*		dmr
 usr/doc/dc			x-lc,rhm
 usr/doc/edtut/.*		bwk
 usr/doc/eqn/.*			bwk,x-lc
-usr/doc/f77 			sif,pjw
+usr/doc/f77			sif,pjw
 usr/doc/implement		ken
 usr/doc/iosys			dmr
 usr/doc/learn/.*		bwk,mel
@@ -82,6 +82,7 @@ usr/doc/lint			scj
 usr/doc/m4			bwk,dmr
 usr/doc/make			sif
 usr/doc/msmacros/.*		mel
+usr/doc/neqn/.*			bwk,x-lc
 usr/doc/password		rhm,ken
 usr/doc/porttour/.*		scj
 usr/doc/ratfor/.*		bwk
@@ -92,6 +93,7 @@ usr/doc/sed			lem
 usr/doc/setup			x-cbh,dmr
 usr/doc/shell/.*		srb
 usr/doc/tbl			mel
+usr/doc/troff/.*		jfo
 usr/doc/trofftut/.*		bwk
 usr/doc/uprog/.*		bwk,dmr
 usr/doc/uucp/.*			dan
@@ -105,7 +107,7 @@ usr/src/cmd/awk/.*		aho,pjw,bwk
 usr/src/cmd/bc\.y		x-lc,rhm
 usr/src/cmd/dc/.*		x-lc,rhm
 usr/src/cmd/eqn/.*		bwk,x-lc
-usr/src/cmd/f77/.* 		sif,pjw
+usr/src/cmd/f77/.*		sif,pjw
 usr/src/cmd/learn/.*		bwk,mel
 usr/src/cmd/lex/.*		mel,x-es
 usr/src/cmd/lint/.*		scj
