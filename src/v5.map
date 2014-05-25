@@ -1,7 +1,7 @@
 # Sort by author initials and then program path
 
 # Regarding the user name see http://www.cs.bell-labs.com/who/dmr/index.html
-usr/sys/dmr/.*	dmr
+usr/sys/dmr/.*		dmr
 
 # The actual files correspond to documentation dmr wrote and
 # owner listed in V1/man
@@ -69,4 +69,4 @@ usr/source/s1/form.\.s	rhm,ken
 # occurrence of `we' with unclear antecedent as `Thompson, with some
 # assistance from me.'"
 # http://cm.bell-labs.com/cm/cs/who/dmr/hist.html
-.*	ken,dmr
+.*			ken,dmr
