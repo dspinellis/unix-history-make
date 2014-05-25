@@ -45,14 +45,20 @@ Usage: $0 [-c contributor_map] [-f file_pattern] [-m commit] [-n name_map]
 -n	Specify a map between contributor login names and full names
 -p	Specify a regular expression to strip paths into committed ones
 	By default this is the supplied directory
+-u	File to write unmatched paths (paths matched with a wildcard)
 };
 }
 
-our($opt_c, $opt_f, $opt_m, $opt_n, $opt_p);
-if (!getopts('c:f:m:n:p:') || $#ARGV + 1 != 4) {
+our($opt_c, $opt_f, $opt_m, $opt_n, $opt_p, $opt_u);
+if (!getopts('c:f:m:n:p:u:') || $#ARGV + 1 != 4) {
 	print STDERR $#ARGV;
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
+}
+
+my $unmatched;
+if ($opt_u) {
+	open($unmatched, '|-', "sort >$opt_u") || die "Unable to open $opt_u: $!\n";
 }
 
 my $directory = shift;
@@ -296,7 +302,12 @@ committer
 	my ($path) = @_;
 
 	for my $re (@committer_map) {
-		return $re->{committer} if ($path =~ m/^$re->{pattern}/);
+		if ($path =~ m/^$re->{pattern}/) {
+			if (defined($unmatched) && $re->{pattern} eq '.*') {
+				print $unmatched "$path\n";
+			}
+			return $re->{committer};
+		}
 	}
 	print STDERR "Unable to map comitter for $path\n";
 	exit 1;

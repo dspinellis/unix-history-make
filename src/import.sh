@@ -28,7 +28,8 @@ do
 	echo Import Research-Development-v$i
 	git branch Research-Development-v$i
 	SHA=`git rev-parse Research-Release`
-	perl ../import-dir.pl $DEBUG -m $SHA -c ../v$i.map -n ../bell.au $OLD_UNIX/v$i Research V$i -0500 |
+	perl ../import-dir.pl $DEBUG -m $SHA -c ../v$i.map -n ../bell.au \
+		-u ../v$i.unmatched $OLD_UNIX/v$i Research V$i -0500 |
 	# tee ../dump-$i |
 	git fast-import --stats --done --quiet
 done
