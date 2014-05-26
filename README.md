@@ -140,10 +140,10 @@ source that contains information that is currently missing.
   [Net2](http://www.tuhs.org/Archive/4BSD/Distributions/Net2/).
 
 ## Acknowledgements
-* The following poeple helped with BSD contributor names
- * Anatole Shaw
- * Era Eriksson
-* The following poeple helped with Bell Labs login ids
+* The following people helped with Bell Labs login identifiers.
  * Arnold D. Robbins
  * Brian W. Kernighan
  * Doug McIlroy
+* The following people helped with BSD login identifiers.
+ * Anatole Shaw
+ * Era Eriksson
