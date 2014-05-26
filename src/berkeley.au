@@ -1,0 +1,149 @@
+#:Default email address template
+%A:$@ucbvax.Berkeley.EDU
+
+#:Id (used in path maps):Full name:email
+ah
+aigrain:Philippe Aigrain
+aki
+akito:Akito Fujita
+andrew
+anne:Anne Hughes
+aoki
+arnold:Ken Arnold
+baden:Scott B. Baden
+bill
+bloom:Jim Bloom
+borman
+bostic:Keith Bostic
+bugs
+bush
+cabrera:Luis Felipe Cabrera
+cael:Cael Staelin
+carl
+cda
+cgd:Chris G. Demetriou
+christos:Christos Zoulas
+claudio
+clemc:Clem Cole
+comay:David S. Comay
+conrad:Conrad Huang
+cooper:Eric Cooper
+corbett:Bob Corbett
+corrigan:Mike Corrigan:corrigan@UCSD.EDU
+craig
+csvaf
+csvsj
+cuccia:Nick Cuccia
+dab
+denise
+dist
+dkhusema:Dirk Husemann:dkhusema@uni-erlangen.de
+dlw:David Wasle
+donahn:Don Ahn:donahn@mica.berkeley.edu
+donn:Donn Seeley
+dpk
+earl
+ecc
+edward
+elan:Elan Amir
+elefunt
+epg
+eric:Eric Allman
+erics
+evan
+feldman
+fitz
+fortran
+fujita:Akito Fujita
+garrison
+glickman:Matt Glickman
+gray
+gusella
+halbert
+harrison
+heideman:John Heidemann
+helge
+henry
+hibler:Mike Hibler
+hickman:Kipp Hickman
+jaap
+jak
+jas
+jerry
+jg
+jkf:John Foderaro
+johnh
+karels:Mike Karels
+kas
+kfall:Kevin Fall
+kjd:Kevin Dunlap
+kre:Robert Elz
+kridle:Bob Kridle
+kupfer:Michael Kupfer
+kurt
+lam
+layer
+lepreau:Jay Lepreau
+leres:Craig Leres
+libs
+linton:Mark Linto
+macklem:Rick Macklem
+mao
+marc
+margo:Margo Seltzer
+mark
+mccanne:Steven McCanne
+mcilroy:Peter McIlroy
+mckusic:Kirk McKusick
+mckusick:Kirk McKusick
+minshall:Gregory Minshall
+miriam:Miriam Amos
+mis
+mkm
+mo
+mosher:David A. Mosher
+muller:Keith Muller
+nicklin:Peter J. Nicklin
+opcode
+orange
+pauline:Pauline Schwartz
+pc
+pendry:Jan-Simon Pendry
+peter:Peter B. Kessler
+phil
+presott
+presotto:Dave Presotto
+pugs
+ralph:Ralph Campbell
+rick
+root:Charlie Root
+rrh:Robert R. Henry
+rt
+rwh:Robert W. Henry
+sagersa
+sam:Sam Leffler
+samples
+sechrest
+sellgren:Steve Sellgren
+serge
+shannon:Bill Shannon
+shantz
+sklower:Keith Sklower
+slatteng:Dave Slattengren
+staelin:Carl Staelin
+tapers
+tef:Thomas Ferrin
+thien
+torek:Chris Torek
+toy:Michael Toy
+trent
+tut
+utashiro:Kazumasa Utashiro
+van:Van Jacobson
+vern:Vern Paxson
+vjs:Vernon Schryver
+wall
+walsh
+william
+wnj:Bill Joy
+zliu:Zhishun Alex Liu
