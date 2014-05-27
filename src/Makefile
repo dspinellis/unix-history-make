@@ -1,4 +1,4 @@
-all: archive/v1 archive/v5 archive/v6 archive/v7 archive/1bsd newoldar
+all: archive/v1 archive/v3 archive/v5 archive/v6 archive/v7 archive/1bsd newoldar
 
 archive/v1:
 	curl http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v1/svntree-20081216.tar.gz | tar -C archive -xzf -
@@ -7,6 +7,10 @@ archive/v1:
 	# Date based on the 6/20/72 mark on p. 2 of
 	#http://bitsavers.informatik.uni-stuttgart.de/pdf/bellLabs/unix/PreliminaryUnixImplementationDocument_Jun72.pdf
 	touch -d '1972-06-20 12:00' archive/v1/rebuilt/*
+
+archive/v3:
+	mkdir archive/v3
+	curl http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v3/nsys.tar.gz | tar -C archive/v3 -xzf -
 
 archive/v5:
 	mkdir archive/v5
