@@ -1,4 +1,4 @@
-all: archive/v1 archive/v5 archive/v6 archive/v7
+all: archive/v1 archive/v5 archive/v6 archive/v7 archive/1bsd
 
 archive/v1:
 	curl http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v1/svntree-20081216.tar.gz | tar -C archive -xzf -
@@ -28,3 +28,7 @@ archive/v7:
 	mv v7-patch/lp.c archive/v7/usr/sys/dev/
 	mv v7-patch/lpd.8 archive/v7/usr/man/man8/
 	rm -rf v7-patch
+
+archive/1bsd:
+	mkdir archive/1bsd
+	(cd archive/1bsd ; curl http://unixarchive.cn-k.de/PDP-11/Distributions/ucb/1bsd.tar.gz | tar xzf -)
