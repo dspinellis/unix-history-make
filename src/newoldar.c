@@ -2,10 +2,12 @@
  * (the "new old" type) 
  */
 
+#include <endian.h>
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <signal.h>
+#include <utime.h>
 struct	stat	stbuf;
 
 #if BYTE_ORDER == LITTLE_ENDIAN
@@ -93,6 +95,7 @@ char *argv[];
 	case 'a':
 	case 'b':
 	case 'c':
+	case 'o':
 	case 'i':
 		flg[*cp - 'a']++;
 		continue;
@@ -235,6 +238,14 @@ xcmd()
 			mesg('x');
 			copyfil(af, f, IODD);
 			close(f);
+			if(flg['o'-'a']) {
+				/* Preserve original dates */
+				struct utimbuf ut;
+
+				ut.modtime = ut.actime = PDPTOHL(arbuf.ar_date);
+				if (utime(file, &ut) < 0)
+					perror(file);
+			}
 			continue;
 		}
 	sk:
