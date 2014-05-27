@@ -3,6 +3,8 @@ in a form that helps the study of the system's evolution,
 by entering them into a revision repository.
 
 Branches {{{1
+See
+http://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Unix_history-simple.svg/2000px-Unix_history-simple.svg.png
 Research-Development-*
 	Contains the files from the releases committed at their
 	last modification date.
@@ -10,30 +12,60 @@ Research-Development-*
 	in a specific release.
 Research-Release
 	Contains a complete snapshot of each release by merging complete
-	development branches with a "theirs" strategy.
+	development and (possibly) SCCS branches.
 	Tagged with the name of the release
-	Contains
-		http://unixarchive.cn-k.de/4BSD/Distributions/
-		4.2BSD
-		4.3BSD
-		4.3BSD-Reno
-		4.3BSD-Tahoe
-		4.4BSD-Alpha
-		Net2
 
 BSD-Development
 	The parent is Research-Release v7
 	As above
 BSD-SCCS
-	The parent is Research-Release v7
 	A recursive import of the SCCS repos
+	According to https://github.com/weiss/original-bsd/blob/master/README
+	"The project began using a source code control system (SCCS) in 1980 
+	three years after Bill Joy began his initial Berkeley UNIX
+	development)."
+	Given that 3BSD was released at the end of 1979, it seems logical to
+	import SCCS commits on top of BSD3
+	The SCCS logs are available on CD-ROM from:
+	https://www.mckusick.com/csrg/
+
+Unix32V
+	http://www.tuhs.org/Archive/VAX/Distributions/32V/
+	Parent is the Seventh Edition
+
 BSD-Release
 	As above
-	In addition each release's commit is marked as a mege with the
+	In addition each release's commit is marked as a merge with the
 	SCCS branch at the timepoint of its creation.
+
+	http://www.tuhs.org/Archive/PDP-11/Distributions/
+		1bsd (parent is the sixth edition)
+		2bsd
+	http://www.tuhs.org/Archive/4BSD/Distributions/
+		3bsd (parents are 2bsd and Unix32V)
+		4.0 (from McKusick's CD-ROM 1)
+		4.1 (from McKusick's CD-ROM 1)
+		...
+		4.2BSD
+		4.3BSD
+		4.3BSD-Tahoe
+		4.3BSD-Reno
+		Net2
+
+386BSD
+	http://www.oldlinux.org/Linux.old/distributions/386BSD/386bsd-0.0/
+	( March 1992)
+	http://www.oldlinux.org/Linux.old/distributions/386BSD/0.1/
+	( July 14, 1992)
 
 FreeBSD
 	A pull from the FreeBSD git conversion site
+	FreeBSD commits start on Sat Jun 12 14:49:13 1993 UTC
+	http://svnweb.freebsd.org/base?view=revision&revision=2
+	This is before  late 1994 when the finished version of
+	386BSD Release 1.0 was distributed.
+
+	After FreeBSD 2.2.x pull in BSD 4.4 lite2
 
 Data sources {{{1
 A good map to all available material is
