@@ -4,7 +4,7 @@
 #
 
 # Location of archive mirror
-OLD_UNIX=$UH/vol/nbk/old-unix
+ARCHIVE=archive
 
 # Initialize repo
 rm -rf import
@@ -18,6 +18,8 @@ git tag Epoch
 
 # Release branch
 git branch Research-Release
+
+
 EDITIONS='5 6 7'
 
 # When debugging import only two representative files
@@ -29,7 +31,7 @@ do
 	git branch Research-Development-v$i
 	SHA=`git rev-parse Research-Release`
 	perl ../import-dir.pl $DEBUG -m $SHA -c ../v$i.map -n ../bell.au \
-		-u ../v$i.unmatched $OLD_UNIX/v$i Research V$i -0500 |
+		-u ../v$i.unmatched $ARCHIVE/v$i Research V$i -0500 |
 	# tee ../dump-$i |
 	git fast-import --stats --done --quiet
 done
@@ -68,7 +70,7 @@ for i in $EDITIONS
 do
 	echo Verify content of Research-Development-v$i
 	git checkout Research-V$i
-	if ! same_text . $OLD_UNIX/v$i
+	if ! same_text . $ARCHIVE/v$i
 	then
 		echo "Differences found" 1>&2
 		exit 1
