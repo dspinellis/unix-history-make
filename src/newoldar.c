@@ -8,6 +8,10 @@
 #include <sys/stat.h>
 #include <signal.h>
 #include <utime.h>
+
+/* Avoid including stdlib due to mktemp warnings */
+void exit(int status);
+
 struct	stat	stbuf;
 
 #if BYTE_ORDER == LITTLE_ENDIAN
@@ -82,7 +86,7 @@ char *argv[];
 
 	for(i=0; signum[i]; i++)
 		if(signal(signum[i], SIG_IGN) != SIG_IGN)
-			signal(signum[i], sigdone);
+			signal(signum[i], (sighandler_t)sigdone);
 	if(argc < 3)
 		usage();
 	cp = argv[1];
