@@ -1,4 +1,4 @@
-all: archive/v1 archive/v3 archive/v5 archive/v6 archive/v7 archive/1bsd newoldar
+all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 archive/1bsd newoldar
 
 archive/v1:
 	curl http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v1/svntree-20081216.tar.gz | tar -C archive -xzf -
@@ -9,8 +9,12 @@ archive/v1:
 	touch -d '1972-06-20 12:00' archive/v1/rebuilt/*
 
 archive/v3:
-	mkdir archive/v3
-	curl http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v3/nsys.tar.gz | tar -C archive/v3 -xzf -
+	mkdir -p archive/v3/sys
+	curl http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v3/nsys.tar.gz | tar -C archive/v3/sys -xzf -
+
+archive/v4:
+	mkdir -p $@/man
+	curl http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v4/v4man.tar.gz | tar -C $@/man -xzf -
 
 archive/v5:
 	mkdir archive/v5
