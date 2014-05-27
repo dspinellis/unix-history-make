@@ -86,7 +86,7 @@ char *argv[];
 
 	for(i=0; signum[i]; i++)
 		if(signal(signum[i], SIG_IGN) != SIG_IGN)
-			signal(signum[i], (sighandler_t)sigdone);
+			signal(signum[i], (void (*)(int))sigdone);
 	if(argc < 3)
 		usage();
 	cp = argv[1];
@@ -723,10 +723,10 @@ pmode()
 	register int **mp;
 
 	for (mp = &m[0]; mp < &m[9];)
-		select(*mp++);
+		select_mode(*mp++);
 }
 
-select(pairp)
+select_mode(pairp)
 int *pairp;
 {
 	register int n, *ap;
