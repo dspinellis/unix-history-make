@@ -19,6 +19,8 @@ Two repositories are associated with the project:
   a repository containing code and metadata used to build the above repository.
   Contributions to this repository are welcomed.
 
+The first phase of the project will be to create a single timeline from the First Edition of Unix until the present.
+
 ## Project status
 Currently, the project has finished the concept demonstration stage with the creation of a repository containing the V5, V6, and V7 Research Edition Unix snapshots.  The files appear to be added in the repository in chronological order according to their modification time, and some part part of the source code has been attributed to its actual authors.  Commands like `git blame` and `git log` produce the expected results.
 
