@@ -171,4 +171,9 @@ rename old top directories to previous_version/...
 
 Last commit
 Remove previous_version
-
+TODO {{{1
+2bsd
+32V
+Flag to indicate directory where old version is moved before release
+Flag to indicate directories to remove on release
+Flag to indicate release text file
