@@ -83,13 +83,13 @@ git checkout Research-Release
 for i in  usr/src/cmd/c/c00.c usr/sys/sys/pipe.c
 do
 	echo Verify blame/log of $i
-	N_ADD=`git log --follow --simplify-merges $i | grep -c Add`
+	N_ADD=`git log --follow --simplify-merges $i | grep -c "Work on"`
 	if [ $N_ADD -lt $N_EXPECTED ]
 	then
 		echo "Found $N_ADD additions for $i; expected $N_EXPECTED" 1>&2
 		exit 1
 	fi
-	N_BLAME=`git blame -C -C $i | awk '{print $1}' | wc -c`
+	N_BLAME=`git blame -C -C $i | awk '{print $1}' | sort -u | wc -l`
 	if [ $N_BLAME -lt $N_EXPECTED ]
 	then
 		echo "Found $N_BLAME blames for $i; expected $N_EXPECTED" 1>&2
