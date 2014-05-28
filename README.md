@@ -61,7 +61,7 @@ Date:   Tue Nov 26 18:13:21 1974 -0500
 
     Research V5 development
 
-    Add file usr/sys/ken/slp.c
+    Work on file usr/sys/ken/slp.c
 [...]
 commit 3d19667a65d35a411d911282ed8b87e32a56a349
 Author: Dennis Ritchie <research!dmr>
@@ -69,7 +69,7 @@ Date:   Mon Dec 2 18:18:02 1974 -0500
 
     Research V5 development
 
-    Add file usr/sys/dmr/kl.c
+    Work on file usr/sys/dmr/kl.c
 [...]
 commit 171931a3f6f28ce4d196c20fdec6a4413a843f89
 Author: Brian W. Kernighan <research!bwk>
@@ -77,7 +77,7 @@ Date:   Tue May 13 19:43:47 1975 -0500
 
     Research V6 development
 
-    Add file rat/r.g
+    Work on file rat/r.g
 [...]
 commit ac4b13bca433a44a97689af10247970118834696
 Author: S. R. Bourne <research!srb>
@@ -85,7 +85,7 @@ Date:   Fri Jan 12 02:17:45 1979 -0500
 
     Research V7 development
 
-    Add file usr/src/cmd/sh/blok.c
+    Work on file usr/src/cmd/sh/blok.c
 ```
 ### View changes to a specific file
 Run

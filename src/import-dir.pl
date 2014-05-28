@@ -155,7 +155,7 @@ for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 	print "author $author $fi{$name}->{mtime} $tz_offset\n";
 	print "committer $author $fi{$name}->{mtime} $tz_offset\n";
 	$last_mtime = $fi{$name}->{mtime};
-	print data("$branch $version development\n\nAdd file $commit_path");
+	print data("$branch $version development\n\nWork on file $commit_path");
 	print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 }
 
