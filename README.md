@@ -123,17 +123,21 @@ source that contains information that is currently missing.
   [6th](https://github.com/dspinellis/unix-history-make/blob/master/src/v6.map), and
   [7th](https://github.com/dspinellis/unix-history-make/blob/master/src/v7.map)
   Edition Unix.
-* Look for parts of the system that have not yet been attributed in the
+* Look for parts of the system that have not yet been attributed
+  (here are the links for the
   [5th](https://github.com/dspinellis/unix-history-make/blob/master/src/v5.unmatched),
   [6th](https://github.com/dspinellis/unix-history-make/blob/master/src/v6.unmatched), and
   [7th](https://github.com/dspinellis/unix-history-make/blob/master/src/v7.unmatched)
-  Edition Unix, and propose suitable attributions.
+  Edition Unix), and propose suitable attributions.
 * Look for authors whose identifier starts with ```x-``` in the
   [author id to name map file](https://github.com/dspinellis/unix-history-make/blob/master/src/bell.au),
   and provide or confirm their actual login identifier.
   (The one used is a guess.)
-* Contribute a path regular expression to contributor map file 
-  ( see [v7.map](https://github.com/dspinellis/unix-history-make/blob/master/src/v7.map)) for
+* Contribute a path regular expression to contributor map file
+  (see [v7.map](https://github.com/dspinellis/unix-history-make/blob/master/src/v7.map)) for
+  [1BSD](http://www.tuhs.org/Archive/PDP-11/Distributions/ucb/1bsd.tar.gz),
+  [2BSD](http://www.tuhs.org/Archive/PDP-11/Distributions/ucb/2bsd.tar.gz),
+  [3BSD](http://www.tuhs.org/Archive/4BSD/Distributions/3bsd.tar.gz),
   [4.2BSD](http://www.tuhs.org/Archive/4BSD/Distributions/4.2BSD/),
   [4.3BSD](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD/),
   [4.3BSD-Reno](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD-Reno/),
