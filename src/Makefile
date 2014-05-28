@@ -38,8 +38,9 @@ archive/v7:
 	mv v7-patch/lpd.8 $@/usr/man/man8/
 	rm -rf v7-patch
 
-archive/1bsd:
+archive/1bsd: newoldar
 	mkdir -p $@
 	curl -s http://unixarchive.cn-k.de/PDP-11/Distributions/ucb/1bsd.tar.gz | tar -C $@ -xzf -
+	( AR=`pwd`/newoldar ; cd $@ && find . -name cont.a  | awk -F/ '{print $$2}' | while read d ; do ( cd $$d ; $$AR xo cont.a ) ; done)
 
 newoladar: newoldar.c
