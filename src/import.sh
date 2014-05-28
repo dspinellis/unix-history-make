@@ -4,7 +4,7 @@
 #
 
 # Location of archive mirror
-ARCHIVE=archive
+ARCHIVE=../archive
 
 # Initialize repo
 rm -rf import
