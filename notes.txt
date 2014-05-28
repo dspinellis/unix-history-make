@@ -177,3 +177,4 @@ TODO {{{1
 Flag to indicate directory where old version is moved before release
 Flag to indicate directories to remove on release
 Flag to indicate release text file
+Coalesce commits by the same author on same date/time in import.pl
