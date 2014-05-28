@@ -278,6 +278,7 @@ usr/man/man8/crash.8
 usr/man/man8/cron.8
 usr/man/man8/getty.8
 usr/man/man8/init.8
+usr/man/man8/lpd.8
 usr/man/man8/makekey.8
 usr/man/man8/update.8
 usr/mdec/hpuboot.s
@@ -335,6 +336,13 @@ usr/src/cmd/iostat.c
 usr/src/cmd/kill.c
 usr/src/cmd/ln.c
 usr/src/cmd/login.c
+usr/src/cmd/lpr/chrtab.c
+usr/src/cmd/lpr/daemon.c
+usr/src/cmd/lpr/daemon0.c
+usr/src/cmd/lpr/lpd.c
+usr/src/cmd/lpr/lpr.c
+usr/src/cmd/lpr/makefile
+usr/src/cmd/lpr/spool.c
 usr/src/cmd/makeall
 usr/src/cmd/makekey.c
 usr/src/cmd/mkdir.c
