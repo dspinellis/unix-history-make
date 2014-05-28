@@ -124,7 +124,7 @@ usr/doc/man/man1/bc.1		rhm
 # Based on v7.map and reading the troff source
 # Ordered by /usr/doc name
 usr/doc/as			dmr
-usr/doc/bc			x-lc,rhm
+usr/doc/bc			llc,rhm
 usr/doc/beg/.*			bwk
 usr/doc/cacm/.*			dmr,ken
 usr/doc/c/.*			dmr
