@@ -3,11 +3,17 @@ all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 archive/1
 archive/v1:
 	mkdir -p archive
 	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v1/svntree-20081216.tar.gz | tar -C archive -xzf -
-	mv archive/unix72 archive/v1
-	(cd archive/v1 && tools/rebuild >/dev/null)
+	mv archive/unix72 $@
+	# Convert OCR to source code files
+	(cd $@ && tools/rebuild >/dev/null)
+	# Undo 2008 patches
+	mkdir $@/sys
+	cp $@/build/* $@/sys
+	cd $@/sys/ && for i in *.orig ; do mv $$i `expr $$i : '\(.*\)\.orig'` ; done
+	rm $@/sys/Makefile
 	# Date based on the 6/20/72 mark on p. 2 of
 	#http://bitsavers.informatik.uni-stuttgart.de/pdf/bellLabs/unix/PreliminaryUnixImplementationDocument_Jun72.pdf
-	touch -d '1972-06-20 12:00' archive/v1/rebuilt/*
+	touch -d '1972-06-20 12:00' $@/sys/*
 
 archive/v3:
 	mkdir -p $@/sys
