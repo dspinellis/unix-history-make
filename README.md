@@ -161,27 +161,23 @@ to see how the Unix pipe functionality evolved over the years.
 ## How you can help
 You can help if you were there at the time, or if you can locate a
 source that contains information that is currently missing.
-* Look for errors and omissions in the files that map file paths to
-  authors for the
-  [5th](https://github.com/dspinellis/unix-history-make/blob/master/src/v5.map),
-  [6th](https://github.com/dspinellis/unix-history-make/blob/master/src/v6.map), and
-  [7th](https://github.com/dspinellis/unix-history-make/blob/master/src/v7.map)
-  Edition Unix.
+* Look for errors and omissions in the
+  [files that map file paths to authors](https://github.com/dspinellis/unix-history-make/blob/master/src/author-path).
 * Look for parts of the system that have not yet been attributed
-  (here are the links for the
-  [5th](https://github.com/dspinellis/unix-history-make/blob/master/src/v5.unmatched),
-  [6th](https://github.com/dspinellis/unix-history-make/blob/master/src/v6.unmatched), and
-  [7th](https://github.com/dspinellis/unix-history-make/blob/master/src/v7.unmatched)
-  Edition Unix), and propose suitable attributions.
+  [in these files](https://github.com/dspinellis/unix-history-make/blob/master/src/unmatched)
+  and propose suitable attributions.
   Keep in mind that attributions for parts that were developed in one place
   and modified elsewhere (e.g. developed at Bell Labs and modified at Berkeley)
   should be for the person who did the modification, not the original author.
 * Look for authors whose identifier starts with ```x-``` in the
-  [author id to name map file](https://github.com/dspinellis/unix-history-make/blob/master/src/bell.au),
+  author id to name map files for
+  [Bell Labs](https://github.com/dspinellis/unix-history-make/blob/master/src/bell.au),
+  and
+  [Berkeley](https://github.com/dspinellis/unix-history-make/blob/master/src/berkeley.au),
   and provide or confirm their actual login identifier.
   (The one used is a guess.)
 * Contribute a path regular expression to contributor map file
-  (see [v7.map](https://github.com/dspinellis/unix-history-make/blob/master/src/v7.map)) for
+  (see [v7.map](https://github.com/dspinellis/unix-history-make/blob/master/src/author-path/v7)) for
   [4.2BSD](http://www.tuhs.org/Archive/4BSD/Distributions/4.2BSD/),
   [4.3BSD](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD/),
   [4.3BSD-Reno](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD-Reno/),

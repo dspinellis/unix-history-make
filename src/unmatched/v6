@@ -28,7 +28,6 @@ usr/doc/man/man1/cc.1
 usr/doc/man/man1/cdb.1
 usr/doc/man/man1/chdir.1
 usr/doc/man/man1/chmod.1
-usr/doc/man/man1/comm.1
 usr/doc/man/man1/cp.1
 usr/doc/man/man1/cref.1
 usr/doc/man/man1/dd.1
@@ -39,7 +38,6 @@ usr/doc/man/man1/exit.1
 usr/doc/man/man1/fc.1
 usr/doc/man/man1/file.1
 usr/doc/man/man1/goto.1
-usr/doc/man/man1/grep.1
 usr/doc/man/man1/if.1
 usr/doc/man/man1/kill.1
 usr/doc/man/man1/ln.1
@@ -64,7 +62,6 @@ usr/doc/man/man1/rc.1
 usr/doc/man/man1/rev.1
 usr/doc/man/man1/rm.1
 usr/doc/man/man1/rmdir.1
-usr/doc/man/man1/roff.1
 usr/doc/man/man1/shift.1
 usr/doc/man/man1/size.1
 usr/doc/man/man1/sleep.1
@@ -77,7 +74,6 @@ usr/doc/man/man1/tp.1
 usr/doc/man/man1/tr.1
 usr/doc/man/man1/troff.1
 usr/doc/man/man1/typo.1
-usr/doc/man/man1/uniq.1
 usr/doc/man/man1/wait.1
 usr/doc/man/man1/yacc.1
 usr/doc/man/man2/break.2
@@ -202,15 +198,12 @@ usr/doc/man/man6/cal.6
 usr/doc/man/man6/chess.6
 usr/doc/man/man6/col.6
 usr/doc/man/man6/cubic.6
-usr/doc/man/man6/factor.6
 usr/doc/man/man6/fed.6
 usr/doc/man/man6/form.6
 usr/doc/man/man6/graph.6
 usr/doc/man/man6/gsi.6
 usr/doc/man/man6/m6.6
 usr/doc/man/man6/moo.6
-usr/doc/man/man6/plot.6
-usr/doc/man/man6/primes.6
 usr/doc/man/man6/quiz.6
 usr/doc/man/man6/sky.6
 usr/doc/man/man6/sno.6
@@ -223,7 +216,6 @@ usr/doc/man/man6/units.6
 usr/doc/man/man6/wump.6
 usr/doc/man/man7/cr.7
 usr/doc/man/man7/ms.7
-usr/doc/man/man7/plot.7
 usr/doc/man/man7/salloc.7
 usr/doc/man/man8/ac.8
 usr/doc/man/man8/bproc.8
@@ -246,7 +238,6 @@ usr/doc/man/man8/mknod.8
 usr/doc/man/man8/mount.8
 usr/doc/man/man8/ncheck.8
 usr/doc/man/man8/restor.8
-usr/doc/man/man8/sa.8
 usr/doc/man/man8/sync.8
 usr/doc/man/man8/umount.8
 usr/doc/man/man8/update.8
@@ -349,18 +340,15 @@ usr/source/s1/chmod.c
 usr/source/s1/chown.s
 usr/source/s1/clri.s
 usr/source/s1/col.c
-usr/source/s1/comm.c
 usr/source/s1/cp.c
 usr/source/s1/cpall.c
 usr/source/s1/cron.c
 usr/source/s1/crypt.c
 usr/source/s1/dcheck.c
-usr/source/s1/dd.c
 usr/source/s1/df.c
 usr/source/s1/dsw.s
 usr/source/s1/dump.c
 usr/source/s1/echo.c
-usr/source/s1/ed.c
 usr/source/s1/exit.c
 usr/source/s1/fc.c
 usr/source/s1/fed1.s
@@ -370,7 +358,6 @@ usr/source/s1/file.c
 usr/source/s1/getty.c
 usr/source/s1/glob.c
 usr/source/s1/goto.c
-usr/source/s1/grep.c
 usr/source/s1/gsi.c
 usr/source/s1/icheck.c
 usr/source/s1/if.c
@@ -407,7 +394,6 @@ usr/source/s2/rew.s
 usr/source/s2/rm.c
 usr/source/s2/rmdir.s
 usr/source/s2/run
-usr/source/s2/sa.c
 usr/source/s2/sh.c
 usr/source/s2/size.c
 usr/source/s2/sleep.c
@@ -424,7 +410,6 @@ usr/source/s2/tp4.s
 usr/source/s2/tr.c
 usr/source/s2/typo.c
 usr/source/s2/umount.c
-usr/source/s2/uniq.c
 usr/source/s2/units.c
 usr/source/s2/update.s
 usr/source/s2/usort.c
@@ -513,7 +498,6 @@ usr/source/s5/prof.s
 usr/source/s5/ptrace.s
 usr/source/s5/putc.s
 usr/source/s5/putchr.s
-usr/source/s5/qsort.c
 usr/source/s5/read.s
 usr/source/s5/reset.s
 usr/source/s5/rin.c

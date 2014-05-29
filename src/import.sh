@@ -39,56 +39,57 @@ gfi()
 # DEBUG=-p\ '(u1\.s)|(nami\.c)|(c00\.c)|(open\.2)|(ex_addr\.c)'
 
 # V1: Assembly language kernel
-perl ../import-dir.pl -m Epoch -c ../v1.map -n ../bell.au \
+perl ../import-dir.pl -m Epoch -c ../author-path/v1 -n ../bell.au \
 	$DEBUG \
 	$ARCHIVE/v1/sys Research V1 -0500 | gfi
 
 # V3: C kernel
-perl ../import-dir.pl -m Research-V1 -c ../v3.map -n ../bell.au \
+perl ../import-dir.pl -m Research-V1 -c ../author-path/v3 -n ../bell.au \
 	-r Research-V1 $DEBUG \
-	-u ../v3.unmatched $ARCHIVE/v3 Research V3 -0500 | gfi
+	-u ../unmatched/v3 $ARCHIVE/v3 Research V3 -0500 | gfi
 
 # V4: Manual pages
-perl ../import-dir.pl -m Research-V3 -c ../v4.map -n ../bell.au \
+perl ../import-dir.pl -m Research-V3 -c ../author-path/v4 -n ../bell.au \
 	-r Research-V3 $DEBUG \
-	-u ../v4.unmatched $ARCHIVE/v4 Research V4 -0500 | gfi
+	-u ../unmatched/v4 $ARCHIVE/v4 Research V4 -0500 | gfi
 
 # V5: Full (apart from manual pages)
-perl ../import-dir.pl -m Research-V4 -c ../v5.map -n ../bell.au \
+perl ../import-dir.pl -m Research-V4 -c ../author-path/v5 -n ../bell.au \
 	-r Research-V3 $DEBUG \
-	-u ../v5.unmatched $ARCHIVE/v5 Research V5 -0500 | gfi
+	-u ../unmatched/v5 $ARCHIVE/v5 Research V5 -0500 | gfi
 
 # V6: Full
-perl ../import-dir.pl -m Research-V5 -c ../v6.map -n ../bell.au \
+perl ../import-dir.pl -m Research-V5 -c ../author-path/v6 -n ../bell.au \
 	-r Research-V5 $DEBUG \
-	-u ../v6.unmatched $ARCHIVE/v6 Research V6 -0500 | gfi
+	-u ../unmatched/v6 $ARCHIVE/v6 Research V6 -0500 | gfi
 
 # BSD1: Just commands; forked from V6
 # Leaves behind .ref-v6
-perl ../import-dir.pl -m Research-V6 -c ../1bsd.map -n ../berkeley.au \
+perl ../import-dir.pl -m Research-V6 -c ../author-path/1bsd -n ../berkeley.au \
 	-r Research-V6 $DEBUG \
-	-u ../1bsd.unmatched $ARCHIVE/1bsd BSD 1 -0800 | gfi
+	-u ../unmatched/1bsd $ARCHIVE/1bsd BSD 1 -0800 | gfi
 
 # BSD2: Just commands
-perl ../import-dir.pl -m BSD-1 -c ../2bsd.map -n ../berkeley.au \
+perl ../import-dir.pl -m BSD-1 -c ../author-path/2bsd -n ../berkeley.au \
 	-r BSD-1,Research-V6 $DEBUG \
-	-u ../2bsd.unmatched $ARCHIVE/2bsd BSD 2 -0800 | gfi
+	-u ../unmatched/2bsd $ARCHIVE/2bsd BSD 2 -0800 | gfi
 
 # V7: Full
-perl ../import-dir.pl -m Research-V6 -c ../v7.map -n ../bell.au \
+perl ../import-dir.pl -m Research-V6 -c ../author-path/v7 -n ../bell.au \
 	-r Research-V6 $DEBUG \
-	-u ../v7.unmatched $ARCHIVE/v7 Research V7 -0500 | gfi
+	-u ../unmatched/v7 $ARCHIVE/v7 Research V7 -0500 | gfi
 
 # Unix/32V: Full
-perl ../import-dir.pl -m Research-V7 -c ../32v.map -n ../bell.au \
+perl ../import-dir.pl -m Research-V7 -c ../author-path/32v -n ../bell.au \
 	-r Research-V7 $DEBUG \
 	$ARCHIVE/32v Bell 32V -0500 | gfi
 
 # BSD 3.0: First full distribution
 # Merge 32V and 2BSD
-perl ../import-dir.pl -m Bell-32V,BSD-2 -c ../3bsd.map -n ../berkeley.au \
+perl ../import-dir.pl -m Bell-32V,BSD-2 -c ../author-path/3bsd \
+	-n ../berkeley.au \
 	-r Bell-32V,BSD-2 $DEBUG \
-	-u ../bsd3.unmatched $ARCHIVE/3bsd BSD 3 -0800 | gfi
+	-u ../unmatched/bsd3 $ARCHIVE/3bsd BSD 3 -0800 | gfi
 
 git checkout BSD-Release
 
