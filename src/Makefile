@@ -1,5 +1,5 @@
 all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
-	archive/1bsd newoldar archive/2bsd
+	archive/1bsd newoldar archive/2bsd archive/32v
 
 archive/v1:
 	mkdir -p archive
@@ -57,3 +57,7 @@ newoladar: newoldar.c
 archive/2bsd:
 	mkdir -p $@
 	curl -s http://unixarchive.cn-k.de/PDP-11/Distributions/ucb/2bsd.tar.gz | tar -C $@ -xzf -
+
+archive/32v:
+	mkdir -p $@
+	curl -s http://www.tuhs.org/Archive/VAX/Distributions/32V/32v_usr.tar.gz | tar -C $@ -xzf -
