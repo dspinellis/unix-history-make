@@ -40,17 +40,17 @@ Usage: $0 [options ...] directory branch_name version_name tz_offset
 -a name	When starting archive existing files into the named directory
 -c file	Map of the tree's parts tree written by specific contributors
 -d list	On a release, delete the comma-separated directories
--f re	Regular expression of files to process
 -m SHA	The commit from which the release will be merged
 -n file	Map between contributor login names and full names
--p re	Regular expression to strip paths into committed ones
+-p re	Regular expression of files to process
+-s re	Regular expression to strip paths into committed ones
 	By default this is the supplied directory
 -u file	File to write unmatched paths (paths matched with a wildcard)
 };
 }
 
-our($opt_a, $opt_c, $opt_d, $opt_f, $opt_m, $opt_n, $opt_p, $opt_u);
-if (!getopts('a:c:d:f:m:n:p:u:') || $#ARGV + 1 != 4) {
+our($opt_a, $opt_c, $opt_d, $opt_m, $opt_n, $opt_p, $opt_s, $opt_u);
+if (!getopts('a:c:d:m:n:p:s:u:') || $#ARGV + 1 != 4) {
 	print STDERR $#ARGV;
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
@@ -66,9 +66,9 @@ my $branch = shift;
 my $version = shift;
 my $tz_offset = shift;
 
-$opt_p = $directory unless defined($opt_p);
-$opt_p .= '/' unless ($opt_p =~ m|/$|);
-$opt_p =~ s/([^\w])/\\$1/g;
+$opt_s = $directory unless defined($opt_s);
+$opt_s .= '/' unless ($opt_s =~ m|/$|);
+$opt_s =~ s/([^\w])/\\$1/g;
 
 create_name_map() if (defined($opt_n));
 create_committer_map();
@@ -95,7 +95,7 @@ sub
 gather_files
 {
 	return unless (-f && -T);
-	return if ($opt_f && !m|/$opt_f$|);
+	return if ($opt_p && !m|/$opt_p$|);
 	my ($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, $ctime, $blksize, $blocks) = stat;
 	$fi{$_}->{mtime} = $mtime;
 	$fi{$_}->{size} = $size;
@@ -158,7 +158,7 @@ for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 	print "mark :$mark\n";
 	$last_devel_mark = $mark++;
 	my $commit_path = $name;
-	$commit_path =~ s/$opt_p// if ($opt_p);
+	$commit_path =~ s/$opt_s// if ($opt_s);
 	my $author = committer($commit_path);
 	print "author $author $fi{$name}->{mtime} $tz_offset\n";
 	print "committer $author $fi{$name}->{mtime} $tz_offset\n";
