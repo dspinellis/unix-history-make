@@ -1,0 +1,129 @@
+# Order by file path
+
+# This file started with bsd1.map
+# Manually adjust directories and named
+# Remove entries that no longer match with
+# sed 's/\\//;/#/d' ../../bsd2.map | perl -na -e 'print "$F[0]\n" unless -r $F[0]'
+# Add man pages from bsd2 with
+# grep -r -A 1 AUTHOR . | egrep -v 'AUTHOR|--' | fgrep -v -f <(awk '/man/ {print $1}' basd2.map)
+#
+# Add source file authorship from the corresponding manual pages with
+# grep man ../../bsd2.map | sed 's/man/src/;s/\.u//' | perl -na -e 'print "$F[0]/.*\t\t$F[1]\n" if -d $F[0] ; print "$F[0]\\.c\t\t$F[1]\n" if -r "$F[0].c"'
+
+doc/Mail/.*		x-ks
+doc/csh			wnj
+doc/ex/.*		wnj
+doc/me/.*		eric
+doc/net/.*		x-ees
+doc/pascal/.*		wnj
+doc/px/.*		wnj
+doc/pxp/.*		wnj
+doc/vi/.*		wnj
+man/Mail.u		x-ks
+man/apropos.u		wnj
+man/chessclock.u	wnj
+man/cr3.u		wnj
+man/crazy.u		hpk
+man/csh.u		wnj
+man/cxref.u		wnj
+man/dates.u		wnj
+man/diffdir.u		wnj
+man/double.u		wnj
+man/dribble.u		wnj,x-or
+man/edit.u		wnj
+man/ex.u		wnj
+man/expand.u		wnj
+man/eyacc.u		x-ch,wnj
+man/finger.u		x-etc
+man/fleece.u		x-ks
+man/fmt.u		x-ks
+man/fold.u		wnj
+man/from.u		wnj
+man/funny.u		x-ks
+man/head.u		wnj
+man/iul.u		wnj
+man/last.u		hpk
+man/libNS.u		sklower
+man/libretro.u		toy
+man/lock.u		x-ks
+man/man.u		wnj
+man/mkstr.u		wnj,x-ch
+man/msgs.u		wnj
+man/net.u		x-ees
+man/netcp.u		x-ees
+man/netlpr.u		x-ees
+man/netmail.u		x-ees
+man/netq.u		x-ees
+man/netrm.u		x-ees
+man/num.u		toy
+man/pcc.u		wnj
+man/pi.u		wnj,x-ch,ken
+man/pix.u		x-slg,wnj
+man/print.u		wnj
+man/px.u		wnj,x-ch,ken
+man/pxp.u		wnj
+man/pxref.u		wnj
+man/reset.u		x-ks
+man/see.u		wnj
+man/soelim.u		wnj
+man/ssp.u		wnj
+man/strings.u		wnj
+man/termcap.u		toy
+man/termlib.u		toy
+man/tod.u		x-rt
+man/tra.u		wnj
+man/tset.u		eric
+man/whatis.u		wnj
+man/whereis.u		wnj
+man/whoami.u		wnj
+man/xstr.u		wnj
+src/Mail/.*		x-ks
+src/apropos\.c		wnj
+src/chessclock\.c	wnj
+src/cr3\.c		wnj
+src/csh/.*		wnj
+src/diffdir\.c		wnj
+src/dribble\.c		wnj,x-or
+src/ex/.*		wnj
+src/expand\.c		wnj
+src/eyacc/.*		x-ch,wnj
+src/finger\.c		x-etc
+src/fleece\.c		x-ks
+src/fold\.c		wnj
+src/from\.c		wnj
+src/head\.c		wnj
+src/iul\.c		wnj
+src/last\.c		hpk
+src/libNS/.*		sklower
+src/lock\.c		x-ks
+src/ls\.c		wnj
+src/man\.c		wnj
+src/me/.*		eric
+src/mkstr\.c		wnj
+src/msgs\.c		wnj
+src/net/.*		x-ees
+src/num\.c		toy
+src/pascal/.*		wnj
+src/pi/.*		x-ch,wnj
+src/pi0/.*		wnj
+src/pi1/.*		wnj
+src/px/.*		wnj,x-ch,ken
+src/pxp/.*		wnj
+src/pxref/.*		wnj
+src/reset.c		x-ks
+src/see\.c		wnj
+src/soelim\.c		wnj
+src/ssp\.c		wnj
+src/strings\.c		wnj
+src/strip\.c		wnj
+src/termlib/.*		toy
+src/tod\.c		x-rt
+src/tra\.c		wnj
+src/tset.c		eric
+src/whatis\.c		wnj
+src/whereis\.c		wnj
+src/whoami\.c		wnj
+src/xstr\.c		wnj
+
+# Default (wnj, given the number of contributions)
+.*			wnj

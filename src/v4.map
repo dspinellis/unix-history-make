@@ -1,0 +1,35 @@
+# By inspection allocate manual pages accordingly
+man/man4/.*			dmr
+man/man2/.*			ken
+
+# Based on v6 map filtered for pages that exist
+# perl -ane 'print if (-r "archive/v4/$F[0]")' v4.map
+man/man1/cmp\.1		dmr
+man/man1/date\.1	dmr
+man/man1/db\.1		dmr
+man/man1/du\.1		dmr
+man/man1/ld\.1		dmr
+man/man1/strip\.1	dmr
+man/man1/ls\.1		dmr,ken
+man/man1/mesg\.1	dmr,ken
+man/man1/nm\.1		dmr,ken
+man/man8/su\.8		dmr,ken
+man/man1/tty\.1		dmr,ken
+man/man1/who\.1		dmr,ken
+man/man1/write\.1	dmr,ken
+man/man1/sort\.1	doug
+man/man1/wc\.1		jfo
+man/man1/bas\.1		ken
+man/man1/dc\.1		ken
+man/man1/ed\.1		ken
+man/man1/mail\.1	ken
+man/man1/sh\.1		ken
+
+# Default
+# Regarding the order of names
+# "The reader will not, on the average, go far wrong if he reads each
+# occurrence of `we' with unclear antecedent as `Thompson, with some
+# assistance from me.'"
+# http://cm.bell-labs.com/cm/cs/who/dmr/hist.html
+# ... and OWNER section in remaining manual pages of V1
+.*				ken,dmr

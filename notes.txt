@@ -164,6 +164,8 @@ git log --follow
 Lessons learned {{{1
 Split responsibilities between kernel and device drivers
 Ability to follow file moves by keeping a lookaside copy of preceding snapshot
+Ownership: early man pages, then BSD
+Which commands are retained? Has it got to do with the author's presence?
 
 New strategy {{{1
 First commit:

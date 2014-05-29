@@ -1,0 +1,16 @@
+sys/buf.h
+sys/conf.h
+sys/file.h
+sys/filsys.h
+sys/inode.h
+sys/junk/nps.s
+sys/junk/prot.s
+sys/junk/ustr.s
+sys/param.h
+sys/proc.h
+sys/reg.h
+sys/systm.h
+sys/tables.c
+sys/text.h
+sys/tty.h
+sys/user.h

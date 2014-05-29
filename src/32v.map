@@ -1,0 +1,8 @@
+# Based on the document titled
+# "A UNIX Operating System for the DEC VAX-11/780 Computer"
+# an internal Bell Labs memo by Reiser and London, dated July 7, 1978
+# marked TM: 78-1353-4 and Case-39394-21
+# See http://cm.bell-labs.com/who/dmr/otherports/32v.html
+# http://cm.bell-labs.com/cm/cs/who/dmr/otherports/32vscan.pdf
+
+.*				tbl,jfr

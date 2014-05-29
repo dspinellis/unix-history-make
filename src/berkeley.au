@@ -1,7 +1,8 @@
 #:Default email address template
-%A:$@ucbvax.Berkeley.EDU
+%A $@ucbvax.Berkeley.EDU
 
 #:Id (used in path maps):Full name:email
+
 ah
 aigrain:Philippe Aigrain
 aki
@@ -66,15 +67,18 @@ helge
 henry
 hibler:Mike Hibler
 hickman:Kipp Hickman
+hpk:Howard Katseff
 jaap
 jak
 jas
+jfr:John Reiser
 jerry
 jg
 jkf:John Foderaro
 johnh
 karels:Mike Karels
 kas
+ken:Ken Thompson:research!ken
 kfall:Kevin Fall
 kjd:Kevin Dunlap
 kre:Robert Elz
@@ -83,6 +87,7 @@ kupfer:Michael Kupfer
 kurt
 lam
 layer
+lem:Lee E. McMahon:research!lem
 lepreau:Jay Lepreau
 leres:Craig Leres
 libs
@@ -145,5 +150,28 @@ vjs:Vernon Schryver
 wall
 walsh
 william
+tbl:Tom London
 wnj:Bill Joy
+x-arn:A. R. Newton
+x-cbh:Charles B. Haley:research!x-cbh
+x-ch:Charles Haley
+x-clm:Colin L. Mc Master
+x-dl:Douglas Lanam
+x-dop:D. O. Pederson
+x-ec:Ellis Cohen
+x-ees:Eric Schmidt
+x-etc:Earl T. Cohen
+x-im:Ivan Maltz
+x-jp:Juan Porcar
+x-js:Jeff Schriebman
+x-ks:Kurt Shoens
+x-le:Len Edmondson
+x-mh:Mark Horton
+x-ob:Ozalp Babaoglu
+x-or:Olivier Roubine
+x-rd:R. Dowell
+x-rh:Ross Harvey
+x-rt2:Richard Tuck
+x-rt:Robert Toxen
+x-slg:Susan L. Graham
 zliu:Zhishun Alex Liu

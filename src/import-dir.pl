@@ -37,20 +37,23 @@ main::HELP_MESSAGE
 	my ($fh) = @_;
 	print $fh qq{
 Usage: $0 [options ...] directory branch_name version_name tz_offset
--a name	When starting archive existing files into the named directory
 -c file	Map of the tree's parts tree written by specific contributors
--d list	On a release, delete the comma-separated directories
--m SHA	The commit from which the release will be merged
+-m T	The commit from which the import will be merged
 -n file	Map between contributor login names and full names
 -p re	Regular expression of files to process
+-r T	During import keep by side a reference copy of the specified files
 -s re	Regular expression to strip paths into committed ones
 	By default this is the supplied directory
 -u file	File to write unmatched paths (paths matched with a wildcard)
+
+T is a tree-ish series of comma-seperated specifications, normally tag names.
+Each reference directory has .ref- prepended to its name.
 };
 }
 
-our($opt_a, $opt_c, $opt_d, $opt_m, $opt_n, $opt_p, $opt_s, $opt_u);
-if (!getopts('a:c:d:m:n:p:s:u:') || $#ARGV + 1 != 4) {
+our($opt_c, $opt_m, $opt_n, $opt_p, $opt_r, $opt_s, $opt_u);
+$opt_m = $opt_r = '';
+if (!getopts('c:f:m:n:p:r:s:u:') || $#ARGV + 1 != 4) {
 	print STDERR $#ARGV;
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
@@ -106,9 +109,6 @@ gather_files
 binmode STDOUT;
 my $mark = 1;
 
-# Name of directory used for storing the previous snapshot
-my $backup = '.previous_snapshot';
-
 my $first_mtime;
 # First create the blobs
 for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
@@ -125,27 +125,29 @@ for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 	$mark++;
 }
 
+if (!defined($first_mtime)) {
+	print STDERR "No files for import found in $directory\n";
+	exit 1;
+}
+
 # The actual development commits
 print "# Start development commits from a clean slate\n";
 print "commit refs/heads/$dev_branch\n";
 print "author $release_master $first_mtime $tz_offset\n";
 print "committer $release_master $first_mtime $tz_offset\n";
-print data("Start development on $branch $version\n\nBackup all prior development files");
-if (defined($opt_m)) {
-	print "from $opt_m\n";
-	# Create a directory of the previous snapshot
-	# This is required for git blame / log to detect file copy operations
-	# for new data added
-	my $empty_tree = `git mktree </dev/null`;
-	chop $empty_tree;
-	print "M 040000 $empty_tree $backup\n";
-
-	# Move all existing files into the backup directory
-	for my $entry (`git ls-tree --name-only $opt_m`) {
-		chop $entry;
-		next if ($entry eq 'LICENSE');
-		next if ($entry ~m /\.ref-/);
-		print "R $entry $backup/$entry\n";
+print data("Start development on $branch $version\n" . ($opt_r ? "\nCreate reference copy of all prior development files\n" : ''));
+# Specify merges
+for my $merge (split(/,/, $opt_m)) {
+	print "merge $merge\n";
+}
+# Add reference copies of older files
+for my $ref (split(/,/, $opt_r)) {
+	my $cmd;
+	open(my $ls, '-|', $cmd = "git ls-tree -r $ref") || die "Unable to open run $cmd: $!\n";
+	while (<$ls>) {
+		chop;
+		my ($mode, $blob, $sha, $path) = split;
+		print "M $mode $sha .ref-$ref/$path\n";
 	}
 }
 
@@ -176,8 +178,13 @@ print "author $release_master $last_mtime $tz_offset\n";
 print "committer $release_master $last_mtime $tz_offset\n";
 print data("$branch $version release\n\nSnapshot of the completed development branch");
 print "from :$last_devel_mark\n";
-print "merge $opt_m\n" if (defined($opt_m));
-print "D $backup\n" if ($opt_m);
+for my $merge (split(/,/, $opt_m)) {
+	print "merge $merge\n";
+}
+# Remove reference copies of older files
+for my $ref (split(/,/, $opt_r)) {
+	print "D .ref-$ref\n";
+}
 
 # Tag the release
 print "tag $branch-$version\n";
@@ -289,6 +296,10 @@ email_address
 {
 	my ($id) = @_;
 	my $address = $address_template;
+	if (!defined($address_template)) {
+		print STDERR "Address template not defined for $id\n";
+		exit 1;
+	}
 	$address =~ s/\$/$id/g;
 	return $address;
 }

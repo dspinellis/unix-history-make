@@ -113,6 +113,7 @@ usr/src/cmd/lex/.*		mel,x-es
 usr/src/cmd/lint/.*		scj
 usr/src/cmd/m4/.*		bwk,dmr
 usr/src/cmd/make/.*		sif
+usr/src/cmd/neqn/.*		bwk,llc
 usr/lib/tmac/tmac\.s.*		mel
 usr/src/cmd/c/.*		dmr
 usr/src/cmd/mip/.*		scj
@@ -123,6 +124,7 @@ usr/src/cmd/sed/.*		lem
 usr/src/cmd/sh/.*		srb
 usr/src/cmd/struct/.*		bsb
 usr/src/cmd/tbl/.*		mel
+usr/src/cmd/troff/.*		jfo
 usr/src/cmd/uucp/.*		dan
 usr/src/cmd/yacc/.*		scj
 
@@ -214,7 +216,7 @@ usr/man/man1/look\.1		doug
 usr/src/cmd/comm\.c		lem
 usr/man/man1/comm\.1		lem
 usr/man/man3/qsort\.3		lem
-usr/src/libc/gen/qsort\.c		lem
+usr/src/libc/gen/qsort\.c	lem
 usr/src/cmd/cu\.c		lem
 usr/man/man1/cu\.1c		lem
 
