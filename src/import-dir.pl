@@ -36,21 +36,21 @@ main::HELP_MESSAGE
 {
 	my ($fh) = @_;
 	print $fh qq{
-Usage: $0 [-c contributor_map] [-f file_pattern] [-m commit] [-n name_map]
-  [-p path_map] directory branch_name version_name tz_offset
--c	Specify a map of the tree's parts tree written by
-	specific contributors
--f	Regular expression of files to process
--m	Specify the commit from which the release will be merged
--n	Specify a map between contributor login names and full names
--p	Specify a regular expression to strip paths into committed ones
+Usage: $0 [options ...] directory branch_name version_name tz_offset
+-a name	When starting archive existing files into the named directory
+-c file	Map of the tree's parts tree written by specific contributors
+-d list	On a release, delete the comma-separated directories
+-f re	Regular expression of files to process
+-m SHA	The commit from which the release will be merged
+-n file	Map between contributor login names and full names
+-p re	Regular expression to strip paths into committed ones
 	By default this is the supplied directory
--u	File to write unmatched paths (paths matched with a wildcard)
+-u file	File to write unmatched paths (paths matched with a wildcard)
 };
 }
 
-our($opt_c, $opt_f, $opt_m, $opt_n, $opt_p, $opt_u);
-if (!getopts('c:f:m:n:p:u:') || $#ARGV + 1 != 4) {
+our($opt_a, $opt_c, $opt_d, $opt_f, $opt_m, $opt_n, $opt_p, $opt_u);
+if (!getopts('a:c:d:f:m:n:p:u:') || $#ARGV + 1 != 4) {
 	print STDERR $#ARGV;
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
@@ -72,6 +72,13 @@ $opt_p =~ s/([^\w])/\\$1/g;
 
 create_name_map() if (defined($opt_n));
 create_committer_map();
+
+# Create branch
+my $dev_branch = "$branch-Development-$version";
+system "git branch $dev_branch" || die "git branch: $!\n";
+
+print STDERR "Import $dev_branch\n";
+
 
 # Collect text files
 if (! -d $directory) {
@@ -120,7 +127,7 @@ for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 
 # The actual development commits
 print "# Start development commits from a clean slate\n";
-print "commit refs/heads/$branch-Development-$version\n";
+print "commit refs/heads/$dev_branch\n";
 print "author $release_master $first_mtime $tz_offset\n";
 print "committer $release_master $first_mtime $tz_offset\n";
 print data("Start development on $branch $version\n\nBackup all prior development files");
@@ -137,6 +144,7 @@ if (defined($opt_m)) {
 	for my $entry (`git ls-tree --name-only $opt_m`) {
 		chop $entry;
 		next if ($entry eq 'LICENSE');
+		next if ($entry ~m /\.ref-/);
 		print "R $entry $backup/$entry\n";
 	}
 }
@@ -146,7 +154,7 @@ my $last_mtime;
 my $last_devel_mark;
 for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 	print "# $fi{$name}->{mtime} $name\n";
-	print "commit refs/heads/$branch-Development-$version\n";
+	print "commit refs/heads/$dev_branch\n";
 	print "mark :$mark\n";
 	$last_devel_mark = $mark++;
 	my $commit_path = $name;
