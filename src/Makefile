@@ -1,4 +1,5 @@
-all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 archive/1bsd newoldar
+all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
+	archive/1bsd newoldar archive/2bsd
 
 archive/v1:
 	mkdir -p archive
@@ -14,6 +15,8 @@ archive/v1:
 	# Date based on the 6/20/72 mark on p. 2 of
 	#http://bitsavers.informatik.uni-stuttgart.de/pdf/bellLabs/unix/PreliminaryUnixImplementationDocument_Jun72.pdf
 	touch -d '1972-06-20 12:00' $@/sys/*
+
+# The only thing remaining from V2 are formatted manual pages
 
 archive/v3:
 	mkdir -p $@/sys
@@ -47,6 +50,10 @@ archive/v7:
 archive/1bsd: newoldar
 	mkdir -p $@
 	curl -s http://unixarchive.cn-k.de/PDP-11/Distributions/ucb/1bsd.tar.gz | tar -C $@ -xzf -
-	( AR=`pwd`/newoldar ; cd $@ && find . -name cont.a  | awk -F/ '{print $$2}' | while read d ; do ( cd $$d ; $$AR xo cont.a ) ; done)
+	( AR=`pwd`/newoldar ; cd $@ && find . -name cont.a  | awk -F/ '{print $$2}' | while read d ; do ( cd $$d && $$AR xo cont.a && rm cont.a ) ; done)
 
 newoladar: newoldar.c
+
+archive/2bsd:
+	mkdir -p $@
+	curl -s http://unixarchive.cn-k.de/PDP-11/Distributions/ucb/2bsd.tar.gz | tar -C $@ -xzf -
