@@ -89,7 +89,7 @@ perl ../import-dir.pl -m Research-V7 -c ../author-path/32v -n ../bell.au \
 perl ../import-dir.pl -m Bell-32V,BSD-2 -c ../author-path/3bsd \
 	-n ../berkeley.au \
 	-r Bell-32V,BSD-2 $DEBUG \
-	-u ../unmatched/bsd3 $ARCHIVE/3bsd BSD 3 -0800 | gfi
+	-u ../unmatched/3bsd $ARCHIVE/3bsd BSD 3 -0800 | gfi
 
 git checkout BSD-Release
 
