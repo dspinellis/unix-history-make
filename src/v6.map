@@ -1,5 +1,5 @@
-# Brian W. Kernighan. Ratfor—a preprocessor for a rational Fortran.
-# Software: Practice & Experience, 5(4):395–406, 1975.
+# Brian W. Kernighan. Ratfor-a preprocessor for a rational Fortran.
+# Software: Practice & Experience, 5(4):395-406, 1975.
 usr/source/rat/.*		bwk
 
 # Regarding the user name see http://www.cs.bell-labs.com/who/dmr/index.html
