@@ -194,6 +194,23 @@ make
 ./import.sh
 ```
 
+## Further reading
+- Wikipedia: The Free Encyclopedia
+    - [History of Unix](https://en.wikipedia.org/wiki/History_of_Unix)
+    - [List of Unix systems](https://en.wikipedia.org/wiki/List_of_Unix_systems)
+    - [Research Unix](https://en.wikipedia.org/wiki/Research_Unix)
+    - [Berkeley Software Distribution](http://en.wikipedia.org/wiki/BSD_Unix)
+- TUHS: The Unix Heritage Society
+    - [The Unix Tree](http://minnie.tuhs.org/cgi-bin/utree.pl)
+- USENIX: The Advanced Computing Systems Association
+    - [The Restoration of Early UNIX Artifacts](https://www.usenix.org/legacy/events/usenix09/tech/full_papers/toomey/toomey.pdf) (pdf)
+- Historical documents and data
+    - [First Edition Unix printout - 1972](http://bitsavers.trailing-edge.com/pdf/bellLabs/unix/PreliminaryUnixImplementationDocument_Jun72.pdf)
+    - [Unix 32/V Report - 1978](http://cm.bell-labs.com/cm/cs/who/dmr/otherports/32vscan.pdf)
+    - [Berkeley CSRG Archive CD-ROMs](https://www.mckusick.com/csrg/index.html)
+- Studies
+    - [Unix at the Bell Labs - People](http://www.princeton.edu/~hos/Mahoney/unixpeople.htm)
+
 ## Acknowledgements
 * The following people helped with Bell Labs login identifiers.
  * Arnold D. Robbins
