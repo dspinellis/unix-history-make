@@ -55,7 +55,7 @@ perl ../import-dir.pl -m Research-V3 -c ../author-path/v4 -n ../bell.au \
 
 # V5: Full (apart from manual pages)
 perl ../import-dir.pl -m Research-V4 -c ../author-path/v5 -n ../bell.au \
-	-r Research-V3 $DEBUG \
+	-r Research-V3,Research-V4 $DEBUG \
 	-u ../unmatched/v5 $ARCHIVE/v5 Research V5 -0500 | gfi
 
 # V6: Full
