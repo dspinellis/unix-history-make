@@ -10,14 +10,20 @@ ARCHIVE=../archive
 trap "exit 1" TERM
 export TOP_PID=$$
 
+add_boilerplate()
+{
+	cp ../old-code-license LICENSE
+	cp ../../README.md .
+	git add LICENSE README.md
+	git commit -a -m "Add license and README"
+}
+
 # Initialize repo
 rm -rf import
 mkdir import
 cd import
 git init
-cp ../../README.md .
-git add README.md
-git commit -a -m "Add README"
+add_boilerplate
 git tag Epoch
 
 # Release branch
@@ -93,10 +99,9 @@ perl ../import-dir.pl -m Bell-32V,BSD-2 -c ../author-path/3bsd \
 
 git checkout BSD-Release
 
-# Add README file
-cp ../../README.md .
-git add README.md
-git commit -a -m "Add README file"
+# Adding boilerplate again seems to help getting a modern
+# timestamp for the files displayed on GitHub
+add_boilerplate
 
 
 # Succeed if text files in the two specified directories
