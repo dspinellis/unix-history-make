@@ -14,7 +14,7 @@ doc/Mail/.*		x-ks
 doc/csh			wnj
 doc/ex/.*		wnj
 doc/me/.*		eric
-doc/net/.*		x-ees
+doc/net/.*		schmidt
 doc/pascal/.*		wnj
 doc/px/.*		wnj
 doc/pxp/.*		wnj
@@ -49,12 +49,12 @@ man/lock.u		x-ks
 man/man.u		wnj
 man/mkstr.u		wnj,x-ch
 man/msgs.u		wnj
-man/net.u		x-ees
-man/netcp.u		x-ees
-man/netlpr.u		x-ees
-man/netmail.u		x-ees
-man/netq.u		x-ees
-man/netrm.u		x-ees
+man/net.u		schmidt
+man/netcp.u		schmidt
+man/netlpr.u		schmidt
+man/netmail.u		schmidt
+man/netq.u		schmidt
+man/netrm.u		schmidt
 man/num.u		toy
 man/pcc.u		wnj
 man/pi.u		wnj,x-ch,ken
@@ -101,7 +101,7 @@ src/man\.c		wnj
 src/me/.*		eric
 src/mkstr\.c		wnj
 src/msgs\.c		wnj
-src/net/.*		x-ees
+src/net/.*		schmidt
 src/num\.c		toy
 src/pascal/.*		wnj
 src/pi/.*		x-ch,wnj

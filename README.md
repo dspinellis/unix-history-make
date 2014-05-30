@@ -113,7 +113,7 @@ Date:   Fri Jan 12 02:17:45 1979 -0500
 
     Work on file usr/src/cmd/sh/blok.c
 [...]
-Author: Eric Schmidt <x-ees@ucbvax.Berkeley.EDU>
+Author: Eric Schmidt <schmidt@ucbvax.Berkeley.EDU>
 Date:   Sat Jan 5 22:49:18 1980 -0800
 
     BSD 3 development

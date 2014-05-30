@@ -71,8 +71,8 @@ hpk:Howard Katseff
 jaap
 jak
 jas
-jfr:John Reiser
 jerry
+jfr:John Reiser
 jg
 jkf:John Foderaro
 johnh
@@ -96,7 +96,7 @@ macklem:Rick Macklem
 mao
 marc
 margo:Margo Seltzer
-mark
+mark:Mark Horton
 mccanne:Steven McCanne
 mcilroy:Peter McIlroy
 mckusic:Kirk McKusick
@@ -111,6 +111,7 @@ muller:Keith Muller
 nicklin:Peter J. Nicklin
 opcode
 orange
+ozalp:Ozalp Babaoglu
 pauline:Pauline Schwartz
 pc
 pendry:Jan-Simon Pendry
@@ -126,8 +127,9 @@ rrh:Robert R. Henry
 rt
 rwh:Robert W. Henry
 sagersa
-sam:Sam Leffler
 samples
+sam:Sam Leffler
+schmidt:Eric Schmidt
 sechrest
 sellgren:Steve Sellgren
 serge
@@ -137,6 +139,7 @@ sklower:Keith Sklower
 slatteng:Dave Slattengren
 staelin:Carl Staelin
 tapers
+tbl:Tom London
 tef:Thomas Ferrin
 thien
 torek:Chris Torek
@@ -150,7 +153,6 @@ vjs:Vernon Schryver
 wall
 walsh
 william
-tbl:Tom London
 wnj:Bill Joy
 x-arn:A. R. Newton
 x-cbh:Charles B. Haley:research!x-cbh
@@ -159,15 +161,12 @@ x-clm:Colin L. Mc Master
 x-dl:Douglas Lanam
 x-dop:D. O. Pederson
 x-ec:Ellis Cohen
-x-ees:Eric Schmidt
 x-etc:Earl T. Cohen
 x-im:Ivan Maltz
 x-jp:Juan Porcar
 x-js:Jeff Schriebman
 x-ks:Kurt Shoens
 x-le:Len Edmondson
-x-mh:Mark Horton
-x-ob:Ozalp Babaoglu
 x-or:Olivier Roubine
 x-rd:R. Dowell
 x-rh:Ross Harvey
