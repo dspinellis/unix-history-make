@@ -14,12 +14,10 @@ my @sccs;
 find (sub { $File::Find::dir =~ m{(?:^|/)SCCS$} and m/^s\./ or return;
 	    push @sccs, $File::Find::name;
 	    m/\.(\w+)$/ and $sccs_ext{$1}++;
-	  }, glob "*");
+	  }, $ARGV[0]);
 
 @sccs or die "No SCCS source files to convert\n";
 
--d ".git" and die ".git already exists\n";
-system "git init";
 # http://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
 # could be explored to write checkout hooks that translate SCCS
 # keywords to actual content. Would be hard to translate back
@@ -33,8 +31,8 @@ sub pr_date
 	$dt[2], $dt[1], $dt[0];
     } # pr_date
 
+my $branchname = $ARGV[1];
 # fire up GFI
-chomp (my $branchname = qx(git symbolic-ref HEAD));
 open my $gfi, "|-", qw(git fast-import --quiet);
 my $mark;
 
@@ -117,7 +115,7 @@ print { $gfi } "checkpoint\n";
 
 close $gfi;
 
-system "git-checkout";
+system "git checkout";
 system "git", "reset", "--hard";
 
 open my $gi, ">", ".gitignore";
