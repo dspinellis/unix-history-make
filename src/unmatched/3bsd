@@ -203,6 +203,8 @@ usr/doc/yacc/ss6
 usr/doc/yacc/ss7
 usr/doc/yacc/ss8
 usr/doc/yacc/ss9
+usr/doc/yacc/ssA
+usr/doc/yacc/ssB
 usr/doc/yacc/ssa
 usr/doc/yacc/ssb
 usr/doc/yacc/ssc
@@ -2074,6 +2076,7 @@ usr/src/cmd/troff/term/code.300
 usr/src/cmd/troff/term/tab300.c
 usr/src/cmd/troff/term/tab300S.c
 usr/src/cmd/troff/term/tab300X.c
+usr/src/cmd/troff/term/tab300s.c
 usr/src/cmd/troff/term/tab37.c
 usr/src/cmd/troff/term/tab450-12-8.c
 usr/src/cmd/troff/term/tab450-12.c
@@ -2628,11 +2631,6 @@ usr/src/new/libI77uc/writeup
 usr/src/new/libI77uc/writeup.tx
 usr/src/new/libI77uc/wrtfmt.c
 usr/src/old/dummy
-usr/src/sys/dev/dh.c
-usr/src/sys/dev/dhdm.c
-usr/src/sys/dev/dhfdm.c
-usr/src/sys/dev/rk.c
-usr/src/sys/dev/rk7.c
 usr/src/sys/floppy/defboo.cmd
 usr/src/sys/floppy/dump
 usr/src/sys/h/acct.h

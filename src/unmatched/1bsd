@@ -5,11 +5,11 @@ assubs/fcrt0.s
 assubs/mcrt0.s
 assubs/pcrt0.s
 assubs/sep.s
-bin/Print
 bin/READ_ME
 bin/box
 bin/cxref
 bin/fixit
+bin/print
 bin/pss
 bin/uhav
 bin/version
@@ -38,6 +38,7 @@ man1/login.1
 man1/sh.1
 man1/su.8
 man1/wait.1
+man6/Print.6
 man6/ashell.6
 man6/block.6
 man6/clock.6

@@ -185,6 +185,15 @@ source that contains information that is currently missing.
   [4.3BSD-Alpha](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD-Alpha/), and
   [Net2](http://www.tuhs.org/Archive/4BSD/Distributions/Net2/).
 
+## Re-creating the historical repository from scratch
+The -make repository is provided to share and document the creation process, rather than as a bullet-proof way to get consistent and repeatable results.  For instance, importing the snapshots on a system that is case-insensitive (NTFS, HFS Plus with default settings) will results in a few files getting lost.
+
+Nevertheless, the -repo repository can be created with the following commands.
+```sh
+make
+./import.sh
+```
+
 ## Acknowledgements
 * The following people helped with Bell Labs login identifiers.
  * Arnold D. Robbins
