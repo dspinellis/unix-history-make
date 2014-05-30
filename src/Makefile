@@ -64,4 +64,4 @@ archive/32v:
 
 archive/3bsd:
 	mkdir -p $@
-	curl -s http://www.tuhs.org/Archive/4BSD/Distributions/3bsd.tar.gz | tar -C $@ -xzf -
+	curl -s http://www.tuhs.org/Archive/4BSD/Distributions/3bsd.tar.gz | tar -C $@ -xzf - --exclude dev
