@@ -15,9 +15,9 @@ rm -rf import
 mkdir import
 cd import
 git init
-cp ../old-code-license LICENSE
-git add LICENSE
-git commit -a -m "Add license"
+cp ../../README.md .
+git add README.md
+git commit -a -m "Add README"
 git tag Epoch
 
 # Release branch
@@ -110,6 +110,7 @@ verify_same_text()
 			chop;
 			if (!s/^Only in // || !s|: |/| || -T) {
 				next if (/LICENSE/);
+				next if (/README\.md/);
 				$exit = 1;
 				print "$_\n"
 			}

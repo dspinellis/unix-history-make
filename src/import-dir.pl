@@ -82,7 +82,6 @@ system "git branch $dev_branch" || die "git branch: $!\n";
 
 print STDERR "Import $dev_branch\n";
 
-
 # Collect text files
 if (! -d $directory) {
 	print STDERR "$directory is not a directory\n";
@@ -125,6 +124,9 @@ for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 	$mark++;
 }
 
+my $license_blob = add_file_blob('../old-code-license');
+my $readme_blob = add_file_blob('../../README.md');
+
 if (!defined($first_mtime)) {
 	print STDERR "No files for import found in $directory\n";
 	exit 1;
@@ -150,6 +152,9 @@ for my $ref (split(/,/, $opt_r)) {
 		print "M $mode $sha .ref-$ref/$path\n";
 	}
 }
+# Add README and license
+print "M 644 :$readme_blob README.md\n";
+print "M 644 :$license_blob LICENSE\n";
 
 print "# Development commits\n";
 my $last_mtime;
@@ -330,4 +335,25 @@ committer
 	}
 	print STDERR "Unable to map comitter for $path\n";
 	exit 1;
+}
+
+# Add the specified file to the repo as a blob returning its mark
+sub
+add_file_blob
+{
+	my ($name) = @_;
+	if (!-r $name) {
+		print STDERR "$name: $!\n";
+		exit 1;
+	}
+	my ($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, $ctime, $blksize, $blocks) = stat $name;
+	print "# Manual addition of $name\n";
+	print "blob\n";
+	print "mark :$mark\n";
+	print "data $size\n";
+	# Flush stdout
+	$| = 1;
+	$| = 0;
+	copy($name, \*STDOUT);
+	return $mark++;
 }
