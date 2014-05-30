@@ -61,7 +61,7 @@ if (!getopts('c:f:m:n:p:r:s:u:') || $#ARGV + 1 != 4) {
 
 my $unmatched;
 if ($opt_u) {
-	open($unmatched, '|-', "sort >$opt_u") || die "Unable to open $opt_u: $!\n";
+	open($unmatched, '|-', "LC_COLLATE=C sort >$opt_u") || die "Unable to open $opt_u: $!\n";
 }
 
 my $directory = shift;
