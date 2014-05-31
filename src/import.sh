@@ -13,9 +13,10 @@ export TOP_PID=$$
 add_boilerplate()
 {
 	cp ../old-code-license LICENSE
+	cp ../Caldera-license.pdf .
 	cp ../../README.md .
-	git add LICENSE README.md
-	git commit -a -m "Add license and README"
+	git add LICENSE README.md Caldera-license.pdf
+	git commit -a -m "Add licenses and README"
 }
 
 # Check prerequisites
