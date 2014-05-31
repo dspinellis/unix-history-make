@@ -22,11 +22,11 @@ Two repositories are associated with the project:
 The first phase of the project will be to create a single timeline from the First Edition of Unix until the present.
 
 ## Project status
-Currently, the project is maturing with the creation of a repository containing snapshots of V1, V3, V4, V5, V6, and V7 Research Edition, Unix/32V, 1BSD, 2BSD, and 3BSD.    The files appear to be added in the repository in chronological order according to their modification time, and some part part of the source code has been attributed to its actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
+Currently, the project is maturing with the creation of a repository containing snapshots of V1, V3, V4, V5, V6, and V7 Research Edition, Unix/32V, 1BSD, 2BSD, and 3BSD, as well as an import of the CSRG SCCS history.    The files appear to be added in the repository in chronological order according to their modification time, and some part part of the source code has been attributed to its actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
 
 The repository contains the first two-way merge (3BSD merged from Unix/32V and Research Edition 6), and blame is apportioned appropriately.
 
-Future plans involve the integration of further BSD snapshots, the BSD SCCS repository, and the FreeBSD repository.
+Future plans involve the integration of further BSD snapshots, 386BSD, and the FreeBSD repository.
 
 ## Branches and tags
 The following branches are included in the `unix-history-repo`.
@@ -43,6 +43,7 @@ The following branches are included in the `unix-history-repo`.
 * BSD-Development-1
 * BSD-Development-2
 * BSD-Development-3
+* BSD-SCCS
 
 The -Development branches contain a commit for every file that was added during the development of the corresponding system. The `*-Release` branches have each development cycle merged into them.
 In addition, the following tags mark specific releases, listed in chronological order.
@@ -57,6 +58,7 @@ In addition, the following tags mark specific releases, listed in chronological 
 * Research-V7
 * Bell-32V
 * BSD-3
+* BSD-SCCS-END
 
 ## Cool things you can do
 Run
