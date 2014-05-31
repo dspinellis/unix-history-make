@@ -104,10 +104,8 @@ perl ../import-dir.pl -m Bell-32V,BSD-2 -c ../author-path/3bsd \
 	-r Bell-32V,BSD-2 $DEBUG \
 	-u ../unmatched/3bsd $ARCHIVE/3bsd BSD 3 -0800 | gfi
 
-# Mount should use option  -o uid=`id -u`, because some directories
-# have 750 permissions, e.g.
-# drwxr-x--- 2 root news  4096 Mar  9  1989 netns
-DIR=/mnt
+# BSD SCCS: From 1980 to 1995
+DIR=archive/CSRG/cd4
 if [ -n "$DEBUG" ]
 then
 	DIR=$DIR/usr.bin/sed

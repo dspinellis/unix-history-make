@@ -1,5 +1,15 @@
 all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
-	archive/1bsd newoldar archive/2bsd archive/32v archive/3bsd
+	archive/1bsd newoldar archive/2bsd archive/32v archive/3bsd \
+	archive/CSRG archive/CSRG/cd1 archive/CSRG/cd2 \
+	archive/CSRG/cd3 archive/CSRG/cd4
+
+.SUFFIXES:.iso
+
+.iso:
+	mkdir -p $@
+	# Mount uses -o uid, because some directories have 750 permissions, e.g.
+	# drwxr-x--- 2 root news  4096 Mar  9  1989 netns
+	sudo mount -o loop -o uid=`id -u` $< $@
 
 archive/v1:
 	mkdir -p archive
@@ -65,3 +75,8 @@ archive/32v:
 archive/3bsd:
 	mkdir -p $@
 	curl -s http://www.tuhs.org/Archive/4BSD/Distributions/3bsd.tar.gz | tar -C $@ -xzf - --exclude dev
+
+archive/CSRG:
+	@echo Create the directory archive/CSRG, and save in it the ISO
+	@echo images of the four CSRG CD-ROMs, with names cd[1-4].iso.
+	@echo For availability see https://www.mckusick.com/csrg/
