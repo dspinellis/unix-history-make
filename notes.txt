@@ -26,6 +26,7 @@ BSD-SCCS
 	development)."
 	Given that 3BSD was released at the end of 1979, it seems logical to
 	import SCCS commits on top of BSD3
+	(Files in BSD 4.0 start on Oct 1 1980)
 	The SCCS logs are available on CD-ROM from:
 	https://www.mckusick.com/csrg/
 
@@ -174,9 +175,11 @@ rename old top directories to previous_version/...
 Last commit
 Remove previous_version
 TODO {{{1
-2bsd
-32V
+SCCS
+4.*
 Flag to indicate directory where old version is moved before release
 Flag to indicate directories to remove on release
 Flag to indicate release text file
 Coalesce commits by the same author on same date/time in import.pl
+Indicate in unmatched % changed and remove unchanged files
+ (could be done with git blame on each file)
