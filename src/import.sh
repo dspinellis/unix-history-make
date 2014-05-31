@@ -18,6 +18,13 @@ add_boilerplate()
 	git commit -a -m "Add license and README"
 }
 
+# Check prerequisites
+if ! perl -MVCS::SCCS -e 1 2>/dev/null
+then
+	echo "The VCS::SCCS module is not installed"
+	exit 1
+fi
+
 # Initialize repo
 rm -rf import
 mkdir import
@@ -96,6 +103,18 @@ perl ../import-dir.pl -m Bell-32V,BSD-2 -c ../author-path/3bsd \
 	-n ../berkeley.au \
 	-r Bell-32V,BSD-2 $DEBUG \
 	-u ../unmatched/3bsd $ARCHIVE/3bsd BSD 3 -0800 | gfi
+
+# Mount should use option  -o uid=`id -u`, because some directories
+# have 750 permissions, e.g.
+# drwxr-x--- 2 root news  4096 Mar  9  1989 netns
+DIR=/mnt
+if [ -n "$DEBUG" ]
+then
+	DIR=$DIR/usr.bin/sed
+fi
+perl ../import-dir.pl -S -m BSD-3 -c ../author-path/3bsd \
+	-n ../berkeley.au $DEBUG \
+	$DIR BSD-SCCS | gfi
 
 git checkout BSD-Release
 
