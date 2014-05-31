@@ -112,7 +112,7 @@ if [ -n "$DEBUG" ]
 then
 	DIR=$DIR/usr.bin/sed
 fi
-perl ../import-dir.pl -S -m BSD-3 -c ../author-path/3bsd \
+perl ../import-dir.pl -S -C 1996-01-01 -m BSD-3 -c ../author-path/3bsd \
 	-n ../berkeley.au $DEBUG \
 	$DIR BSD-SCCS | gfi
 

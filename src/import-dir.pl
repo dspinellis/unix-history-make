@@ -17,6 +17,7 @@
 use strict;
 use warnings;
 
+use Date::Parse;
 use File::Copy;
 use File::Find;
 use Getopt::Std;
@@ -50,6 +51,7 @@ main::HELP_MESSAGE
 	my ($fh) = @_;
 	print $fh qq{
 Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
+-C date	Ignore commits after the specified cutoff date
 -c file	Map of the tree's parts tree written by specific contributors
 -m T	The commit from which the import will be merged
 -n file	Map between contributor login names and full names
@@ -67,17 +69,19 @@ version_name and tz_offset are not required for SCCS imports
 };
 }
 
-our($opt_c, $opt_m, $opt_n, $opt_p, $opt_r, $opt_S, $opt_s, $opt_u);
+our($opt_C, $opt_c, $opt_m, $opt_n, $opt_p, $opt_r, $opt_S, $opt_s, $opt_u);
 $opt_m = $opt_r = '';
 
-if (!getopts('c:f:m:n:p:r:Ss:u:')) {
+if (!getopts('C:c:f:m:n:p:r:Ss:u:')) {
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 
 }
 
-if (($opt_S && $#ARGV + 1 != 2) || (!$opt_S && $#ARGV + 1 != 4)) {
-	print STDERR "Required argument(s) missing\n";
+# Expected arguments
+my $ea;
+if (($opt_S && $#ARGV + 1 != ($ea = 2)) || (!$opt_S && $#ARGV + 1 != ($ea = 4))) {
+	print STDERR "Expected $ea required arguments\n";
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 }
@@ -85,6 +89,11 @@ if (($opt_S && $#ARGV + 1 != 2) || (!$opt_S && $#ARGV + 1 != 4)) {
 my $unmatched;
 if ($opt_u) {
 	open($unmatched, '|-', "LC_COLLATE=C sort >$opt_u") || die "Unable to open $opt_u: $!\n";
+}
+
+my $cutoff_time;
+if ($opt_C) {
+	$cutoff_time = str2time($opt_C);
 }
 
 my $directory = shift;
@@ -234,6 +243,7 @@ issue_sccs_commits
 
 		my $fn	= $sccs->file ();
 		my %delta = %{$sccs->delta ($rev)};
+		return if (defined($cutoff_time) && $delta{stamp} > $cutoff_time);
 		my $stamp = pr_date ($delta{stamp});
 		my $vsn   = $delta{version};
 
@@ -314,6 +324,7 @@ issue_text_commits
 {
 	print "# Development commits\n";
 	for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
+		next if (defined($cutoff_time) && $fi{$name}->{mtime} > $cutoff_time);
 		print "# $fi{$name}->{mtime} $name\n";
 		print "commit refs/heads/$dev_branch\n";
 		print "mark :$mark\n";
