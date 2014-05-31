@@ -133,6 +133,7 @@ verify_same_text()
 			chop;
 			if (!s/^Only in // || !s|: |/| || -T) {
 				next if (/LICENSE/);
+				next if (/Caldera-license\.pdf/);
 				next if (/README\.md/);
 				$exit = 1;
 				print "$_\n"

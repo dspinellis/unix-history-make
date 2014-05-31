@@ -287,7 +287,8 @@ if ($opt_S) {
 	create_text_blobs();
 }
 
-my $license_blob = add_file_blob('../old-code-license');
+my $text_license_blob = add_file_blob('../old-code-license');
+my $caldera_license_blob = add_file_blob('../Caldera-license.pdf');
 my $readme_blob = add_file_blob('../../README.md');
 
 if (!defined($first_mtime)) {
@@ -315,9 +316,10 @@ for my $ref (split(/,/, $opt_r)) {
 		print "M $mode $sha .ref-$ref/$path\n";
 	}
 }
-# Add README and license
+# Add README and licenses
 print "M 644 :$readme_blob README.md\n";
-print "M 644 :$license_blob LICENSE\n";
+print "M 644 :$text_license_blob LICENSE\n";
+print "M 644 :$caldera_license_blob Caldera-license.pdf\n";
 
 sub
 issue_text_commits
