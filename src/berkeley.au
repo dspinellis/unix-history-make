@@ -3,25 +3,25 @@
 
 #:Id (used in path maps):Full name:email
 
-ah
+ah:Anne Hughes
 aigrain:Philippe Aigrain
-aki
+aki:Akito Fujita
 akito:Akito Fujita
-andrew
+andrew:Andrew Cherenson
 anne:Anne Hughes
-aoki
+aoki:Paul M. Aoki
 arnold:Ken Arnold
 baden:Scott B. Baden
-bill
+bill:Bill Joy
 bloom:Jim Bloom
-borman
+borman:Paul Borman
 bostic:Keith Bostic
-bugs
-bush
-cabrera:Luis Felipe Cabrera
+bugs:Keith Bostic
+bush:Bill Bush
+cabrera:Luis-Felipe Cabrera
 cael:Cael Staelin
-carl
-cda
+carl:Carl Smith
+cda:Charlotte Allen
 cgd:Chris G. Demetriou
 christos:Christos Zoulas
 claudio
@@ -31,70 +31,71 @@ conrad:Conrad Huang
 cooper:Eric Cooper
 corbett:Bob Corbett
 corrigan:Mike Corrigan:corrigan@UCSD.EDU
-craig
+craig:Craig Leres
 csvaf
-csvsj
+csvsj:Steve Jacobson
 cuccia:Nick Cuccia
-dab
+dab:Dave A. Borman
 denise
-dist
+dist:Distribution Folks
 dkhusema:Dirk Husemann:dkhusema@uni-erlangen.de
-dlw:David Wasle
+dlw:David Wasley
 donahn:Don Ahn:donahn@mica.berkeley.edu
 donn:Donn Seeley
-dpk
-earl
+dpk:Doug Kingston
+earl:Earl Killian
 ecc
-edward
+edward:Edward Wang
 elan:Elan Amir
-elefunt
+elefunt:Group working with Kahn on math lib
 epg
 eric:Eric Allman
-erics
+erics:Eric Shienbrood
 evan
-feldman
+feldman:Brian Feldman
 fitz
 fortran
 fujita:Akito Fujita
-garrison
+garrison:Gary M. Levin
 glickman:Matt Glickman
-gray
-gusella
-halbert
+gray:Bob Gray
+gusella:Riccardo Gusella
+halbert:Dan Halbert?
 harrison
 heideman:John Heidemann
-helge
-henry
+helge:Helge Skrivervik
+henry:Robert R. Henry
 hibler:Mike Hibler
 hickman:Kipp Hickman
 hpk:Howard Katseff
-jaap
-jak
-jas
-jerry
+jaap:Jaap Akkerhuis
+jak:John A. Kunze
+jas:Jim Shankland or Jeffrey A Silber
+jerry:Jerry Berkman
 jfr:John Reiser
-jg
+jg:Jim Gettys
 jkf:John Foderaro
-johnh
+johnh:John Heidemann
 karels:Mike Karels
-kas
+kas:Kurt A. Schoens
 ken:Ken Thompson:research!ken
 kfall:Kevin Fall
 kjd:Kevin Dunlap
 kre:Robert Elz
 kridle:Bob Kridle
 kupfer:Michael Kupfer
-kurt
+kurt:Kurt A. Schoens
 lam
-layer
+layer:Kevin Layer
 lem:Lee E. McMahon:research!lem
 lepreau:Jay Lepreau
 leres:Craig Leres
-libs
-linton:Mark Linto
+libs:Don Libes?
+linton:Mark Linton
 macklem:Rick Macklem
-mao
-marc
+mao:Mike A. Olson
+marc:Marc Teitelbaum
+marcus:Marc Teitelbaum
 margo:Margo Seltzer
 mark:Mark Horton
 mccanne:Steven McCanne
@@ -102,10 +103,10 @@ mcilroy:Peter McIlroy
 mckusic:Kirk McKusick
 mckusick:Kirk McKusick
 minshall:Gregory Minshall
-miriam:Miriam Amos
-mis
-mkm
-mo
+miriam:Miriam Amos Nihart
+mis:Mark Seiden
+mkm:Marshall Kirk McKusick
+mo:Mike O'Dell
 mosher:David A. Mosher
 muller:Keith Muller
 nicklin:Peter J. Nicklin
@@ -113,46 +114,46 @@ opcode
 orange
 ozalp:Ozalp Babaoglu
 pauline:Pauline Schwartz
-pc
+pc:Peter Collinson
 pendry:Jan-Simon Pendry
 peter:Peter B. Kessler
-phil
-presott
+phil:Phil Lapsley
+presott:David Presotto
 presotto:Dave Presotto
-pugs
+pugs:Tom Lyon
 ralph:Ralph Campbell
-rick
-root:Charlie Root
+rick:Rick Adams
+root:Bill Joy
 rrh:Robert R. Henry
 rt
 rwh:Robert W. Henry
-sagersa
-samples
+sagersa:Alex Sagers
+samples:Dain Samples
 sam:Sam Leffler
 schmidt:Eric Schmidt
-sechrest
+sechrest:Stuart Sechrest
 sellgren:Steve Sellgren
-serge
+serge:Serge ???
 shannon:Bill Shannon
-shantz
+shantz:Mike Schantz
 sklower:Keith Sklower
 slatteng:Dave Slattengren
 staelin:Carl Staelin
-tapers
+tapers:BSD Tape Makers
 tbl:Tom London
 tef:Thomas Ferrin
-thien
+thien:Roger J. Thien
 torek:Chris Torek
 toy:Michael Toy
-trent
-tut
+trent:Trent Hein
+tut:Bill Tuthill
 utashiro:Kazumasa Utashiro
 van:Van Jacobson
 vern:Vern Paxson
 vjs:Vernon Schryver
-wall
-walsh
-william
+wall:Steve Wall
+walsh:Dan Walsh
+william:William Nesheim
 wnj:Bill Joy
 x-arn:A. R. Newton
 x-cbh:Charles B. Haley:research!x-cbh

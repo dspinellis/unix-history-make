@@ -215,12 +215,14 @@ make
 
 ## Acknowledgements
 * The following people helped with Bell Labs login identifiers.
- * Arnold D. Robbins
  * Brian W. Kernighan
  * Doug McIlroy
+ * Arnold D. Robbins
 * The following people helped with BSD login identifiers.
- * Anatole Shaw
  * Era Eriksson
+ * Kirk McKusick
+ * Ingo Schwarze
+ * Anatole Shaw
 * The BSD SCCS import code is based on work by
- * [Jonathan Gray](@jonathangray)
  * H. Merijn Brand
+ * [Jonathan Gray](@jonathangray)
