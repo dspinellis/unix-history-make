@@ -1,9 +1,0 @@
-#!/bin/sh
-mkdir -p archive
-rsync -avz minnie.tuhs.org::UA_PDP11 archive/PDP-11
-rsync -avz minnie.tuhs.org::UA_VAX archive/VAX
-rsync -avz minnie.tuhs.org::UA_4BSD archive/4BSD
-rsync -avz minnie.tuhs.org::UA_Root archive
-rsync -avz minnie.tuhs.org::UA_Applications archive/Applications
-#rsync -avz minnie.tuhs.org::UA_PDP11_Trees archive/PDP-11
-rsync -avz minnie.tuhs.org::UA_Other archive/Other
