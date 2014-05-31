@@ -221,3 +221,6 @@ make
 * The following people helped with BSD login identifiers.
  * Anatole Shaw
  * Era Eriksson
+* The BSD SCCS import code is based on work by
+ * [Jonathan Gray](@jonathangray)
+ * H. Merijn Brand
