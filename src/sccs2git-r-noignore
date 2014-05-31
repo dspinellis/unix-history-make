@@ -32,8 +32,6 @@ sub pr_date
     } # pr_date
 
 my $branchname = $ARGV[1];
-# fire up GFI
-open my $gfi, "|-", qw(git fast-import --quiet);
 my $mark;
 
 # use a best guess at user, hostname, etc.  FIXME: add authors map :)
@@ -69,7 +67,7 @@ foreach my $f (sort @sccs) {
 	my $delta = $sccs->delta ($rev);
 	$sccs{pack "NA*", $delta->{stamp}, $fn} = [ $sccs, $rev, ++$mark ];
 	my $data = scalar $sccs->body ($rev);
-	print { $gfi } "blob\nmark :", $mark,
+	print "blob\nmark :", $mark,
 			   "\ndata ", length ($data),
 			   "\n", $data, "\n";
 	printf STDERR "%-20s %3d %8s  %s\r", $fn, $rev, $vsn, pr_date ($delta->{stamp});
@@ -88,8 +86,8 @@ foreach my $c (sort keys %sccs) {
     printf STDERR "%-20s %3d %6s  %s %s %s\n", $fn, $rev, $vsn,
 	$stamp, $delta{date}, $delta{"time"};
 
-    print { $gfi } "commit ", $branchname, "\n";
-    print { $gfi } "committer ", $delta{committer}, " <",
+    print "commit ", $branchname, "\n";
+    print "committer ", $delta{committer}, " <",
 	    ($delta{committer}, "@", $domain, "> ", $delta{stamp} + 64800,
 	     " ", $tzoffset->($delta{stamp}), "\n");
 
@@ -104,19 +102,14 @@ foreach my $c (sort keys %sccs) {
     $cmnt  .= "\n";
     my $msg  = join "\n", $cmnt, grep m/\S/, $mr, $vsn;
 
-    print { $gfi } "data ", length ($msg), "\n$msg\n";
+    print "data ", length ($msg), "\n$msg\n";
 
     my $mode = $delta{flags}{x} ? "755" : "644";
-    print { $gfi } "M $mode :$mark $fn\n";
-    print { $gfi } "\n";
+    print "M $mode :$mark $fn\n";
+    print "\n";
     }
 
-print { $gfi } "checkpoint\n";
-
-close $gfi;
-
-system "git checkout";
-system "git", "reset", "--hard";
+print "checkpoint\n";
 
 open my $gi, ">", ".gitignore";
 print $gi <<EOG;
