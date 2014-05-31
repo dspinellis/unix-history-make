@@ -9,11 +9,9 @@ use warnings;
 use VCS::SCCS;
 use File::Find;
 
-my %sccs_ext;
 my @sccs;
 find (sub { $File::Find::dir =~ m{(?:^|/)SCCS$} and m/^s\./ or return;
 	    push @sccs, $File::Find::name;
-	    m/\.(\w+)$/ and $sccs_ext{$1}++;
 	  }, $ARGV[0]);
 
 @sccs or die "No SCCS source files to convert\n";
@@ -86,7 +84,7 @@ foreach my $c (sort keys %sccs) {
     printf STDERR "%-20s %3d %6s  %s %s %s\n", $fn, $rev, $vsn,
 	$stamp, $delta{date}, $delta{"time"};
 
-    print "commit ", $branchname, "\n";
+    print "commit refs/heads/$branchname\n";
     print "committer ", $delta{committer}, " <",
 	    ($delta{committer}, "@", $domain, "> ", $delta{stamp} + 64800,
 	     " ", $tzoffset->($delta{stamp}), "\n");
@@ -111,40 +109,6 @@ foreach my $c (sort keys %sccs) {
 
 print "checkpoint\n";
 
-open my $gi, ">", ".gitignore";
-print $gi <<EOG;
-SCCS
-core
-old
-save
-*.log
-*.out
-*.sv
-*.t[gb]z
-*.zip
-EOG
-
-exists $sccs_ext{as} and print $gi <<EOG;
-*.[af]o
-*.[af]q
-*.al
-*.bk
-*.fa
-*.hz
-EOG
-
-exists $sccs_ext{c}  and print $gi <<EOG;
-*.[oa]
-a.out
-EOG
-
-exists $sccs_ext{ic} and print $gi <<EOG;
-*.ec
-*.u
-udir
-EOG
-
-close $gi;
 
 @fail and print STDERR join "\n    ",
     "The following files could not be converted and were skipped:", @fail, "\r";
