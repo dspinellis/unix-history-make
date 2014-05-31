@@ -175,11 +175,13 @@ rename old top directories to previous_version/...
 Last commit
 Remove previous_version
 TODO {{{1
-SCCS
-4.*
-Flag to indicate directory where old version is moved before release
-Flag to indicate directories to remove on release
-Flag to indicate release text file
-Coalesce commits by the same author on same date/time in import.pl
-Indicate in unmatched % changed and remove unchanged files
- (could be done with git blame on each file)
+- Add
+ - 4.* merging appropriate SCCS time points
+ - 386BSD
+ - FreeBSD from https://github.com/freebsd/freebsd
+- Flag to indicate release text file
+- Coalesce commits by the same author on same date/time in import.pl
+- Indicate in unmatched % changed and remove unchanged files
+  (could be done with git blame on each file)
+- Add support for SCCS file comment fields (^AT and ^At)
+  See http://publib.boulder.ibm.com/infocenter/aix/v7r1/index.jsp?topic=%2Fcom.ibm.aix.files%2Fdoc%2Faixfiles%2Fsccsfile.htm

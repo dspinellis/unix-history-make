@@ -113,7 +113,7 @@ then
 	DIR=$DIR/usr.bin/sed
 fi
 perl ../import-dir.pl -S -C 1996-01-01 -m BSD-3 -c ../author-path/3bsd \
-	-n ../berkeley.au $DEBUG \
+	-n ../berkeley.au -u ../unmatched/BSD-SCCS.authors $DEBUG \
 	$DIR BSD-SCCS | gfi
 
 git checkout BSD-Release

@@ -88,7 +88,7 @@ if (($opt_S && $#ARGV + 1 != ($ea = 2)) || (!$opt_S && $#ARGV + 1 != ($ea = 4)))
 
 my $unmatched;
 if ($opt_u) {
-	open($unmatched, '|-', "LC_COLLATE=C sort >$opt_u") || die "Unable to open $opt_u: $!\n";
+	open($unmatched, '|-', "LC_COLLATE=C sort -u >$opt_u") || die "Unable to open $opt_u: $!\n";
 }
 
 my $cutoff_time;
@@ -253,7 +253,7 @@ issue_sccs_commits
 		print "commit refs/heads/$dev_branch\n";
 		print "mark :$mark\n";
 		$last_devel_mark = $mark++;
-		print "committer ", $delta{committer}, " <",
+		print "committer ", full_name($delta{committer}), " <",
 			($delta{committer}, "@", $domain, "> ", $delta{stamp} + 64800,
 			 " ", $tz_offset = $tzoffset->($delta{stamp}), "\n");
 
@@ -490,6 +490,21 @@ check_name
 	return if (defined($full_name{$id}));
 	print STDERR "No full name defined for contributor id $id\n";
 	exit 1;
+}
+
+# Return a committer's full name, if available
+# If not return the id, and save the unmatched id
+sub
+full_name
+{
+	my ($id) = @_;
+	my $full = $full_name{$id};
+	if (defined($full)) {
+		return $full;
+	} else {
+		print $unmatched "$id\n" if (defined($unmatched));
+		return $id;
+	}
 }
 
 # Return the committer for the specified file path
