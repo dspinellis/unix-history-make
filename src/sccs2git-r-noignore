@@ -8,10 +8,11 @@ use warnings;
 
 use VCS::SCCS;
 use File::Find;
+use Time::Local;
 
 my @sccs;
 find (sub { $File::Find::dir =~ m{(?:^|/)SCCS$} and m/^s\./ or return;
-	    push @sccs, $File::Find::name;
+		push @sccs, $File::Find::name;
 	  }, $ARGV[0]);
 
 @sccs or die "No SCCS source files to convert\n";
@@ -22,93 +23,92 @@ find (sub { $File::Find::dir =~ m{(?:^|/)SCCS$} and m/^s\./ or return;
 
 sub pr_date
 {
-    my @dt = localtime shift;
-    sprintf "%s %02d-%02d-%4d %02d:%02d:%02d",
+	my @dt = localtime shift;
+	sprintf "%s %02d-%02d-%4d %02d:%02d:%02d",
 	(qw( Sun Mon Tue Wed Thu Fri Sat ))[$dt[6]],
 	$dt[3], $dt[4] + 1, $dt[5] + 1900,
 	$dt[2], $dt[1], $dt[0];
-    } # pr_date
+} # pr_date
 
 my $branchname = $ARGV[1];
 my $mark;
 
 # use a best guess at user, hostname, etc.  FIXME: add authors map :)
-use Time::Local;
 my $domain = "ucbvax.Berkeley.EDU";
 my %tzoffset;
 my $tzoffset = sub {
-    my $offset_s = timegm (localtime ($_[0])) - $_[0];
-    $offset_s = 0 - 800;
-    $tzoffset{$offset_s} ||= ( $offset_s >= 0 ? "+" : "-" )
+	my $offset_s = timegm (localtime ($_[0])) - $_[0];
+	$offset_s = 0 - 800;
+	$tzoffset{$offset_s} ||= ( $offset_s >= 0 ? "+" : "-" )
 	. sprintf "%.4d", abs $offset_s;
-    };
+	};
 
 # Submit in the same sequence as the original
 my %sccs;
 my %file;
 my @fail;
 foreach my $f (sort @sccs) {
-    my $sccs;
-    eval { $sccs = VCS::SCCS->new ($f) };
-    unless ($sccs) {
-	warn "Cannot convert $f\n";
-	push @fail, $f;
-	next;
+	my $sccs;
+	eval { $sccs = VCS::SCCS->new ($f) };
+	unless ($sccs) {
+		warn "Cannot convert $f\n";
+		push @fail, $f;
+		next;
 	}
-    # GIT supports get-hooks, to translate on retrieval
-    # But it will be useless as you cannot translate back
-    $sccs->set_translate ("SCCS");
-    my $fn = $sccs->file ();
-    $file{$fn}++;
-    foreach my $rm (@{$sccs->revision_map ()}) {
-	my ($rev, $vsn) = @{$rm};
-	my $delta = $sccs->delta ($rev);
-	$sccs{pack "NA*", $delta->{stamp}, $fn} = [ $sccs, $rev, ++$mark ];
-	my $data = scalar $sccs->body ($rev);
-	print "blob\nmark :", $mark,
-			   "\ndata ", length ($data),
-			   "\n", $data, "\n";
-	printf STDERR "%-20s %3d %8s  %s\r", $fn, $rev, $vsn, pr_date ($delta->{stamp});
+	# GIT supports get-hooks, to translate on retrieval
+	# But it will be useless as you cannot translate back
+	$sccs->set_translate ("SCCS");
+	my $fn = $sccs->file ();
+	$file{$fn}++;
+	foreach my $rm (@{$sccs->revision_map ()}) {
+		my ($rev, $vsn) = @{$rm};
+		my $delta = $sccs->delta ($rev);
+		$sccs{pack "NA*", $delta->{stamp}, $fn} = [ $sccs, $rev, ++$mark ];
+		my $data = scalar $sccs->body ($rev);
+		print "blob\nmark :", $mark,
+				   "\ndata ", length ($data),
+				   "\n", $data, "\n";
+		printf STDERR "%-20s %3d %8s  %s\r", $fn, $rev, $vsn, pr_date ($delta->{stamp});
 	}
-    print STDERR "\n";
-    }
+	print STDERR "\n";
+}
 
 foreach my $c (sort keys %sccs) {
-    my ($sccs, $rev, $mark) = @{$sccs{$c}};
+	my ($sccs, $rev, $mark) = @{$sccs{$c}};
 
-    my $fn    = $sccs->file ();
-    my %delta = %{$sccs->delta ($rev)};
-    my $stamp = pr_date ($delta{stamp});
-    my $vsn   = $delta{version};
+	my $fn	= $sccs->file ();
+	my %delta = %{$sccs->delta ($rev)};
+	my $stamp = pr_date ($delta{stamp});
+	my $vsn   = $delta{version};
 
-    printf STDERR "%-20s %3d %6s  %s %s %s\n", $fn, $rev, $vsn,
+	printf STDERR "%-20s %3d %6s  %s %s %s\n", $fn, $rev, $vsn,
 	$stamp, $delta{date}, $delta{"time"};
 
-    print "commit refs/heads/$branchname\n";
-    print "committer ", $delta{committer}, " <",
-	    ($delta{committer}, "@", $domain, "> ", $delta{stamp} + 64800,
-	     " ", $tzoffset->($delta{stamp}), "\n");
+	print "commit refs/heads/$branchname\n";
+	print "committer ", $delta{committer}, " <",
+		($delta{committer}, "@", $domain, "> ", $delta{stamp} + 64800,
+		 " ", $tzoffset->($delta{stamp}), "\n");
 
-    # tradition is to save all potentially useful but
-    # uncategorized metadata as RFC822-style headers in the commit
-    # message
-    my $mr  = $delta{mr} || ""; $mr =~ s/^-$//;
-    $mr  and $mr  = "SCCS-mr: $mr";
-    $vsn and $vsn = "SCCS-vsn: $vsn";
-    my $cmnt = $delta{comment} || "";
-    $cmnt ||= "(no message)";
-    $cmnt  .= "\n";
-    my $msg  = join "\n", $cmnt, grep m/\S/, $mr, $vsn;
+	# tradition is to save all potentially useful but
+	# uncategorized metadata as RFC822-style headers in the commit
+	# message
+	my $mr  = $delta{mr} || ""; $mr =~ s/^-$//;
+	$mr  and $mr  = "SCCS-mr: $mr";
+	$vsn and $vsn = "SCCS-vsn: $vsn";
+	my $cmnt = $delta{comment} || "";
+	$cmnt ||= "(no message)";
+	$cmnt  .= "\n";
+	my $msg  = join "\n", $cmnt, grep m/\S/, $mr, $vsn;
 
-    print "data ", length ($msg), "\n$msg\n";
+	print "data ", length ($msg), "\n$msg\n";
 
-    my $mode = $delta{flags}{x} ? "755" : "644";
-    print "M $mode :$mark $fn\n";
-    print "\n";
-    }
+	my $mode = $delta{flags}{x} ? "755" : "644";
+	print "M $mode :$mark $fn\n";
+	print "\n";
+}
 
 print "checkpoint\n";
 
 
-@fail and print STDERR join "\n    ",
-    "The following files could not be converted and were skipped:", @fail, "\r";
+@fail and print STDERR join "\n	",
+	"The following files could not be converted and were skipped:", @fail, "\r";
