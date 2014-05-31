@@ -224,5 +224,5 @@ make
  * Ingo Schwarze
  * Anatole Shaw
 * The BSD SCCS import code is based on work by
- * H. Merijn Brand
- * [Jonathan Gray](@jonathangray)
+ * [H. Merijn Brand](http://search.cpan.org/~hmbrand/VCS-SCCS-0.20/SCCS.pm)
+ * [Jonathan Gray](https://github.com/jonathangray/csrg-git-patches/)
