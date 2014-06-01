@@ -1,7 +1,8 @@
 all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
 	archive/1bsd newoldar archive/2bsd archive/32v archive/3bsd \
 	archive/CSRG archive/CSRG/cd1 archive/CSRG/cd2 \
-	archive/CSRG/cd3 archive/CSRG/cd4
+	archive/CSRG/cd3 archive/CSRG/cd4 \
+	archive/386BSD-0.1 archive/386BSD-0.0
 
 .SUFFIXES:.iso
 
@@ -80,3 +81,17 @@ archive/CSRG:
 	@echo Create the directory archive/CSRG, and save in it the ISO
 	@echo images of the four CSRG CD-ROMs, with names cd[1-4].iso.
 	@echo For availability see https://www.mckusick.com/csrg/
+
+archive/CSRG/cd1/4.3/usr/src/ucb/compress/compress.c: archive/CSRG
+
+# Compile from source, because Debian's version can't handle 16 bits
+uncompress: archive/CSRG/cd1/4.3/usr/src/ucb/compress/compress.c
+	cc -o $@ $<
+
+archive/386BSD-0.0: uncompress
+	mkdir -p $@
+	for i in `seq 1 8` ; do curl -s http://www.oldlinux.org/Linux.old/distributions/386BSD/386bsd-0.0/floppies/3in/src/floppy.$$i ; done | ./uncompress | tar -C $@ -xf -
+
+archive/386BSD-0.1: uncompress
+	mkdir -p $@
+	for i in `perl -e 'print map {sprintf("%02d ", $$_)} 0..61'` ; do curl -s http://www.oldlinux.org/Linux.old/distributions/386BSD/0.1/386BSD/SRC01.$$i ; done | ./uncompress | (cd $@ ; cpio -imd)
