@@ -10,8 +10,8 @@
 
 usr/doc/as\.ms			jfr,rrh
 usr/doc/berknet/.*		schmidt
-usr/doc/csh/.*			wnj
 usr/doc/cshms			wnj
+usr/doc/csh/.*			wnj
 usr/doc/ex/.*			wnj
 usr/doc/libNS/.*		sklower
 usr/doc/lisp/.*			jkf
@@ -23,6 +23,7 @@ usr/doc/sdb/.*			hpk
 usr/doc/spice			x-rd,x-arn,x-dop
 usr/doc/vi/.*			wnj
 usr/doc/vmunix/.*		ozalp,wnj,x-jp
+usr/lib/lisp/.*			jkf
 usr/man/man1/analyze\.1m	ozalp,wnj
 usr/man/man1/apl\.1		ken,x-rh,x-dl
 usr/man/man1/apropos\.1		wnj
@@ -97,8 +98,8 @@ usr/src/cmd/colrm\.c		x-js
 usr/src/cmd/compact/.*		x-clm
 usr/src/cmd/csh/.*		wnj
 usr/src/cmd/diffdir\.c		wnj
-usr/src/cmd/ex/.*		wnj
 usr/src/cmd/expand\.c		wnj
+usr/src/cmd/ex/.*		wnj
 usr/src/cmd/finger\.c		x-etc
 usr/src/cmd/flcopy\.c		sklower,x-rt2
 usr/src/cmd/iul\.c		wnj
@@ -116,11 +117,12 @@ usr/src/cmd/msgs\.c		wnj
 usr/src/cmd/net/.*		schmidt
 usr/src/cmd/num\.c		wnj,mckusic
 usr/src/cmd/pi/.*		x-cbh,wnj,ken
-usr/src/cmd/px/.*		x-cbh,wnj,ken
 usr/src/cmd/pxp/.*		wnj
+usr/src/cmd/px/.*		x-cbh,wnj,ken
 usr/src/cmd/reset\.c		x-ks
 usr/src/cmd/rewind\.c		mark
 usr/src/cmd/script\.c		mark
+usr/src/cmd/sdb/.*		hpk
 usr/src/cmd/see\.c		wnj
 usr/src/cmd/soelim\.c		wnj
 usr/src/cmd/spice/.*		x-rd,x-arn,x-dop
@@ -135,6 +137,7 @@ usr/src/cmd/w\.c		mark
 usr/src/cmd/whatis\.c		wnj
 usr/src/cmd/whereis\.c		wnj
 usr/src/cmd/xstr\.c		wnj
+usr/src/sys/sys/locore\.s	ozalp,wnj,x-jp
 usr/src/sys/sys/vm.*		ozalp,wnj,x-jp
 
 # Default (wnj, given the number of contributions)
