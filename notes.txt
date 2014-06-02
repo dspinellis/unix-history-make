@@ -162,6 +162,9 @@ git blame -C -C ...
 # For log use
 git log --follow
 
+Generate a list of text file modification times for CSRG releases
+for i in cd1/4* cd2/* cd3/* ; do find . -type f | xargs file | awk -F: '$2 ~ /text/ {print $1}'| xargs stat --format='%n %Y %y' | sort -k 3n >`echo $i | sed 's|/|_|'`.time ; done
+
 Lessons learned {{{1
 Split responsibilities between kernel and device drivers
 Ability to follow file moves by keeping a lookaside copy of preceding snapshot
@@ -175,8 +178,44 @@ rename old top directories to previous_version/...
 Last commit
 Remove previous_version
 TODO {{{1
+- Compare snapshots with corresponding SCCS to see when coverage is sufficient
 - Add
- - 4.* merging appropriate SCCS time points
+ - 4.* merging appropriate SCCS time points. According to CSRG/cd4/README
+   "The project began using a source code control system (SCCS)
+   in 1980 (three years after Bill Joy began his initial Berkeley UNIX
+   development).  Initially only the kernel was put under SCCS, but
+   by 1983 everything had been put under SCCS."
+
+   Note that the 4.0 and 4.1 CDs appear to be the same
+   diff -r  cd1/4.0/usr/src cd1/4.1/usr/src
+
+   These are the release dates as evidenced by C source file timestamps.
+   for i in cd1/4* cd2/* cd3/* ; do find $i -type f -print0 | xargs -0 file | awk -F: '$2 ~ /text/ && $1 !~ /\.MAP/ {print $1}' | tr '\n' '\0' | xargs -0 stat --format='%n %Y %y' | sort -k 2n >`echo $i | sed 's/\//_/g'`.time ; done
+   for i in *.time; do echo -n "$i " ; grep '/src/.*\.c ' $i | tail -1; done | sort -k 3n
+   cd1_4.0.time cd1/4.0/usr/src/cmd/dumpdir.c 343128297 1980-11-15 11:24:57.000000000 +0200
+   cd1_4.1.time cd1/4.1/usr/src/cmd/dumpdir.c 343128297 1980-11-15 11:24:57.000000000 +0200
+   cd1_4.1.snap.time cd1/4.1.snap/usr/src/games/canfield.c 381566084 1982-02-03 08:34:44.000000000 +0200
+   cd1_4.1a.time cd1/4.1a/src/cmd/berknet/sub.c 391016830 1982-05-23 18:47:10.000000000 +0300
+   cd1_4.1c.1.time cd1/4.1c.1/usr.lib/sendmail/src/Version.c 415096464 1983-02-26 10:34:24.000000000 +0200
+   cd1_4.1c.2.time cd1/4.1c.2/usr/src/usr.lib/sendmail/src/Version.c 416306791 1983-03-12 10:46:31.000000000 +0200
+   cd1_4.2.time cd1/4.2/usr/src/usr.lib/sendmail/src/Version.c 433434266 1983-09-26 16:24:26.000000000 +0200
+   cd1_4.3.time cd1/4.3/usr/src/usr.lib/libmp/util.c 541669130 1987-03-02 09:38:50.000000000 +0200
+   cd2_net.1.time cd2/net.1/sendmail/src/util.c 599652958 1989-01-01 12:15:58.000000000 +0200
+   cd2_4.3tahoe.time cd2/4.3tahoe/usr/src/sys/tahoevba/vx.c 611923663 1989-05-23 13:47:43.000000000 +0300
+   cd2_4.3reno.time cd2/4.3reno/usr/src/sys/GENERIC.vaxminiroot/vers.c 662803858 1991-01-02 10:10:58.000000000 +0200
+   cd2_net.2.time cd2/net.2/usr/src/usr.sbin/vipw/vipw.c 672050997 1991-04-19 11:49:57.000000000 +0300
+   cd3_4.4.time cd3/4.4/usr/src/usr.sbin/vipw/vipw.c 739350755 1993-06-06 10:12:35.000000000 +0300
+   cd2_4.4BSD-Lite1.time cd2/4.4BSD-Lite1/usr/src/usr.sbin/vipw/vipw.c 765255936 1994-04-02 06:05:36.000000000 +0300
+   cd3_4.4BSD-Lite2.time cd3/4.4BSD-Lite2/usr/src/usr.sbin/vipw/pw_util.c 799063982 1995-04-28 13:13:02.000000000 +0300
+
+  Therefore until 1983 (4.1c?) releases are imported incrementally.
+  into -Development-
+  When importing skip over SCCS and .MAP files
+  At each file commit, BSD-SCCS is merged at the most recent SHA whose
+  timestamp <= the file's timestamp.
+  From then on BSD-SCCS is merged directly (in one go) into -Release- at the
+  timestamp of each release, and a tag is created
+
  - 386BSD
  - FreeBSD from https://github.com/freebsd/freebsd
 - Flag to indicate release text file
@@ -185,3 +224,4 @@ TODO {{{1
   (could be done with git blame on each file)
 - Add support for SCCS file comment fields (^AT and ^At)
   See http://publib.boulder.ibm.com/infocenter/aix/v7r1/index.jsp?topic=%2Fcom.ibm.aix.files%2Fdoc%2Faixfiles%2Fsccsfile.htm
+- 

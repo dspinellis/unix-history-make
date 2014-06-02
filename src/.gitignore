@@ -1,7 +1,9 @@
-*.swp
+analyzed
 archive
 import
-newoldar.exe
 newoldar
+newoldar.exe
+sha
+*.swp
 uncompress
 uncompress.exe
