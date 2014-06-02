@@ -20,7 +20,7 @@ usr/doc/memacros/.*		eric
 usr/doc/pascal/.*		wnj
 usr/doc/pxp/.*			wnj
 usr/doc/sdb/.*			hpk
-usr/doc/spice			x-rd,x-arn,x-dop
+usr/doc/spice			x-rd,arn,dop
 usr/doc/vi/.*			wnj
 usr/doc/vmunix/.*		ozalp,wnj,x-jp
 usr/lib/lisp/.*			jkf
@@ -125,7 +125,7 @@ usr/src/cmd/script\.c		mark
 usr/src/cmd/sdb/.*		hpk
 usr/src/cmd/see\.c		wnj
 usr/src/cmd/soelim\.c		wnj
-usr/src/cmd/spice/.*		x-rd,x-arn,x-dop
+usr/src/cmd/spice/.*		x-rd,arn,dop
 usr/src/cmd/ssp\.c		wnj
 usr/src/cmd/strings\.c		wnj
 usr/src/cmd/tra\.c		wnj

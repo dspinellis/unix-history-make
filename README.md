@@ -219,6 +219,7 @@ make
  * Doug McIlroy
  * Arnold D. Robbins
 * The following people helped with BSD login identifiers.
+ * Clem Cole
  * Era Eriksson
  * Kirk McKusick
  * Ingo Schwarze
