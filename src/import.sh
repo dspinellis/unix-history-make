@@ -106,7 +106,7 @@ perl ../import-dir.pl -m Bell-32V,BSD-2 -c ../author-path/3bsd \
 	-u ../unmatched/BSD-3 $ARCHIVE/3bsd BSD 3 -0800 | gfi
 
 # BSD SCCS: From 1980 to 1995
-DIR=../archive/CSRG/cd4
+DIR=../archive/CSRG/cd4.patched
 if [ -n "$DEBUG" ]
 then
 	DIR=$DIR/usr.bin/sed

@@ -96,3 +96,9 @@ archive/386BSD-0.0: uncompress
 archive/386BSD-0.1: uncompress
 	mkdir -p $@
 	for i in `perl -e 'print map {sprintf("%02d ", $$_)} 0..61'` ; do curl -s http://www.oldlinux.org/Linux.old/distributions/386BSD/0.1/386BSD/SRC01.$$i ; done | ./uncompress | (cd $@ ; cpio -imd)
+
+archive/CSRG/cd4.patched: archive/CSRG/cd4.mnt
+	mkdir -p $@
+	tar -C $(subst .mnt,,$<) -cf - . | tar -C $@ -xf -
+	(cd $@ ; curl -s https://raw.githubusercontent.com/jonathangray/csrg-git-patches/master/SCCS-fix.patch | patch -p 1)
+	touch $@
