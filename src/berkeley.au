@@ -25,19 +25,21 @@ carl:Carl Smith
 cda:Charlotte Allen
 cgd:Chris G. Demetriou
 christos:Christos Zoulas
-claudio
+chuck:Charles B. Haley:research!x-cbh
+claudio:David L Wasley
 clemc:Clem Cole
+cohen:Ellis Cohen
 comay:David S. Comay
 conrad:Conrad Huang
 cooper:Eric Cooper
 corbett:Bob Corbett
 corrigan:Mike Corrigan:corrigan@UCSD.EDU
 craig:Craig Leres
-csvaf
+csvaf:Alastair Fyfe
 csvsj:Steve Jacobson
 cuccia:Nick Cuccia
 dab:Dave A. Borman
-denise
+denise:Denise Draper
 dist:Distribution Folks
 dkhusema:Dirk Husemann:dkhusema@uni-erlangen.de
 dlw:David Wasley
@@ -46,7 +48,7 @@ donn:Donn Seeley
 dop:Don O. Pederson
 dpk:Doug Kingston
 earl:Earl Killian
-ecc
+ecc:Eric C. Cooper
 edward:Edward Wang
 elan:Elan Amir
 elefunt:Group working with Kahn on math lib
@@ -55,7 +57,7 @@ eric:Eric Allman
 erics:Eric Shienbrood
 evan
 feldman:Brian Feldman
-fitz
+fitz:Dan Fitzpatrick
 fortran
 fujita:Akito Fujita
 garrison:Gary M. Levin
@@ -73,6 +75,7 @@ hpk:Howard Katseff
 jaap:Jaap Akkerhuis
 jak:John A. Kunze
 jas:Jim Shankland or Jeffrey A Silber
+jeff:Jeff Schriebman
 jerry:Jerry Berkman
 jfr:John Reiser
 jg:Jim Gettys
@@ -88,7 +91,7 @@ kridle:Bob Kridle
 kupfer:Michael Kupfer
 kurt:Kurt A. Schoens
 kurt:Kurt Shoens
-lam
+lam:Karen Lam
 layer:Kevin Layer
 lem:Lee E. McMahon:research!lem
 lepreau:Jay Lepreau
@@ -113,8 +116,8 @@ mo:Mike O'Dell
 mosher:David A. Mosher
 muller:Keith Muller
 nicklin:Peter J. Nicklin
-opcode
-orange
+opcode:Mark Opperman
+orange:Carol Orange
 ozalp:Ozalp Babaoglu
 pauline:Pauline Schwartz
 pc:Peter Collinson
@@ -149,6 +152,7 @@ thien:Roger J. Thien
 torek:Chris Torek
 toy:Michael Toy
 trent:Trent Hein
+tuck:Richard Tuck
 tut:Bill Tuthill
 utashiro:Kazumasa Utashiro
 van:Van Jacobson
@@ -158,19 +162,15 @@ wall:Steve Wall
 walsh:Dan Walsh
 william:William Nesheim
 wnj:Bill Joy
-x-cbh:Charles B. Haley:research!x-cbh
 x-ch:Charles Haley
 x-clm:Colin L. Mc Master
 x-dl:Douglas Lanam
-x-ec:Ellis Cohen
 x-etc:Earl T. Cohen
 x-im:Ivan Maltz
 x-jp:Juan Porcar
-x-js:Jeff Schriebman
 x-le:Len Edmondson
 x-or:Olivier Roubine
 x-rd:R. Dowell
 x-rh:Ross Harvey
-x-rt2:Richard Tuck
 x-rt:Robert Toxen
 zliu:Zhishun Alex Liu

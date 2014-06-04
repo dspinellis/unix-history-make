@@ -27,12 +27,12 @@ usr/lib/lisp/.*			jkf
 usr/man/man1/analyze\.1m	ozalp,wnj
 usr/man/man1/apl\.1		ken,x-rh,x-dl
 usr/man/man1/apropos\.1		wnj
-usr/man/man1/arff\.1m		sklower,x-rt2
+usr/man/man1/arff\.1m		sklower,tuck
 usr/man/man1/as\.1		jfr
 usr/man/man1/ccat\.1		x-clm
 usr/man/man1/chfn\.1		mark
 usr/man/man1/colcrt\.1		wnj
-usr/man/man1/colrm\.1		x-js
+usr/man/man1/colrm\.1		jeff
 usr/man/man1/compact\.1		x-clm
 usr/man/man1/csh\.1		wnj
 usr/man/man1/cxref\.1		wnj
@@ -41,7 +41,7 @@ usr/man/man1/edit\.1		wnj
 usr/man/man1/ex\.1		wnj
 usr/man/man1/expand\.1		wnj
 usr/man/man1/finger\.1		x-etc
-usr/man/man1/flcopy\.1m		sklower,x-rt2
+usr/man/man1/flcopy\.1m		sklower,tuck
 usr/man/man1/fmt\.1		kurt
 usr/man/man1/iul\.1		wnj
 usr/man/man1/last\.1		hpk
@@ -61,9 +61,9 @@ usr/man/man1/netmail\.1		schmidt
 usr/man/man1/netq\.1		schmidt
 usr/man/man1/netrm\.1		schmidt
 usr/man/man1/num\.1		wnj,mckusic
-usr/man/man1/pi\.1		x-cbh,wnj,ken
+usr/man/man1/pi\.1		chuck,wnj,ken
 usr/man/man1/pix\.1		wnj
-usr/man/man1/px\.1		x-cbh,wnj,ken
+usr/man/man1/px\.1		chuck,wnj,ken
 usr/man/man1/pxp\.1		wnj
 usr/man/man1/reset\.1		kurt
 usr/man/man1/rewind\.1		mark
@@ -90,18 +90,18 @@ usr/man/man6/banner\.6		mark
 usr/src/cmd/analyze\.c		ozalp,wnj
 usr/src/cmd/apl/.*		ken,x-rh,x-dl
 usr/src/cmd/apropos\.c		wnj
-usr/src/cmd/arff\.c		sklower,x-rt2
+usr/src/cmd/arff\.c		sklower,tuck
 usr/src/cmd/as/.*		jfr
 usr/src/cmd/chfn\.c		mark
 usr/src/cmd/colcrt\.c		wnj
-usr/src/cmd/colrm\.c		x-js
+usr/src/cmd/colrm\.c		jeff
 usr/src/cmd/compact/.*		x-clm
 usr/src/cmd/csh/.*		wnj
 usr/src/cmd/diffdir\.c		wnj
 usr/src/cmd/expand\.c		wnj
 usr/src/cmd/ex/.*		wnj
 usr/src/cmd/finger\.c		x-etc
-usr/src/cmd/flcopy\.c		sklower,x-rt2
+usr/src/cmd/flcopy\.c		sklower,tuck
 usr/src/cmd/iul\.c		wnj
 usr/src/cmd/last\.c		hpk
 usr/src/cmd/lastcomm\.c		x-le
@@ -116,9 +116,9 @@ usr/src/cmd/more\.c		schmidt
 usr/src/cmd/msgs\.c		wnj
 usr/src/cmd/net/.*		schmidt
 usr/src/cmd/num\.c		wnj,mckusic
-usr/src/cmd/pi/.*		x-cbh,wnj,ken
+usr/src/cmd/pi/.*		chuck,wnj,ken
 usr/src/cmd/pxp/.*		wnj
-usr/src/cmd/px/.*		x-cbh,wnj,ken
+usr/src/cmd/px/.*		chuck,wnj,ken
 usr/src/cmd/reset\.c		kurt
 usr/src/cmd/rewind\.c		mark
 usr/src/cmd/script\.c		mark
@@ -132,12 +132,14 @@ usr/src/cmd/tra\.c		wnj
 usr/src/cmd/tset/.*		eric
 usr/src/cmd/ucbmail/.*		kurt
 usr/src/cmd/ul\.c		mark
+usr/src/cmd/versatec/sidebyside.c	wnj
 usr/src/cmd/vmstat\.c		wnj,ozalp
 usr/src/cmd/w\.c		mark
 usr/src/cmd/whatis\.c		wnj
 usr/src/cmd/whereis\.c		wnj
 usr/src/cmd/xstr\.c		wnj
 usr/src/games/banner\.c
+usr/src/new/libI77uc/.*		dlw
 usr/src/sys/sys/locore\.s	ozalp,wnj,x-jp
 usr/src/sys/sys/vm.*		ozalp,wnj,x-jp
 

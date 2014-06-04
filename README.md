@@ -223,6 +223,7 @@ make
  * Era Eriksson
  * Mary Ann Horton
  * Kirk McKusick
+ * Jeremy C. Reed
  * Ingo Schwarze
  * Anatole Shaw
 * The BSD SCCS import code is based on work by
