@@ -397,6 +397,10 @@ create_committer_map
 			s/^\s*//;
 			next if (/^$/);
 			my ($pattern, $committer) = split(/\t+/, $_);
+			if (!$committer) {
+				print STDERR "$opt_c($.): Unspecied committer\n";
+				exit 1;
+			}
 			$committer = add_name_email($committer);
 			push(@committer_map, {
 				pattern => $pattern,
