@@ -138,7 +138,7 @@ usr/src/cmd/w\.c		mark
 usr/src/cmd/whatis\.c		wnj
 usr/src/cmd/whereis\.c		wnj
 usr/src/cmd/xstr\.c		wnj
-usr/src/games/banner\.c
+usr/src/games/banner\.c		mark
 usr/src/new/libI77uc/.*		dlw
 usr/src/sys/sys/locore\.s	ozalp,wnj,x-jp
 usr/src/sys/sys/vm.*		ozalp,wnj,x-jp
