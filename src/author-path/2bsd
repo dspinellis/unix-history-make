@@ -10,7 +10,7 @@
 # Add source file authorship from the corresponding manual pages with
 # grep man ../../bsd2.map | sed 's/man/src/;s/\.u//' | perl -na -e 'print "$F[0]/.*\t\t$F[1]\n" if -d $F[0] ; print "$F[0]\\.c\t\t$F[1]\n" if -r "$F[0].c"'
 
-doc/Mail/.*		x-ks
+doc/Mail/.*		kurt
 doc/csh			wnj
 doc/ex/.*		wnj
 doc/me/.*		eric
@@ -19,7 +19,7 @@ doc/pascal/.*		wnj
 doc/px/.*		wnj
 doc/pxp/.*		wnj
 doc/vi/.*		wnj
-man/Mail.u		x-ks
+man/Mail.u		kurt
 man/apropos.u		wnj
 man/chessclock.u	wnj
 man/cr3.u		wnj
@@ -35,17 +35,17 @@ man/ex.u		wnj
 man/expand.u		wnj
 man/eyacc.u		x-ch,wnj
 man/finger.u		x-etc
-man/fleece.u		x-ks
-man/fmt.u		x-ks
+man/fleece.u		kurt
+man/fmt.u		kurt
 man/fold.u		wnj
 man/from.u		wnj
-man/funny.u		x-ks
+man/funny.u		kurt
 man/head.u		wnj
 man/iul.u		wnj
 man/last.u		hpk
 man/libNS.u		sklower
 man/libretro.u		toy
-man/lock.u		x-ks
+man/lock.u		kurt
 man/man.u		wnj
 man/mkstr.u		wnj,x-ch
 man/msgs.u		wnj
@@ -58,12 +58,12 @@ man/netrm.u		schmidt
 man/num.u		toy
 man/pcc.u		wnj
 man/pi.u		wnj,x-ch,ken
-man/pix.u		x-slg,wnj
+man/pix.u		wnj
 man/print.u		wnj
 man/px.u		wnj,x-ch,ken
 man/pxp.u		wnj
 man/pxref.u		wnj
-man/reset.u		x-ks
+man/reset.u		kurt
 man/see.u		wnj
 man/soelim.u		wnj
 man/ssp.u		wnj
@@ -77,7 +77,7 @@ man/whatis.u		wnj
 man/whereis.u		wnj
 man/whoami.u		wnj
 man/xstr.u		wnj
-src/Mail/.*		x-ks
+src/Mail/.*		kurt
 src/apropos\.c		wnj
 src/chessclock\.c	wnj
 src/cr3\.c		wnj
@@ -88,14 +88,14 @@ src/ex/.*		wnj
 src/expand\.c		wnj
 src/eyacc/.*		x-ch,wnj
 src/finger\.c		x-etc
-src/fleece\.c		x-ks
+src/fleece\.c		kurt
 src/fold\.c		wnj
 src/from\.c		wnj
 src/head\.c		wnj
 src/iul\.c		wnj
 src/last\.c		hpk
 src/libNS/.*		sklower
-src/lock\.c		x-ks
+src/lock\.c		kurt
 src/ls\.c		wnj
 src/man\.c		wnj
 src/me/.*		eric
@@ -110,7 +110,7 @@ src/pi1/.*		wnj
 src/px/.*		wnj,x-ch,ken
 src/pxp/.*		wnj
 src/pxref/.*		wnj
-src/reset.c		x-ks
+src/reset.c		kurt
 src/see\.c		wnj
 src/soelim\.c		wnj
 src/ssp\.c		wnj

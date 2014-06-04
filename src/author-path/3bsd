@@ -15,7 +15,7 @@ usr/doc/csh/.*			wnj
 usr/doc/ex/.*			wnj
 usr/doc/libNS/.*		sklower
 usr/doc/lisp/.*			jkf
-usr/doc/mail/.*			x-ks
+usr/doc/mail/.*			kurt
 usr/doc/memacros/.*		eric
 usr/doc/pascal/.*		wnj
 usr/doc/pxp/.*			wnj
@@ -42,14 +42,14 @@ usr/man/man1/ex\.1		wnj
 usr/man/man1/expand\.1		wnj
 usr/man/man1/finger\.1		x-etc
 usr/man/man1/flcopy\.1m		sklower,x-rt2
-usr/man/man1/fmt\.1		x-ks
+usr/man/man1/fmt\.1		kurt
 usr/man/man1/iul\.1		wnj
 usr/man/man1/last\.1		hpk
 usr/man/man1/lastcomm\.1	x-le
 usr/man/man1/leave\.1		mark
 usr/man/man1/liszt\.1		tbl
-usr/man/man1/lock\.1		x-ks
-usr/man/man1/mail\.1		x-ks
+usr/man/man1/lock\.1		kurt
+usr/man/man1/mail\.1		kurt
 usr/man/man1/man\.1		wnj
 usr/man/man1/mkstr\.1		wnj,x-ch
 usr/man/man1/more\.1		schmidt
@@ -62,10 +62,10 @@ usr/man/man1/netq\.1		schmidt
 usr/man/man1/netrm\.1		schmidt
 usr/man/man1/num\.1		wnj,mckusic
 usr/man/man1/pi\.1		x-cbh,wnj,ken
-usr/man/man1/pix\.1		x-slg,wnj
+usr/man/man1/pix\.1		wnj
 usr/man/man1/px\.1		x-cbh,wnj,ken
 usr/man/man1/pxp\.1		wnj
-usr/man/man1/reset\.1		x-ks
+usr/man/man1/reset\.1		kurt
 usr/man/man1/rewind\.1		mark
 usr/man/man1/script\.1		mark
 usr/man/man1/see\.1		wnj
@@ -79,7 +79,7 @@ usr/man/man1/uncompact\.1	x-clm
 usr/man/man1/vgrind\.1		wnj
 usr/man/man1/vi\.1		wnj
 usr/man/man1/vmstat\.1		wnj,ozalp
-usr/man/man1/vpac\.1m		x-ks
+usr/man/man1/vpac\.1m		kurt
 usr/man/man1/w\.1		mark
 usr/man/man1/whatis\.1		wnj
 usr/man/man1/whereis\.1		wnj
@@ -108,8 +108,8 @@ usr/src/cmd/lastcomm\.c		x-le
 usr/src/cmd/leave\.c		mark
 usr/src/cmd/lisp/.*		jkf
 usr/src/cmd/liszt/.*		tbl
-usr/src/cmd/lock\.c		x-ks
-usr/src/cmd/mail\.c		x-ks
+usr/src/cmd/lock\.c		kurt
+usr/src/cmd/mail\.c		kurt
 usr/src/cmd/man/.*		wnj
 usr/src/cmd/mkstr\.c		wnj,x-ch
 usr/src/cmd/more\.c		schmidt
@@ -119,7 +119,7 @@ usr/src/cmd/num\.c		wnj,mckusic
 usr/src/cmd/pi/.*		x-cbh,wnj,ken
 usr/src/cmd/pxp/.*		wnj
 usr/src/cmd/px/.*		x-cbh,wnj,ken
-usr/src/cmd/reset\.c		x-ks
+usr/src/cmd/reset\.c		kurt
 usr/src/cmd/rewind\.c		mark
 usr/src/cmd/script\.c		mark
 usr/src/cmd/sdb/.*		hpk
@@ -130,13 +130,14 @@ usr/src/cmd/ssp\.c		wnj
 usr/src/cmd/strings\.c		wnj
 usr/src/cmd/tra\.c		wnj
 usr/src/cmd/tset/.*		eric
-usr/src/cmd/ucbmail/.*		x-ks
+usr/src/cmd/ucbmail/.*		kurt
 usr/src/cmd/ul\.c		mark
 usr/src/cmd/vmstat\.c		wnj,ozalp
 usr/src/cmd/w\.c		mark
 usr/src/cmd/whatis\.c		wnj
 usr/src/cmd/whereis\.c		wnj
 usr/src/cmd/xstr\.c		wnj
+usr/src/games/banner\.c
 usr/src/sys/sys/locore\.s	ozalp,wnj,x-jp
 usr/src/sys/sys/vm.*		ozalp,wnj,x-jp
 

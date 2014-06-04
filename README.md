@@ -221,6 +221,7 @@ make
 * The following people helped with BSD login identifiers.
  * Clem Cole
  * Era Eriksson
+ * Mary Ann Horton
  * Kirk McKusick
  * Ingo Schwarze
  * Anatole Shaw
