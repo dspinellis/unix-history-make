@@ -31,7 +31,7 @@ s6/collpr\.c		wnj
 s6/colrm\.c		jeff
 s6/cptree\.c		wnj
 s6/cr3\.c		wnj
-s6/crazy.c		hpk
+s6/crazy\.c		hpk
 s6/dates\.c		wnj
 s6/fix\.c		kurt
 s6/flt40\.c		jeff
@@ -59,7 +59,7 @@ s6/pq\.c		kurt
 s6/procp\.c		jeff
 s6/public\.c		x-ch
 s6/repeat\.c		jeff
-s6/reset.c		kurt
+s6/reset\.c		kurt
 s6/rmtree\.c		kurt
 s6/rout\.c		wnj
 s6/sess\.c		hpk
@@ -73,7 +73,7 @@ s6/syswatch\.c		hpk
 s6/ticktock\.c		x-im
 s6/toc\.c		hpk
 s6/transcribe\.c	wnj
-s6/tset.c		eric
+s6/tset\.c		eric
 s6/ttytype\.c		wnj
 s6/ulpr\.c		wnj
 s6/watch\.c		hpk

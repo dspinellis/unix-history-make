@@ -132,7 +132,7 @@ usr/src/cmd/tra\.c		wnj
 usr/src/cmd/tset/.*		eric
 usr/src/cmd/ucbmail/.*		kurt
 usr/src/cmd/ul\.c		mark
-usr/src/cmd/versatec/sidebyside.c	wnj
+usr/src/cmd/versatec/sidebyside\.c	wnj
 usr/src/cmd/vmstat\.c		wnj,ozalp
 usr/src/cmd/w\.c		mark
 usr/src/cmd/whatis\.c		wnj
