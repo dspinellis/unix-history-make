@@ -77,7 +77,7 @@ usr/doc/f77			sif,pjw
 usr/doc/implement		ken
 usr/doc/iosys			dmr
 usr/doc/learn/.*		bwk,mel
-usr/doc/lex			mel,x-es
+usr/doc/lex			mel,schmidt
 usr/doc/lint			scj
 usr/doc/m4			bwk,dmr
 usr/doc/make			sif
@@ -109,7 +109,7 @@ usr/src/cmd/dc/.*		llc,rhm
 usr/src/cmd/eqn/.*		bwk,llc
 usr/src/cmd/f77/.*		sif,pjw
 usr/src/cmd/learn/.*		bwk,mel
-usr/src/cmd/lex/.*		mel,x-es
+usr/src/cmd/lex/.*		mel,schmidt
 usr/src/cmd/lint/.*		scj
 usr/src/cmd/m4/.*		bwk,dmr
 usr/src/cmd/make/.*		sif
@@ -161,7 +161,7 @@ usr/man/man1/dc\.1		llc,rhm
 usr/man/man1/eqn\.1		bwk,llc
 usr/man/man7/eqnchar\.7		bwk,llc
 usr/man/man1/f77\.1		sif,pjw
-usr/man/man1/lex\.1		mel,x-es
+usr/man/man1/lex\.1		mel,schmidt
 usr/man/man1/lint\.1		scj
 usr/man/man1/m4\.1		bwk,dmr
 usr/man/man1/make\.1		sif

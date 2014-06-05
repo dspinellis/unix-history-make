@@ -1,14 +1,14 @@
 # Email address template
 %A research!$
 
-# Id (used in path maps):Full name
-jfm:J. F. Maranzano
+# Id (used in path maps):Full name:email
 aho:Alfred V. Aho
 bsb:Brenda S. Baker
 bwk:Brian W. Kernighan
 dan:D. A. Nowitz
 dmr:Dennis Ritchie
 doug:Doug McIlroy
+jfm:J. F. Maranzano
 jfo:Joe Ossanna
 jfr:John Reiser
 ken:Ken Thompson
@@ -17,9 +17,9 @@ llc:Lorinda Cherry
 mel:Michael E. Lesk
 pjw:Peter J. Weinberger
 rhm:Robert Morris
+schmidt:Eric Schmidt:schmidt@ucbvax.Berkeley.EDU
 scj:Stephen C. Johnson
 sif:S. I. Feldman
 srb:S. R. Bourne
 tbl:Tom London
 x-cbh:Charles B. Haley
-x-es:E. Schmidt
