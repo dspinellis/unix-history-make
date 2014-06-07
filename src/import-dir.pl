@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# Improt directory snapshots or directories containing SCCS VCS data.
+# Import directory snapshots or directories containing SCCS VCS data.
 #
 # Import the specified directory as a series of time-ordered commits on the
 # specified branch name with a "-Development" -version-name suffix.
@@ -55,7 +55,7 @@ main::HELP_MESSAGE
 	print $fh qq{
 Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 -C date	Ignore commits after the specified cutoff date
--c file	Map of the tree's parts tree written by specific contributors
+-c file	Map of the tree's parts written by specific contributors
 -i file	Comma-separated list of files containing pathnames of files to ignore
 -m T	The commit from which the import will be merged
 -n file	Map between contributor login names and full names
@@ -200,7 +200,7 @@ pr_date
 	$dt[2], $dt[1], $dt[0];
 }
 
-# use a best guess at user, hostname, etc.  FIXME: add authors map :)
+# use a best guess at user, hostname, etc.
 my $domain = "ucbvax.Berkeley.EDU";
 my %tzoffset;
 my $tzoffset = sub {
