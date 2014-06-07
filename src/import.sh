@@ -50,7 +50,7 @@ gfi()
 }
 
 # When debugging import only a few representative files
-# DEBUG=-p\ '(u1\.s)|(nami\.c)|(c00\.c)|(open\.2)|(ex_addr\.c)'
+# DEBUG=-p\ '(u1\.s)|(nami\.c)|(c00\.c)|(open\.2)|(ex_addr\.c)|(stat\.h)'
 
 # V1: Assembly language kernel
 perl ../import-dir.pl -m Epoch -c ../author-path/v1 -n ../bell.au \
@@ -80,29 +80,29 @@ perl ../import-dir.pl -m Research-V5 -c ../author-path/v6 -n ../bell.au \
 # BSD1: Just commands; forked from V6
 # Leaves behind .ref-v6
 perl ../import-dir.pl -m Research-V6 -c ../author-path/1bsd -n ../berkeley.au \
-	-r Research-V6 $DEBUG \
+	-r Research-V6 $DEBUG -i ../ignore/1bsd \
 	-u ../unmatched/BSD-1 $ARCHIVE/1bsd BSD 1 -0800 | gfi
 
 # BSD2: Just commands
 perl ../import-dir.pl -m BSD-1 -c ../author-path/2bsd -n ../berkeley.au \
-	-r BSD-1,Research-V6 $DEBUG \
+	-r BSD-1,Research-V6 $DEBUG -i ../ignore/2bsd \
 	-u ../unmatched/BSD-2 $ARCHIVE/2bsd BSD 2 -0800 | gfi
 
 # V7: Full
 perl ../import-dir.pl -m Research-V6 -c ../author-path/v7 -n ../bell.au \
-	-r Research-V6 $DEBUG \
+	-r Research-V6 $DEBUG -i ../ignore/v7 \
 	-u ../unmatched/Research-V7 $ARCHIVE/v7 Research V7 -0500 | gfi
 
 # Unix/32V: Full
 perl ../import-dir.pl -m Research-V7 -c ../author-path/32v -n ../bell.au \
-	-r Research-V7 $DEBUG \
+	-r Research-V7 $DEBUG -i ../ignore/32v \
 	$ARCHIVE/32v Bell 32V -0500 | gfi
 
 # BSD 3.0: First full distribution
 # Merge 32V and 2BSD
 perl ../import-dir.pl -m Bell-32V,BSD-2 -c ../author-path/3bsd \
 	-n ../berkeley.au \
-	-r Bell-32V,BSD-2 $DEBUG \
+	-r Bell-32V,BSD-2 $DEBUG -i ../ignore/3bsd \
 	-u ../unmatched/BSD-3 $ARCHIVE/3bsd BSD 3 -0800 | gfi
 
 # BSD SCCS: From 1980 to 1995
@@ -121,13 +121,13 @@ git checkout BSD-Release
 # timestamp for the files displayed on GitHub
 add_boilerplate
 
-
 # Succeed if text files in the two specified directories
 # are the same
 verify_same_text()
 {
 	echo "Verifying contents of $2"
 	if ! diff -r "$1" "$2" |
+		fgrep -v -f "$3" |
 		perl -ne '
 			BEGIN {$exit = 0}
 			chop;
@@ -151,21 +151,22 @@ then
 fi
 
 # Verify Research releases are the same
-for i in 3 4 5 6 7
+for i in 3 4 5 6
 do
 	git checkout Research-V$i
-	verify_same_text . $ARCHIVE/v$i
+	verify_same_text . $ARCHIVE/v$i /dev/null
 done
+verify_same_text . $ARCHIVE/v7 ../ignore/v7
 
 # Verify BSD releases
 for i in 1 2 3
 do
 	git checkout BSD-$i
-	verify_same_text . $ARCHIVE/${i}bsd
+	verify_same_text . $ARCHIVE/${i}bsd ../ignore/${i}bsd
 done
 
 git checkout Bell-32V
-verify_same_text . $ARCHIVE/32v
+verify_same_text . $ARCHIVE/32v ../ignore/32v
 
 # Verify that log/blame work as expected
 N_EXPECTED=3

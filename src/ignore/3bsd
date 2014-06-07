@@ -1,0 +1,274 @@
+# The files listed here have copies available under a source code directory
+# Therefore, don't import them from the installation directory
+# List generated with
+# https://github.com/dspinellis/sgsh/blob/master/example/duplicate-files.sh
+
+# usr/src/cmd/analyze
+bin/analyze
+
+# usr/src/cmd/chk.sh
+bin/chk
+
+# usr/src/cmd/nohup.sh
+bin/nohup
+
+# usr/src/cmd/tp/tp
+bin/tp
+
+# usr/src/sys/floppy/boot
+boot
+
+# usr/src/sys/stand/boot
+sys/boot
+
+# usr/src/sys/stand/tpmkfs
+sys/mkfs
+
+# usr/src/sys/stand/tprestor
+sys/restor
+
+# usr/src/cmd/calendar/calendar.sh
+usr/bin/calendar
+
+# usr/src/cmd/diff3/diff3.sh
+usr/bin/diff3
+
+# usr/src/cmd/lint/SHELL
+usr/bin/lint
+
+# usr/src/cmd/lookbib.sh
+usr/bin/lookbib
+
+# usr/src/cmd/lorder.sh
+usr/bin/lorder
+
+# usr/src/cmd/man/man.sh
+usr/bin/man
+
+# usr/src/cmd/plot/plot.sh
+usr/bin/plot
+
+# usr/src/cmd/spell/spell.sh
+usr/bin/spell
+
+# usr/src/cmd/struct/struct
+usr/bin/struct
+
+# usr/src/lib/libdbm/dbm.h
+usr/include/dbm.h
+
+# usr/src/lib/libNS/stdio.h
+usr/include/nstdio.h
+
+# usr/src/sys/stand/saio.h
+usr/include/saio.h
+
+# usr/src/sys/h/acct.h
+usr/include/sys/acct.h
+
+# usr/src/sys/h/buf.h
+usr/include/sys/buf.h
+
+# usr/src/sys/h/callo.h
+usr/include/sys/callo.h
+
+# usr/src/sys/h/clock.h
+usr/include/sys/clock.h
+
+# usr/src/sys/h/clock.m
+usr/include/sys/clock.m
+
+# usr/src/sys/h/cmap.h
+usr/include/sys/cmap.h
+
+# usr/src/sys/h/cmap.m
+usr/include/sys/cmap.m
+
+# usr/src/sys/h/conf.h
+usr/include/sys/conf.h
+
+# usr/src/sys/h/cons.h
+usr/include/sys/cons.h
+
+# usr/src/sys/h/cons.m
+usr/include/sys/cons.m
+
+# usr/src/sys/h/dir.h
+usr/include/sys/dir.h
+
+# usr/src/sys/h/dmap.h
+usr/include/sys/dmap.h
+
+# usr/src/sys/h/fblk.h
+usr/include/sys/fblk.h
+
+# usr/src/sys/h/file.h
+usr/include/sys/file.h
+
+# usr/src/sys/h/filsys.h
+usr/include/sys/filsys.h
+
+# usr/src/sys/h/flp.h
+usr/include/sys/flp.h
+
+# usr/src/sys/h/inode.h
+usr/include/sys/inode.h
+
+# usr/src/sys/h/ino.h
+usr/include/sys/ino.h
+
+# usr/src/sys/h/map.h
+usr/include/sys/map.h
+
+# usr/src/sys/h/mba.h
+usr/include/sys/mba.h
+
+# usr/src/sys/h/mba.m
+usr/include/sys/mba.m
+
+# usr/src/sys/h/mount.h
+usr/include/sys/mount.h
+
+# usr/src/sys/h/mtpr.h
+usr/include/sys/mtpr.h
+
+# usr/src/sys/h/mtpr.m
+usr/include/sys/mtpr.m
+
+# usr/src/sys/h/mx.h
+usr/include/sys/mx.h
+
+# usr/src/sys/h/page.m
+usr/include/sys/page.m
+
+# usr/src/sys/h/param.h
+usr/include/sys/param.h
+
+# usr/src/sys/h/pcb.h
+usr/include/sys/pcb.h
+
+# usr/src/sys/h/pcb.m
+usr/include/sys/pcb.m
+
+# usr/src/sys/h/pdma.h
+usr/include/sys/pdma.h
+
+# usr/src/sys/h/proc.h
+usr/include/sys/proc.h
+
+# usr/src/sys/h/psl.h
+usr/include/sys/psl.h
+
+# usr/src/sys/h/psl.m
+usr/include/sys/psl.m
+
+# usr/src/sys/h/pte.h
+usr/include/sys/pte.h
+
+# usr/src/sys/h/reg.h
+usr/include/sys/reg.h
+
+# usr/src/sys/h/seg.h
+usr/include/sys/seg.h
+
+# usr/src/sys/h/stat.h
+usr/include/sys/stat.h
+
+# usr/src/sys/h/systm.h
+usr/include/sys/systm.h
+
+# usr/src/sys/h/text.h
+usr/include/sys/text.h
+
+# usr/src/sys/h/timeb.h
+usr/include/sys/timeb.h
+
+# usr/src/sys/h/trap.h
+usr/include/sys/trap.h
+
+# usr/src/sys/h/trap.m
+usr/include/sys/trap.m
+
+# usr/src/sys/h/tty.h
+usr/include/sys/tty.h
+
+# usr/src/sys/h/uba.h
+usr/include/sys/uba.h
+
+# usr/src/sys/h/uba.m
+usr/include/sys/uba.m
+
+# usr/src/sys/h/user.h
+usr/include/sys/user.h
+
+# usr/src/sys/h/vm.h
+usr/include/sys/vm.h
+
+# usr/src/sys/h/vmmon.h
+usr/include/sys/vmmon.h
+
+# usr/src/cmd/lex/ncform
+usr/lib/lex/ncform
+
+# usr/src/cmd/lisp/lib/auxfns0.l
+usr/lib/lisp/auxfns0.l
+
+# usr/src/cmd/lisp/lib/auxfns1.l
+usr/lib/lisp/auxfns1.l
+
+# usr/src/cmd/lisp/lib/backquote
+usr/lib/lisp/backquote
+
+# usr/src/cmd/lisp/lib/editor.l
+usr/lib/lisp/editor.l
+
+# usr/src/cmd/lisp/lib/lisprcfun.l
+usr/lib/lisp/lisprcfun.l
+
+# usr/src/cmd/lisp/lib/machacks.l
+usr/lib/lisp/machacks.l
+
+# usr/src/cmd/lisp/lib/trace.l
+usr/lib/lisp/trace.l
+
+# usr/src/cmd/lint/llib-lc
+usr/lib/llib-lc
+
+# usr/src/cmd/lint/llib-port
+usr/lib/llib-port
+
+# usr/src/cmd/ucbmail/Mail.help.~
+usr/lib/Mail.help.~
+
+# usr/lib/me/src/acm.me
+usr/lib/me/acm.me
+
+# usr/lib/me/src/chars.me
+usr/lib/me/chars.me
+
+# usr/lib/me/src/eqn.me
+usr/lib/me/eqn.me
+
+# usr/lib/me/src/footnote.me
+usr/lib/me/footnote.me
+
+# usr/lib/me/src/index.me
+usr/lib/me/index.me
+
+# usr/lib/me/src/null.me
+usr/lib/me/null.me
+
+# usr/lib/me/src/sh.me
+usr/lib/me/sh.me
+
+# usr/src/cmd/versatec/tmac.vgrind
+usr/lib/tmac/tmac.vgrind
+
+# usr/src/cmd/uucp/USERFILE
+usr/lib/uucp/USERFILE
+
+# usr/src/cmd/yacc/yaccpar
+usr/lib/yaccpar
+
+# usr/src/cmd/trman.sh
+usr/man/man0/trman

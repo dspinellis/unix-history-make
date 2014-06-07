@@ -1,0 +1,35 @@
+# The files listed here have copies available under a source code directory
+# Therefore, don't import them from the installation directory
+# List generated with
+# https://github.com/dspinellis/sgsh/blob/master/example/duplicate-files.sh
+
+# src/me/revisions
+bin/lib/me/revisions
+
+# src/pascal/how_pxp
+bin/lib/how_pxp
+
+# src/termlib/tabset/owl
+bin/lib/tabset/owl
+
+# src/Mail/Mail.help
+bin/lib/Mail.help
+
+# src/Mail/Mail.help.~
+bin/lib/Mail.help.~
+
+# src/termlib/tabset/dtc
+bin/lib/tabset/dtc
+
+# src/termlib/tabset/teleray
+bin/lib/tabset/teleray
+
+# bin/lib/px_header
+bin/lib/npx_header
+
+# src/pascal/how_pi
+bin/lib/how_pi
+
+# src/pascal/how_pix
+bin/lib/how_pix
+

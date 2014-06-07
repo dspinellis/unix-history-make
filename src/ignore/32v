@@ -1,0 +1,118 @@
+# The files listed here have copies available under a source code directory
+# Therefore, don't import them from the installation directory
+# List generated with
+# https://github.com/dspinellis/sgsh/blob/master/example/duplicate-files.sh
+
+# usr/src/cmd/calendar/calendar.sh
+usr/bin/calendar
+
+# usr/src/cmd/diff3/diff3.sh
+usr/bin/diff3
+
+# usr/src/cmd/graph/graph
+usr/bin/graph
+
+# usr/src/cmd/install.sh
+usr/bin/install
+
+# usr/src/cmd/lint/SHELL
+usr/bin/lint
+
+# usr/src/cmd/lookbib.sh
+usr/bin/lookbib
+
+# usr/src/cmd/lorder.sh
+usr/bin/lorder
+
+# usr/src/cmd/man.sh
+usr/bin/man
+
+# usr/src/cmd/news.sh
+usr/bin/news
+
+# usr/src/cmd/plot/plot.sh
+usr/bin/plot
+
+# usr/src/cmd/sdb/sdb
+usr/bin/sdb
+
+# usr/src/cmd/spell/spell.sh
+usr/bin/spell
+
+# usr/src/cmd/struct/struct
+usr/bin/struct
+
+# usr/src/cmd/tabs4.sh
+usr/bin/tabs4
+
+# usr/src/cmd/tabs8.sh
+usr/bin/tabs8
+
+# usr/src/sys/h/buf.h
+usr/include/sys/buf.h
+
+# usr/src/sys/h/callo.h
+usr/include/sys/callo.h usr/src/slowsys/h/callo.h
+
+# usr/src/sys/h/conf.h
+usr/include/sys/conf.h usr/src/slowsys/h/conf.h
+
+# usr/src/sys/h/dir.h
+usr/include/sys/dir.h usr/src/slowsys/h/dir.h
+
+# usr/src/sys/h/fblk.h
+usr/include/sys/fblk.h usr/src/slowsys/h/fblk.h
+
+# usr/src/sys/h/file.h
+usr/include/sys/file.h usr/src/slowsys/h/file.h
+
+# usr/src/sys/h/filsys.h
+usr/include/sys/filsys.h usr/src/slowsys/h/filsys.h
+
+# usr/src/sys/h/map.h
+usr/include/sys/map.h
+
+# usr/src/sys/h/mount.h
+usr/include/sys/mount.h usr/src/slowsys/h/mount.h
+
+# usr/src/slowsys/h/mpx.h
+usr/include/sys/mpx.h
+
+# usr/src/sys/h/param.h
+usr/include/sys/param.h
+
+# usr/src/sys/h/pcb.h
+usr/include/sys/pcb.h usr/src/slowsys/h/pcb.h
+
+# usr/src/sys/h/proc.h
+usr/include/sys/proc.h
+
+# usr/src/sys/h/psl.h
+usr/include/sys/psl.h usr/src/slowsys/h/psl.h
+
+# usr/src/sys/h/reg.h
+usr/include/sys/reg.h usr/src/slowsys/h/reg.h
+
+# usr/src/sys/h/seg.h
+usr/include/sys/seg.h usr/src/slowsys/h/seg.h
+
+# usr/src/sys/h/systm.h
+usr/include/sys/systm.h
+
+# usr/src/sys/h/text.h
+usr/include/sys/text.h
+
+# usr/src/sys/h/timeb.h
+usr/include/sys/timeb.h usr/src/slowsys/h/timeb.h
+
+# usr/src/sys/h/tty.h
+usr/include/sys/tty.h
+
+# usr/src/cmd/lex/ncform
+usr/lib/lex/ncform
+
+# usr/src/cmd/lint/llib-lc
+usr/lib/llib-lc
+
+# usr/src/cmd/yacc/yaccpar
+usr/lib/yaccpar

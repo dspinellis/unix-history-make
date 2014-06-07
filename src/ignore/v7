@@ -1,0 +1,85 @@
+# The files listed here have copies available under a source code directory
+# Therefore, don't import them from the installation directory
+# List generated with
+# https://github.com/dspinellis/sgsh/blob/master/example/duplicate-files.sh
+
+# usr/src/cmd/standalone/saio.h
+usr/include/saio.h
+
+# usr/sys/h/acct.h
+usr/include/sys/acct.h
+
+# usr/sys/h/buf.h
+usr/include/sys/buf.h
+
+# usr/sys/h/callo.h
+usr/include/sys/callo.h
+
+# usr/sys/h/dir.h
+usr/include/sys/dir.h
+
+# usr/sys/h/fblk.h
+usr/include/sys/fblk.h
+
+# usr/sys/h/file.h
+usr/include/sys/file.h
+
+# usr/sys/h/filsys.h
+usr/include/sys/filsys.h
+
+# usr/sys/h/inode.h
+usr/include/sys/inode.h
+
+# usr/sys/h/ino.h
+usr/include/sys/ino.h
+
+# usr/sys/h/map.h
+usr/include/sys/map.h
+
+# usr/sys/h/mount.h
+usr/include/sys/mount.h
+
+# usr/sys/h/mpx.h
+usr/include/sys/mpx.h
+
+# usr/sys/h/mx.h
+usr/include/sys/mx.h
+
+# usr/sys/h/param.h
+usr/include/sys/param.h
+
+# usr/sys/h/pk.p
+usr/include/sys/pk.p
+
+# usr/sys/h/prim.h
+usr/include/sys/prim.h
+
+# usr/sys/h/proc.h
+usr/include/sys/proc.h
+
+# usr/sys/h/reg.h
+usr/include/sys/reg.h
+
+# usr/sys/h/seg.h
+usr/include/sys/seg.h
+
+# usr/sys/h/stat.h
+usr/include/sys/stat.h
+
+# usr/sys/h/systm.h
+usr/include/sys/systm.h
+
+# usr/sys/h/text.h
+usr/include/sys/text.h
+
+# usr/sys/h/timeb.h
+usr/include/sys/timeb.h
+
+# usr/sys/h/tty.h
+usr/include/sys/tty.h
+
+# usr/sys/h/types.h
+usr/include/sys/types.h
+
+# usr/sys/h/user.h
+usr/include/sys/user.h

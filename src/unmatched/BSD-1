@@ -8,9 +8,7 @@ assubs/sep.s
 bin/READ_ME
 bin/box
 bin/cxref
-bin/fixit
 bin/print
-bin/pss
 bin/uhav
 bin/version
 etc/READ_ME
@@ -28,9 +26,6 @@ help/ex
 help/exdocbugs
 help/pascal
 lib/READ_ME
-lib/how_pi
-lib/how_pix
-lib/how_pxp
 lib/tset.dtc_tabs
 man1/cd.1
 man1/lib.1

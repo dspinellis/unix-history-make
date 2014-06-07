@@ -27,6 +27,9 @@ use VCS::SCCS;
 # A map from contributor ids to full names
 my %full_name;
 
+# A map containing paths of files to ignore
+my %ignore_map;
+
 # Subsitute $ with an id to get a contributor's email address
 my $address_template;
 
@@ -53,6 +56,7 @@ main::HELP_MESSAGE
 Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 -C date	Ignore commits after the specified cutoff date
 -c file	Map of the tree's parts tree written by specific contributors
+-i file	Comma-separated list of files containing pathnames of files to ignore
 -m T	The commit from which the import will be merged
 -n file	Map between contributor login names and full names
 -p re	Regular expression of files to process
@@ -69,10 +73,10 @@ version_name and tz_offset are not required for SCCS imports
 };
 }
 
-our($opt_C, $opt_c, $opt_m, $opt_n, $opt_p, $opt_r, $opt_S, $opt_s, $opt_u);
+our($opt_C, $opt_c, $opt_i, $opt_m, $opt_n, $opt_p, $opt_r, $opt_S, $opt_s, $opt_u);
 $opt_m = $opt_r = '';
 
-if (!getopts('C:c:f:m:n:p:r:Ss:u:')) {
+if (!getopts('C:c:f:i:m:n:p:r:Ss:u:')) {
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 
@@ -106,6 +110,11 @@ $opt_s .= '/' unless ($opt_s =~ m|/$|);
 $opt_s =~ s/([^\w])/\\$1/g;
 
 create_name_map() if (defined($opt_n));
+if (defined($opt_i)) {
+	for my $fname (split(/\,/, $opt_i)) {
+		create_ignore_map($fname);
+	}
+}
 create_committer_map();
 
 # Create branch
@@ -131,6 +140,11 @@ gather_text_files
 {
 	return unless (-f && -T);
 	return if ($opt_p && !m|/$opt_p$|);
+	if ($opt_i) {
+		my $commit_path = $_;
+		$commit_path =~ s/$opt_s// if ($opt_s);
+		return if ($ignore_map{$commit_path});
+	}
 	my ($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, $ctime, $blksize, $blocks) = stat;
 	$fi{$_}->{mtime} = $mtime;
 	$fi{$_}->{size} = $size;
@@ -416,6 +430,22 @@ create_committer_map
 	}
 }
 
+
+# Create a map of filename paths to ignore
+sub
+create_ignore_map
+{
+	my ($fname) = @_;
+	open(my $in, '<', $fname) || die "Unable to open $fname: $!\n";
+	while (<$in>) {
+		chop;
+		s/#.*//;
+		s/^\s*//;
+		next if (/^$/);
+		$ignore_map{$_} = 1;
+	}
+	close($in);
+}
 
 # Create a map from contributor ids to full names and populate address_template
 sub

@@ -6,13 +6,8 @@ bin/etc/install
 bin/etc/termcap
 bin/etc/ttytype
 bin/install
-bin/lib/Mail.help
-bin/lib/Mail.help.~
 bin/lib/Mail.rc
 bin/lib/READ_ME
-bin/lib/how_pi
-bin/lib/how_pix
-bin/lib/how_pxp
 bin/lib/install
 bin/lib/me/acm.me
 bin/lib/me/chars.me
@@ -23,13 +18,9 @@ bin/lib/me/footnote.me
 bin/lib/me/index.me
 bin/lib/me/local.me
 bin/lib/me/null.me
-bin/lib/me/revisions
 bin/lib/me/sh.me
 bin/lib/me/tbl.me
 bin/lib/me/thesis.me
-bin/lib/tabset/dtc
-bin/lib/tabset/owl
-bin/lib/tabset/teleray
 bin/lib/tmac.e
 bin/ucb/astags
 bin/ucb/ctags

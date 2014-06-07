@@ -1,0 +1,22 @@
+# The files listed here have copies available under a source code directory
+# Therefore, don't import them from the installation directory
+# List generated with
+# https://github.com/dspinellis/sgsh/blob/master/example/duplicate-files.sh
+
+# s6/pss
+bin/pss
+
+# pxp/how_pxp
+lib/how_pxp
+
+# pi/pi_strings
+lib/pi_strings
+
+# s6/fixit
+bin/fixit
+
+# pi/how_pi
+lib/how_pi
+
+# pi/how_pix
+lib/how_pix
