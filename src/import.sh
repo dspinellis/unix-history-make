@@ -50,7 +50,7 @@ gfi()
 }
 
 # When debugging import only a few representative files
-# DEBUG=-p\ '(u1\.s)|(nami\.c)|(c00\.c)|(open\.2)|(ex_addr\.c)|(stat\.h)'
+# DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr))\.c)|(open\.2)|(((proc)|(stat))\.h)'
 
 # V1: Assembly language kernel
 perl ../import-dir.pl -m Epoch -c ../author-path/v1 -n ../bell.au \
@@ -109,17 +109,20 @@ perl ../import-dir.pl -m Bell-32V,BSD-2 -c ../author-path/3bsd \
 DIR=../archive/CSRG/cd4.patched
 if [ -n "$DEBUG" ]
 then
-	DIR=$DIR/usr.bin/sed
+	STRIP="-s $DIR"
+	DIR=$DIR/sys/sys
 fi
 perl ../import-dir.pl -S -C 1996-01-01 -m BSD-3 -c ../author-path/3bsd \
 	-n ../berkeley.au -u ../unmatched/BSD-SCCS.authors $DEBUG \
-	$DIR BSD-SCCS | gfi
+	-r BSD-3 -P usr/src/ \
+	$STRIP $DIR BSD-SCCS | gfi
 
 # Merge SCCS and incremental 4BSD additions
-SCCS_AT_4BSD =$(git log --before='1980-11-15 11:24:58 +0200' -n 1 --format='%H')
+SCCS_AT_4BSD=$(git log --before='1980-11-15 11:24:58 +0200' -n 1 --format='%H' BSD-SCCS)
 perl ../import-dir.pl -m BSD-3,$SCCS_AT_4BSD -c ../author-path/4bsd \
 	-n ../berkeley.au \
-	-r BSD-3 $DEBUG -i ../ignore/4bsd-src -I ../ignore/4bsd-sccs \
+	-r BSD-3,$SCCS_AT_4BSD $DEBUG \
+	-i ../ignore/4bsd-src -I ../ignore/4bsd-sccs \
 	-u ../unmatched/BSD-4 $ARCHIVE/CSRG//cd1/4.0 BSD 4 -0800 | gfi
 
 
@@ -176,6 +179,9 @@ done
 git checkout Bell-32V
 verify_same_text . $ARCHIVE/32v ../ignore/32v
 
+git checkout BSD-4
+verify_same_text . $ARCHIVE/CSRG/cd1/4.0 ../ignore/4bsd-src
+
 # Verify that log/blame work as expected
 N_EXPECTED=3
 git checkout Research-Release
@@ -196,15 +202,33 @@ do
 	fi
 done
 
-git checkout BSD-Release
-N_EXPECTED=10
-echo Verify branches and merges
-for i in '|/' '|\'
-do
-	N_JOIN=`git log --graph | fgrep -c $i`
+# verify_nodes branch/merge number
+# Verify the number of the specified branch/merge type
+verify_nodes()
+{
+	local N_EXPECTED=$2
+	local N_JOIN=`git log --graph | fgrep -c $1`
 	if [ $N_JOIN -lt $N_EXPECTED ]
 	then
-		echo "Found $N_JOIN instances of $i; expected $N_EXPECTED" 1>&2
+		echo "Found $N_JOIN instances of $1; expected $N_EXPECTED" 1>&2
 		exit 1
 	fi
-done
+}
+
+git checkout BSD-Release
+echo Verify branches and merges
+verify_nodes '|/' 17
+verify_nodes '|\' 13
+
+echo Verify SCCS merge
+N_HASH=$(git blame -C -C ./usr/src/sys/h/proc.h |
+	awk '{print $1}' |
+	sort -u |
+	wc -l)
+
+N_EXPECTED=9
+if [ $N_HASH -lt $N_EXPECTED ]
+then
+	echo "Found $N_HASH versions in proc.h; expected $N_EXPECTED" 1>&2
+	exit 1
+fi

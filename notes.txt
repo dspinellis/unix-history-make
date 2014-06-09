@@ -219,7 +219,13 @@ TODO {{{1
  - 386BSD
  - FreeBSD from https://github.com/freebsd/freebsd
 - Flag to indicate release text file
-- Coalesce commits by the same author on same date/time in import.pl
+- Coalesce commits by the same author on same date/time and with same
+  message (for SCCS) in import-dir.pl
+  E.g.
+  Author: Bill Joy <bill@ucbvax.Berkeley.EDU>
+  Date:   Mon Apr 14 16:58:04 1980 -0800
+      IUPDAT fast inline from inline.h in stat()
+
 - Indicate in unmatched % changed and remove unchanged files
   (could be done with git blame on each file)
 - Add support for SCCS file comment fields (^AT and ^At)

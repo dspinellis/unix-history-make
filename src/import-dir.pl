@@ -64,10 +64,11 @@ Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 	during incremental import, and add when merging
 -m T	The commit(s) from which the import will be merged
 -n file	Map between contributor login names and full names
+-P path	Path to prepend to file paths being committed
 -p re	Regular expression of files to process
 -r T	During import keep by side a reference copy of the specified files
 -S	Import directory through SCCS
--s re	Regular expression to strip paths into committed ones
+-s path	Leading path to strip from file paths being committed
 	By default this is the supplied directory
 -u file	File to write unmatched paths (paths matched with a wildcard)
 
@@ -78,10 +79,10 @@ version_name and tz_offset are not required for SCCS imports
 };
 }
 
-our($opt_C, $opt_c, $opt_i, $opt_I, $opt_m, $opt_n, $opt_p, $opt_r, $opt_S, $opt_s, $opt_u);
+our($opt_C, $opt_c, $opt_i, $opt_I, $opt_m, $opt_n, $opt_P, $opt_p, $opt_r, $opt_S, $opt_s, $opt_u);
 $opt_m = $opt_r = '';
 
-if (!getopts('C:c:f:i:I:m:n:p:r:Ss:u:')) {
+if (!getopts('C:c:f:i:I:m:n:P:p:r:Ss:u:')) {
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 
@@ -113,6 +114,7 @@ my $tz_offset = shift unless ($opt_S);
 $opt_s = $directory unless defined($opt_s);
 $opt_s .= '/' unless ($opt_s =~ m|/$|);
 $opt_s =~ s/([^\w])/\\$1/g;
+$opt_s = '^' . $opt_s;
 
 create_name_map() if (defined($opt_n));
 create_map($opt_i, \%ignore_map);
@@ -289,6 +291,7 @@ issue_sccs_commits
 
 		my $mode = $delta{flags}{x} ? "755" : "644";
 		$fn =~ s/$opt_s// if ($opt_s);
+		$fn = $opt_P . $fn if ($opt_P);
 		print "M $mode :$commit_mark $fn\n";
 		print "\n";
 	}
@@ -352,6 +355,7 @@ issue_text_commits
 		$last_devel_mark = $mark++;
 		my $commit_path = $name;
 		$commit_path =~ s/$opt_s// if ($opt_s);
+		$commit_path = $opt_P . $commit_path if ($opt_P);
 		my $author = committer($commit_path);
 		print "author $author $fi{$name}->{mtime} $tz_offset\n";
 		print "committer $author $fi{$name}->{mtime} $tz_offset\n";
@@ -388,6 +392,7 @@ for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 	print "# $fi{$name}->{mtime} $name\n";
 	my $commit_path = $name;
 	$commit_path =~ s/$opt_s// if ($opt_s);
+	$commit_path = $opt_P . $commit_path if ($opt_P);
 	my $author = committer($commit_path);
 	print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 }
