@@ -178,7 +178,6 @@ rename old top directories to previous_version/...
 Last commit
 Remove previous_version
 TODO {{{1
-- Ignore duplicate files when importing snapshots
 - Compare snapshots with corresponding SCCS to see when coverage is sufficient
 - Add
  - 4.* merging appropriate SCCS time points. According to CSRG/cd4/README
@@ -212,10 +211,8 @@ TODO {{{1
   Therefore until 1983 (4.1c?) releases are imported incrementally.
   into -Development-
   When importing skip over
-   - Files that were already under SCCS control at the date of the release
    - SCCS and .MAP files
-  At each file commit, BSD-SCCS is merged at the most recent SHA whose
-  timestamp <= the file's timestamp.
+  At the release add the SCCS files to the release image
   From then on BSD-SCCS is merged directly (in one go) into -Release- at the
   timestamp of each release, and a tag is created
 
