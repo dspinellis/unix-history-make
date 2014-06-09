@@ -30,6 +30,9 @@ my %full_name;
 # A map containing paths of files to ignore
 my %ignore_map;
 
+# A map containing paths of file to add when merging
+my %merge_add_map;
+
 # Subsitute $ with an id to get a contributor's email address
 my $address_template;
 
@@ -57,7 +60,9 @@ Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 -C date	Ignore commits after the specified cutoff date
 -c file	Map of the tree's parts written by specific contributors
 -i file	Comma-separated list of files containing pathnames of files to ignore
--m T	The commit from which the import will be merged
+-I file	Comma-separated list of files containing pathnames of files to ignore
+	during incremental import, and add when merging
+-m T	The commit(s) from which the import will be merged
 -n file	Map between contributor login names and full names
 -p re	Regular expression of files to process
 -r T	During import keep by side a reference copy of the specified files
@@ -73,10 +78,10 @@ version_name and tz_offset are not required for SCCS imports
 };
 }
 
-our($opt_C, $opt_c, $opt_i, $opt_m, $opt_n, $opt_p, $opt_r, $opt_S, $opt_s, $opt_u);
+our($opt_C, $opt_c, $opt_i, $opt_I, $opt_m, $opt_n, $opt_p, $opt_r, $opt_S, $opt_s, $opt_u);
 $opt_m = $opt_r = '';
 
-if (!getopts('C:c:f:i:m:n:p:r:Ss:u:')) {
+if (!getopts('C:c:f:i:I:m:n:p:r:Ss:u:')) {
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 
@@ -110,11 +115,8 @@ $opt_s .= '/' unless ($opt_s =~ m|/$|);
 $opt_s =~ s/([^\w])/\\$1/g;
 
 create_name_map() if (defined($opt_n));
-if (defined($opt_i)) {
-	for my $fname (split(/\,/, $opt_i)) {
-		create_ignore_map($fname);
-	}
-}
+create_map($opt_i, \%ignore_map);
+create_map($opt_I, \%merge_add_map);
 create_committer_map();
 
 # Create branch
@@ -140,9 +142,10 @@ gather_text_files
 {
 	return unless (-f && -T);
 	return if ($opt_p && !m|/$opt_p$|);
-	if ($opt_i) {
+	if ($opt_i || $opt_I) {
 		my $commit_path = $_;
 		$commit_path =~ s/$opt_s// if ($opt_s);
+		$fi{$_}->{commit_at_release} = 1 if ($merge_add_map{$commit_path});
 		return if ($ignore_map{$commit_path});
 	}
 	my ($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, $ctime, $blksize, $blocks) = stat;
@@ -341,6 +344,8 @@ issue_text_commits
 	print "# Development commits\n";
 	for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 		next if (defined($cutoff_time) && $fi{$name}->{mtime} > $cutoff_time);
+		next if ($fi{$name}->{commit_at_release});
+
 		print "# $fi{$name}->{mtime} $name\n";
 		print "commit refs/heads/$dev_branch\n";
 		print "mark :$mark\n";
@@ -374,6 +379,17 @@ print data("$branch $version release\n\nSnapshot of the completed development br
 print "from :$last_devel_mark\n";
 for my $merge (split(/,/, $opt_m)) {
 	print "merge $merge\n";
+}
+# Add delayed commit files
+print "# Commits of merged files\n";
+for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
+	next if (defined($cutoff_time) && $fi{$name}->{mtime} > $cutoff_time);
+	next unless ($fi{$name}->{commit_at_release});
+	print "# $fi{$name}->{mtime} $name\n";
+	my $commit_path = $name;
+	$commit_path =~ s/$opt_s// if ($opt_s);
+	my $author = committer($commit_path);
+	print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 }
 # Remove reference copies of older files
 for my $ref (split(/,/, $opt_r)) {
@@ -431,20 +447,25 @@ create_committer_map
 }
 
 
-# Create a map of filename paths to ignore
+# Create a map to entries in the specified comma-separated list of files
 sub
-create_ignore_map
+create_map
 {
-	my ($fname) = @_;
-	open(my $in, '<', $fname) || die "Unable to open $fname: $!\n";
-	while (<$in>) {
-		chop;
-		s/#.*//;
-		s/^\s*//;
-		next if (/^$/);
-		$ignore_map{$_} = 1;
+	my ($fname_list, $map_ref) = @_;
+
+	return unless defined($fname_list);
+
+	for my $fname (split(/\,/, $fname_list)) {
+		open(my $in, '<', $fname) || die "Unable to open $fname: $!\n";
+		while (<$in>) {
+			chop;
+			s/#.*//;
+			s/^\s*//;
+			next if (/^$/);
+			$map_ref->{$_} = 1;
+		}
+		close($in);
 	}
-	close($in);
 }
 
 # Create a map from contributor ids to full names and populate address_template
