@@ -393,7 +393,6 @@ for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 	my $commit_path = $name;
 	$commit_path =~ s/$opt_s// if ($opt_s);
 	$commit_path = $opt_P . $commit_path if ($opt_P);
-	my $author = committer($commit_path);
 	print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 }
 # Remove reference copies of older files
