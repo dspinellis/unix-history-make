@@ -2,6 +2,7 @@
 #
 # Analyze unmatched files by adding to each
 # the number of lines that were added in the corresponding release
+# An optional argument can specify the tag to analyze
 
 save()
 {
@@ -34,6 +35,9 @@ cd $R/unmatched
 # For each tag
 for T in *
 do
+	if [ -n "$1" -a "$T" != "$1" ] ; then
+		continue
+	fi
 	cd $R/import
 	git checkout $T
 	# For each file not matched
