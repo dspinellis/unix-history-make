@@ -19,6 +19,7 @@ git rev-list --pretty=format: ^Research-V6 BSD-1 | save BSD-1
 git rev-list --pretty=format: ^BSD-1 BSD-2 | save BSD-2
 git rev-list --pretty=format: ^BSD-2 ^Bell-32V BSD-3 | save BSD-3
 git rev-list --pretty=format: ^BSD-3 BSD-4 | save BSD-4
+git rev-list --pretty=format: ^BSD-3 BSD-SCCS-END | save BSD-SCCS
 git rev-list --pretty=format: ^Research-V7 Bell-32V | save Bell-32V
 git rev-list --pretty=format: ^Research-V1 | save ^Research-V1
 git rev-list --pretty=format: ^Research-V1 Research-V3 | save Research-V3
