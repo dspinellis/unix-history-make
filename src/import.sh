@@ -122,7 +122,8 @@ SCCS_AT_4BSD=$(git log --before='1980-11-15 11:24:58 +0200' -n 1 --format='%H' B
 perl ../import-dir.pl -m BSD-3,$SCCS_AT_4BSD -c ../author-path/4bsd \
 	-n ../berkeley.au \
 	-r BSD-3,$SCCS_AT_4BSD $DEBUG \
-	-i ../ignore/4bsd-src,../ignore/4bsd-catman -I ../ignore/4bsd-sccs \
+	-i ../ignore/4bsd-src,../ignore/4bsd-catman,../ignore/4bsd-other \
+	-I ../ignore/4bsd-sccs \
 	-u ../unmatched/BSD-4 $ARCHIVE/CSRG//cd1/4.0 BSD 4 -0800 | gfi
 
 
