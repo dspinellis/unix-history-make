@@ -1,8 +1,12 @@
-#!/bin/sh
+#!/usr/bin/env sgsh
 #
 # Analyze unmatched files by adding to each
 # the number of lines that were added in the corresponding release
 # An optional argument can specify the tag to analyze
+#
+# This file requires sgsh to execute git in parallel and speed things up
+# See http://www.spinellis.gr/sw/sgsh/
+#
 
 save()
 {
@@ -36,14 +40,17 @@ cd $R/unmatched
 # For each tag
 for T in *
 do
+	if [ "$1" = "BSD-4" ] ; then
+		continue
+	fi
 	if [ -n "$1" -a "$T" != "$1" ] ; then
 		continue
 	fi
 	cd $R/import
 	git checkout $T
 	# For each file not matched
-	while read F
-	do
+	scatter |{ -s -p 2
+	    -| while read F; do
 		git blame -C -C -s --abbrev=39 $F |
 		awk '{print $1}' |
 		sort |
@@ -53,6 +60,8 @@ do
 					{t++}
 			$2 == "'$T'"	{c++}
 			END {print "'$F'", c, t}'
-	done <$R/unmatched/$T |
-	sort -k 2nr >$R/analyzed/$T
+	    done | sort -k 2nr |-
+	|} gather |{
+		sort -m -k 2nr <- >$R/analyzed/$T
+	|} <$R/unmatched/$T
 done
