@@ -40,9 +40,6 @@ cd $R/unmatched
 # For each tag
 for T in *
 do
-	if [ "$1" = "BSD-4" ] ; then
-		continue
-	fi
 	if [ -n "$1" -a "$T" != "$1" ] ; then
 		continue
 	fi
