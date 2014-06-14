@@ -22,12 +22,13 @@ Two repositories are associated with the project:
 The first phase of the project will be to create a single timeline from the First Edition of Unix until the present.
 
 ## Project status
-Currently, the project is maturing with the creation of a repository containing snapshots of V1, V3, V4, V5, V6, and V7 Research Edition, Unix/32V, 1BSD, 2BSD, 3BSD, and 4BSD, as well as an import of the CSRG SCCS history.    The files appear to be added in the repository in chronological order according to their modification time, and some part of the source code has been attributed to its actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
+Currently, the project is maturing with the creation of a repository containing snapshots of V1, V3, V4, V5, V6, and V7 Research Edition, Unix/32V, 1BSD, 2BSD, 3BSD, 4BSD, and 4.1BSD as well as an import of the CSRG SCCS history.    The files appear to be added in the repository in chronological order according to their modification time, and some part of the source code has been attributed to its actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
 
-The repository contains two two-way merges:
+The repository contains three two-way merges:
 
-* 3BSD is merged from Unix/32V and Research Edition 6
-* 4BSD is merged from 3BSD and a time point of BSD-SCCS
+* 3 BSD is merged from Unix/32V and Research Edition 6
+* 4 BSD is merged from 3 BSD and a time point of BSD-SCCS
+* 4.1 BSD is merged from 4 BSD and a time point of BSD-SCCS
 
 Blame is apportioned appropriately.
 

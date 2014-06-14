@@ -168,8 +168,10 @@ for i in cd1/4* cd2/* cd3/* ; do find . -type f | xargs file | awk -F: '$2 ~ /te
 Lessons learned {{{1
 Split responsibilities between kernel and device drivers
 Ability to follow file moves by keeping a lookaside copy of preceding snapshot
-Ownership: early man pages, then BSD
+Ownership: early man pages, then BSD man pages
 Which commands are retained? Has it got to do with the author's presence?
+Significant code duplication in early releases
+
 
 New strategy {{{1
 First commit:

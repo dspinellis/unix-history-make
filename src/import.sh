@@ -118,14 +118,25 @@ perl ../import-dir.pl -S -C 1996-01-01 -m BSD-3 -c ../author-path/3bsd \
 	$STRIP $DIR BSD-SCCS | gfi
 
 # Merge SCCS and incremental 4BSD additions
-SCCS_AT_4BSD=$(git log --before='1980-11-15 11:24:58 +0200' -n 1 --format='%H' BSD-SCCS)
-perl ../import-dir.pl -m BSD-3,$SCCS_AT_4BSD -c ../author-path/4bsd \
+SCCS_AT_RELEASE=$(git log --before='1980-11-15 11:24:58 +0200' -n 1 --format='%H' BSD-SCCS)
+perl ../import-dir.pl -m BSD-3,$SCCS_AT_RELEASE -c ../author-path/4bsd \
 	-n ../berkeley.au \
-	-r BSD-3,$SCCS_AT_4BSD $DEBUG \
-	-i ../ignore/4bsd-src,../ignore/4bsd-catman,../ignore/4bsd-other \
+	-r BSD-3,$SCCS_AT_RELEASE $DEBUG \
+	-i ../ignore/4bsd-src,../ignore/4bsd-catman,../ignore/4bsd-other,../ignore/4bsd-map \
 	-I ../ignore/4bsd-sccs \
 	-u ../unmatched/BSD-4 $ARCHIVE/CSRG//cd1/4.0 BSD 4 -0800 | gfi
 
+
+# Merge SCCS and incremental BSD 4.1.snap additions
+SCCS_AT_RELEASE=$(git log --before='1982-02-03 08:34:45 +0200' -n 1 --format='%H' BSD-SCCS)
+perl ../import-dir.pl -m BSD-4,$SCCS_AT_RELEASE \
+	-c ../author-path/BSD-4_1_snap \
+	-n ../berkeley.au \
+	-r BSD-4,$SCCS_AT_RELEASE $DEBUG \
+	-i ../ignore/BSD-4_1_snap-other,../ignore/BSD-4_1_snap-map,../ignore/BSD-4_1_snap-space \
+	-I ../ignore/BSD-4_1_snap-sccs \
+	-u ../unmatched/BSD-4_1_snap $ARCHIVE/CSRG/cd1/4.1.snap \
+	BSD 4_1_snap -0800 | gfi
 
 git checkout BSD-Release
 
