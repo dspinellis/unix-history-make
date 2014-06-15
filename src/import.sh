@@ -233,12 +233,12 @@ verify_nodes '|/' 17
 verify_nodes '|\' 13
 
 echo Verify SCCS merge
-N_HASH=$(git blame -C -C ./usr/src/sys/h/proc.h |
+N_HASH=$(git blame -C -C ./sys/h/proc.h |
 	awk '{print $1}' |
 	sort -u |
 	wc -l)
 
-N_EXPECTED=9
+N_EXPECTED=12
 if [ $N_HASH -lt $N_EXPECTED ]
 then
 	echo "Found $N_HASH versions in proc.h; expected $N_EXPECTED" 1>&2
