@@ -232,4 +232,4 @@ TODO {{{1
   (could be done with git blame on each file)
 - Add support for SCCS file comment fields (^AT and ^At)
   See http://publib.boulder.ibm.com/infocenter/aix/v7r1/index.jsp?topic=%2Fcom.ibm.aix.files%2Fdoc%2Faixfiles%2Fsccsfile.htm
-- 
+- Check for duplicate files at existing tags and add them to the ignore lists
