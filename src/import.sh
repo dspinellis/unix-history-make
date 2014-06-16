@@ -50,7 +50,7 @@ gfi()
 }
 
 # When debugging import only a few representative files
-# DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr))\.c)|(open\.2)|(((proc)|(stat))\.h)'
+# DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((proc)|(stat))\.h)'
 
 # V1: Assembly language kernel
 perl ../import-dir.pl -m Epoch -c ../author-path/Research-V1 -n ../bell.au \
@@ -127,16 +127,80 @@ perl ../import-dir.pl -m BSD-3,$SCCS_AT_RELEASE -c ../author-path/BSD-4 \
 	-u ../unmatched/BSD-4 $ARCHIVE/CSRG//cd1/4.0 BSD 4 -0800 | gfi
 
 
-# Merge SCCS and incremental BSD 4.1.snap additions
-SCCS_AT_RELEASE=$(git log --before='1982-02-03 08:34:45 +0200' -n 1 --format='%H' BSD-SCCS)
-perl ../import-dir.pl -m BSD-4,$SCCS_AT_RELEASE \
-	-c ../author-path/BSD-4_1_snap \
-	-n ../berkeley.au \
-	-r BSD-4,$SCCS_AT_RELEASE $DEBUG \
-	-i ../ignore/BSD-4_1_snap-other,../ignore/BSD-4_1_snap-map,../ignore/BSD-4_1_snap-space \
-	-I ../ignore/BSD-4_1_snap-sccs \
-	-u ../unmatched/BSD-4_1_snap $ARCHIVE/CSRG/cd1/4.1.snap \
-	BSD 4_1_snap -0800 | gfi
+# Merge SCCS and incremental BSD additions on snapshots
+# See http://minnie.tuhs.org/Unix_History/4bsd
+# (R/L stands for BSD-Release branch or Leaf.)
+# Version	Parent		Directory		Last file timestamp + 1s  R/L
+cat <<\EOF |
+4_1_snap	4		cd1/4.1.snap		1982-02-03 08:34:45 +0200 R
+4_1c_2		4_1_snap	cd1/4.1c.2		1983-03-12 10:46:32 +0200 R
+4_2		4_1c_2		cd1/4.2			1983-09-26 16:24:27 +0200 R
+4_3		4_2		cd1/4.3			1987-03-02 09:38:51 +0200 R
+4_3_Tahoe	4_3		cd2/4.3tahoe		1989-05-23 13:47:44 +0300 R
+4_3_Net_1	4_3_Tahoe	cd2/net.1		1989-01-01 12:15:59 +0200 L
+4_3_Reno	4_3_Tahoe	cd2/4.3reno		1991-01-02 10:10:59 +0200 R
+4_3_Net_2	4_3_Reno	cd2/net.2		1991-04-19 11:49:58 +0300 L
+4_4		4_3_Reno	cd3/4.4			1993-06-06 10:12:36 +0300 R
+4_4_Lite1	4_4		cd2/4.4BSD-Lite1	1994-04-02 06:05:37 +0300 R
+4_4_Lite2	4_4_Lite1	cd3/4.4BSD-Lite2	1995-04-28 13:13:03 +0300 R
+EOF
+while read version parent dir date time tz rl ; do
+	dir=../archive/CSRG/$dir
+	parent=BSD-$parent
+
+	# Exclude administrative files (SCCS and .MAP), and
+	# files with spaces in their names
+	test -r ../ignore/BSD-${version}-admin ||
+		find $dir -type f |
+		egrep '(/\.MAP)|(/SCCS/)| ' |
+		sed "s|$dir/||" |
+		sort >../ignore/BSD-${version}-admin
+
+	# Exclude additional installed files
+	test -r ../ignore/BSD-${version}-other || (
+		find $dir/bin -type f
+		find $dir/etc -type f
+		find $dir/usr/bin -type f
+		find $dir/usr/ingres -type f 2>/dev/null
+		find $dir/usr/lasttape -type f 2>/dev/null
+		find $dir/usr/ucb -type f
+		find $dir/usr/include/sys -type f
+	) |
+	sed "s|$dir/||" |
+	sort |
+	comm -23 - ../ignore/BSD-${version}-admin >../ignore/BSD-${version}-other
+
+	# Exclude files that are under SCCS control
+	SCCS_AT_RELEASE=$(git log --before="$date $time $tz" -n 1 --format='%H' BSD-SCCS)
+	test -r ../ignore/"BSD-${version}-sccs" || (
+		# Files in the SCCS tree
+		git ls-tree --full-tree --name-only -r $SCCS_AT_RELEASE |
+		egrep -v '^((\.ref)|(LICENSE)|(README\.md)|(Caldera-license\.pdf))'
+
+		# Files with SCCS mark
+		find $dir -type f |
+		egrep -v '(\.MAP)|(/SCCS/)|(/ingres/)|['"'"'" ]' |
+		# Only text files
+		perl -ne 'chop; print "$_\n" if -T ' |
+		xargs fgrep -l '@(#)' |
+		sed "s|$dir/||" |
+		sort |
+		comm -23 - ../ignore/BSD-${version}-other
+	) | sort -u >../ignore/"BSD-${version}-sccs"
+
+	perl ../import-dir.pl -m $parent,$SCCS_AT_RELEASE \
+		-c ../author-path/BSD-default \
+		-n ../berkeley.au \
+		-r $parent,$SCCS_AT_RELEASE $DEBUG \
+		-i ../ignore/BSD-${version}-other,../ignore/BSD-${version}-admin \
+		-I ../ignore/BSD-${version}-sccs \
+		-u ../unmatched/BSD-$version $dir \
+		BSD $version -0800 | gfi
+	# For leaf branches move BSD-Release pointer back to their parent
+	if [ $rl = 'L' ] ; then
+		git branch -f BSD-Release $parent
+	fi
+done
 
 git checkout BSD-Release
 
@@ -229,16 +293,16 @@ verify_nodes()
 
 git checkout BSD-Release
 echo Verify branches and merges
-verify_nodes '|/' 17
-verify_nodes '|\' 13
+verify_nodes '|/' 55
+verify_nodes '|\' 32
 
 echo Verify SCCS merge
-N_HASH=$(git blame -C -C ./sys/h/proc.h |
+N_HASH=$(git blame -C -C usr/src/sys/sys/proc.h |
 	awk '{print $1}' |
 	sort -u |
 	wc -l)
 
-N_EXPECTED=12
+N_EXPECTED=32
 if [ $N_HASH -lt $N_EXPECTED ]
 then
 	echo "Found $N_HASH versions in proc.h; expected $N_EXPECTED" 1>&2

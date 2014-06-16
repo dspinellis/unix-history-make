@@ -1,8 +1,3 @@
-# Map files to ignore
-# Generated with
-# find archive/CSRG/cd1/4.1.snap/ -name .MAP | sed 's|archive/CSRG/cd1/4.1.snap/||'  >ignore/BSD-4.1.snap-map
-
-.MAP
 arch/.MAP
 bill/.MAP
 bin/.MAP
@@ -11,28 +6,27 @@ dev/.MAP
 etc/.MAP
 lib/.MAP
 lost+found/.MAP
+.MAP
 mnt/.MAP
 otp/.MAP
 ra/.MAP
-sys/.MAP
 sys/cassette/.MAP
 sys/conf/.MAP
 sys/dev/.MAP
 sys/floppy/.MAP
 sys/GENERIC/.MAP
 sys/h/.MAP
+sys/.MAP
 sys/mdec/.MAP
 sys/stand/.MAP
 sys/sys/.MAP
 tmp/.MAP
 tp/.MAP
-usr/.MAP
 usr/adm/.MAP
 usr/bin/.MAP
 usr/crash/.MAP
 usr/dict/.MAP
 usr/dict/papers/.MAP
-usr/doc/.MAP
 usr/doc/adv.ed/.MAP
 usr/doc/beginners/.MAP
 usr/doc/berknet/.MAP
@@ -47,6 +41,7 @@ usr/doc/ex/.MAP
 usr/doc/fsck/.MAP
 usr/doc/lisp/.MAP
 usr/doc/mail/.MAP
+usr/doc/.MAP
 usr/doc/memacros/.MAP
 usr/doc/msmacros/.MAP
 usr/doc/pascal/.MAP
@@ -63,33 +58,58 @@ usr/doc/uprog/.MAP
 usr/doc/uucp/.MAP
 usr/doc/vmunix/.MAP
 usr/doc/yacc/.MAP
-usr/games/.MAP
 usr/games/advfiles/.MAP
-usr/games/lib/.MAP
 usr/games/lib/ching.d/.MAP
+usr/games/lib/.MAP
 usr/games/lib/quiz.k/.MAP
+usr/games/.MAP
 usr/games/slib/.MAP
 usr/guest/.MAP
-usr/include/.MAP
 usr/include/local/.MAP
+usr/include/.MAP
 usr/include/sys/.MAP
-usr/ingres/.MAP
 usr/ingres/bin/.MAP
-usr/ingres/data/.MAP
-usr/ingres/data/base/.MAP
+usr/ingres/data/base/demo/attribute   aa
+usr/ingres/data/base/demo/dept        aa
+usr/ingres/data/base/demo/employee    aa
+usr/ingres/data/base/demo/indexes     aa
+usr/ingres/data/base/demo/integrities aa
+usr/ingres/data/base/demo/item        aa
 usr/ingres/data/base/demo/.MAP
+usr/ingres/data/base/demo/parts       aa
+usr/ingres/data/base/demo/protect     aa
+usr/ingres/data/base/demo/relation    aa
+usr/ingres/data/base/demo/sale        aa
+usr/ingres/data/base/demo/store       aa
+usr/ingres/data/base/demo/supplier    aa
+usr/ingres/data/base/demo/supply      aa
+usr/ingres/data/base/demo/tree        aa
+usr/ingres/data/base/.MAP
+usr/ingres/data/base/measure/attribute   b8
+usr/ingres/data/base/measure/indexes     b8
+usr/ingres/data/base/measure/integrities b8
 usr/ingres/data/base/measure/.MAP
+usr/ingres/data/base/measure/protect     b8
+usr/ingres/data/base/measure/relation    b8
+usr/ingres/data/base/measure/tree        b8
+usr/ingres/data/base/sites/attribute   92
+usr/ingres/data/base/sites/indexes     92
+usr/ingres/data/base/sites/integrities 92
 usr/ingres/data/base/sites/.MAP
+usr/ingres/data/base/sites/protect     92
+usr/ingres/data/base/sites/relation    92
+usr/ingres/data/base/sites/tree        92
+usr/ingres/data/.MAP
 usr/ingres/demo/.MAP
-usr/ingres/doc/.MAP
 usr/ingres/doc/error/.MAP
 usr/ingres/doc/files/.MAP
+usr/ingres/doc/.MAP
 usr/ingres/doc/other/.MAP
 usr/ingres/doc/quel/.MAP
 usr/ingres/doc/unix/.MAP
 usr/ingres/files/.MAP
 usr/ingres/lib/.MAP
-usr/ingres/source/.MAP
+usr/ingres/.MAP
 usr/ingres/source/conf/.MAP
 usr/ingres/source/ctlmod/.MAP
 usr/ingres/source/dbu/.MAP
@@ -99,38 +119,38 @@ usr/ingres/source/gutil/.MAP
 usr/ingres/source/h/.MAP
 usr/ingres/source/iutil/.MAP
 usr/ingres/source/libq/.MAP
+usr/ingres/source/.MAP
 usr/ingres/source/monitor/.MAP
 usr/ingres/source/ovqp/.MAP
 usr/ingres/source/parser/.MAP
 usr/ingres/source/qrymod/.MAP
 usr/ingres/source/support/.MAP
-usr/lasttape/.MAP
 usr/lasttape/bin/.MAP
 usr/lasttape/etc/.MAP
 usr/lasttape/lib/.MAP
-usr/lasttape/sys/.MAP
+usr/lasttape/.MAP
 usr/lasttape/sys/cassette/.MAP
 usr/lasttape/sys/conf/.MAP
 usr/lasttape/sys/dev/.MAP
 usr/lasttape/sys/floppy/.MAP
 usr/lasttape/sys/GENERIC/.MAP
 usr/lasttape/sys/h/.MAP
+usr/lasttape/sys/.MAP
 usr/lasttape/sys/mdec/.MAP
 usr/lasttape/sys/stand/.MAP
 usr/lasttape/sys/sys/.MAP
-usr/lasttape/usr/.MAP
 usr/lasttape/usr/games/.MAP
+usr/lasttape/usr/.MAP
 usr/lasttape/usr/ucb/.MAP
-usr/lib/.MAP
-usr/lib/font/.MAP
 usr/lib/fontinfo/.MAP
-usr/lib/learn/.MAP
+usr/lib/font/.MAP
 usr/lib/learn/C/.MAP
 usr/lib/learn/editor/.MAP
 usr/lib/learn/eqn/.MAP
 usr/lib/learn/files/.MAP
 usr/lib/learn/log/.MAP
 usr/lib/learn/macros/.MAP
+usr/lib/learn/.MAP
 usr/lib/learn/morefiles/.MAP
 usr/lib/learn/play/.MAP
 usr/lib/learn/play/pl3344a/.MAP
@@ -140,8 +160,9 @@ usr/lib/learn/play/pl8622a/.MAP
 usr/lib/learn/play/pl9044a/.MAP
 usr/lib/lex/.MAP
 usr/lib/lint/.MAP
-usr/lib/lisp/.MAP
 usr/lib/lisp/manual/.MAP
+usr/lib/lisp/.MAP
+usr/lib/.MAP
 usr/lib/me/.MAP
 usr/lib/me/src/.MAP
 usr/lib/refer/.MAP
@@ -154,7 +175,6 @@ usr/lib/uucp/.XQTDIR/.MAP
 usr/lib/vfont/.MAP
 usr/lib/vsamples/.MAP
 usr/lost+found/.MAP
-usr/man/.MAP
 usr/man/man0/.MAP
 usr/man/man1/.MAP
 usr/man/man2/.MAP
@@ -164,28 +184,29 @@ usr/man/man5/.MAP
 usr/man/man6/.MAP
 usr/man/man7/.MAP
 usr/man/man8/.MAP
+usr/man/.MAP
+usr/.MAP
 usr/mdec/.MAP
 usr/msgs/.MAP
-usr/net/.MAP
 usr/net/bin/.MAP
+usr/net/.MAP
 usr/new/.MAP
 usr/news/.MAP
-usr/old/.MAP
 usr/old/bin/.MAP
 usr/old/include/.MAP
 usr/old/lib/.MAP
+usr/old/.MAP
 usr/preserve/.MAP
-usr/pub/.MAP
 usr/public/.MAP
-usr/skel/.MAP
+usr/pub/.MAP
 usr/skel/etc/.MAP
-usr/skel/usr/.MAP
+usr/skel/.MAP
 usr/skel/usr/adm/.MAP
 usr/skel/usr/lib/.MAP
+usr/skel/usr/.MAP
 usr/skel/usr/spool/.MAP
 usr/skel/usr/spool/secretmail/.MAP
 usr/skel/usr/spool/uucppublic/.MAP
-usr/spool/.MAP
 usr/spool/at/.MAP
 usr/spool/at/past/.MAP
 usr/spool/berknet/.MAP
@@ -193,16 +214,15 @@ usr/spool/berknet/rcv/.MAP
 usr/spool/berknet/sendi/.MAP
 usr/spool/lpd/.MAP
 usr/spool/mail/.MAP
+usr/spool/.MAP
 usr/spool/secretmail/.MAP
 usr/spool/uucp/.MAP
 usr/spool/uucppublic/.MAP
 usr/spool/vad/.MAP
 usr/spool/vpd/.MAP
-usr/src/.MAP
-usr/src/cmd/.MAP
 usr/src/cmd/adb/.MAP
-usr/src/cmd/apl/.MAP
 usr/src/cmd/apl/documents/.MAP
+usr/src/cmd/apl/.MAP
 usr/src/cmd/as/.MAP
 usr/src/cmd/awk/.MAP
 usr/src/cmd/berknet/.MAP
@@ -215,40 +235,41 @@ usr/src/cmd/csh/.MAP
 usr/src/cmd/dc/.MAP
 usr/src/cmd/delivermail/.MAP
 usr/src/cmd/diction/.MAP
-usr/src/cmd/diff/.MAP
 usr/src/cmd/diff3/.MAP
+usr/src/cmd/diff/.MAP
 usr/src/cmd/dump/.MAP
 usr/src/cmd/ed/.MAP
-usr/src/cmd/efl/.MAP
 usr/src/cmd/efl/efltest/.MAP
+usr/src/cmd/efl/.MAP
 usr/src/cmd/eqn/.MAP
 usr/src/cmd/error/.MAP
 usr/src/cmd/ex/.MAP
 usr/src/cmd/eyacc/.MAP
 usr/src/cmd/f77/.MAP
-usr/src/cmd/fed/.MAP
 usr/src/cmd/fed/fed/.MAP
 usr/src/cmd/fed/lib2648/.MAP
+usr/src/cmd/fed/.MAP
 usr/src/cmd/graph/.MAP
 usr/src/cmd/grep/.MAP
 usr/src/cmd/learn/.MAP
 usr/src/cmd/lex/.MAP
 usr/src/cmd/lint/.MAP
-usr/src/cmd/lisp/.MAP
 usr/src/cmd/lisp/doc/.MAP
-usr/src/cmd/lisp/franz/.MAP
 usr/src/cmd/lisp/franz/h/.MAP
+usr/src/cmd/lisp/franz/.MAP
 usr/src/cmd/lisp/franz/VMS/.MAP
 usr/src/cmd/lisp/franz/VMS/S/.MAP
-usr/src/cmd/lisp/lib/.MAP
 usr/src/cmd/lisp/lib/cmulisp/.MAP
-usr/src/cmd/lisp/liszt/.MAP
+usr/src/cmd/lisp/lib/.MAP
 usr/src/cmd/lisp/liszt/doc/.MAP
+usr/src/cmd/lisp/liszt/.MAP
+usr/src/cmd/lisp/.MAP
 usr/src/cmd/lpr/.MAP
 usr/src/cmd/ls/.MAP
 usr/src/cmd/m4/.MAP
 usr/src/cmd/make/.MAP
 usr/src/cmd/man/.MAP
+usr/src/cmd/.MAP
 usr/src/cmd/mip/.MAP
 usr/src/cmd/msgs/.MAP
 usr/src/cmd/neqn/.MAP
@@ -274,8 +295,8 @@ usr/src/cmd/tbl/.MAP
 usr/src/cmd/termcap/.MAP
 usr/src/cmd/termcap/tabset/.MAP
 usr/src/cmd/tp/.MAP
-usr/src/cmd/troff/.MAP
 usr/src/cmd/troff/font/.MAP
+usr/src/cmd/troff/.MAP
 usr/src/cmd/troff/term/.MAP
 usr/src/cmd/tset/.MAP
 usr/src/cmd/ucbmail/.MAP
@@ -284,7 +305,6 @@ usr/src/cmd/uudiff/.MAP
 usr/src/cmd/vpr/.MAP
 usr/src/cmd/xsend/.MAP
 usr/src/cmd/yacc/.MAP
-usr/src/games/.MAP
 usr/src/games/aard/.MAP
 usr/src/games/adventure/.MAP
 usr/src/games/backgammon/.MAP
@@ -293,16 +313,22 @@ usr/src/games/compat/.MAP
 usr/src/games/compat/modshell/.MAP
 usr/src/games/compat/Original/.MAP
 usr/src/games/cribbage/.MAP
-usr/src/games/ddl/.MAP
 usr/src/games/ddl/doc/.MAP
+usr/src/games/ddl/.MAP
 usr/src/games/ddl/sample/.MAP
 usr/src/games/doctor/.MAP
 usr/src/games/fortune/.MAP
+usr/src/games/.MAP
 usr/src/games/mille/.MAP
 usr/src/games/monop/.MAP
 usr/src/games/mpu/.MAP
 usr/src/games/snake/.MAP
-usr/src/lib/.MAP
+usr/src/libc/crt/.MAP
+usr/src/libc/csu/.MAP
+usr/src/libc/gen/.MAP
+usr/src/libc/.MAP
+usr/src/libc/stdio/.MAP
+usr/src/libc/sys/.MAP
 usr/src/lib/libcurses/.MAP
 usr/src/lib/libdbm/.MAP
 usr/src/lib/libF77/.MAP
@@ -317,12 +343,8 @@ usr/src/lib/libnm/.MAP
 usr/src/lib/libpc/.MAP
 usr/src/lib/libplot/.MAP
 usr/src/lib/libtermlib/.MAP
-usr/src/libc/.MAP
-usr/src/libc/crt/.MAP
-usr/src/libc/csu/.MAP
-usr/src/libc/gen/.MAP
-usr/src/libc/stdio/.MAP
-usr/src/libc/sys/.MAP
+usr/src/lib/.MAP
+usr/src/.MAP
 usr/src/new/.MAP
 usr/tmp/.MAP
 usr/ucb/.MAP

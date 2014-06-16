@@ -171,6 +171,7 @@ Ability to follow file moves by keeping a lookaside copy of preceding snapshot
 Ownership: early man pages, then BSD man pages
 Which commands are retained? Has it got to do with the author's presence?
 Significant code duplication in early releases
+Co-distributed systems: Lisp, Pascal, Ingres, Ratfor
 
 
 New strategy {{{1
@@ -197,8 +198,8 @@ TODO {{{1
    cd1_4.0.time cd1/4.0/usr/src/cmd/dumpdir.c 343128297 1980-11-15 11:24:57.000000000 +0200
    cd1_4.1.time cd1/4.1/usr/src/cmd/dumpdir.c 343128297 1980-11-15 11:24:57.000000000 +0200
    cd1_4.1.snap.time cd1/4.1.snap/usr/src/games/canfield.c 381566084 1982-02-03 08:34:44.000000000 +0200
-   cd1_4.1a.time cd1/4.1a/src/cmd/berknet/sub.c 391016830 1982-05-23 18:47:10.000000000 +0300
-   cd1_4.1c.1.time cd1/4.1c.1/usr.lib/sendmail/src/Version.c 415096464 1983-02-26 10:34:24.000000000 +0200
+   cd1_4.1a.time cd1/4.1a/src/cmd/berknet/sub.c 391016830 1982-05-23 18:47:10.000000000 +0300 (appears incomplete)
+   cd1_4.1c.1.time cd1/4.1c.1/usr.lib/sendmail/src/Version.c 415096464 1983-02-26 10:34:24.000000000 +0200 (appears to contain /usr/src)
    cd1_4.1c.2.time cd1/4.1c.2/usr/src/usr.lib/sendmail/src/Version.c 416306791 1983-03-12 10:46:31.000000000 +0200
    cd1_4.2.time cd1/4.2/usr/src/usr.lib/sendmail/src/Version.c 433434266 1983-09-26 16:24:26.000000000 +0200
    cd1_4.3.time cd1/4.3/usr/src/usr.lib/libmp/util.c 541669130 1987-03-02 09:38:50.000000000 +0200
@@ -233,3 +234,4 @@ TODO {{{1
 - Add support for SCCS file comment fields (^AT and ^At)
   See http://publib.boulder.ibm.com/infocenter/aix/v7r1/index.jsp?topic=%2Fcom.ibm.aix.files%2Fdoc%2Faixfiles%2Fsccsfile.htm
 - Check for duplicate files at existing tags and add them to the ignore lists
+- Add actual persons in the BSD-default file.  For instance 4.2 appears to have been released by Sam Leffler, and later versions by Keith Bostic
