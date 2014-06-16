@@ -19,20 +19,30 @@ R=`pwd`
 mkdir -p sha
 cd import
 
-git rev-list --pretty=format: ^Research-V6 BSD-1 | save BSD-1
-git rev-list --pretty=format: ^BSD-1 BSD-2 | save BSD-2
-git rev-list --pretty=format: ^BSD-2 ^Bell-32V BSD-3 | save BSD-3
-git rev-list --pretty=format: ^BSD-3 BSD-4 | save BSD-4
-git rev-list --pretty=format: ^BSD-3 BSD-SCCS-END | save BSD-SCCS
-git rev-list --pretty=format: ^Research-V7 Bell-32V | save Bell-32V
-git rev-list --pretty=format: ^Research-V1 | save ^Research-V1
-git rev-list --pretty=format: ^Research-V1 Research-V3 | save Research-V3
-git rev-list --pretty=format: ^Research-V3 Research-V4 | save Research-V4
-git rev-list --pretty=format: ^Research-V4 Research-V5 | save Research-V5
-git rev-list --pretty=format: ^Research-V5 Research-V6 | save Research-V6
-git rev-list --pretty=format: ^Research-V6 Research-V7 | save Research-V7
+make_sha()
+{
+	git rev-list --pretty=format: ^Research-V6 BSD-1 | save BSD-1
+	git rev-list --pretty=format: ^BSD-1 BSD-2 | save BSD-2
+	git rev-list --pretty=format: ^BSD-2 ^Bell-32V BSD-3 | save BSD-3
+	git rev-list --pretty=format: ^BSD-3 BSD-4 | save BSD-4
+	git rev-list --pretty=format: ^BSD-3 BSD-SCCS-END | save BSD-SCCS
+	git rev-list --pretty=format: ^Research-V7 Bell-32V | save Bell-32V
+	git rev-list --pretty=format: Research-V1 | save Research-V1
+	git rev-list --pretty=format: ^Research-V1 Research-V3 | save Research-V3
+	git rev-list --pretty=format: ^Research-V3 Research-V4 | save Research-V4
+	git rev-list --pretty=format: ^Research-V4 Research-V5 | save Research-V5
+	git rev-list --pretty=format: ^Research-V5 Research-V6 | save Research-V6
+	git rev-list --pretty=format: ^Research-V6 Research-V7 | save Research-V7
 
-sort $R/sha/* >$R/sha/all
+	sed -n '/EOFBSD/,/^EOFBSD/{/\\EOFBSD/n;/^EOFBSD/q;p;}' ../import.sh |
+	while read version parent dir date time tz rl ; do
+		git rev-list --pretty=format: ^BSD-$parent BSD-$version | save BSD-$version
+	done
+
+	sort $R/sha/* >$R/sha/all
+}
+
+make_sha
 
 mkdir -p $R/analyzed
 
