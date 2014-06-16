@@ -2,7 +2,7 @@ all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
 	archive/1bsd newoldar archive/2bsd archive/32v archive/3bsd \
 	archive/CSRG/cd1.mnt archive/CSRG/cd2.mnt \
 	archive/CSRG/cd3.mnt archive/CSRG/cd4.mnt archive/CSRG/cd4.patched \
-	archive/386BSD-0.1 archive/386BSD-0.0
+	archive/386BSD-0.1 archive/386BSD-0.0 archive/FreeBSD-1.0.mnt
 
 .SUFFIXES:.iso .mnt
 
@@ -102,3 +102,6 @@ archive/CSRG/cd4.patched: archive/CSRG/cd4.mnt
 	tar -C $(subst .mnt,,$<) -cf - . | tar -C $@ -xf -
 	(cd $@ ; curl -s https://raw.githubusercontent.com/jonathangray/csrg-git-patches/master/SCCS-fix.patch | patch -p 1)
 	touch $@
+
+archive/FreeBSD-1.0.iso:
+	curl -s http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/i386/ISO-IMAGES/1.0/1.0-disc1.iso >$@
