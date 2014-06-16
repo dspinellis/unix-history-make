@@ -22,38 +22,21 @@ Two repositories are associated with the project:
 The first phase of the project will be to create a single timeline from the First Edition of Unix until the present.
 
 ## Project status
-Currently, the project is maturing with the creation of a repository containing snapshots of V1, V3, V4, V5, V6, and V7 Research Edition, Unix/32V, 1BSD, 2BSD, 3BSD, 4BSD, and 4.1BSD as well as an import of the CSRG SCCS history.    The files appear to be added in the repository in chronological order according to their modification time, and some part of the source code has been attributed to its actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
+Currently, the project is maturing with the creation of a repository containing snapshots of V1, V3, V4, V5, V6, and V7 Research Edition, Unix/32V, all BSD releases, two releases of 386BSD, FreeBSD 1.0, as well as an import of the CSRG SCCS history.    The files appear to be added in the repository in chronological order according to their modification time, and some part of the source code has been attributed to its actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
 
-The repository contains three two-way merges:
+The repository contains a number of two-way merges:
 
 * 3 BSD is merged from Unix/32V and Research Edition 6
-* 4 BSD is merged from 3 BSD and a time point of BSD-SCCS
-* 4.1 BSD is merged from 4 BSD and a time point of BSD-SCCS
+* Various BSD releases are merged from the development branch and a time point of BSD-SCCS
+* FreeBSD 1.0 is merged from Net/2 BSD and 386BSD.
 
 Blame is apportioned appropriately.
 
 Future plans involve the integration of further BSD snapshots, 386BSD, and the FreeBSD repository.
 
-## Branches and tags
-The following branches are included in the `unix-history-repo`.
-* Research-Release
-* Research-Development-V1
-* Research-Development-V3
-* Research-Development-V4
-* Research-Development-V5
-* Research-Development-V6
-* Research-Development-V7
-* Bell-Release
-* Bell-Development-32V
-* BSD-Release
-* BSD-Development-1
-* BSD-Development-2
-* BSD-Development-3
-* BSD-Development-4
-* BSD-SCCS
-
-The -Development branches contain a commit for every file that was added during the development of the corresponding system. The `*-Release` branches have each development cycle merged into them.
-In addition, the following tags mark specific releases, listed in chronological order.
+## Tags
+The `unix-history-repo` contains -Development and -Release branches and the branch BSD-SCCS.  The -Development branches contain a commit for every file that was added during the development of the corresponding system. The `*-Release` branches have each development cycle merged into them.
+In addition, the following tags mark specific releases, listed in rough chronological order.
 * Epoch
 * Research-V1
 * Research-V3
@@ -66,7 +49,21 @@ In addition, the following tags mark specific releases, listed in chronological 
 * Bell-32V
 * BSD-3
 * BSD-4
+* BSD-4_1_snap
+* BSD-4_1c_2
+* BSD-4_2
+* BSD-4_3
+* BSD-4_3_Reno
+* BSD-4_3_Net_1
+* BSD-4_3_Tahoe
+* BSD-4_3_Net_2
+* BSD-4_4
+* BSD-4_4_Lite1
+* BSD-4_4_Lite2
 * BSD-SCCS-END
+* 386BSD-0.0
+* 386BSD-0.1
+* FreeBSD-1.0
 
 ## Cool things you can do
 Run

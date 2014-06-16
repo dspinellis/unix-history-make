@@ -3,6 +3,9 @@
 # Import Unix branches into a single repo
 #
 
+# When debugging import only a few representative files
+# export DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((proc)|(stat))\.h)'
+
 # Location of archive mirror
 ARCHIVE=../archive
 
@@ -48,9 +51,6 @@ gfi()
 	fi |
 	git fast-import --stats --done --quiet || kill -s TERM $TOP_PID
 }
-
-# When debugging import only a few representative files
-# DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((proc)|(stat))\.h)'
 
 # V1: Assembly language kernel
 perl ../import-dir.pl -m Epoch -c ../author-path/Research-V1 -n ../bell.au \
@@ -202,7 +202,26 @@ while read version parent dir date time tz rl ; do
 	fi
 done
 
-git checkout BSD-Release
+# 386BSD 0.0
+perl ../import-dir.pl -m BSD-4_3_Net_2 -c ../author-path/386BSD \
+	-n ../386bsd.au -r BSD-4_3_Net_2 $DEBUG \
+	-u ../unmatched/386BSD-0.0 \
+	$ARCHIVE/386BSD-0.0/src 386BSD 0.0 -0800 | gfi
+
+# 386BSD 0.1
+perl ../import-dir.pl -m 386BSD-0.0 -c ../author-path/386BSD \
+	-n ../386bsd.au -r 386BSD-0.0 $DEBUG \
+	-u ../unmatched/386BSD-0.1 \
+	$ARCHIVE/386BSD-0.1 386BSD 0.1 -0800 | gfi
+
+# FreeBSD 1.0
+perl ../import-dir.pl -m 386BSD-0.1,BSD-4_3_Net_2 -c ../author-path/FreeBSD-1.0 \
+	-i ../ignore/FreeBSD-1.0 \
+	-n ../freebsd.au -r 386BSD-0.1,BSD-4_3_Net_2 $DEBUG \
+	-u ../unmatched/FreeBSD-1.0 \
+	$ARCHIVE/FreeBSD-1.0/filesys FreeBSD 1.0 -0800 | gfi
+
+git checkout FreeBSD-Release
 
 # Adding boilerplate again seems to help getting a modern
 # timestamp for the files displayed on GitHub
