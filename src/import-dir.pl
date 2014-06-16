@@ -27,6 +27,9 @@ use VCS::SCCS;
 # A map from contributor ids to full names
 my %full_name;
 
+# A map from contributor ids to emails
+my %email;
+
 # A map containing paths of files to ignore
 my %ignore_map;
 
@@ -495,14 +498,36 @@ create_name_map
 			$address_template = $1;
 			next;
 		}
-		my ($id, $name) = split(/:/, $_);
+		my ($id, $name, $email) = split(/:/, $_);
 		if (defined($full_name{$id})) {
 			print STDERR "Name for $id already defined as $full_name{$id}\n";
 			exit 1;
 		}
 		$full_name{$id} = $name;
+		if (defined($email)) {
+			$email{$id} = $email;
+		} else {
+			$email{$id} = email_address($id);
+		}
 	}
 	close($in);
+}
+
+# Return the domain associated with the specified email address
+# Can handle UUCP and RFC-822 addresses
+sub
+get_domain
+{
+	my ($email) = @_;
+
+	if ($email =~ m/^[^@]+\@(.*)$/) {
+		return $1;
+	} elsif ($email =~ m/^([^!]+)\!.*$/) {
+		return $1;
+	} else {
+		print STDERR "Unable to get domain for address $email\n";
+		exit 1;
+	}
 }
 
 # Given a committer id (or full details) add full name and email if needed
@@ -520,17 +545,29 @@ add_name_email
 	if ($id =~ m/,/) {
 		# Multiple names
 		my @ids = split(/,/, $id);
+		# Check that names are valid and set same_domain to true
+		# if all share the same domain
+		my $same_domain = 1;
+		my $domain = defined($address_template) ? get_domain(email_address("x.y.z.z.y")) : '';
 		for my $i (@ids) {
 			check_name($i);
+			my $this_domain = get_domain($email{$i});
+			$same_domain = 0 if ($domain ne $this_domain);
 		}
 		my @names = map { $full_name{$_} } @ids;
 		my $name = join(' and ', @names);
-		my $address = email_address("{$id}");
+
+		my $address;
+		if ($same_domain) {
+			$address = email_address("{$id}");
+		} else {
+			my @addresses = map { $email{$_} } @ids;
+			$address = '{' . join(',', @addresses) . '}';
+		}
 		return "$name <$address>";
 	} else {
 		check_name($id);
-		my $address = email_address($id);
-		return "$full_name{$id} <$address>";
+		return "$full_name{$id} <$email{$id}>";
 	}
 }
 
