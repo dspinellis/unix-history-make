@@ -142,6 +142,11 @@ my %fi;
 sub
 gather_text_files
 {
+	# Skip over unreadable directories; e.g. CSRG/cd2/net.2/var/spool/ftp/hidden
+	if (-d && !-r) {
+		$File::Find::prune = 1;
+		return;
+	}
 	return unless (-f && -T);
 	return if ($opt_p && !m|/$opt_p$|);
 	if ($opt_i || $opt_I) {
