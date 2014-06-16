@@ -347,6 +347,7 @@ issue_text_commits
 	print "# Development commits\n";
 	for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 		next if (defined($cutoff_time) && $fi{$name}->{mtime} > $cutoff_time);
+		$last_mtime = $fi{$name}->{mtime};
 		next if ($fi{$name}->{commit_at_release});
 
 		print "# $fi{$name}->{mtime} $name\n";
@@ -359,7 +360,6 @@ issue_text_commits
 		my $author = committer($commit_path);
 		print "author $author $fi{$name}->{mtime} $tz_offset\n";
 		print "committer $author $fi{$name}->{mtime} $tz_offset\n";
-		$last_mtime = $fi{$name}->{mtime};
 		print data("$branch $version development\n\nWork on file $commit_path");
 		print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 	}
@@ -380,7 +380,7 @@ my $release_mark = $mark++;
 print "author $release_master $last_mtime $tz_offset\n";
 print "committer $release_master $last_mtime $tz_offset\n";
 print data("$branch $version release\n\nSnapshot of the completed development branch");
-print "from :$last_devel_mark\n";
+print "from :$last_devel_mark\n" if defined($last_devel_mark);
 for my $merge (split(/,/, $opt_m)) {
 	print "merge $merge\n";
 }
@@ -409,6 +409,7 @@ print data("Tagged $version release snapshot of $branch with $version\n\nSource 
 
 # Signify that we're finished
 print "done\n";
+print STDERR "Done importing $dev_branch\n";
 
 # Return the argument as a fast-import data element
 sub
