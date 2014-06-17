@@ -221,6 +221,8 @@ perl ../import-dir.pl -m 386BSD-0.1,BSD-4_3_Net_2 -c ../author-path/FreeBSD-1.0 
 	-u ../unmatched/FreeBSD-1.0 \
 	$ARCHIVE/FreeBSD-1.0/filesys FreeBSD 1.0 -0800 | gfi
 
+git gc --aggressive
+
 git checkout FreeBSD-Release
 
 # Adding boilerplate again seems to help getting a modern
