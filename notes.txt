@@ -224,4 +224,6 @@ TODO {{{1
   (could be done with git blame on each file)
 - Add support for SCCS file comment fields (^AT and ^At)
   See http://publib.boulder.ibm.com/infocenter/aix/v7r1/index.jsp?topic=%2Fcom.ibm.aix.files%2Fdoc%2Faixfiles%2Fsccsfile.htm
-- 
+- On FreeBSD import remove reference files near 2.0 release at commit
+1e9b5066743a9ebe56ef60a9841f1ebd929dd78a marked ALPHA -> BETA at 785403528
+- to commits missing a from field add a from to the reference files
