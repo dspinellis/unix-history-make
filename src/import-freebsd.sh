@@ -1,6 +1,14 @@
 #!/bin/bash
 
 
+# When to remove reference files, because their contents are integrated
+# into the distribution.  Using release/2.0 does not work, because this
+# branch is bypassed on the way to 3.0.0.
+# The following is a commit after 2.0 that is not bypassed by a merge on the
+# road to 3.0.0
+# It is marked ALPHA -> BETA and occurs at 785403528
+REF_IMPORT_END=1e9b5066743a9ebe56ef60a9841f1ebd929dd78a
+
 # Location of archive mirror
 ARCHIVE=../archive
 
@@ -62,7 +70,7 @@ EOF
 
 echo "Adding 2.0" 1>&2
 {
-	../ref-prepend.pl FreeBSD FreeBSD-2.0-START $ARCHIVE/freebsd.git/ --reverse --use-done-feature --progress=1000 release/2.0
+	../ref-prepend.pl FreeBSD FreeBSD-2.0-START $ARCHIVE/freebsd.git/ --reverse --use-done-feature --progress=1000 $REF_IMPORT_END
 	echo done
 } | gfi
 
@@ -89,9 +97,9 @@ EOF
 
 echo "Adding remainder" 1>&2
 # Add the remaining repo
-# REFS=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/|release/2\.0| master')\ HEAD
-REFS=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/|release/2\.0| master' | grep /3)
+# REF_REMAINING=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/|release/2\.0| master')\ HEAD
+REF_REMAINING=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/|release/2\.0| master' | grep /3)
 {
-	../ref-prepend.pl FreeBSD FreeBSD-2.0-END $ARCHIVE/freebsd.git/ --reverse --use-done-feature --progress=1000 ^release/2.0 $REFS
+	../ref-prepend.pl FreeBSD FreeBSD-2.0-END $ARCHIVE/freebsd.git/ --reverse --use-done-feature --progress=1000 ^$REF_IMPORT_END $REF_REMAINING
 	echo done
 } | gfi
