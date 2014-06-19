@@ -70,7 +70,7 @@ EOF
 
 echo "Adding 2.0" 1>&2
 {
-	../ref-prepend.pl FreeBSD FreeBSD-2.0-START $ARCHIVE/freebsd.git/ --reverse --use-done-feature --progress=1000 $REF_IMPORT_END
+	../git-massage.pl FreeBSD FreeBSD-2.0-START $ARCHIVE/freebsd.git/ --reverse --use-done-feature --progress=1000 $REF_IMPORT_END
 	echo done
 } | gfi
 
@@ -100,6 +100,6 @@ echo "Adding remainder" 1>&2
 # REF_REMAINING=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/|release/2\.0| master')\ HEAD
 REF_REMAINING=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/|release/2\.0| master' | grep /3)
 {
-	../ref-prepend.pl FreeBSD FreeBSD-2.0-END $ARCHIVE/freebsd.git/ --reverse --use-done-feature --progress=1000 ^$REF_IMPORT_END $REF_REMAINING
+	../git-massage.pl FreeBSD FreeBSD-2.0-END $ARCHIVE/freebsd.git/ --reverse --use-done-feature --progress=1000 ^$REF_IMPORT_END $REF_REMAINING
 	echo done
 } | gfi
