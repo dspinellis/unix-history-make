@@ -45,15 +45,16 @@ my $repo = Git::Repository->new( work_tree => shift);
 my $export = Git::FastExport->new($repo);
 $export->fast_export(@ARGV);
 
-my $added_from;
+my $added_from = 0;
 
 while (my $block = $export->next_block()) {
 	$block->{header} =~ s:((commit|reset) refs/heads/)(.+)$:${1}$opt_p-$3:o if ($opt_p);
 	if ($block->{header} =~ m/^commit/ && !$block->{from} &&
 	    ($opt_a || !$added_from)) {
 			my @from = ("from $from");
-			$added_from = 1;
+			$added_from++;
 			$block->{from} = \@from
 	}
 	print $block->as_string();
 }
+print STDERR "Added from command to $added_from commit(s)\n";
