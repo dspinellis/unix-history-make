@@ -1,0 +1,445 @@
+# The files listed here have copies available under src or skel
+# Therefore, don't import them from the installation directory
+# List generated with
+# https://github.com/dspinellis/sgsh/blob/master/example/duplicate-files.sh
+
+# usr/src/cmd/chk.sh
+bin/chk
+etc/chk
+
+# usr/src/cmd/trman.sh
+usr/man/man0/trman
+usr/ucb/trman
+
+# usr/src/cmd/lint/llib-port
+usr/lib/lint/llib-port
+usr/old/lib/llib-port
+
+# usr/src/cmd/false.sh
+bin/false
+
+# usr/src/cmd/nohup.sh
+bin/nohup
+
+# usr/skel/etc/fstab
+etc/fstab
+
+# usr/skel/etc/group
+etc/group
+
+# usr/src/cmd/mklost+found.s
+etc/mklost+found
+
+# usr/skel/etc/motd
+etc/motd
+
+# usr/src/cmd/termcap/termcap.obj
+etc/termcap
+
+# usr/skel/etc/ttytype
+etc/ttytype
+
+# usr/skel/etc/ttywhere
+etc/ttywhere
+
+# usr/src/cmd/vipw.sh
+etc/vipw
+
+# usr/src/sys/stand/sboot
+sys/boot
+
+# usr/src/sys/stand/tpicheck
+sys/icheck
+
+# usr/src/sys/stand/tpmkfs
+sys/mkfs
+
+# usr/src/sys/stand/tprestor
+sys/restor
+
+# usr/skel/.login
+usr/bill/.login
+
+# usr/src/cmd/calendar.sh
+usr/bin/calendar
+
+# usr/src/cmd/diction/diction
+usr/bin/diction
+
+# usr/src/cmd/diff3/diff3.sh
+usr/bin/diff3
+
+# usr/src/cmd/diction/explain
+usr/bin/explain
+
+# usr/src/cmd/install.sh
+usr/bin/install
+
+# usr/src/cmd/lint/SHELL
+usr/bin/lint
+
+# usr/src/cmd/lookbib.sh
+usr/bin/lookbib
+
+# usr/src/cmd/lorder.sh
+usr/bin/lorder
+
+# usr/src/cmd/man/man.sh
+usr/bin/man
+
+# usr/src/cmd/plot/plot.sh
+usr/bin/plot
+
+# usr/src/cmd/spell/spell.sh
+usr/bin/spell
+
+# usr/src/cmd/struct/struct
+usr/bin/struct
+
+# usr/src/cmd/diction/style
+usr/bin/style
+
+# usr/src/lib/libdbm/dbm.h
+usr/include/dbm.h
+
+# usr/src/sys/h/acct.h
+usr/include/sys/acct.h
+
+# usr/src/sys/h/bk.h
+usr/include/sys/bk.h
+
+# usr/src/sys/h/buf.h
+usr/include/sys/buf.h
+
+# usr/src/sys/h/callo.h
+usr/include/sys/callo.h
+
+# usr/src/sys/h/clist.h
+usr/include/sys/clist.h
+
+# usr/src/sys/h/clock.h
+usr/include/sys/clock.h
+
+# usr/src/sys/h/clock.m
+usr/include/sys/clock.m
+
+# usr/src/sys/h/cmap.h
+usr/include/sys/cmap.h
+
+# usr/src/sys/h/cmap.m
+usr/include/sys/cmap.m
+
+# usr/src/sys/h/conf.h
+usr/include/sys/conf.h
+
+# usr/src/sys/h/cons.m
+usr/include/sys/cons.m
+
+# usr/src/sys/h/dir.h
+usr/include/sys/dir.h
+
+# usr/src/sys/h/dk.h
+usr/include/sys/dk.h
+
+# usr/src/sys/h/dmap.h
+usr/include/sys/dmap.h
+
+# usr/src/sys/h/fblk.h
+usr/include/sys/fblk.h
+
+# usr/src/sys/h/file.h
+usr/include/sys/file.h
+
+# usr/src/sys/h/filsys.h
+usr/include/sys/filsys.h
+
+# usr/src/sys/h/flp.h
+usr/include/sys/flp.h
+
+# usr/src/sys/h/inline.h
+usr/include/sys/inline.h
+
+# usr/src/sys/h/inode.h
+usr/include/sys/inode.h
+
+# usr/src/sys/h/ino.h
+usr/include/sys/ino.h
+
+# usr/src/sys/h/ioctl.h
+usr/include/sys/ioctl.h
+
+# usr/src/sys/h/map.h
+usr/include/sys/map.h
+
+# usr/src/sys/h/mba.h
+usr/include/sys/mba.h
+
+# usr/src/sys/h/mba.m
+usr/include/sys/mba.m
+
+# usr/src/sys/h/mount.h
+usr/include/sys/mount.h
+
+# usr/src/sys/h/mtpr.h
+usr/include/sys/mtpr.h
+
+# usr/src/sys/h/mtpr.m
+usr/include/sys/mtpr.m
+
+# usr/src/sys/h/mx.h
+usr/include/sys/mx.h
+
+# usr/src/sys/h/page.m
+usr/include/sys/page.m
+
+# usr/src/sys/h/param.h
+usr/include/sys/param.h
+
+# usr/src/sys/h/pcb.h
+usr/include/sys/pcb.h
+
+# usr/src/sys/h/pcb.m
+usr/include/sys/pcb.m
+
+# usr/src/sys/h/pdma.h
+usr/include/sys/pdma.h
+
+# usr/src/sys/h/proc.h
+usr/include/sys/proc.h
+
+# usr/src/sys/h/proc.m
+usr/include/sys/proc.m
+
+# usr/src/sys/h/psl.h
+usr/include/sys/psl.h
+
+# usr/src/sys/h/psl.m
+usr/include/sys/psl.m
+
+# usr/src/sys/h/pte.h
+usr/include/sys/pte.h
+
+# usr/src/sys/h/reboot.h
+usr/include/sys/reboot.h
+
+# usr/src/sys/h/reg.h
+usr/include/sys/reg.h
+
+# usr/src/sys/h/seg.h
+usr/include/sys/seg.h
+
+# usr/src/sys/h/stat.h
+usr/include/sys/stat.h
+
+# usr/src/sys/h/systm.h
+usr/include/sys/systm.h
+
+# usr/src/sys/h/text.h
+usr/include/sys/text.h
+
+# usr/src/sys/h/timeb.h
+usr/include/sys/timeb.h
+
+# usr/src/sys/h/times.h
+usr/include/sys/times.h
+
+# usr/src/sys/h/trap.h
+usr/include/sys/trap.h
+
+# usr/src/sys/h/trap.m
+usr/include/sys/trap.m
+
+# usr/src/sys/h/tty.h
+usr/include/sys/tty.h
+
+# usr/src/sys/h/uba.h
+usr/include/sys/uba.h
+
+# usr/src/sys/h/uba.m
+usr/include/sys/uba.m
+
+# usr/src/sys/h/user.h
+usr/include/sys/user.h
+
+# usr/src/sys/h/vcmd.h
+usr/include/sys/vcmd.h
+
+# usr/src/sys/h/vlimit.h
+usr/include/sys/vlimit.h
+
+# usr/src/sys/h/vmclust.h
+usr/include/sys/vmclust.h
+
+# usr/src/sys/h/vm.h
+usr/include/sys/vm.h
+
+# usr/src/sys/h/vmklust.h
+usr/include/sys/vmklust.h
+
+# usr/src/sys/h/vmmac.h
+usr/include/sys/vmmac.h
+
+# usr/src/sys/h/vmmeter.h
+usr/include/sys/vmmeter.h
+
+# usr/src/sys/h/vmmon.h
+usr/include/sys/vmmon.h
+
+# usr/src/sys/h/vm.m
+usr/include/sys/vm.m
+
+# usr/src/sys/h/vmparam.h
+usr/include/sys/vmparam.h
+
+# usr/src/sys/h/vmsysent.h
+usr/include/sys/vmsysent.h
+
+# usr/src/sys/h/vmsystm.h
+usr/include/sys/vmsystm.h
+
+# usr/src/sys/h/vmtotal.h
+usr/include/sys/vmtotal.h
+
+# usr/src/sys/h/vmtune.h
+usr/include/sys/vmtune.h
+
+# usr/src/sys/h/vtimes.h
+usr/include/sys/vtimes.h
+
+# usr/src/lib/libcurses/unctrl.h
+usr/include/unctrl.h
+
+# usr/skel/usr/lib/crontab
+usr/lib/crontab
+
+# usr/src/cmd/diction/dict.d
+usr/lib/dict.d
+
+# usr/src/cmd/diction/explain.d
+usr/lib/explain.d
+
+# usr/src/cmd/pascal/how_pc
+usr/lib/how_pc
+
+# usr/src/cmd/pascal/how_pi
+usr/lib/how_pi
+
+# usr/src/cmd/pascal/how_pix
+usr/lib/how_pix
+
+# usr/src/cmd/pascal/how_pxp
+usr/lib/how_pxp
+
+# usr/src/cmd/lex/ncform
+usr/lib/lex/ncform
+
+# usr/src/cmd/lint/llib-lc
+usr/lib/lint/llib-lc
+
+# usr/src/cmd/ucbmail/Mail.help
+usr/lib/Mail.help
+
+# usr/src/cmd/ucbmail/Mail.help.~
+usr/lib/Mail.help.~
+
+# usr/skel/usr/lib/Mail.rc
+usr/lib/Mail.rc
+
+# usr/src/cmd/makewhatis.sh
+usr/lib/makewhatis
+
+# usr/lib/me/src/tmac.e
+usr/lib/me/tmac.e
+
+# usr/src/cmd/termcap/tabset/3101
+usr/lib/tabset/3101
+
+# usr/src/cmd/termcap/tabset/beehive
+usr/lib/tabset/beehive
+
+# usr/src/cmd/termcap/tabset/diablo
+usr/lib/tabset/diablo
+
+# usr/src/cmd/termcap/tabset/std
+usr/lib/tabset/std
+
+# usr/src/cmd/termcap/tabset/teleray
+usr/lib/tabset/teleray
+
+# usr/src/cmd/termcap/tabset/vt100
+usr/lib/tabset/vt100
+
+# usr/src/cmd/termcap/tabset/xerox1720
+usr/lib/tabset/xerox1720
+
+# usr/src/cmd/vpr/tmac.vgrind
+usr/lib/tmac/tmac.vgrind
+
+# usr/src/cmd/uucp/L.sys
+usr/lib/uucp/L.sys
+
+# usr/src/cmd/uucp/USERFILE
+usr/lib/uucp/USERFILE
+
+# usr/src/cmd/yacc/yaccpar
+usr/lib/yaccpar
+
+# usr/src/cmd/diction/style.1
+usr/man/man1/style.1
+
+# usr/skel/usr/spool/secretmail/notice
+usr/spool/secretmail/notice
+
+# usr/skel/usr/spool/uucppublic/.plan
+usr/spool/uucppublic/.plan
+
+# usr/src/cmd/apropos.sh
+usr/ucb/apropos
+
+# usr/src/cmd/berknet/netlog.sh
+usr/ucb/netlog
+
+# usr/src/cmd/berknet/nettroff.sh
+usr/ucb/nettroff
+
+# usr/src/cmd/cifplot/cifplot
+usr/ucb/cifplot
+
+# usr/src/cmd/compact/ccat.sh
+usr/ucb/ccat
+
+# usr/src/cmd/cxref.sh
+usr/ucb/cxref
+
+# usr/src/cmd/diffdir.sh
+usr/ucb/diffdir
+
+# usr/src/cmd/help.sh
+usr/ucb/help
+
+# usr/src/cmd/iul.sh
+usr/ucb/iul
+
+# usr/src/cmd/lnall.sh
+usr/ucb/lnall
+
+# usr/src/cmd/print.sh
+usr/ucb/print
+
+# usr/src/cmd/see.sh
+usr/ucb/see
+
+# usr/src/cmd/tra.sh
+usr/ucb/tra
+
+# usr/src/cmd/vpr/vgrind.sh
+usr/ucb/vgrind
+
+# usr/src/cmd/vpr/vprint.sh
+usr/ucb/vprint
+
+# usr/src/cmd/vpr/vtroff.sh
+usr/ucb/vtroff
+
+# usr/src/cmd/which.sh
+usr/ucb/which

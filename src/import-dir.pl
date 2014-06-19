@@ -27,6 +27,9 @@ use VCS::SCCS;
 # A map from contributor ids to full names
 my %full_name;
 
+# A map from contributor ids to emails
+my %email;
+
 # A map containing paths of files to ignore
 my %ignore_map;
 
@@ -64,10 +67,11 @@ Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 	during incremental import, and add when merging
 -m T	The commit(s) from which the import will be merged
 -n file	Map between contributor login names and full names
+-P path	Path to prepend to file paths being committed
 -p re	Regular expression of files to process
 -r T	During import keep by side a reference copy of the specified files
 -S	Import directory through SCCS
--s re	Regular expression to strip paths into committed ones
+-s path	Leading path to strip from file paths being committed
 	By default this is the supplied directory
 -u file	File to write unmatched paths (paths matched with a wildcard)
 
@@ -78,10 +82,10 @@ version_name and tz_offset are not required for SCCS imports
 };
 }
 
-our($opt_C, $opt_c, $opt_i, $opt_I, $opt_m, $opt_n, $opt_p, $opt_r, $opt_S, $opt_s, $opt_u);
+our($opt_C, $opt_c, $opt_i, $opt_I, $opt_m, $opt_n, $opt_P, $opt_p, $opt_r, $opt_S, $opt_s, $opt_u);
 $opt_m = $opt_r = '';
 
-if (!getopts('C:c:f:i:I:m:n:p:r:Ss:u:')) {
+if (!getopts('C:c:f:i:I:m:n:P:p:r:Ss:u:')) {
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 
@@ -113,6 +117,7 @@ my $tz_offset = shift unless ($opt_S);
 $opt_s = $directory unless defined($opt_s);
 $opt_s .= '/' unless ($opt_s =~ m|/$|);
 $opt_s =~ s/([^\w])/\\$1/g;
+$opt_s = '^' . $opt_s;
 
 create_name_map() if (defined($opt_n));
 create_map($opt_i, \%ignore_map);
@@ -140,6 +145,11 @@ my %fi;
 sub
 gather_text_files
 {
+	# Skip over unreadable directories; e.g. CSRG/cd2/net.2/var/spool/ftp/hidden
+	if (-d && !-r) {
+		$File::Find::prune = 1;
+		return;
+	}
 	return unless (-f && -T);
 	return if ($opt_p && !m|/$opt_p$|);
 	if ($opt_i || $opt_I) {
@@ -289,6 +299,7 @@ issue_sccs_commits
 
 		my $mode = $delta{flags}{x} ? "755" : "644";
 		$fn =~ s/$opt_s// if ($opt_s);
+		$fn = $opt_P . $fn if ($opt_P);
 		print "M $mode :$commit_mark $fn\n";
 		print "\n";
 	}
@@ -344,6 +355,7 @@ issue_text_commits
 	print "# Development commits\n";
 	for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 		next if (defined($cutoff_time) && $fi{$name}->{mtime} > $cutoff_time);
+		$last_mtime = $fi{$name}->{mtime};
 		next if ($fi{$name}->{commit_at_release});
 
 		print "# $fi{$name}->{mtime} $name\n";
@@ -352,10 +364,10 @@ issue_text_commits
 		$last_devel_mark = $mark++;
 		my $commit_path = $name;
 		$commit_path =~ s/$opt_s// if ($opt_s);
+		$commit_path = $opt_P . $commit_path if ($opt_P);
 		my $author = committer($commit_path);
 		print "author $author $fi{$name}->{mtime} $tz_offset\n";
 		print "committer $author $fi{$name}->{mtime} $tz_offset\n";
-		$last_mtime = $fi{$name}->{mtime};
 		print data("$branch $version development\n\nWork on file $commit_path");
 		print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 	}
@@ -376,7 +388,7 @@ my $release_mark = $mark++;
 print "author $release_master $last_mtime $tz_offset\n";
 print "committer $release_master $last_mtime $tz_offset\n";
 print data("$branch $version release\n\nSnapshot of the completed development branch");
-print "from :$last_devel_mark\n";
+print "from :$last_devel_mark\n" if defined($last_devel_mark);
 for my $merge (split(/,/, $opt_m)) {
 	print "merge $merge\n";
 }
@@ -388,7 +400,7 @@ for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 	print "# $fi{$name}->{mtime} $name\n";
 	my $commit_path = $name;
 	$commit_path =~ s/$opt_s// if ($opt_s);
-	my $author = committer($commit_path);
+	$commit_path = $opt_P . $commit_path if ($opt_P);
 	print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 }
 # Remove reference copies of older files
@@ -405,6 +417,7 @@ print data("Tagged $version release snapshot of $branch with $version\n\nSource 
 
 # Signify that we're finished
 print "done\n";
+print STDERR "Done importing $dev_branch\n";
 
 # Return the argument as a fast-import data element
 sub
@@ -485,14 +498,36 @@ create_name_map
 			$address_template = $1;
 			next;
 		}
-		my ($id, $name) = split(/:/, $_);
+		my ($id, $name, $email) = split(/:/, $_);
 		if (defined($full_name{$id})) {
 			print STDERR "Name for $id already defined as $full_name{$id}\n";
 			exit 1;
 		}
 		$full_name{$id} = $name;
+		if (defined($email)) {
+			$email{$id} = $email;
+		} else {
+			$email{$id} = email_address($id);
+		}
 	}
 	close($in);
+}
+
+# Return the domain associated with the specified email address
+# Can handle UUCP and RFC-822 addresses
+sub
+get_domain
+{
+	my ($email) = @_;
+
+	if ($email =~ m/^[^@]+\@(.*)$/) {
+		return $1;
+	} elsif ($email =~ m/^([^!]+)\!.*$/) {
+		return $1;
+	} else {
+		print STDERR "Unable to get domain for address $email\n";
+		exit 1;
+	}
 }
 
 # Given a committer id (or full details) add full name and email if needed
@@ -510,17 +545,29 @@ add_name_email
 	if ($id =~ m/,/) {
 		# Multiple names
 		my @ids = split(/,/, $id);
+		# Check that names are valid and set same_domain to true
+		# if all share the same domain
+		my $same_domain = 1;
+		my $domain = defined($address_template) ? get_domain(email_address("x.y.z.z.y")) : '';
 		for my $i (@ids) {
 			check_name($i);
+			my $this_domain = get_domain($email{$i});
+			$same_domain = 0 if ($domain ne $this_domain);
 		}
 		my @names = map { $full_name{$_} } @ids;
 		my $name = join(' and ', @names);
-		my $address = email_address("{$id}");
+
+		my $address;
+		if ($same_domain) {
+			$address = email_address("{$id}");
+		} else {
+			my @addresses = map { $email{$_} } @ids;
+			$address = '{' . join(',', @addresses) . '}';
+		}
 		return "$name <$address>";
 	} else {
 		check_name($id);
-		my $address = email_address($id);
-		return "$full_name{$id} <$address>";
+		return "$full_name{$id} <$email{$id}>";
 	}
 }
 
