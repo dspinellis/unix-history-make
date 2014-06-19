@@ -40,6 +40,7 @@ cat <<EOF
 # Start FreeBSD commits
 reset refs/heads/FreeBSD-release/2.0
 commit refs/heads/FreeBSD-release/2.0
+mark :1
 author  Diomidis Spinellis <dds@FreeBSD.org> 739896552 +0000
 committer  Diomidis Spinellis <dds@FreeBSD.org> 739896552 +0000
 $(data "Start development on FreeBSD-release/2.0
@@ -53,7 +54,6 @@ for ref in $MERGED ; do
 	awk '{print "M", $1, $3, ".ref-'$ref'/" $4}'
 done
 cat <<EOF
-mark :1
 reset refs/tags/FreeBSD-2.0-START
 from :1
 done
@@ -62,15 +62,16 @@ EOF
 
 echo "Adding 2.0" 1>&2
 {
-	../ref-prepend.pl FreeBSD refs/heads/FreeBSD-release/2.0^0 $ARCHIVE/freebsd.git/ --use-done-feature --progress=1000 release/2.0
+	../ref-prepend.pl FreeBSD FreeBSD-2.0-START $ARCHIVE/freebsd.git/ --reverse --use-done-feature --progress=1000 release/2.0
 	echo done
-}| gfi
+} | gfi
 
 echo "Removing reference files" 1>&2
 {
 cat <<EOF
 # Now remove reference files
 commit refs/heads/FreeBSD-release/2.0
+mark :1
 author  Diomidis Spinellis <dds@FreeBSD.org> 785501938 +0000
 committer  Diomidis Spinellis <dds@FreeBSD.org> 785501938 +0000
 $(data "Remove reference files")
@@ -80,7 +81,6 @@ for ref in $MERGED ; do
 	echo "D .ref-$ref/"
 done
 cat <<EOF
-mark :1
 reset refs/tags/FreeBSD-2.0-END
 from :1
 done
@@ -92,6 +92,6 @@ echo "Adding remainder" 1>&2
 # REFS=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/|release/2\.0| master')\ HEAD
 REFS=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/|release/2\.0| master' | grep /3)
 {
-	../ref-prepend.pl FreeBSD refs/heads/FreeBSD-release/2.0^0 $ARCHIVE/freebsd.git/ --use-done-feature --progress=1000 ^release/2.0 $REFS
+	../ref-prepend.pl FreeBSD FreeBSD-2.0-END $ARCHIVE/freebsd.git/ --reverse --use-done-feature --progress=1000 ^release/2.0 $REFS
 	echo done
 } | gfi
