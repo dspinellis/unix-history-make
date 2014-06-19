@@ -30,7 +30,7 @@ Usage: $0 [options ...] repository
 };
 }
 
-our($opt_a, $pt_f, $opt_p);
+our($opt_a, $opt_f, $opt_p);
 
 if (!getopts('a:f:p:') || $#ARGV < 0) {
 	main::HELP_MESSAGE(*STDERR);
