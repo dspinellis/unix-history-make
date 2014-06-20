@@ -3,7 +3,6 @@
 #
 
 cd import
-git repack --window=50 -a -d -f
 
 # Push to GitHub
 git remote add origin git@github.com:dspinellis/unix-history-repo.git
