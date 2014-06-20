@@ -21,6 +21,8 @@ use Date::Parse;
 use File::Copy;
 use File::Find;
 use Getopt::Std;
+use Git::FastExport;
+use Git::Repository;
 use Time::Local;
 use VCS::SCCS;
 
@@ -62,13 +64,16 @@ main::HELP_MESSAGE
 Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 -C date	Ignore commits after the specified cutoff date
 -c file	Map of the tree's parts written by specific contributors
+-G str	Import directory through git. Argument is author and timestamp
+	to use for the reference files commit.
 -i file	Comma-separated list of files containing pathnames of files to ignore
 -I file	Comma-separated list of files containing pathnames of files to ignore
 	during incremental import, and add when merging
 -m T	The commit(s) from which the import will be merged
 -n file	Map between contributor login names and full names
--P path	Path to prepend to file paths being committed
+-P path	Path to prepend to file paths (branches for git) being committed
 -p re	Regular expression of files to process
+-R date	Remove reference files after the specified date (for git import)
 -r T	During import keep by side a reference copy of the specified files
 -S	Import directory through SCCS
 -s path	Leading path to strip from file paths being committed
@@ -82,10 +87,10 @@ version_name and tz_offset are not required for SCCS imports
 };
 }
 
-our($opt_C, $opt_c, $opt_i, $opt_I, $opt_m, $opt_n, $opt_P, $opt_p, $opt_r, $opt_S, $opt_s, $opt_u);
+our($opt_C, $opt_c, $opt_G, $opt_i, $opt_I, $opt_m, $opt_n, $opt_P, $opt_p, $opt_R, $opt_r, $opt_S, $opt_s, $opt_u);
 $opt_m = $opt_r = '';
 
-if (!getopts('C:c:f:i:I:m:n:P:p:r:Ss:u:')) {
+if (!getopts('C:c:G:i:I:m:n:P:p:R:r:Ss:t:u:')) {
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 
@@ -93,7 +98,9 @@ if (!getopts('C:c:f:i:I:m:n:P:p:r:Ss:u:')) {
 
 # Expected arguments
 my $ea;
-if (($opt_S && $#ARGV + 1 != ($ea = 2)) || (!$opt_S && $#ARGV + 1 != ($ea = 4))) {
+if (($opt_S && $#ARGV + 1 != ($ea = 2)) ||
+    (!$opt_S && !$opt_G && $#ARGV + 1 != ($ea = 4)) ||
+    ($opt_G && $#ARGV + 1 < ($ea = 2))) {
 	print STDERR "Expected $ea required arguments\n";
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
@@ -109,10 +116,28 @@ if ($opt_C) {
 	$cutoff_time = str2time($opt_C);
 }
 
+my $reference_stop_time;
+if ($opt_R) {
+	$reference_stop_time = str2time($opt_R);
+}
+
 my $directory = shift;
 my $branch = shift;
-my $version = shift unless ($opt_S);
-my $tz_offset = shift unless ($opt_S);
+my $version = '';
+$version = shift unless ($opt_S || $opt_G);
+my $tz_offset = shift unless ($opt_S || $opt_G);
+
+# Prepare for issuing fast-export blocks
+binmode STDOUT;
+my $mark = $opt_G ? 1000000 : 1;
+
+my $dev_branch = ($opt_S || $opt_G) ? $branch : "$branch-Development-$version";
+
+# Fast exit for git import
+if ($opt_G) {
+	git_import();
+	exit 0;
+}
 
 $opt_s = $directory unless defined($opt_s);
 $opt_s .= '/' unless ($opt_s =~ m|/$|);
@@ -125,7 +150,6 @@ create_map($opt_I, \%merge_add_map);
 create_committer_map();
 
 # Create branch
-my $dev_branch = $opt_S ? $branch : "$branch-Development-$version";
 system "git branch $dev_branch" || die "git branch: $!\n";
 
 print STDERR "Import $dev_branch\n";
@@ -172,8 +196,6 @@ gather_sccs_files
 }
 
 # Now start committing them from oldest to newest
-binmode STDOUT;
-my $mark = 1;
 
 # Modification time for first and last commit
 my $first_mtime;
@@ -315,39 +337,55 @@ if ($opt_S) {
 	create_text_blobs();
 }
 
-my $text_license_blob = add_file_blob('../old-code-license');
-my $caldera_license_blob = add_file_blob('../Caldera-license.pdf');
-my $readme_blob = add_file_blob('../../README.md');
-
 if (!defined($first_mtime)) {
 	print STDERR "No files for import found in $directory\n";
 	exit 1;
 }
 
-# The actual development commits
-print "# Start development commits from a clean slate\n";
-print "commit refs/heads/$dev_branch\n";
-print "author $release_master $first_mtime $tz_offset\n";
-print "committer $release_master $first_mtime $tz_offset\n";
-print data("Start development on $branch $version\n" . ($opt_r ? "\nCreate reference copy of all prior development files\n" : ''));
-# Specify merges
-for my $merge (split(/,/, $opt_m)) {
-	print "merge $merge\n";
-}
-# Add reference copies of older files
-for my $ref (split(/,/, $opt_r)) {
-	my $cmd;
-	open(my $ls, '-|', $cmd = "git ls-tree -r $ref") || die "Unable to open run $cmd: $!\n";
-	while (<$ls>) {
-		chop;
-		my ($mode, $blob, $sha, $path) = split;
-		print "M $mode $sha .ref-$ref/$path\n";
+issue_start_commit();
+
+# Issue the commit that starts development
+# Return the commit's mark
+sub
+issue_start_commit
+{
+	# Add license blobs
+	my $text_license_blob = add_file_blob('../old-code-license');
+	my $caldera_license_blob = add_file_blob('../Caldera-license.pdf');
+	my $readme_blob = add_file_blob('../../README.md');
+
+	# The actual development commits
+	print "# Start development commits from a clean slate\n";
+	print "commit refs/heads/$dev_branch\n";
+	print "mark :$mark\n";
+	if ($opt_G) {
+		print "author $opt_G\n";
+		print "committer $opt_G\n";
+	} else {
+		print "author $release_master $first_mtime $tz_offset\n";
+		print "committer $release_master $first_mtime $tz_offset\n";
 	}
+	print data("Start development on $branch $version\n" . ($opt_r ? "\nCreate reference copy of all prior development files\n" : ''));
+	# Specify merges
+	for my $merge (split(/,/, $opt_m)) {
+		print "merge $merge\n";
+	}
+	# Add reference copies of older files
+	for my $ref (split(/,/, $opt_r)) {
+		my $cmd;
+		open(my $ls, '-|', $cmd = "git ls-tree -r $ref") || die "Unable to open run $cmd: $!\n";
+		while (<$ls>) {
+			chop;
+			my ($mode, $blob, $sha, $path) = split;
+			print "M $mode $sha .ref-$ref/$path\n";
+		}
+	}
+	# Add README and licenses
+	print "M 644 :$readme_blob README.md\n";
+	print "M 644 :$text_license_blob LICENSE\n";
+	print "M 644 :$caldera_license_blob Caldera-license.pdf\n";
+	return $mark++;
 }
-# Add README and licenses
-print "M 644 :$readme_blob README.md\n";
-print "M 644 :$text_license_blob LICENSE\n";
-print "M 644 :$caldera_license_blob Caldera-license.pdf\n";
 
 sub
 issue_text_commits
@@ -648,4 +686,75 @@ add_file_blob
 	$| = 0;
 	copy($name, \*STDOUT);
 	return $mark++;
+}
+
+# Import files through git
+# This routine modifies the git fast-export stream as follows.
+# 1. It starts the sequence with the specified merge (-m)
+# 2. It injects the specified reference files (-r) at the beginning of
+#    all initial commits (those with no parents) up to the time point
+#    specified with the -R option.
+# 3. It removes the injected specified reference files from all the
+#    graph edges they appear on after the specified time point.
+# 4. It prepends to all branch names the string specified with -P.
+sub
+git_import
+{
+
+	# get the object from a Git::Repository
+	my $repo = Git::Repository->new(work_tree => $directory);
+	my $export = Git::FastExport->new($repo);
+	$export->fast_export(('--date-order', '--reverse', $branch, @ARGV));
+
+	my $added_ref = 0;
+	my $removed_ref = 0;
+
+	# Start with a merge and a copy of the specified reference files
+	my $ref_mark = issue_start_commit();
+
+	# Commits that have reference files in their ancestors
+	my @has_ref;
+
+	while (my $block = $export->next_block()) {
+		# Prepend the specified string to branch names
+		$block->{header} =~ s:((commit|reset) refs/heads/)(.+)$:${1}$opt_P$3:o if ($opt_P);
+		if ($block->{header} !~ m/^commit/) {
+			print $block->as_string();
+			next;
+		}
+		# Process commits
+		my ($mark) = ($block->{mark}->[0] =~ m/^mark\s+\:(\d+)/);
+		my ($time) = ($block->{committer}->[0] =~ m/^[^<]*\<[^>]*\>\s*(\d+)\s+/);
+		if (!defined($time)) {
+			print STDERR "Undefined time in: ", @{$block->{committer}}[0], "\n";
+		}
+		# Pass the has_ref attribute down the commit chain
+		my $from;
+		if ($block->{from} && $mark) {
+			($from) = ($block->{from}->[0] =~ m/^from\s+\:(\d+)/);
+			$has_ref[$mark] = $has_ref[$from];
+		}
+		# Add reference files, if needed
+		if ($time < $reference_stop_time && !$block->{from}) {
+			my @from = ("from :$ref_mark");
+			$block->{from} = \@from;
+			$has_ref[$mark] = 1;
+			$added_ref++;
+		}
+		# Remove reference files, if needed
+		if ($time >= $reference_stop_time && $has_ref[$mark]) {
+			my @files;
+			@files = @{$block->{files}} if (defined($block->{files}));
+			for my $ref (split(/,/, $opt_r)) {
+				push(@files, "D .ref-$ref");
+			}
+			$block->{files} = \@files;
+			$has_ref[$mark] = 0;
+			$removed_ref++;
+		}
+		print $block->as_string();
+	}
+	print "done\n";
+	print STDERR "Added reference files to $added_ref commit(s)\n";
+	print STDERR "Removed reference files from $removed_ref commit(s)\n";
 }
