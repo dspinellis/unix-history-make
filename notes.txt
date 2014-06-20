@@ -172,6 +172,7 @@ Ownership: early man pages, then BSD man pages
 Which commands are retained? Has it got to do with the author's presence?
 Significant code duplication in early releases
 Co-distributed systems: Lisp, Pascal, Ingres, Ratfor
+Performance problems: git takes tens of seconds to show a commit
 
 
 New strategy {{{1
