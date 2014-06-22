@@ -22,21 +22,19 @@ Two repositories are associated with the project:
 The first phase of the project will be to create a single timeline from the First Edition of Unix until the present.
 
 ## Project status
-Currently, the project is maturing with the creation of a repository containing snapshots of V1, V3, V4, V5, V6, and V7 Research Edition, Unix/32V, all BSD releases, two releases of 386BSD, FreeBSD 1.0, as well as an import of the CSRG SCCS history.    The files appear to be added in the repository in chronological order according to their modification time, and some part of the source code has been attributed to its actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
+The project has achieved its first major goal with the establishment of a continuous timeline from 1972 to 2014. The repository contains snapshots of V1, V3, V4, V5, V6, and V7 Research Edition, Unix/32V, all available BSD releases, the CSRG SCCS history, two releases of 386BSD, FreeBSD 1.0, and an import of the FreeBSD repository starting from its initial imports that led to FreeBSD 2.0.    The files appear to be added in the repository in chronological order according to their modification time, and large parts of the source code have been attributed to their actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
 
 The repository contains a number of two-way merges:
 
 * 3 BSD is merged from Unix/32V and Research Edition 6
 * Various BSD releases are merged from the development branch and a time point of BSD-SCCS
-* FreeBSD 1.0 is merged from Net/2 BSD and 386BSD.
+* FreeBSD 1.0 is merged from Net/2 BSD and 386BSD-0.1
+* FreeBSD 2.0 is merged from BSD 4.4/Lite2 and 386BSD-0.1
 
 Blame is apportioned appropriately.
 
-Future plans involve the integration of further BSD snapshots, 386BSD, and the FreeBSD repository.
-
-## Tags
-The `unix-history-repo` contains -Development and -Release branches and the branch BSD-SCCS.  The -Development branches contain a commit for every file that was added during the development of the corresponding system. The `*-Release` branches have each development cycle merged into them.
-In addition, the following tags mark specific releases, listed in rough chronological order.
+## Tags and Branches
+The following tags or branch names mark specific releases, listed in rough chronological order.
 * Epoch
 * Research-V1
 * Research-V3
@@ -49,21 +47,32 @@ In addition, the following tags mark specific releases, listed in rough chronolo
 * Bell-32V
 * BSD-3
 * BSD-4
-* BSD-4_1_snap
-* BSD-4_1c_2
-* BSD-4_2
-* BSD-4_3
-* BSD-4_3_Reno
-* BSD-4_3_Net_1
-* BSD-4_3_Tahoe
-* BSD-4_3_Net_2
-* BSD-4_4
-* BSD-4_4_Lite1
-* BSD-4_4_Lite2
+* BSD-4\_1\_snap
+* BSD-4\_1c\_2
+* BSD-4\_2
+* BSD-4\_3
+* BSD-4\_3\_Reno
+* BSD-4\_3\_Net\_1
+* BSD-4\_3\_Tahoe
+* BSD-4\_3\_Net\_2
+* BSD-4\_4
+* BSD-4\_4\_Lite1
+* BSD-4\_4\_Lite2
 * BSD-SCCS-END
 * 386BSD-0.0
 * 386BSD-0.1
 * FreeBSD-1.0
+* FreeBSD-stable/2.0.5
+* FreeBSD-stable/2.1
+* FreeBSD-stable/2.2
+* FreeBSD-stable/3
+* FreeBSD-stable/4
+* FreeBSD-stable/5
+* FreeBSD-stable/6
+* FreeBSD-stable/7
+* FreeBSD-stable/8
+* FreeBSD-stable/9
+* FreeBSD-stable/10
 
 ## Cool things you can do
 Run
@@ -191,6 +200,7 @@ source that contains information that is currently missing.
   [4.3BSD-Tahoe](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD-Tahoe/),
   [4.3BSD-Alpha](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD-Alpha/), and
   [Net2](http://www.tuhs.org/Archive/4BSD/Distributions/Net2/).
+* Import further branches, such as 2BSD and NetBSD.
 
 ## Re-creating the historical repository from scratch
 The -make repository is provided to share and document the creation process, rather than as a bullet-proof way to get consistent and repeatable results.  For instance, importing the snapshots on a system that is case-insensitive (NTFS, HFS Plus with default settings) will result in a few files getting lost.
