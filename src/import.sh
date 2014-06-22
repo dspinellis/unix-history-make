@@ -221,6 +221,24 @@ perl ../import-dir.pl -m 386BSD-0.1,BSD-4_3_Net_2 -c ../author-path/FreeBSD-1.0 
 	-u ../unmatched/FreeBSD-1.0 \
 	$ARCHIVE/FreeBSD-1.0/filesys FreeBSD 1.0 -0800 | gfi
 
+# Modern FreeBSD
+# Branches that get merged
+MERGED="BSD-4_4_Lite2,386BSD-0.1"
+
+# Branches to import
+if [ -n "$DEBUG" ]
+then
+	REFS='release/2.0 release/3.0.0'
+else
+	REFS=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/| master')\ HEAD
+fi
+
+perl ../import-dir.pl -r $MERGED -m $MERGED \
+	-R '1994-11-22 10:59:00 +0000' \
+	-G 'Diomidis Spinellis <dds@FreeBSD.org> 785501938 +0000' \
+	-P FreeBSD- $ARCHIVE/freebsd.git/ $REFS --progress=1000 | gfi
+
+
 git gc --aggressive
 
 git checkout FreeBSD-Release
