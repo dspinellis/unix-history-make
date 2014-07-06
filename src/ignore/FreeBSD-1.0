@@ -1,4 +1,5 @@
-# All files apart from usr/src and RELNOTES.FreeBSD
+# All files apart from usr/src and RELNOTES.FreeBSD, CONTRIB.386BSD,
+# CONTRIB.FreeBSD, COPYRIGHT
 386bsd.GENERICAH
 386bsd.GENERICBT
 bin/cat
@@ -31,9 +32,6 @@ bin/stty
 bin/sync
 bin/test
 bin/[
-CONTRIB.386BSD
-CONTRIB.FreeBSD
-COPYRIGHT
 dev/MAKEDEV
 dev/MAKEDEV.local
 etc/aliases
