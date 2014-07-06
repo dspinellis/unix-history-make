@@ -243,3 +243,4 @@ TODO {{{1
 alwaysallowed.  See https://wincent.com/wiki/Legal_Git_branch_names
 - Stich together the two FreeBSD repos using import-dir.pl to create a merge and
 .ref preamble and http://search.cpan.org/~book/Git-FastExport/lib/Git/FastExport/Stitch.pm to stich the repos together.
+- Attribute BSD code based on http://netbsd.org/people/CSRG-contrib.html

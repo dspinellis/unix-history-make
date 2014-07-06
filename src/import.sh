@@ -223,7 +223,7 @@ perl ../import-dir.pl -m 386BSD-0.1,BSD-4_3_Net_2 -c ../author-path/FreeBSD-1.0 
 
 # Modern FreeBSD
 # Branches that get merged
-MERGED="BSD-4_4_Lite2,386BSD-0.1"
+MERGED="BSD-4_4_Lite2,FreeBSD-1.0"
 
 # Branches to import
 if [ -n "$DEBUG" ]
