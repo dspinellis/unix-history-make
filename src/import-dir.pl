@@ -133,6 +133,8 @@ my $mark = $opt_G ? 1000000 : 1;
 
 my $dev_branch = ($opt_S || $opt_G) ? $branch : "$branch-Development-$version";
 
+print STDERR "Import $dev_branch\n";
+
 # Fast exit for git import
 if ($opt_G) {
 	git_import();
@@ -151,8 +153,6 @@ create_committer_map();
 
 # Create branch
 system "git branch $dev_branch" || die "git branch: $!\n";
-
-print STDERR "Import $dev_branch\n";
 
 # Collect text files
 if (! -d $directory) {
