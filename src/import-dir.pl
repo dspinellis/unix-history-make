@@ -757,4 +757,5 @@ git_import
 	print "done\n";
 	print STDERR "Added reference files to $added_ref commit(s)\n";
 	print STDERR "Removed reference files from $removed_ref commit(s)\n";
+	print STDERR "Done importing $dev_branch\n";
 }
