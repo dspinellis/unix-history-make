@@ -22,14 +22,14 @@ Two repositories are associated with the project:
 The first phase of the project will be to create a single timeline from the First Edition of Unix until the present.
 
 ## Project status
-The project has achieved its first major goal with the establishment of a continuous timeline from 1972 to 2014. The repository contains snapshots of V1, V3, V4, V5, V6, and V7 Research Edition, Unix/32V, all available BSD releases, the CSRG SCCS history, two releases of 386BSD, FreeBSD 1.0, and an import of the FreeBSD repository starting from its initial imports that led to FreeBSD 2.0.    The files appear to be added in the repository in chronological order according to their modification time, and large parts of the source code have been attributed to their actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
+The project has achieved its first major goal with the establishment of a continuous timeline from 1972 to 2014. The repository contains snapshots of V1, V3, V4, V5, V6, and V7 Research Edition, Unix/32V, all available BSD releases, the CSRG SCCS history, two releases of 386BSD, the FreeBSD 1.0 to 1.1.5 CVS history, and an import of the FreeBSD repository starting from its initial imports that led to FreeBSD 2.0.    The files appear to be added in the repository in chronological order according to their modification time, and large parts of the source code have been attributed to their actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
 
 The repository contains a number of two-way merges:
 
 * 3 BSD is merged from Unix/32V and Research Edition 6
 * Various BSD releases are merged from the development branch and a time point of BSD-SCCS
 * FreeBSD 1.0 is merged from Net/2 BSD and 386BSD-0.1
-* FreeBSD 2.0 is merged from BSD 4.4/Lite2 and 386BSD-0.1
+* FreeBSD 2.0 is merged from BSD 4.4/Lite1 and FreeBSD 1.1.5
 
 Blame is apportioned appropriately.
 
@@ -61,18 +61,70 @@ The following tags or branch names mark specific releases, listed in rough chron
 * BSD-SCCS-END
 * 386BSD-0.0
 * 386BSD-0.1
-* FreeBSD-1.0
-* FreeBSD-stable/2.0.5
-* FreeBSD-stable/2.1
-* FreeBSD-stable/2.2
-* FreeBSD-stable/3
-* FreeBSD-stable/4
-* FreeBSD-stable/5
-* FreeBSD-stable/6
-* FreeBSD-stable/7
-* FreeBSD-stable/8
-* FreeBSD-stable/9
-* FreeBSD-stable/10
+* FreeBSD-release/1.0
+* FreeBSD-release/1.1
+* FreeBSD-release/1.1.5
+* FreeBSD-release/2.0
+* FreeBSD-release/2.0.5
+* FreeBSD-release/2.1.0
+* FreeBSD-release/2.1.5
+* FreeBSD-release/2.1.6
+* FreeBSD-release/2.1.6.1
+* FreeBSD-release/2.1.7
+* FreeBSD-release/2.2.0
+* FreeBSD-release/2.2.1
+* FreeBSD-release/2.2.2
+* FreeBSD-release/2.2.5
+* FreeBSD-release/2.2.6
+* FreeBSD-release/2.2.7
+* FreeBSD-release/2.2.8
+* FreeBSD-release/3.0.0
+* FreeBSD-release/3.1.0
+* FreeBSD-release/3.2.0
+* FreeBSD-release/3.3.0
+* FreeBSD-release/3.4.0
+* FreeBSD-release/3.5.0
+* FreeBSD-release/4.0.0
+* FreeBSD-release/4.1.0
+* FreeBSD-release/4.10.0
+* FreeBSD-release/4.1.1
+* FreeBSD-release/4.11.0
+* FreeBSD-release/4.2.0
+* FreeBSD-release/4.3.0
+* FreeBSD-release/4.4.0
+* FreeBSD-release/4.5.0
+* FreeBSD-release/4.6.0
+* FreeBSD-release/4.6.1
+* FreeBSD-release/4.6.2
+* FreeBSD-release/4.7.0
+* FreeBSD-release/4.8.0
+* FreeBSD-release/4.9.0
+* FreeBSD-release/5.0.0
+* FreeBSD-release/5.1.0
+* FreeBSD-release/5.2.0
+* FreeBSD-release/5.2.1
+* FreeBSD-release/5.3.0
+* FreeBSD-release/5.4.0
+* FreeBSD-release/5.5.0
+* FreeBSD-release/6.0.0
+* FreeBSD-release/6.1.0
+* FreeBSD-release/6.2.0
+* FreeBSD-release/6.3.0
+* FreeBSD-release/6.4.0
+* FreeBSD-release/7.0.0
+* FreeBSD-release/7.1.0
+* FreeBSD-release/7.2.0
+* FreeBSD-release/7.3.0
+* FreeBSD-release/7.4.0
+* FreeBSD-release/8.0.0
+* FreeBSD-release/8.1.0
+* FreeBSD-release/8.2.0
+* FreeBSD-release/8.3.0
+* FreeBSD-release/8.4.0
+* FreeBSD-release/9.0.0
+* FreeBSD-release/9.1.0
+* FreeBSD-release/9.2.0
+* FreeBSD-release/10.0.0
 
 ## Cool things you can do
 Run
