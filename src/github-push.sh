@@ -5,6 +5,8 @@
 cd import
 
 #  Optimize structure
+git gc --aggressive
+
 git checkout FreeBSD-Release
 
 # Push to GitHub
