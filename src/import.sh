@@ -214,16 +214,29 @@ perl ../import-dir.pl -m 386BSD-0.0 -c ../author-path/386BSD \
 	-u ../unmatched/386BSD-0.1 \
 	$ARCHIVE/386BSD-0.1 386BSD 0.1 -0800 | gfi
 
-# FreeBSD 1.0
-perl ../import-dir.pl -m 386BSD-0.1,BSD-4_3_Net_2 -c ../author-path/FreeBSD-1.0 \
-	-i ../ignore/FreeBSD-1.0 \
-	-n ../freebsd.au -r 386BSD-0.1,BSD-4_3_Net_2 $DEBUG \
-	-u ../unmatched/FreeBSD-1.0 \
-	$ARCHIVE/FreeBSD-1.0/filesys FreeBSD 1.0 -0800 | gfi
+# Early FreeBSD from the CVS repo converted into git
+MERGED_FREEBSD_1=386BSD-0.1,BSD-4_3_Net_2
 
-# Modern FreeBSD
+#"FINAL_1_0" transformed to "FreeBSD-release/1.0" in 7525 files
+#"FINAL_1_1" transformed to "FreeBSD-release/1.1" in 8728 files
+#"FINAL_1_1_5" transformed to "FreeBSD-release/1.1.5" in 9530 files
+# Reference commit date obtained as two days earlied than first commit
+# Author: Rod Grimes <rgrimes@FreeBSD.org>
+# Date: 12 June 1993 17:58:18
+# Initial import, 0.1 + pk 0.2.4-B1
+# date +%s -d '1993-06-10'
+# 739659600
+perl ../import-dir.pl -r $MERGED_FREEBSD_1 -m $MERGED_FREEBSD_1 \
+	-R 1993-10-29 \
+	-G 'Diomidis Spinellis <dds@FreeBSD.org> 739659600 +0000' \
+	$ARCHIVE/freebsd-early.git/ \
+	FreeBSD-release/1.0 FreeBSD-release/1.1 FreeBSD-release/1.1.5 HEAD \
+	--progress=1000 | gfi
+
+# Modern FreeBSD starting from 2.0
 # Branches that get merged
-MERGED="BSD-4_4_Lite2,FreeBSD-1.0"
+# See http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/share/misc/bsd-family-tree
+MERGED_FREEBSD_2="BSD-4_4_Lite1,FreeBSD-release/1.1.5"
 
 # Branches to import
 if [ -n "$DEBUG" ]
@@ -233,15 +246,10 @@ else
 	REFS=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/| master')\ HEAD
 fi
 
-perl ../import-dir.pl -r $MERGED -m $MERGED \
+perl ../import-dir.pl -r $MERGED_FREEBSD_2 -m $MERGED_FREEBSD_2 \
 	-R '1994-11-22 10:59:00 +0000' \
 	-G 'Diomidis Spinellis <dds@FreeBSD.org> 785501938 +0000' \
 	-P FreeBSD- $ARCHIVE/freebsd.git/ $REFS --progress=1000 | gfi
-
-
-git gc --aggressive
-
-git checkout FreeBSD-Release
 
 # Adding boilerplate again seems to help getting a modern
 # timestamp for the files displayed on GitHub
@@ -267,6 +275,24 @@ verify_same_text()
 			END {exit $exit}'
 	then
 		echo "Differences found" 1>&2
+		exit 1
+	fi
+}
+
+# Ensure that the specified directory is present
+ensure_present()
+{
+	if ! [ -d "$1" ] ; then
+		echo "Directory $1 not found" 1>&2
+		exit 1
+	fi
+}
+
+# Ensure that the specified directory is not present
+ensure_absent()
+{
+	if [ -d "$1" ] ; then
+		echo "Directory $1 should not be there" 1>&2
 		exit 1
 	fi
 }
@@ -330,6 +356,36 @@ verify_nodes()
 	fi
 }
 
+# Compare the specified tag/branch with the specified directory against
+# the specified thresholds
+compare_repo()
+{
+	local id="$1"
+	local dir="$2"
+	local expected_diff_files="$3"
+	local expected_diff_lines="$4"
+	local expected_only_files="$5"
+
+	git checkout "$id"
+	set $(diff -r . $dir | ../diff-sum.awk)
+	local actual_diff_files="$1"
+	local actual_diff_lines="$2"
+	local actual_only_files="$3"
+	if [ $actual_diff_files -gt $expected_diff_files ] ; then
+		echo "More different files ($actual_diff_files) than expected ($expected_diff_files)" 1>&2
+		exit 1
+	fi
+	if [ $actual_diff_lines -gt $expected_diff_lines ] ; then
+		echo "More different lines ($actual_diff_lines) than expected ($expected_diff_lines)" 1>&2
+		exit 1
+	fi
+	if [ $actual_only_files -gt $expected_only_files ] ; then
+		echo "More missing / extra files ($actual_only_files) than expected ($expected_only_files)" 1>&2
+		exit 1
+	fi
+}
+
+
 git checkout BSD-Release
 echo Verify branches and merges
 verify_nodes '|/' 55
@@ -344,6 +400,56 @@ N_HASH=$(git blame -C -C usr/src/sys/sys/proc.h |
 N_EXPECTED=32
 if [ $N_HASH -lt $N_EXPECTED ]
 then
-	echo "Found $N_HASH versions in proc.h; expected $N_EXPECTED" 1>&2
+	echo "Found $N_HASH versions in BSD-Release proc.h; expected $N_EXPECTED" 1>&2
+	exit 1
+fi
+
+# Verify reference files in git imports work as expected
+git checkout FreeBSD-release/1.0
+for i in $(echo $MERGED_FREEBSD_1 | sed 's/,/ /')
+do
+	ensure_present .ref-$i
+done
+
+# Actually 33 1220 52
+# Missing files are GNU utilities
+compare_repo FreeBSD-release/1.0 ../archive/FreeBSD-1.0/filesys/usr/src/ 40 1300 52
+
+git checkout FreeBSD-release/1.1
+for i in $(echo $MERGED_FREEBSD_1 | sed 's/,/ /')
+do
+	ensure_absent .ref-$i
+done
+
+# Actually 43 272 126
+# Missing files are mainly from gnu/lib/libg++/g++-include
+compare_repo FreeBSD-release/1.1 ../archive/FreeBSD-1.1/filesys/usr/src/ 45 300 126
+
+# Actually 64 234 20
+# Missing files are mainly kernel configurations
+compare_repo FreeBSD-release/1.1.5 ../archive/FreeBSD-1.1.5/usr/src/ 70 300 20
+
+git checkout FreeBSD-release/2.0
+for i in $(echo $MERGED_FREEBSD_2 | sed 's/,/ /')
+do
+	ensure_present .ref-$i
+done
+
+git checkout FreeBSD-release/3.0.0
+for i in $(echo $MERGED_FREEBSD_2 | sed 's/,/ /')
+do
+	ensure_absent .ref-$i
+done
+
+echo Verify FreeBSD merge
+N_HASH=$(git blame -C -C sys/sys/proc.h |
+	awk '{print $1}' |
+	sort -u |
+	wc -l)
+
+N_EXPECTED=58
+if [ $N_HASH -lt $N_EXPECTED ]
+then
+	echo "Found $N_HASH versions in FreeBSD 3.0.0 proc.h; expected $N_EXPECTED" 1>&2
 	exit 1
 fi

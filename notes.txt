@@ -95,6 +95,37 @@ find . -type f | xargs stat -c %y | sort | tail -1
 Contributor names
 http://unix.stackexchange.com/questions/64025/who-are-these-bsd-unix-contributors#comment92758_64025
 
+Early FreeBSD git {{{1
+The FreeBSD-1.1.5.1 distribution is strange
+It contains a CVS repo, a new.tar.gz file, and a tarballs/srcdist directory
+The Makefile documents how the git repo is created
+
+Extracting FreeBSD-1.1.5.1/tarballs/srcdist with
+cd FreeBSD-1.1.5.1/tarballs/srcdist
+mkdir ../../../tarballs
+EXTRACT_TARGET=../../../tarballs ./EXTRACT.sh
+yields a source directory that appears to be the same as the
+checkout of FreeBSD-release/1.1.5 from CVS (git) appart from the
+RCS Id headers.
+
+The following command sequences show that the main differences are RCS Id tags
+cd archive/freebsd-early.git
+git checkout FreeBSD-release/1.0
+diff -r . ../FreeBSD-1.0/filesys/usr/src/
+
+cd archive/freebsd-early.git
+git checkout FreeBSD-release/1.1
+diff -r . ../FreeBSD-1.1/filesys/usr/src/
+
+The git FreeBSD-release/1.0.2 tag only contains the sys directory
+It is therefore removed from the git tags.
+
+The file new/RELNOTES.FreeBSD from new.tar.gz claims to be from FreeBSD 1.1,
+but many files appear to be newer than 1.1.  They are also older from 1.1.5.
+Therefore, the file new.tar.gz is ignored, because it seems to represent
+changes include in the CVS repo.
+
+
 Snapshot contributors {{{1
 
 List by Michael S. Mahoney
@@ -244,3 +275,6 @@ alwaysallowed.  See https://wincent.com/wiki/Legal_Git_branch_names
 - Stich together the two FreeBSD repos using import-dir.pl to create a merge and
 .ref preamble and http://search.cpan.org/~book/Git-FastExport/lib/Git/FastExport/Stitch.pm to stich the repos together.
 - Attribute BSD code based on http://netbsd.org/people/CSRG-contrib.html
+- Add NetBSD 0.8 based on http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/share/misc/bsd-family-tree
+- Map FreeBSD authors to their actual names. First step:
+git log --all --pretty=format:'%ae' | sed 's/@.*//' | sort -u >../freebsd.authors

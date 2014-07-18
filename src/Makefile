@@ -3,7 +3,9 @@ all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
 	archive/CSRG/cd1.mnt archive/CSRG/cd2.mnt \
 	archive/CSRG/cd3.mnt archive/CSRG/cd4.mnt archive/CSRG/cd4.patched \
 	archive/386BSD-0.1 archive/386BSD-0.0 archive/FreeBSD-1.0.mnt \
-	archive/freebsd.git archive/freebsd-doc.git
+	archive/FreeBSD-1.1.mnt archive/FreeBSD-1.1.5.1.mnt \
+	archive/freebsd.git archive/freebsd-doc.git \
+	archive/freebsd-early.git archive/FreeBSD-1.1.5
 
 .SUFFIXES:.iso .mnt
 
@@ -107,8 +109,41 @@ archive/CSRG/cd4.patched: archive/CSRG/cd4.mnt
 archive/FreeBSD-1.0.iso:
 	curl -s http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/i386/ISO-IMAGES/1.0/1.0-disc1.iso >$@
 
+archive/FreeBSD-1.1.iso:
+	curl -s http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/i386/ISO-IMAGES/FreeBSD-1.1-RELEASE/cd1.iso >$@
+
+archive/FreeBSD-1.1.5.1.iso:
+	curl -s http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/i386/ISO-IMAGES/FreeBSD-1.1.5.1/cd1.iso >$@
+
 archive/freebsd.git:
 	(cd archive ; git clone --mirror https://github.com/freebsd/freebsd)
 
 archive/freebsd-doc.git:
 	(cd archive ; git clone --mirror https://github.com/freebsd/freebsd-doc)
+
+# Create an importable CVS repo from the one existing in archive/FreeBSD-1.1.5.1/cvs/386BSD/src
+archive/freebsd1-cvs: archive/FreeBSD-1.1.5.1.mnt
+	# Keep only the FINAL_ symbols
+	# For the rest there are cases where the same symbol is assigned
+	# to multiple revisions, which cvs2git can't handle
+	cp -r archive/FreeBSD-1.1.5.1/cvs/386BSD/src $@
+	perl clean-cvs.pl archive/freebsd1-cvs/ 'FINAL_.*?'
+	# Files here clash with live files and cvs2git can't handle that
+	rm -rf $@/share/doc/ps1/Attic
+	rm -rf $@/share/doc/smm/Attic
+	rm -rf $@/share/doc/usd/Attic
+
+# Convert early FreeBSD CVS repo into git
+archive/freebsd-early.git: archive/freebsd1-cvs
+	../../cvs2svn-2.4.0/cvs2git --options=cvs2svn-FreeBSD-1.options
+	rm -rf $@
+	mkdir $@
+	(cd $@ && \
+	git init && \
+	cat ../../cvs2svn-tmp/git-blob.dat ../../cvs2svn-tmp/git-dump.dat | git fast-import && \
+	git tag -d FreeBSD-release/1.0.2 )
+
+archive/FreeBSD-1.1.5: archive/FreeBSD-1.1.5.1.mnt
+	( cd archive/FreeBSD-1.1.5.1/tarballs/srcdist && \
+	mkdir ../../../../$@ && \
+	EXTRACT_TARGET=../../../../$@ ./EXTRACT.sh )

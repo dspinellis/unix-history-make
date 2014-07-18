@@ -165,7 +165,7 @@ ctx.revision_collector = GitRevisionCollector(
 # This second alternative is vastly faster than the version above.  It
 # uses an external Python program to reconstruct the contents of CVS
 # file revisions:
-#ctx.revision_collector = ExternalBlobGenerator('cvs2svn-tmp/git-blob.dat')
+ctx.revision_collector = ExternalBlobGenerator('cvs2svn-tmp/git-blob.dat')
 
 # cvs2git doesn't need a revision reader because OutputPass only
 # refers to blobs that were output during CollectRevsPass, so leave
@@ -511,12 +511,56 @@ ctx.retain_conflicting_attic_files = False
 # values can either be strings in the form "name <email>" or tuples
 # (name, email).  Please substitute your own project's usernames here
 # to use with the author_transforms option of GitOutputOption below.
+# Find author list
+# find 386BSD/ -type f | xargs awk '/^date\t9[0-9]\..*;$/{print $4}' | sort -u
 author_transforms={
-    'jrandom' : ('J. Random', 'jrandom@example.com'),
-    'mhagger' : 'Michael Haggerty <mhagger@alum.mit.edu>',
-    'brane' : (u'Branko Čibej', 'brane@xbc.nu'),
-    'ringstrom' : 'Tobias Ringström <tobias@ringstrom.mine.nu>',
-    'dionisos' : (u'Erik Hülsmann', 'e.huelsmann@gmx.net'),
+    # Combine with current FreeBSD committers
+    # fgrep -h \[ /usr/share/misc/committers-*.dot | sort -u | join - ~/1-authors | sed 's/\[label="//;s/\\n/ </;s/\\n.*/>/;s/ /'\'' : '\''/;s/^/'\''/;s/$/'\'',/' | sort -u
+    'ache' : 'Andrey Chernov <ache@FreeBSD.org>',
+    'alm' : 'Andrew Moore <alm@FreeBSD.org>',
+    'asami' : 'Satoshi Asami <asami@FreeBSD.org>',
+    'gibbs' : 'Justin T. Gibbs <gibbs@FreeBSD.org>',
+    'jkh' : 'Jordan K. Hubbard <jkh@FreeBSD.org>',
+    'joerg' : 'Joerg Wunsch <joerg@FreeBSD.org>',
+    'jtc' : 'J.T. Conklin <jtc@FreeBSD.org>',
+    'nate' : 'Nate Willams <nate@FreeBSD.org>',
+    'phk' : 'Poul-Henning Kamp <phk@FreeBSD.org>',
+    'rgrimes' : 'Rod Grimes <rgrimes@FreeBSD.org>',
+    'sos' : 'Soren Schmidt <sos@FreeBSD.org>',
+    'wollman' : 'Garrett Wollman <wollman@FreeBSD.org>',
+
+    # Combine with FreeBSD-1.1/filesys/CONTRIB.FreeBSD
+    'ats' : 'Andreas Schulz <ats@g386bsd.first.bmd.de>',
+    'cgd' : 'Chris G. Demetriou <cgd@postgres.berkeley.edu>',
+    'chmr' : 'Christoph Robitschko <chmr@edvz.tu-graz.ac.at>',
+    'conklin' : 'J.T. Conklin <jtc@winsey.com>',
+    'csgr' : 'Geoff Rehmet <csgr@alpha.ru.ac.za>',
+    'davidg' : 'David Greenman <davidg@Root.COM>',
+    'gclarkii' : 'Gary Clark II <gclarkii@radon.gbdata.com>',
+    'guido' : 'Guido van Rooij <guido@gvr.win.tue.nl>',
+    'karl' : 'Karl Lehenbauer <karl@NeoSoft.com>',
+    'ljo' : 'Wiljo Heinen <wiljo@freeside.ki.open.de>',
+    'martin' : 'Martin Renters <martin@innovus.com>',
+    'paul' : 'Paul Richards <paul@isl.cf.ac.uk>',
+    'rich' : 'Paul Richards <paul@isl.cf.ac.uk>',
+    'root' : 'Rick Macklem <root@snowhite.cis.uoguelph.ca>',
+    'smace' : 'Scott Mace <smace@neosoft.com>',
+    'swallace' : 'Steven Wallace <swallace@ece.uci.edu>',
+
+    # Remaining completed by searching through the tree with commands like
+    # grep -rl '^date.*sean' . | xargs grep Sean
+    # grep -rl 'adam@' . | xargs grep Adam
+
+    # src/sys/scsi/scsi_base.c
+    'adam' : 'Adam David <adam@@veda.is>',
+    # ports/util/wine/ChangeLog
+    'hsu' : 'Jeffrey Hsu <hsu@freefall.cdrom.com>',
+    # usr/src/lib/libpthread/pthreads/sleep.c
+    'proven' : 'Chris Provenzano <proven@mit.edu>',
+    # usr/src/usr.sbin/lpr/lpr/lpr.termios
+    'pst' : 'Paul Traina <pst@anise.acc.com>',
+    # src/sys/i386/conf/files.i386 with src/ROSTER.FreeBSD
+    'sean' : 'Sean Vickery <seanv@@cs.uq.edu.au>',
 
     # This one will be used for commits for which CVS doesn't record
     # the original author, as explained above.
@@ -560,7 +604,10 @@ run_options.set_project(
     # The filesystem path to the part of the CVS repository (*not* a
     # CVS working copy) that should be converted.  This may be a
     # subdirectory (i.e., a module) within a larger CVS repository.
-    r'test-data/main-cvsrepos',
+    # r'archive/FreeBSD-1.1.5.1/cvs/386BSD',
+    # r'archive/FreeBSD-1.1.5.1/cvs/386BSD/src/usr.sbin/vipw',
+    # r'archive/freebsd1-cvs/usr.sbin/vipw',
+    r'archive/freebsd1-cvs/',
 
     # A list of symbol transformations that can be used to rename
     # symbols in this project.
@@ -591,6 +638,8 @@ run_options.set_project(
         #                      r'release-\1.\2'),
         #RegexpSymbolTransform(r'release-(\d+)_(\d+)_(\d+)',
         #                      r'release-\1.\2.\3'),
+        RegexpSymbolTransform(r'FINAL_(.*)', r'FreeBSD-release/\1'),
+        ReplaceSubstringsSymbolTransform('_','.'),
 
         # Simple 1:1 character replacements can also be done.  The
         # following transform, which converts backslashes into forward
