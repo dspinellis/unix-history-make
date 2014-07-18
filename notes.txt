@@ -203,7 +203,9 @@ Ownership: early man pages, then BSD man pages
 Which commands are retained? Has it got to do with the author's presence?
 Significant code duplication in early releases
 Co-distributed systems: Lisp, Pascal, Ingres, Ratfor
-Performance problems: git takes tens of seconds to show a commit
+Performance problems: git takes tens of seconds to show a commit, minutes to blame
+CVS repo covering FreeBSD 1.*
+
 
 
 New strategy {{{1
