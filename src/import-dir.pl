@@ -736,14 +736,14 @@ git_import
 			$has_ref[$mark] = $has_ref[$from];
 		}
 		# Add reference files, if needed
-		if ($time < $reference_stop_time && !$block->{from}) {
+		if ($opt_r && $time < $reference_stop_time && !$block->{from}) {
 			my @from = ("from :$ref_mark");
 			$block->{from} = \@from;
 			$has_ref[$mark] = 1;
 			$added_ref++;
 		}
 		# Remove reference files, if needed
-		if ($time >= $reference_stop_time && $has_ref[$mark]) {
+		if ($opt_r && $time >= $reference_stop_time && $has_ref[$mark]) {
 			my @files;
 			@files = @{$block->{files}} if (defined($block->{files}));
 			for my $ref (split(/,/, $opt_r)) {
