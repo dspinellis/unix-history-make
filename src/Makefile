@@ -155,4 +155,5 @@ empty:
 	cp ../../README.md . && \
 	git init && \
 	git add . && \
-	git commit -m 'Add README.md in empty repo'
+	git commit -m 'Add README.md in empty repo' && \
+	git remote add origin git@github.com:dspinellis/unix-history-repo.git
