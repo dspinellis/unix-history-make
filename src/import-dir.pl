@@ -136,6 +136,8 @@ $dev_branch = $opt_P . $dev_branch if ($opt_P);
 
 print STDERR "Import $dev_branch\n";
 
+create_name_map() if (defined($opt_n));
+
 # Fast exit for git import
 if ($opt_G) {
 	git_import();
@@ -147,7 +149,6 @@ $opt_s .= '/' unless ($opt_s =~ m|/$|);
 $opt_s =~ s/([^\w])/\\$1/g;
 $opt_s = '^' . $opt_s;
 
-create_name_map() if (defined($opt_n));
 create_map($opt_i, \%ignore_map);
 create_map($opt_I, \%merge_add_map);
 create_committer_map();
@@ -717,12 +718,19 @@ git_import
 	my @has_ref;
 
 	while (my $block = $export->next_block()) {
+		# print STDERR $block->{header}, ":", join(' ', keys(%$block)), "\n";
 		# Prepend the specified string to branch names
 		$block->{header} =~ s:((commit|reset) refs/heads/)(.+)$:${1}$opt_P$3:o if ($opt_P);
 		if ($block->{header} !~ m/^commit/) {
 			print $block->as_string();
 			next;
 		}
+		$block->{author}->[0] =~ s/^author\s+(\S+)\s+/author $full_name{$1} /
+			if ($block->{author}->[0] =~ m/^author\s+(\S+)\s+/ &&
+			    $full_name{$1});
+		$block->{committer}->[0] =~ s/^committer\s+(\S+)\s+/committer $full_name{$1} /
+			if ($block->{committer}->[0] =~ m/^committer\s+(\S+)\s+/ &&
+			    $full_name{$1});
 		# Process commits
 		my ($mark) = ($block->{mark}->[0] =~ m/^mark\s+\:(\d+)/);
 		my ($time) = ($block->{committer}->[0] =~ m/^[^<]*\<[^>]*\>\s*(\d+)\s+/);

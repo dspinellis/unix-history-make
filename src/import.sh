@@ -248,6 +248,7 @@ fi
 
 perl ../import-dir.pl -r $MERGED_FREEBSD_2 -m $MERGED_FREEBSD_2 \
 	-R '1994-11-22 10:59:00 +0000' \
+	-n ../freebsd.au \
 	-G 'Diomidis Spinellis <dds@FreeBSD.org> 785501938 +0000' \
 	-P FreeBSD- $ARCHIVE/freebsd.git/ $REFS --progress=1000 | gfi
 
@@ -453,3 +454,4 @@ then
 	echo "Found $N_HASH versions in FreeBSD 3.0.0 proc.h; expected $N_EXPECTED" 1>&2
 	exit 1
 fi
+echo Verification finished

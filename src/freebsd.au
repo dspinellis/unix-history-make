@@ -1,3 +1,429 @@
+#Default email address template
+%A $@freebsd.org
+
 #:Id (used in path maps):Full name:email
+#
+# curl https://svnweb.freebsd.org/base/head/share/misc/committers-{src,ports,doc}.dot?view=co | fgrep \[ | sed 's/  *\[label="/:/;s/\\n.*//' | LC_ALL=C sort -t: -u -k1 | LC_ALL=C join -t: - <(cd archive/freebsd.git ; git log --all --pretty=format:'%ae' | sed 's/@.*//' | LC_ALL=C sort -u)
 
 core:FreeBSD Core Development Team:core@freebsd.org
+ache:Andrey Chernov
+achim:Achim Leubner
+adamw:Adam Weinberger
+adrian:Adrian Chadd
+ae:Andrey V. Elsukov
+ahze:Michael Johnson
+ak:Alex Kozlov
+akiyama:Shunsuke Akiyama
+alc:Alan Cox
+ale:Alex Dupre
+alepulver:Alejandro Pulver
+alexbl:Alexander Botero-Lowry
+alexey:Alexey Degtyarev
+allanjude:Allan Jude
+alm:Andrew Moore
+ambrisko:Doug Ambrisko
+amdmi3:Dmitry Marakasov
+anchie:Ana Kukec
+andre:Andre Oppermann
+andreast:Andreas Tobler
+andrew:Andrew Turner
+anholt:Eric Anholt
+anray:Andrey Slusar
+antoine:Antoine Brodin
+araujo:Marcelo Araujo
+archie:Archie Cobbs
+ariff:Ariff Abdullah
+arr:Andrew R. Reiter
+art:Artem Belevich
+arun:Arun Sharma
+arved:Tilman Linneweh
+asami:Satoshi Asami
+ashish:Ashish SHUKLA
+asmodai:Jeroen Ruigrok
+asomers:Alan Somers
+avg:Andriy Gapon
+avilla:Alberto Villa
+avl:Alexander Logvinov
+bapt:Baptiste Daroussin
+bar:Barbara Guida
+bcr:Benedict Reuschling
+bdrewery:Bryan Drewery
+beat:Beat Gaetzi
+beech:Beech Rintoul
+benjsc:Benjamin Close
+benl:Ben Laurie
+benno:Benno Rice
+billf:Bill Fumerola
+blackend:Marc Fonvieille
+bland:Alexander Nedotsukov
+bmah:Bruce A. Mah
+bmilekic:Bosko Milekic
+bms:Bruce M Simpson
+br:Ruslan Bukin
+brd:Brad Davis
+brian:Brian Somers
+brix:Henrik Brix Andersen
+brooks:Brooks Davis
+brucec:Bruce Cran
+brueffer:Christian Brueffer
+bruno:Bruno Ducrot
+bryanv:Bryan Venteicher
+bsam:Boris Samorodov
+bschmidt:Bernhard Schmidt
+bushman:Michael Bushkov
+bz:Bjoern A. Zeeb
+carl:Carl Delsey
+ceri:Ceri Davies
+chinsan:Chinsan Huang
+cjc:Crist J. Clark
+clsung:Cheng-Lung Sung
+cognet:Olivier Houchard
+cokane:Coleman Kane
+cperciva:Colin Percival
+crees:Chris Rees
+cs:Carlo Strub
+csjp:Christian S.J. Peron
+culot:Frederic Culot
+daichi:Daichi Goto
+danfe:Alexey Dokuchaev
+danger:Daniel Gerzo
+danilo:Danilo E. Gondolfo
+das:David Schultz
+davide:Davide Italiano
+davidxu:David Xu
+db:Diane Bruce
+dbn:David Naylor
+dchagin:Dmitry Chagin
+dds:Diomidis Spinellis
+decke:Bernhard Froehlich
+delphij:Xin Li
+demon:Dmitry Sivachenko
+den:Denis Peplin
+des:Dag-Erling Smorgrav
+dfr:Doug Rabson
+dg:David Greenman
+dhartmei:Daniel Hartmeier
+dim:Dimitry Andric
+dmlb:Duncan Barclay
+dougb:Doug Barton
+dru:Dru Lavigne
+dryice:Dryice Dong Liu
+dteske:Devin Teske
+dumbbell:Jean-Sebastien Pedron
+dwmalone:David Malone
+eadler:Eitan Adler
+ebrandi:Edson Brandi
+ed:Ed Schouten
+edavis:Eric Davis
+edwin:Edwin Groothuis
+ehaupt:Emanuel Haupt
+eik:Oliver Eikemeier
+eivind:Eivind Eklund
+emaste:Ed Maste
+emax:Maksim Yevmenkin
+eri:Ermal Luci
+erwin:Erwin Lansing
+fabient:Fabien Thomas
+fanf:Tony Finch
+feld:Mark Felder
+fjoe:Max Khon
+flo:Florian Smeets
+fluffy:Dima Panov
+flz:Florent Thoumie
+gabor:Gabor Kovesdan
+gad:Garance A. Drosehn
+gahr:Pietro Cerutti
+gallatin:Andrew Gallatin
+ganbold:Ganbold Tsagaankhuu
+garga:Renato Botelho
+garys:Gary W. Swearingen
+gavin:Gavin Atkinson
+gblach:Grzegorz Blach
+gerald:Gerald Pfeifer
+gibbs:Justin T. Gibbs
+gj:Gary L. Jennejohn
+gjb:Glen Barber
+glarkin:Greg Larkin
+gleb:Gleb Kurtsou
+glebius:Gleb Smirnoff
+glewis:Greg Lewis
+gnn:George Neville-Neil
+gordon:Gordon Tetlow
+grehan:Peter Grehan
+grembo:Michael Gmelin
+grog:Greg Lehey
+groudier:Gerard Roudier
+gshapiro:Gregory Shapiro
+harti:Hartmut Brandt
+hmp:Hiten Pandya
+hq:Herve Quiroz
+hrs:Hiroki Sato
+ian:Ian Lepore
+iedowse:Ian Dowse
+ijliao:Ying-Chieh Liao
+imp:Warner Losh
+issyl0:Isabell Long
+itetcu:Ion-Mihai Tetcu
+ivoras:Ivan Voras
+jacula:Giuseppe Pilichi
+jadawin:Philippe Audeoud
+jake:Jake Burkholder
+jamie:Jamie Gritton
+jase:Jase Thew
+jasone:Jason Evans
+jayanth:Jayanth Vijayaraghavan
+jb:John Birrell
+jcamou:Jesus R. Camou
+jceel:Jakub Klama
+jchandra:Jayachandran C.
+jdp:John Polstra
+jedgar:Chris D. Faulhaber
+jeff:Jeff Roberson
+jgh:Jason Helfman
+jh:Jaakko Heinonen
+jhale:Jason E. Hale
+jhb:John Baldwin
+jhibbits:Justin Hibbits
+jilles:Jilles Tjoelker
+jim:Jim Mock
+jimharris:Jim Harris
+jinmei:JINMEI Tatuya
+jkh:Jordan K. Hubbard
+jkim:Jung-uk Kim
+jkois:Johann Kois
+jkoshy:A. Joseph Koshy
+jlaffaye:Julien Laffaye
+jlemon:Jonathan Lemon
+jlh:Jeremie Le Hen
+jls:Jordan Sissel
+jmallett:Juli Mallett
+jmelo:Jean Milanez Melo
+jmg:John-Mark Gurney
+jmmv:Julio Merino
+joe:Josef Karthauser
+joel:Joel Dahl
+joerg:Joerg Wunsch
+jon:Jonathan Chen
+jonathan:Jonathan Anderson
+josef:Josef El-Rayes
+jpaetzel:Josh Paetzel
+jsa:Joseph S. Atkinson
+jtc:J.T. Conklin
+julian:Julian Elischer
+jwd:John De Boskey
+jylefort:Jean-Yves Lefort
+kaiw:Kai Wang
+kan:Alexander Kabaev
+kargl:Steven G. Kargl
+kbyanc:Kelly Yancey
+keichii:Michael Wu
+ken:Ken Merry
+kensmith:Ken Smith
+keramida:Giorgos Keramidas
+kevlo:Kevin Lo
+kib:Konstantin Belousov
+kmacy:Kip Macy
+knu:Akinori Musha
+krion:Kirill Ponomarew
+kwm:Koop Mast
+laszlof:Frank Laszlo
+lawrance:Sam Lawrance
+le:Lukas Ertl
+leeym:Yen-Ming Lee
+lev:Lev Serebryakov
+linimon:Mark Linimon
+lioux:Mario Sergio Fujikawa Ferriera
+lippe:Felippe de Meirelles Motta
+lme:Lars Engels
+loader:Fukang Chen
+loos:Luiz Otavio O Souza
+lstewart:Lawrence Stewart
+lulf:Ulf Lilleengen
+lwhsu:Li-Wen Hsu
+madpilot:Guido Falsi
+maho:Maho Nakata
+makc:Max Brazhnikov
+mandree:Matthias Andree
+manolis:Manolis Kiagias
+marcel:Marcel Moolenaar
+marck:Dmitry Morozovsky
+marcus:Joe Marcus Clarke
+marino:John Marino
+marius:Marius Strobl
+markj:Mark Johnston
+markm:Mark Murray
+marks:Mark Santcroos
+markus:Markus Brueffer
+martymac:Ganael Laplanche
+mat:Mathieu Arnold
+matteo:Matteo Riondato
+matthew:Matthew Seaman
+mav:Alexander Motin
+maxim:Maxim Konovalov
+mdf:Matthew Fleming
+mdodd:Matthew N. Dodd
+melifaro:Alexander V. Chernikov
+mharo:Michael Haro
+mike:Mike Barcroft
+milki:Jonathan Chu
+miwi:Martin Wilke
+mjacob:Matt Jacob
+mjg:Mateusz Guzik
+mlaier:Max Laier
+mm:Martin Matuska
+mnag:Marcus Alves Grando
+monthadar:Monthadar Al Jaberi
+mp:Mark Peek
+mr:Michael Reifenberger
+msmith:Mike Smith
+murray:Murray Stokely
+mux:Maxime Henrion
+nate:Nate Willams
+neel:Neel Natu
+nemoliu:Tong Liu
+nemysis:Rusmir Dusko
+netchild:Alexander Leidinger
+nik:Nik Clayton
+njl:Nate Lawson
+nobutaka:Nobutaka Mantani
+non:Noriaki Mitsnaga
+nork:Norikatsu Shigemura
+novel:Roman Bogorodskiy
+np:Navdeep Parhar
+nwhitehorn:Nathan Whitehorn
+obrien:David E. O'Brien
+olivierd:Olivier Duchateau
+olli:Oliver Fromme
+onoe:Atsushi Onoe
+osa:Sergey A. Osokin
+pat:Patrick Li
+pav:Pav Lucistnik
+pawel:Pawel Pekala
+pclin:Po-Chien Lin
+peadar:Peter Edwards
+peter:Peter Wemm
+peterj:Peter Jeremy
+pfg:Pedro Giffuni
+pgj:Gabor Pali
+pgollucci:Philip M. Gollucci
+philip:Philip Paeps
+phk:Poul-Henning Kamp
+pho:Peter Holm
+pjd:Pawel Jakub Dawidek
+pkelsey:Patrick Kelsey\pkelsey@FreeBSD.org
+pluknet:Sergey Kandaurov
+ps:Paul Saab
+qingli:Qing Li
+rafan:Rong-En Fan
+rakuco:Raphael Kubo da Costa
+randi:Randi Harper
+ray:Aleksandr Rybalko
+rdivacky:Roman Divacky
+remko:Remko Lodder
+rene:Rene Ladan
+rgrimes:Rod Grimes
+riggs:Thomas Zander
+rik:Roman Kurakin
+rink:Rink Springer
+rm:Ruslan Makhmatkhanov
+rmacklem:Rick Macklem
+rmh:Robert Millan
+rnoland:Robert Noland
+roam:Peter Pentchev
+robert:Robert Drehmel
+roberto:Ollivier Robert
+rodrigo:Rodrigo Osorio
+romain:Romain Tartiere
+royger:Roger Pau Monne
+rpaulo:Rui Paulo
+rrs:Randall R Stewart
+rse:Ralf S. Engelschall
+rstone:Ryan Stone
+ru:Ruslan Ermilov
+rwatson:Robert N. M. Watson
+ryusuke:Ryusuke Suzuki
+sahil:Sahil Tandon
+sam:Sam Leffler
+sanpei:MIHIRA Sanpei Yoshiro
+sat:Andrew Pantyukhin
+sbruno:Sean Bruno
+sbz:Sofian Brabez
+scf:Sean C. Farley
+scheidell:Michael Scheidell
+schweikh:Jens Schweikhardt
+scottl:Scott Long
+se:Stefan Esser
+sem:Sergey Matveychuk
+sephe:Sepherosa Ziehau
+sepotvin:Stephane E. Potvin
+sergei:Sergei Kolobov
+shafeeq:Shafeeq Sinnamohideen
+sheldonh:Sheldon Hearn
+shiba:Takeshi Shibagaki
+shin:Yoshinobu Inoue
+simon:Simon L. Nielsen
+sjg:Simon J. Gerraty
+skreuzer:Steven Kreuzer
+slm:Stephen McConnell
+smh:Steven Hartland
+snb:Nick Barkas
+sobomax:Maxim Sobolev
+sos:Soren Schmidt
+sson:Stacey Son
+stas:Stanislav Sedov
+stefan:Stefan Walter
+stephen:Stephen Montgomery-Smith
+steve:Steve Price
+sunpoet:Po-Chuan Hsieh
+suz:SUZUKI Shinsuke
+swills:Steve Wills
+syrinx:Shteryana Shopova
+tabthorpe:Thomas Abthorpe
+takawata:Takanori Watanabe
+tdb:Tim Bishop
+theraven:David Chisnall
+thierry:Thierry Thomas
+thompsa:Andrew Thompson
+ticso:Bernd Walter
+tijl:Tijl Coosemans
+timur:Timur Bakeyev
+tj:Tom Judge
+tmclaugh:Tom McLaughlin
+tmm:Thomas Moestl
+toshi:Toshihiko Arai
+tota:TAKATSU Tomonari
+trasz:Edward Tomasz Napierala
+trhodes:Tom Rhodes
+trociny:Mikolaj Golub
+tshiozak:Takuya SHIOZAKI
+tuexen:Michael Tuexen
+tychon:Tycho Nightingale
+ume:Hajimu UMEMOTO
+uqs:Ulrich Spoerlein
+vanhu:Yvan Vanhullebus
+vd:Vasil Dimov
+versus:Konrad Jankowski
+vg:Veniamin Gvozdikov
+wblock:Warren Block
+wen:Wen Heping
+weongyo:Weongyo Jeong
+wes:Wes Peters
+wg:William Grzybowski
+wilko:Wilko Bulte
+will:Will Andrews
+wkoszek:Wojciech A. Koszek
+wollman:Garrett Wollman
+wsalamon:Wayne Salamon
+wxs:Wesley Shields
+xmj:Johannes Jost Meixner
+xride:Soeren Straarup
+yar:Yar Tikhiy
+yongari:Pyun YongHyeon
+yzlin:Yi-Jheng Lin
+zack:Zack Kirsch
+zbb:Zbigniew Bodek
+zec:Marko Zec
+zeising:Niclas Zeising
+zi:Ryan Steinmetz
+zml:Zachary Loafman
+zont:Andrey Zonov
