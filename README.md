@@ -61,69 +61,15 @@ The following tags or branch names mark specific releases, listed in rough chron
 * BSD-SCCS-END
 * 386BSD-0.0
 * 386BSD-0.1
-* FreeBSD-release/1.0
-* FreeBSD-release/1.1
-* FreeBSD-release/1.1.5
-* FreeBSD-release/2.0
-* FreeBSD-release/2.0.5
-* FreeBSD-release/2.1.0
-* FreeBSD-release/2.1.5
-* FreeBSD-release/2.1.6
-* FreeBSD-release/2.1.6.1
-* FreeBSD-release/2.1.7
-* FreeBSD-release/2.2.0
-* FreeBSD-release/2.2.1
-* FreeBSD-release/2.2.2
-* FreeBSD-release/2.2.5
-* FreeBSD-release/2.2.6
-* FreeBSD-release/2.2.7
-* FreeBSD-release/2.2.8
-* FreeBSD-release/3.0.0
-* FreeBSD-release/3.1.0
-* FreeBSD-release/3.2.0
-* FreeBSD-release/3.3.0
-* FreeBSD-release/3.4.0
-* FreeBSD-release/3.5.0
-* FreeBSD-release/4.0.0
-* FreeBSD-release/4.1.0
-* FreeBSD-release/4.10.0
-* FreeBSD-release/4.1.1
-* FreeBSD-release/4.11.0
-* FreeBSD-release/4.2.0
-* FreeBSD-release/4.3.0
-* FreeBSD-release/4.4.0
-* FreeBSD-release/4.5.0
-* FreeBSD-release/4.6.0
-* FreeBSD-release/4.6.1
-* FreeBSD-release/4.6.2
-* FreeBSD-release/4.7.0
-* FreeBSD-release/4.8.0
-* FreeBSD-release/4.9.0
-* FreeBSD-release/5.0.0
-* FreeBSD-release/5.1.0
-* FreeBSD-release/5.2.0
-* FreeBSD-release/5.2.1
-* FreeBSD-release/5.3.0
-* FreeBSD-release/5.4.0
-* FreeBSD-release/5.5.0
-* FreeBSD-release/6.0.0
-* FreeBSD-release/6.1.0
-* FreeBSD-release/6.2.0
-* FreeBSD-release/6.3.0
-* FreeBSD-release/6.4.0
-* FreeBSD-release/7.0.0
-* FreeBSD-release/7.1.0
-* FreeBSD-release/7.2.0
-* FreeBSD-release/7.3.0
-* FreeBSD-release/7.4.0
-* FreeBSD-release/8.0.0
-* FreeBSD-release/8.1.0
-* FreeBSD-release/8.2.0
-* FreeBSD-release/8.3.0
-* FreeBSD-release/8.4.0
-* FreeBSD-release/9.0.0
-* FreeBSD-release/9.1.0
-* FreeBSD-release/9.2.0
+* FreeBSD-release/1.0, 1.1, 1.1.5
+* FreeBSD-release/2.0 2.0.5, 2.1.0, 2.1.5, 2.1.6, 2.1.6.1, 2.1.7, 2.2.0, 2.2.1, 2.2.2, 2.2.5, 2.2.6, 2.2.7, 2.2.8
+* FreeBSD-release/3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.4.0, 3.5.0
+* FreeBSD-release/4.0.0 4.1.0, 4.1.1, 4.2.0, 4.3.0, 4.4.0, 4.5.0, 4.6.0, 4.6.1, 4.6.2, 4.7.0, 4.8.0, 4.9.0, 4.10.0, 4.11.0
+* FreeBSD-release/5.0.0 5.1.0, 5.2.0, 5.2.1, 5.3.0, 5.4.0, 5.5.0
+* FreeBSD-release/6.0.0, 6.1.0, 6.2.0, 6.3.0, 6.4.0
+* FreeBSD-release/7.0.0, 7.1.0, 7.2.0, 7.3.0, 7.4.0
+* FreeBSD-release/8.0.0, 8.1.0, 8.2.0, 8.3.0, 8.4.0
+* FreeBSD-release/9.0.0, 9.1.0, 9.2.0
 * FreeBSD-release/10.0.0
 
 ## Cool things you can do
