@@ -5,7 +5,7 @@ all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
 	archive/386BSD-0.1 archive/386BSD-0.0 archive/FreeBSD-1.0.mnt \
 	archive/FreeBSD-1.1.mnt archive/FreeBSD-1.1.5.1.mnt \
 	archive/freebsd.git archive/freebsd-doc.git \
-	archive/freebsd-early.git archive/FreeBSD-1.1.5
+	archive/freebsd-early.git archive/FreeBSD-1.1.5 empty
 
 .SUFFIXES:.iso .mnt
 
@@ -147,3 +147,12 @@ archive/FreeBSD-1.1.5: archive/FreeBSD-1.1.5.1.mnt
 	( cd archive/FreeBSD-1.1.5.1/tarballs/srcdist && \
 	mkdir ../../../../$@ && \
 	EXTRACT_TARGET=../../../../$@ ./EXTRACT.sh )
+
+# Empty repo for cleaning the existing one during updates
+empty:
+	mkdir empty && \
+	cd empty && \
+	cp ../../README.md . && \
+	git init && \
+	git add . && \
+	git commit -m 'Add README.md in empty repo'
