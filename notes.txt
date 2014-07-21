@@ -280,3 +280,4 @@ alwaysallowed.  See https://wincent.com/wiki/Legal_Git_branch_names
 - Add NetBSD 0.8 based on http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/share/misc/bsd-family-tree and https://svnweb.freebsd.org/base/head/share/misc/bsd-family-tree?view=co
 - Map FreeBSD authors to their actual names. First step:
 git log --all --pretty=format:'%ae' | sed 's/@.*//' | sort -u >../freebsd.authors
+- Merge 4.4BSD Lite 2 into FreeBSD 3.0
