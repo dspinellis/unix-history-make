@@ -277,6 +277,6 @@ alwaysallowed.  See https://wincent.com/wiki/Legal_Git_branch_names
 - Stich together the two FreeBSD repos using import-dir.pl to create a merge and
 .ref preamble and http://search.cpan.org/~book/Git-FastExport/lib/Git/FastExport/Stitch.pm to stich the repos together.
 - Attribute BSD code based on http://netbsd.org/people/CSRG-contrib.html
-- Add NetBSD 0.8 based on http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/share/misc/bsd-family-tree
+- Add NetBSD 0.8 based on http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/share/misc/bsd-family-tree and https://svnweb.freebsd.org/base/head/share/misc/bsd-family-tree?view=co
 - Map FreeBSD authors to their actual names. First step:
 git log --all --pretty=format:'%ae' | sed 's/@.*//' | sort -u >../freebsd.authors
