@@ -253,8 +253,6 @@ TODO {{{1
   From then on BSD-SCCS is merged directly (in one go) into -Release- at the
   timestamp of each release, and a tag is created
 
- - 386BSD
- - FreeBSD from https://github.com/freebsd/freebsd
 - Flag to indicate release text file
 - Coalesce commits by the same author on same date/time and with same
   message (for SCCS) in import-dir.pl
@@ -267,17 +265,12 @@ TODO {{{1
   (could be done with git blame on each file)
 - Add support for SCCS file comment fields (^AT and ^At)
   See http://publib.boulder.ibm.com/infocenter/aix/v7r1/index.jsp?topic=%2Fcom.ibm.aix.files%2Fdoc%2Faixfiles%2Fsccsfile.htm
-- On FreeBSD import remove reference files near 2.0 release at commit
-1e9b5066743a9ebe56ef60a9841f1ebd929dd78a marked ALPHA -> BETA at 785403528
 - On FreeBSD import add a from to the reference files to commits missing a from field
 - Check for duplicate files at existing tags and add them to the ignore lists
 - Add actual persons in the BSD-default file.  For instance 4.2 appears to have been released by Sam Leffler, and later versions by Keith Bostic
 - Use more descriptive characters in names (./).  It seems that are almost
 alwaysallowed.  See https://wincent.com/wiki/Legal_Git_branch_names
-- Stich together the two FreeBSD repos using import-dir.pl to create a merge and
-.ref preamble and http://search.cpan.org/~book/Git-FastExport/lib/Git/FastExport/Stitch.pm to stich the repos together.
 - Attribute BSD code based on http://netbsd.org/people/CSRG-contrib.html
 - Add NetBSD 0.8 based on http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/share/misc/bsd-family-tree and https://svnweb.freebsd.org/base/head/share/misc/bsd-family-tree?view=co
-- Map FreeBSD authors to their actual names. First step:
 git log --all --pretty=format:'%ae' | sed 's/@.*//' | sort -u >../freebsd.authors
 - Merge 4.4BSD Lite 2 into FreeBSD 3.0
