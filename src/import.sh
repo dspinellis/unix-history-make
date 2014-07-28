@@ -4,7 +4,7 @@
 #
 
 # When debugging import only a few representative files
-# export DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((proc)|(stat))\.h)'
+# export DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((sysexits)|(proc)|(stat))\.h)'
 
 # Location of archive mirror
 ARCHIVE=../archive
@@ -391,6 +391,13 @@ git checkout BSD-Release
 echo Verify branches and merges
 verify_nodes '|/' 55
 verify_nodes '|\' 32
+
+echo Verify symbolic links
+if ! [ -L usr/src/usr.sbin/sendmail/src/sysexits.h ]
+then
+	echo "usr/src/usr.sbin/sendmail/src/sysexits.h is not a symbolic link" 1>&2
+	exit 1
+fi
 
 echo Verify SCCS merge
 N_HASH=$(git blame -C -C usr/src/sys/sys/proc.h |

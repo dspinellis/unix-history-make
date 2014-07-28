@@ -184,10 +184,16 @@ gather_text_files
 		$fi{$_}->{commit_at_release} = 1 if ($merge_add_map{$commit_path});
 		return if ($ignore_map{$commit_path});
 	}
-	my ($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, $ctime, $blksize, $blocks) = stat;
+	my ($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, $ctime, $blksize, $blocks) = lstat;
 	$fi{$_}->{mtime} = $mtime;
-	$fi{$_}->{size} = $size;
-	$fi{$_}->{mode} = (-x $_) ? '755' : '644';
+	if (-l) {
+		my $target = readlink;
+		$fi{$_}->{size} = length($target);
+		$fi{$_}->{mode} = '120000';
+	} else {
+		$fi{$_}->{size} = $size;
+		$fi{$_}->{mode} = (-x $_) ? '100755' : '100644';
+	}
 }
 
 sub
@@ -216,10 +222,16 @@ create_text_blobs
 		print "blob\n";
 		print "mark :$mark\n";
 		print "data $fi{$name}->{size}\n";
-		# Flush stdout
-		$| = 1;
-		$| = 0;
-		copy($name, \*STDOUT);
+		if ($fi{$name}->{mode} eq '120000') {
+			# Symbolic link
+			my $target = readlink $name;
+			print $target;
+		} else {
+			# Regular file: flush stdout, and copy contents
+			$| = 1;
+			$| = 0;
+			copy($name, \*STDOUT);
+		}
 		$mark++;
 	}
 }
