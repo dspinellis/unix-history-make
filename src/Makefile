@@ -9,6 +9,8 @@ all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
 
 .SUFFIXES:.iso .mnt
 
+.INTERMEDIATE: uncompress
+
 .iso.mnt:
 	mkdir -p $(subst .iso,,$<)
 	# Mount uses -o uid, because some directories have 750 permissions, e.g.
