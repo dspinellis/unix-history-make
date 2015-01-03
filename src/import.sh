@@ -129,7 +129,13 @@ perl ../import-dir.pl -m BSD-3,$SCCS_AT_RELEASE -c ../author-path/BSD-4 \
 
 # Merge SCCS and incremental BSD additions on snapshots
 # See http://minnie.tuhs.org/Unix_History/4bsd
-# (R/L stands for BSD-Release branch or Leaf.)
+# Timestamps were derived by inspecting the archive/CSRG/*.time files. These were
+# generated with the following command, which creates and ordered list of text
+# file modification times.
+# for i in cd1/4* cd2/* cd3/* ; do find . -type f | xargs file | awk -F: '$2 ~ /text/ {print $1}'| xargs stat --format='%n %Y %y' | sort -k 3n >`echo $i | sed 's|/|_|'`.time ; done
+#
+# R/L stands for BSD-Release branch or Leaf.
+#
 # Version	Parent		Directory		Last file timestamp + 1s  R/L
 cat <<\EOF |
 4_1_snap	4		cd1/4.1.snap		1982-02-03 08:34:45 +0200 R
