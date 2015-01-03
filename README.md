@@ -73,8 +73,8 @@ The following tags or branch names mark specific releases, listed in rough chron
 * FreeBSD-release/10.0.0
 
 More tags and branches are available.
-* The `Snap-Development` branches denote commits that have been synthesized from a time-ordered sequence of a snapshot's files.
-* The `VCS-Development` tags denote the point along an imported version control history branch where a particular release occurred.
+* The `-Snapshot-Development` branches denote commits that have been synthesized from a time-ordered sequence of a snapshot's files.
+* The `-VCS-Development` tags denote the point along an imported version control history branch where a particular release occurred.
 
 ## Cool things you can do
 Run
