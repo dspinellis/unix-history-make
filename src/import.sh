@@ -4,7 +4,7 @@
 #
 
 # When debugging import only a few representative files
-# export DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((sysexits)|(proc)|(stat))\.h)'
+# export DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((sysexits)|(proc)|(stat)|(telextrn))\.h)'
 
 # Location of archive mirror
 ARCHIVE=../archive

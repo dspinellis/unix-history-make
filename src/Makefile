@@ -103,6 +103,9 @@ archive/386BSD-0.0: uncompress
 archive/386BSD-0.1: uncompress
 	mkdir -p $@
 	for i in `perl -e 'print map {sprintf("%02d ", $$_)} 0..61'` ; do curl -s http://www.oldlinux.org/Linux.old/distributions/386BSD/0.1/386BSD/SRC01.$$i ; done | ./uncompress | (cd $@ ; cpio -imd)
+	# cpio does not set the modification time of symbolic links
+	# so we set it manually from the time recorded in the archive.
+	find $@ -type l | xargs touch  -h -d 'Jun 8 1992'
 
 archive/CSRG/cd4.patched: archive/CSRG/cd4.mnt
 	mkdir -p $@
