@@ -178,6 +178,9 @@ while read version parent dir date time tz rl ; do
 
 	# Exclude files that are under SCCS control
 	SCCS_AT_RELEASE=$(git log --before="$date $time $tz" -n 1 --format='%H' BSD-SCCS)
+	# Tag the release at the SCCS branch
+	git tag BSD-VCS-Development-$version $SCCS_AT_RELEASE
+
 	test -r ../ignore/"BSD-${version}-sccs" || (
 		# Files in the SCCS tree
 		git ls-tree --full-tree --name-only -r $SCCS_AT_RELEASE |
