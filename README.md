@@ -15,6 +15,7 @@ Two repositories are associated with the project:
   reconstructed version of the Unix history, based on the currently
   available data. This repository will be often automatically regenerated from
   scratch, so this is not a place to make contributions.
+  To ensure replicability its users are encouraged to fork it or archive it.
 * [unix-history-make](https://github.com/dspinellis/unix-history-make) is
   a repository containing code and metadata used to build the above repository.
   Contributions to this repository are welcomed.
