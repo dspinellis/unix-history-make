@@ -3,6 +3,9 @@
 # Import Unix branches into a single repo
 #
 
+# The directory where the repository will be created
+REPO=import
+
 # When debugging import only a few representative files
 # export DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((sysexits)|(proc)|(stat)|(telextrn))\.h)'
 
@@ -30,9 +33,9 @@ then
 fi
 
 # Initialize repo
-rm -rf import
-mkdir import
-cd import
+rm -rf $REPO
+mkdir $REPO
+cd $REPO
 git init
 add_boilerplate
 git tag Epoch
