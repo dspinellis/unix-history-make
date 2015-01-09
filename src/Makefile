@@ -63,6 +63,8 @@ archive/v7:
 	mv v7-patch/lp.c $@/usr/sys/dev/
 	mv v7-patch/lpd.8 $@/usr/man/man8/
 	rm -rf v7-patch
+	# Remove file epoch timestamp (it just printed the block size)
+	rm $@/bs.c
 
 archive/1bsd: newoldar
 	mkdir -p $@
