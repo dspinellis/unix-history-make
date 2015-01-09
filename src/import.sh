@@ -16,11 +16,22 @@ ARCHIVE=../archive
 trap "exit 1" TERM
 export TOP_PID=$$
 
+# Create a version of the README file with version SHA information appended
+{
+  cat ../README.md
+  echo
+  echo '## Build software identification'
+  echo -n 'URL: '
+  git remote -v | sed -n 's/:/\//;s/.*git@/https:\/\//;s/\.git .*//;p;q'
+  echo -n 'SHA: '
+  git rev-parse HEAD
+} >>README-SHA.md
+
 add_boilerplate()
 {
 	cp ../old-code-license LICENSE
 	cp ../Caldera-license.pdf .
-	cp ../../README.md .
+	cp ../README-SHA.md README.md
 	git add LICENSE README.md Caldera-license.pdf
 	git commit -a -m "Add licenses and README"
 }

@@ -366,7 +366,7 @@ issue_start_commit
 	# Add license blobs
 	my $text_license_blob = add_file_blob('../old-code-license');
 	my $caldera_license_blob = add_file_blob('../Caldera-license.pdf');
-	my $readme_blob = add_file_blob('../../README.md');
+	my $readme_blob = add_file_blob('../README-SHA.md');
 
 	# The actual development commits
 	print "# Start development commits from a clean slate\n";
