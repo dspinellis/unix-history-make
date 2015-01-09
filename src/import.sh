@@ -16,11 +16,20 @@ ARCHIVE=../archive
 trap "exit 1" TERM
 export TOP_PID=$$
 
+BUILDER_URL=$(git remote -v | sed -n 's/:/\//;s/.*git@/https:\/\//;s/\.git .*//;p;q')
+BUILDER_SHA=$(git rev-parse HEAD)
+
 add_boilerplate()
 {
 	cp ../old-code-license LICENSE
 	cp ../Caldera-license.pdf .
 	cp ../../README.md .
+	{
+	  echo
+	  echo '## Build software identification'
+	  echo "URL: $BUILDER_URL"
+	  echo "SHA: $BUILDER_SHA"
+	} >>README.md
 	git add LICENSE README.md Caldera-license.pdf
 	git commit -a -m "Add licenses and README"
 }
