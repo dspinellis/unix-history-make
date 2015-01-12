@@ -376,7 +376,9 @@ compare_repo()
   local expected_only_files="$5"
 
   git checkout "$id"
-  set $(diff -r . $dir | ../diff-sum.awk)
+  # Exit with an error on fatal diff problems (e.g. missing source directory)
+  DIFFS="$(diff -r . $dir | ../diff-sum.awk ; exit  $((${PIPESTATUS[0]} > 1)) )" || exit 1
+  set $DIFFS
   local actual_diff_files="$1"
   local actual_diff_lines="$2"
   local actual_only_files="$3"
