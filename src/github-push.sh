@@ -7,7 +7,7 @@ cd import
 #  Optimize structure
 git gc --aggressive
 
-git checkout Research-Development-V1
+git checkout Research-V1-Snapshot-Development
 
 # Empty old repo
 pushd ../empty

@@ -12,7 +12,6 @@ bin/plot
 bin/spell
 bin/struct
 bin/true
-bs.c
 dev/makefile
 etc/ddate
 etc/group

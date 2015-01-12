@@ -3,7 +3,7 @@
 # Import directory snapshots or directories containing SCCS VCS data.
 #
 # Import the specified directory as a series of time-ordered commits on the
-# specified branch name with a "-Development" -version-name suffix.
+# specified branch name with a -Snapshot-Development suffix.
 # Importing SCCS VCS adds all commits found in the tree in a time-ordered
 # fashion.
 # When starting, specified parts are copied into a reference
@@ -131,7 +131,7 @@ my $tz_offset = shift unless ($opt_S || $opt_G);
 binmode STDOUT;
 my $mark = $opt_G ? 1000000 : 1;
 
-my $dev_branch = ($opt_S || $opt_G) ? "$branch-Import" : "$branch-Development-$version";
+my $dev_branch = ($opt_S || $opt_G) ? "$branch-Import" : "$branch-$version-Snapshot-Development";
 $dev_branch = $opt_P . $dev_branch if ($opt_P);
 
 print STDERR "Import $dev_branch\n";
@@ -366,7 +366,7 @@ issue_start_commit
 	# Add license blobs
 	my $text_license_blob = add_file_blob('../old-code-license');
 	my $caldera_license_blob = add_file_blob('../Caldera-license.pdf');
-	my $readme_blob = add_file_blob('../../README.md');
+	my $readme_blob = add_file_blob('../README-SHA.md');
 
 	# The actual development commits
 	print "# Start development commits from a clean slate\n";

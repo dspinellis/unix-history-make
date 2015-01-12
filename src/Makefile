@@ -9,6 +9,8 @@ all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
 
 .SUFFIXES:.iso .mnt
 
+.INTERMEDIATE: uncompress
+
 .iso.mnt:
 	mkdir -p $(subst .iso,,$<)
 	# Mount uses -o uid, because some directories have 750 permissions, e.g.
@@ -61,17 +63,21 @@ archive/v7:
 	mv v7-patch/lp.c $@/usr/sys/dev/
 	mv v7-patch/lpd.8 $@/usr/man/man8/
 	rm -rf v7-patch
+	# Remove file epoch timestamp (it just printed the block size)
+	rm $@/bs.c
 
 archive/1bsd: newoldar
 	mkdir -p $@
 	curl -s http://unixarchive.cn-k.de/PDP-11/Distributions/ucb/1bsd.tar.gz | tar -C $@ -xzf -
 	( AR=`pwd`/newoldar ; cd $@ && find . -name cont.a  | awk -F/ '{print $$2}' | while read d ; do ( cd $$d && $$AR xo cont.a && rm cont.a ) ; done)
+	rm -f $@/TAPE
 
 newoladar: newoldar.c
 
 archive/2bsd:
 	mkdir -p $@
 	curl -s http://unixarchive.cn-k.de/PDP-11/Distributions/ucb/2bsd.tar.gz | tar -C $@ -xzf -
+	rm -f $@/TAPE
 
 archive/32v:
 	mkdir -p $@
@@ -99,6 +105,9 @@ archive/386BSD-0.0: uncompress
 archive/386BSD-0.1: uncompress
 	mkdir -p $@
 	for i in `perl -e 'print map {sprintf("%02d ", $$_)} 0..61'` ; do curl -s http://www.oldlinux.org/Linux.old/distributions/386BSD/0.1/386BSD/SRC01.$$i ; done | ./uncompress | (cd $@ ; cpio -imd)
+	# cpio does not set the modification time of symbolic links
+	# so we set it manually from the time recorded in the archive.
+	find $@ -type l | xargs touch  -h -d 'Jun 8 1992'
 
 archive/CSRG/cd4.patched: archive/CSRG/cd4.mnt
 	mkdir -p $@

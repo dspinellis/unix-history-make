@@ -15,6 +15,7 @@ Two repositories are associated with the project:
   reconstructed version of the Unix history, based on the currently
   available data. This repository will be often automatically regenerated from
   scratch, so this is not a place to make contributions.
+  To ensure replicability its users are encouraged to fork it or archive it.
 * [unix-history-make](https://github.com/dspinellis/unix-history-make) is
   a repository containing code and metadata used to build the above repository.
   Contributions to this repository are welcomed.
@@ -71,6 +72,10 @@ The following tags or branch names mark specific releases, listed in rough chron
 * FreeBSD-release/8.0.0, 8.1.0, 8.2.0, 8.3.0, 8.4.0
 * FreeBSD-release/9.0.0, 9.1.0, 9.2.0
 * FreeBSD-release/10.0.0
+
+More tags and branches are available.
+* The `-Snapshot-Development` branches denote commits that have been synthesized from a time-ordered sequence of a snapshot's files.
+* The `-VCS-Development` tags denote the point along an imported version control history branch where a particular release occurred.
 
 ## Cool things you can do
 Run

@@ -3,8 +3,11 @@
 # Import Unix branches into a single repo
 #
 
+# The directory where the repository will be created
+REPO=import
+
 # When debugging import only a few representative files
-# export DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((sysexits)|(proc)|(stat))\.h)'
+# export DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((sysexits)|(proc)|(stat)|(telextrn))\.h)'
 
 # Location of archive mirror
 ARCHIVE=../archive
@@ -13,11 +16,22 @@ ARCHIVE=../archive
 trap "exit 1" TERM
 export TOP_PID=$$
 
+# Create a version of the README file with version SHA information appended
+{
+  cat ../README.md
+  echo
+  echo '## Build software identification'
+  echo -n 'URL: '
+  git remote -v | sed -n 's/:/\//;s/.*git@/https:\/\//;s/\.git .*//;p;q'
+  echo -n 'SHA: '
+  git rev-parse HEAD
+} >>README-SHA.md
+
 add_boilerplate()
 {
 	cp ../old-code-license LICENSE
 	cp ../Caldera-license.pdf .
-	cp ../../README.md .
+	cp ../README-SHA.md README.md
 	git add LICENSE README.md Caldera-license.pdf
 	git commit -a -m "Add licenses and README"
 }
@@ -30,9 +44,9 @@ then
 fi
 
 # Initialize repo
-rm -rf import
-mkdir import
-cd import
+rm -rf $REPO
+mkdir $REPO
+cd $REPO
 git init
 add_boilerplate
 git tag Epoch
@@ -129,7 +143,13 @@ perl ../import-dir.pl -m BSD-3,$SCCS_AT_RELEASE -c ../author-path/BSD-4 \
 
 # Merge SCCS and incremental BSD additions on snapshots
 # See http://minnie.tuhs.org/Unix_History/4bsd
-# (R/L stands for BSD-Release branch or Leaf.)
+# Timestamps were derived by inspecting the archive/CSRG/*.time files. These were
+# generated with the following command, which creates and ordered list of text
+# file modification times.
+# for i in cd1/4* cd2/* cd3/* ; do find . -type f | xargs file | awk -F: '$2 ~ /text/ {print $1}'| xargs stat --format='%n %Y %y' | sort -k 3n >`echo $i | sed 's|/|_|'`.time ; done
+#
+# R/L stands for BSD-Release branch or Leaf.
+#
 # Version	Parent		Directory		Last file timestamp + 1s  R/L
 cat <<\EOF |
 4_1_snap	4		cd1/4.1.snap		1982-02-03 08:34:45 +0200 R
@@ -172,6 +192,9 @@ while read version parent dir date time tz rl ; do
 
 	# Exclude files that are under SCCS control
 	SCCS_AT_RELEASE=$(git log --before="$date $time $tz" -n 1 --format='%H' BSD-SCCS)
+	# Tag the release at the SCCS branch
+	git tag BSD-$version-Snapshot-Development $SCCS_AT_RELEASE
+
 	test -r ../ignore/"BSD-${version}-sccs" || (
 		# Files in the SCCS tree
 		git ls-tree --full-tree --name-only -r $SCCS_AT_RELEASE |
@@ -243,7 +266,7 @@ if [ -n "$DEBUG" ]
 then
 	REFS='release/2.0 release/3.0.0'
 else
-	REFS=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/| master')\ HEAD
+	REFS=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/| master' | sort -t/ -k2n)\ HEAD
 fi
 
 perl ../import-dir.pl -r $MERGED_FREEBSD_2 -m $MERGED_FREEBSD_2 \

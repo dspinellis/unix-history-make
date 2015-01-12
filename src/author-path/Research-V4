@@ -1,9 +1,111 @@
-# By inspection allocate manual pages accordingly
-man/man4/.*			dmr
-man/man2/.*			ken
+
+# Based on v2man.pdf
+man/man1/as\.1		dmr
+man/man1/ar\.1		ken,dmr
+man/man1/cat\.1		ken,dmr
+man/man1/cc\.1		dmr
+man/man8/check\.8	ken,dmr
+man/man1/chmod\.1	ken,dmr
+man/man1/chown\.1	ken,dmr
+man/man1/cp\.1		ken,dmr
+man/man1/date\.1	dmr
+man/man8/df\.8		ken,dmr
+man/man1/dc\.1		rhm
+man/man1/dsw\.1		dmr,ken
+man/man1/echo\.1	doug
+man/man1/od\.1		ken,dmr
+man/man1/ed\.1		ken,dmr,jfo
+man/man1/exit\.1	dmr
+man/man1/fc\.1		dmr,ken
+man/man1/fed\.1		rhm,llc
+man/man1/form\.1	rhm,llc
+man/man1/goto\.1	dmr
+man/man1/if\.1		dmr
+man/man1/ld\.1		dmr
+man/man1/ln\.1		ken,dmr
+man/man1/login\.1	dmr,ken
+man/man1/man\.1		ken
+man/man1/mkdir\.1	ken,dmr
+man/man8/mount\.8	ken,dmr
+man/man1/mv\.1		ken,dmr
+man/man1/pr\.1		ken,dmr
+man/man1/rew\.1		ken,dmr
+man/man1/rm\.1		ken,dmr
+man/man1/rmdir\.1	ken,dmr
+man/man1/roff\.1	jfo
+man/man1/sh\.1		dmr,ken
+man/man1/sort\.1	dmr,ken
+man/man1/strip\.1	dmr
+man/man1/stty\.1	jfo
+man/man1/tss\.1		csr
+man/man1/type\.1	dmr
+man/man8/umount\.8	ken,dmr
+
+man/man2/sync\.2	ken
+# According to the V2 manual, to save typing
+man/man2/.*		ken,dmr
+
+man/man3/atan\.3	rhm,dmr,ken
+man/man3/atof\.3	ken
+man/man3/ctime\.3	dmr
+man/man3/exp\.3		rhm,dmr,ken
+man/man3/fptrap\.3	ken,dmr
+man/man3/getc\.3	dmr
+man/man3/hypot\.3	ken,dmr
+man/man3/log\.3		ken
+man/man3/mesg\.3	ken,dmr
+man/man3/nlist\.3	ken
+man/man3/putc\.3	dmr
+man/man3/qsort\.3	ken
+man/man3/sin\.3		ken,dmr
+man/man3/sqrt\.3	rhm,dmr,ken
+man/man3/switch\.3	ken,dmr
+
+man/man4/dp\.4		ken,dmr
+man/man4/rf\.4		ken,dmr
+man/man4/rk\.4		ken,dmr
+man/man4/rp\.4		ken,dmr
+# Theory, based on the above
+man/man4/.*		ken,dmr
+
+man/man5/a\.out.5	dmr
+man/man5/ar\.5		ken,dmr
+man/man5/core\.5	ken,dmr
+man/man5/dir\.5		ken,dmr
+man/man5/tp\.5		ken,dmr
+man/man5/utmp\.5	ken,dmr
+man/man5/wtmp\.5	ken,dmr
+
+man/man6/bj\.6		ken
+man/man6/cal\.6		ken
+man/man6/moo\.6		ken
+man/man6/ov\.6		jfo
+man/man6/ptx\.6		dmr
+man/man6/tmg\.6		doug
+man/man6/ttt\.6		ken
+
+man/man7/getty\.7	dmr,ken,jfo
+man/man7/glob\.7	dmr
+man/man7/init\.7	ken,dmr
+man/man7/tabs\.7	ken
+
+# Based on AUTHOR information within the file
+man/man6/sky\.6		rhm
+man/man6/spline\.6	doug
+man/man6/yacc\.6	scj
+man/man6/azel\.6	jfo
+man/man6/m6\.6		doug
+man/man6/chess\.6	ken
+
+man/man8/bproc\.8	ken
+
+man/manx/itoa\.3	ken
+man/manx/istat\.8	dmr
+man/manx/stty\.2	ken,dmr
 
 # Based on v6 map filtered for pages that exist
 # perl -ane 'print if (-r "archive/v4/$F[0]")' v4.map
+# Also verified against v2man.pdf, which takes precedence
 man/man1/cmp\.1		dmr
 man/man1/date\.1	dmr
 man/man1/db\.1		dmr
@@ -17,13 +119,13 @@ man/man8/su\.8		dmr,ken
 man/man1/tty\.1		dmr,ken
 man/man1/who\.1		dmr,ken
 man/man1/write\.1	dmr,ken
-man/man1/sort\.1	doug
 man/man1/wc\.1		jfo
 man/man1/bas\.1		ken
-man/man1/dc\.1		ken
-man/man1/ed\.1		ken
 man/man1/mail\.1	ken
-man/man1/sh\.1		ken
+
+# Based on later work
+man/man1/nroff\.1	jfo
+man/man1/troff\.1	jfo
 
 # Default
 # Regarding the order of names

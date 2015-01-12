@@ -193,8 +193,6 @@ git blame -C -C ...
 # For log use
 git log --follow
 
-Generate a list of text file modification times for CSRG releases
-for i in cd1/4* cd2/* cd3/* ; do find . -type f | xargs file | awk -F: '$2 ~ /text/ {print $1}'| xargs stat --format='%n %Y %y' | sort -k 3n >`echo $i | sed 's|/|_|'`.time ; done
 
 Lessons learned {{{1
 Split responsibilities between kernel and device drivers
@@ -276,4 +274,5 @@ alwaysallowed.  See https://wincent.com/wiki/Legal_Git_branch_names
 - Add NetBSD 0.8 based on http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/share/misc/bsd-family-tree and https://svnweb.freebsd.org/base/head/share/misc/bsd-family-tree?view=co
 git log --all --pretty=format:'%ae' | sed 's/@.*//' | sort -u >../freebsd.authors
 - Merge 4.4BSD Lite 2 into FreeBSD 3.0
-
+- Use the 4th Edition manual page authors to claim ownership of source files
+in later editions.
