@@ -471,9 +471,9 @@ verify()
     ensure_present .ref-$i
   done
 
-  # Actually 33 1220 52
+  # Actually 33 1220 54
   # Missing files are GNU utilities
-  compare_repo FreeBSD-release/1.0 ../archive/FreeBSD-1.0/filesys/usr/src/ 40 1300 52
+  compare_repo FreeBSD-release/1.0 ../archive/FreeBSD-1.0/filesys/usr/src/ 40 1300 54
 
   git checkout FreeBSD-release/1.1
   for i in $(echo $MERGED_FREEBSD_1 | sed 's/,/ /')
