@@ -85,7 +85,7 @@ import()
   fi
 
   # Initialize repo
-  create_readme()
+  create_readme
   rm -rf $REPO
   mkdir $REPO
   cd $REPO
