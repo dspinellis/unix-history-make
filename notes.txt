@@ -215,6 +215,8 @@ rename old top directories to previous_version/...
 Last commit
 Remove previous_version
 TODO {{{1
+- Add https://github.com/illumos/illumos-gate.git which is a Unix System V
+  descendant. The commits cover the period from Jun 2005 until today.
 - Compare snapshots with corresponding SCCS to see when coverage is sufficient
 - Add
  - 4.* merging appropriate SCCS time points. According to CSRG/cd4/README
@@ -274,3 +276,4 @@ alwaysallowed.  See https://wincent.com/wiki/Legal_Git_branch_names
 - Add NetBSD 0.8 based on http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/share/misc/bsd-family-tree and https://svnweb.freebsd.org/base/head/share/misc/bsd-family-tree?view=co
 git log --all --pretty=format:'%ae' | sed 's/@.*//' | sort -u >../freebsd.authors
 - Merge 4.4BSD Lite 2 into FreeBSD 3.0
+
