@@ -46,9 +46,9 @@ create_readme()
   cat ../README.md
   echo
   echo '## Build software identification'
-  echo -n 'URL: '
+  echo -n '* URL: '
   git remote -v | sed -n 's/:/\//;s/.*git@/https:\/\//;s/\.git .*//;p;q'
-  echo -n 'SHA: '
+  echo -n '* SHA: '
   git rev-parse HEAD
 } >>README-SHA.md
 
