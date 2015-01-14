@@ -50,7 +50,7 @@ create_readme()
   git remote -v | sed -n 's/:/\//;s/.*git@/https:\/\//;s/\.git .*//;p;q'
   echo -n '* SHA: '
   git rev-parse HEAD
-} >>README-SHA.md
+} >README-SHA.md
 
 add_boilerplate()
 {
