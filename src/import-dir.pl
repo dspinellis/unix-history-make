@@ -47,10 +47,6 @@ my @committer_map;
 # Committer responsible for releases. Set for path .*
 my $release_master;
 
-# Set to true for verbose output
-# (Might hide import errors)
-my $verbose;
-
 $main::VERSION = '0.1';
 
 # Exit after command processing error
@@ -79,6 +75,7 @@ Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 -s path	Leading path to strip from file paths being committed
 	By default this is the supplied directory
 -u file	File to write unmatched paths (paths matched with a wildcard)
+-v	Enable verbose output
 
 T is a tree-ish series of comma-seperated specifications, normally tag names.
 Each reference directory has .ref- prepended to its name.
@@ -87,7 +84,7 @@ version_name and tz_offset are not required for SCCS imports
 };
 }
 
-our($opt_C, $opt_c, $opt_G, $opt_i, $opt_I, $opt_m, $opt_n, $opt_P, $opt_p, $opt_R, $opt_r, $opt_S, $opt_s, $opt_u);
+our($opt_C, $opt_c, $opt_G, $opt_i, $opt_I, $opt_m, $opt_n, $opt_P, $opt_p, $opt_R, $opt_r, $opt_S, $opt_s, $opt_u, $opt_v);
 $opt_m = $opt_r = '';
 
 if (!getopts('C:c:G:i:I:m:n:P:p:R:r:Ss:t:u:')) {
@@ -288,13 +285,13 @@ create_sccs_blobs
 			print "blob\nmark :", $mark,
 					   "\ndata ", length ($data),
 					   "\n", $data, "\n";
-			printf STDERR "%-20s %3d %8s  %s\r", $fn, $rev, $vsn, pr_date ($delta->{stamp}) if ($verbose);
+			printf STDERR "%-20s %3d %8s  %s\r", $fn, $rev, $vsn, pr_date($delta->{stamp}) if ($opt_v);
 			$first_mtime = $delta->{stamp} unless defined($first_mtime);
 			$last_mtime = $delta->{stamp};
 			$tz_offset = $tzoffset->($last_mtime) unless defined($tz_offset);
 			$mark++;
 		}
-		print STDERR "\n" if ($verbose);
+		print STDERR "\n" if ($opt_v);
 	}
 }
 
@@ -307,11 +304,11 @@ issue_sccs_commits
 		my $fn	= $sccs->file ();
 		my %delta = %{$sccs->delta ($rev)};
 		return if (defined($cutoff_time) && $delta{stamp} > $cutoff_time);
-		my $stamp = pr_date ($delta{stamp});
+		my $stamp = pr_date($delta{stamp});
 		my $vsn   = $delta{version};
 
 		printf STDERR "%-20s %3d %6s  %s %s %s\n", $fn, $rev, $vsn,
-		$stamp, $delta{date}, $delta{"time"} if ($verbose);
+		$stamp, $delta{date}, $delta{"time"} if ($opt_v);
 
 		print "commit refs/heads/$dev_branch\n";
 		print "mark :$mark\n";
@@ -407,6 +404,7 @@ issue_text_commits
 	print "# Development commits\n";
 	for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 		next if (defined($cutoff_time) && $fi{$name}->{mtime} > $cutoff_time);
+		printf STDERR "%-20s %3d %8s  %s\r", $name, pr_date($fi{$name}->{mtime}) if ($opt_v);
 		$last_mtime = $fi{$name}->{mtime};
 		next if ($fi{$name}->{commit_at_release});
 
