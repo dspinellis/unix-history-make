@@ -525,7 +525,7 @@ verify()
 # We need TEMP as the `eval set --' would nuke the return value of getopt.
 # Usage: $0 [--debug] [--no-import] [--no-verify]
 
-TEMP=`getopt -o d,I,V --long debug,no-import,no-verify -n 'import' -- "$@"`
+TEMP=`getopt -o d,I,V,v --long debug,no-import,no-verify,verbose -n 'import' -- "$@"`
 
 if [ $? != 0 ] ; then
 	usage
