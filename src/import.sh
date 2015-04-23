@@ -31,11 +31,12 @@ export TOP_PID=$$
 usage()
 {
   cat <<EOF 1>&2
-Usage: $0 [--debug] [--no-import] [--no-verify]
+Usage: $0 [--debug] [--no-import] [--no-verify] [--verbose]
 
 -d|--debug	Import only a small subset, and generate debugging information
 -I|--no-import	Skip importing phase
 -V|--no-verify	Skip verification phase
+-v|--verbose	Pass verbose to the import-dir command
 EOF
   exit 1
 }
@@ -98,54 +99,54 @@ import()
 
 
   # V1: Assembly language kernel
-  perl ../import-dir.pl -m Epoch -c ../author-path/Research-V1 -n ../bell.au \
+  perl ../import-dir.pl $VERBOSE -m Epoch -c ../author-path/Research-V1 -n ../bell.au \
     $DEBUG \
     $ARCHIVE/v1/sys Research V1 -0500 | gfi
 
   # V3: C kernel
-  perl ../import-dir.pl -m Research-V1 -c ../author-path/Research-V3 \
+  perl ../import-dir.pl $VERBOSE -m Research-V1 -c ../author-path/Research-V3 \
     -n ../bell.au -r Research-V1 $DEBUG \
     -u ../unmatched/Research-V3 $ARCHIVE/v3 Research V3 -0500 | gfi
 
   # V4: Manual pages
-  perl ../import-dir.pl -m Research-V3 -c ../author-path/Research-V4 \
+  perl ../import-dir.pl $VERBOSE -m Research-V3 -c ../author-path/Research-V4 \
     -n ../bell.au -r Research-V3 $DEBUG \
     -u ../unmatched/Research-V4 $ARCHIVE/v4 Research V4 -0500 | gfi
 
   # V5: Full (apart from manual pages)
-  perl ../import-dir.pl -m Research-V4 -c ../author-path/Research-V5 \
+  perl ../import-dir.pl $VERBOSE -m Research-V4 -c ../author-path/Research-V5 \
     -n ../bell.au -r Research-V3,Research-V4 $DEBUG \
     -u ../unmatched/Research-V5 $ARCHIVE/v5 Research V5 -0500 | gfi
 
   # V6: Full
-  perl ../import-dir.pl -m Research-V5 -c ../author-path/Research-V6 \
+  perl ../import-dir.pl $VERBOSE -m Research-V5 -c ../author-path/Research-V6 \
     -n ../bell.au -r Research-V5 $DEBUG \
     -u ../unmatched/Research-V6 $ARCHIVE/v6 Research V6 -0500 | gfi
 
   # BSD1: Just commands; forked from V6
   # Leaves behind .ref-Research-V6
-  perl ../import-dir.pl -m Research-V6 -c ../author-path/BSD-1 \
+  perl ../import-dir.pl $VERBOSE -m Research-V6 -c ../author-path/BSD-1 \
     -n ../berkeley.au -r Research-V6 $DEBUG -i ../ignore/BSD-1 \
     -u ../unmatched/BSD-1 $ARCHIVE/1bsd BSD 1 -0800 | gfi
 
   # BSD2: Just commands
-  perl ../import-dir.pl -m BSD-1 -c ../author-path/BSD-2 -n ../berkeley.au \
+  perl ../import-dir.pl $VERBOSE -m BSD-1 -c ../author-path/BSD-2 -n ../berkeley.au \
     -r BSD-1,Research-V6 $DEBUG -i ../ignore/BSD-2 \
     -u ../unmatched/BSD-2 $ARCHIVE/2bsd BSD 2 -0800 | gfi
 
   # V7: Full
-  perl ../import-dir.pl -m Research-V6 -c ../author-path/Research-V7 \
+  perl ../import-dir.pl $VERBOSE -m Research-V6 -c ../author-path/Research-V7 \
     -n ../bell.au -r Research-V6 $DEBUG -i ../ignore/Research-V7 \
     -u ../unmatched/Research-V7 $ARCHIVE/v7 Research V7 -0500 | gfi
 
   # Unix/32V: Full
-  perl ../import-dir.pl -m Research-V7 -c ../author-path/Bell-32V \
+  perl ../import-dir.pl $VERBOSE -m Research-V7 -c ../author-path/Bell-32V \
     -n ../bell.au -r Research-V7 $DEBUG -i ../ignore/Bell-32V \
     $ARCHIVE/32v Bell 32V -0500 | gfi
 
   # BSD 3.0: First full distribution
   # Merge 32V and 2BSD
-  perl ../import-dir.pl -m Bell-32V,BSD-2 -c ../author-path/BSD-3 \
+  perl ../import-dir.pl $VERBOSE -m Bell-32V,BSD-2 -c ../author-path/BSD-3 \
     -n ../berkeley.au -r Bell-32V,BSD-2 $DEBUG -i ../ignore/BSD-3 \
     -u ../unmatched/BSD-3 $ARCHIVE/3bsd BSD 3 -0800 | gfi
 
@@ -156,13 +157,13 @@ import()
     STRIP="-s $DIR"
     DIR=$DIR/sys/sys
   fi
-  perl ../import-dir.pl -S -C 1996-01-01 -m BSD-3 -c ../author-path/BSD-3 \
+  perl ../import-dir.pl $VERBOSE -S -C 1996-01-01 -m BSD-3 -c ../author-path/BSD-3 \
     -n ../berkeley.au -u ../unmatched/BSD-SCCS.authors $DEBUG \
     -r BSD-3 -P usr/src/ $STRIP $DIR BSD-SCCS | gfi
 
   # Merge SCCS and incremental 4BSD additions
   SCCS_AT_RELEASE=$(git log --before='1980-11-15 11:24:58 +0200' -n 1 --format='%H' BSD-SCCS)
-  perl ../import-dir.pl -m BSD-3,$SCCS_AT_RELEASE -c ../author-path/BSD-4 \
+  perl ../import-dir.pl $VERBOSE -m BSD-3,$SCCS_AT_RELEASE -c ../author-path/BSD-4 \
     -n ../berkeley.au \
     -r BSD-3,$SCCS_AT_RELEASE $DEBUG \
     -i ../ignore/BSD-4-src,../ignore/BSD-4-catman,../ignore/BSD-4-other,../ignore/BSD-4-map \
@@ -240,7 +241,7 @@ EOF
       comm -23 - ../ignore/BSD-${version}-other
     ) | sort -u >../ignore/"BSD-${version}-sccs"
 
-    perl ../import-dir.pl -m $parent,$SCCS_AT_RELEASE \
+    perl ../import-dir.pl $VERBOSE -m $parent,$SCCS_AT_RELEASE \
       -c ../author-path/BSD-default \
       -n ../berkeley.au \
       -r $parent,$SCCS_AT_RELEASE $DEBUG \
@@ -255,13 +256,13 @@ EOF
   done
 
   # 386BSD 0.0
-  perl ../import-dir.pl -m BSD-4_3_Net_2 -c ../author-path/386BSD \
+  perl ../import-dir.pl $VERBOSE -m BSD-4_3_Net_2 -c ../author-path/386BSD \
     -n ../386bsd.au -r BSD-4_3_Net_2 $DEBUG \
     -u ../unmatched/386BSD-0.0 \
     $ARCHIVE/386BSD-0.0/src 386BSD 0.0 -0800 | gfi
 
   # 386BSD 0.1
-  perl ../import-dir.pl -m 386BSD-0.0 -c ../author-path/386BSD \
+  perl ../import-dir.pl $VERBOSE -m 386BSD-0.0 -c ../author-path/386BSD \
     -n ../386bsd.au -r 386BSD-0.0 $DEBUG \
     -u ../unmatched/386BSD-0.1 \
     $ARCHIVE/386BSD-0.1 386BSD 0.1 -0800 | gfi
@@ -278,7 +279,7 @@ EOF
   # Initial import, 0.1 + pk 0.2.4-B1
   # date +%s -d '1993-06-10'
   # 739659600
-  perl ../import-dir.pl -r $MERGED_FREEBSD_1 -m $MERGED_FREEBSD_1 \
+  perl ../import-dir.pl $VERBOSE -r $MERGED_FREEBSD_1 -m $MERGED_FREEBSD_1 \
     -R 1993-10-29 \
     -G 'Diomidis Spinellis <dds@FreeBSD.org> 739659600 +0000' \
     $ARCHIVE/freebsd-early.git/ \
@@ -298,7 +299,7 @@ EOF
     REFS=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/| master' | sort -t/ -k2n)\ HEAD
   fi
 
-  perl ../import-dir.pl -r $MERGED_FREEBSD_2 -m $MERGED_FREEBSD_2 \
+  perl ../import-dir.pl $VERBOSE -r $MERGED_FREEBSD_2 -m $MERGED_FREEBSD_2 \
     -R '1994-11-22 10:59:00 +0000' \
     -n ../freebsd.au \
     -G 'Diomidis Spinellis <dds@FreeBSD.org> 785501938 +0000' \
@@ -546,6 +547,10 @@ while : ; do
       ;;
     -V|--no-verify)
       SKIP_VERIFY=true
+      shift
+      ;;
+    -v|--verbose)
+      VERBOSE=-v
       shift
       ;;
     --) shift ; break ;;

@@ -87,7 +87,7 @@ version_name and tz_offset are not required for SCCS imports
 our($opt_C, $opt_c, $opt_G, $opt_i, $opt_I, $opt_m, $opt_n, $opt_P, $opt_p, $opt_R, $opt_r, $opt_S, $opt_s, $opt_u, $opt_v);
 $opt_m = $opt_r = '';
 
-if (!getopts('C:c:G:i:I:m:n:P:p:R:r:Ss:t:u:')) {
+if (!getopts('C:c:G:i:I:m:n:P:p:R:r:Ss:t:u:v')) {
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 
@@ -131,7 +131,7 @@ my $mark = $opt_G ? 1000000 : 1;
 my $dev_branch = ($opt_S || $opt_G) ? "$branch-Import" : "$branch-$version-Snapshot-Development";
 $dev_branch = $opt_P . $dev_branch if ($opt_P);
 
-print STDERR "Import $dev_branch\n";
+print STDERR "Import $dev_branch from $directory\n" if ($opt_v);
 
 create_name_map() if (defined($opt_n));
 
@@ -308,7 +308,7 @@ issue_sccs_commits
 		my $vsn   = $delta{version};
 
 		printf STDERR "%-20s %3d %6s  %s %s %s\n", $fn, $rev, $vsn,
-		$stamp, $delta{date}, $delta{"time"} if ($opt_v);
+			$stamp, $delta{date}, $delta{"time"} if ($opt_v);
 
 		print "commit refs/heads/$dev_branch\n";
 		print "mark :$mark\n";
