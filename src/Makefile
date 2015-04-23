@@ -132,6 +132,7 @@ archive/freebsd-doc.git:
 
 # Create an importable CVS repo from the one existing in archive/FreeBSD-1.1.5.1/cvs/386BSD/src
 archive/freebsd1-cvs: archive/FreeBSD-1.1.5.1.mnt
+	rm -rf $@
 	# Keep only the FINAL_ symbols
 	# For the rest there are cases where the same symbol is assigned
 	# to multiple revisions, which cvs2git can't handle
@@ -153,6 +154,7 @@ archive/freebsd-early.git: archive/freebsd1-cvs
 	git tag -d FreeBSD-release/1.0.2 )
 
 archive/FreeBSD-1.1.5: archive/FreeBSD-1.1.5.1.mnt
+	rm -rf $@
 	( cd archive/FreeBSD-1.1.5.1/tarballs/srcdist && \
 	mkdir ../../../../$@ && \
 	EXTRACT_TARGET=../../../../$@ ./EXTRACT.sh )
@@ -166,3 +168,7 @@ empty:
 	git add . && \
 	git commit -m 'Add README.md in empty repo' && \
 	git remote add origin git@github.com:dspinellis/unix-history-repo.git
+
+# Clear files signifying mounted ISO images (e.g. after a reboot)
+clear-mounts:
+	rm archive/*.mnt

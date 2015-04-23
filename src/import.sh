@@ -46,11 +46,11 @@ create_readme()
   cat ../README.md
   echo
   echo '## Build software identification'
-  echo -n 'URL: '
+  echo -n '* URL: '
   git remote -v | sed -n 's/:/\//;s/.*git@/https:\/\//;s/\.git .*//;p;q'
-  echo -n 'SHA: '
+  echo -n '* SHA: '
   git rev-parse HEAD
-} >>README-SHA.md
+} >README-SHA.md
 
 add_boilerplate()
 {
@@ -85,7 +85,7 @@ import()
   fi
 
   # Initialize repo
-  create_readme()
+  create_readme
   rm -rf $REPO
   mkdir $REPO
   cd $REPO
@@ -376,7 +376,9 @@ compare_repo()
   local expected_only_files="$5"
 
   git checkout "$id"
-  set $(diff -r . $dir | ../diff-sum.awk)
+  # Exit with an error on fatal diff problems (e.g. missing source directory)
+  DIFFS="$(diff -r . $dir | ../diff-sum.awk ; exit  $((${PIPESTATUS[0]} > 1)) )" || exit 1
+  set $DIFFS
   local actual_diff_files="$1"
   local actual_diff_lines="$2"
   local actual_only_files="$3"
@@ -471,9 +473,9 @@ verify()
     ensure_present .ref-$i
   done
 
-  # Actually 33 1220 52
+  # Actually 33 1220 54
   # Missing files are GNU utilities
-  compare_repo FreeBSD-release/1.0 ../archive/FreeBSD-1.0/filesys/usr/src/ 40 1300 52
+  compare_repo FreeBSD-release/1.0 ../archive/FreeBSD-1.0/filesys/usr/src/ 40 1300 54
 
   git checkout FreeBSD-release/1.1
   for i in $(echo $MERGED_FREEBSD_1 | sed 's/,/ /')

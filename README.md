@@ -23,7 +23,18 @@ Two repositories are associated with the project:
 The first phase of the project will be to create a single timeline from the First Edition of Unix until the present.
 
 ## Project status
-The project has achieved its first major goal with the establishment of a continuous timeline from 1972 to 2014. The repository contains snapshots of V1, V3, V4, V5, V6, and V7 Research Edition, Unix/32V, all available BSD releases, the CSRG SCCS history, two releases of 386BSD, the FreeBSD 1.0 to 1.1.5 CVS history, and an import of the FreeBSD repository starting from its initial imports that led to FreeBSD 2.0.    The files appear to be added in the repository in chronological order according to their modification time, and large parts of the source code have been attributed to their actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
+The project has achieved its first major goal with the establishment of a continuous timeline from 1972 to 2015. The repository contains
+
+* snapshots of V1, V3, V4, V5, V6, and V7 Research Edition,
+* Unix/32V,
+* all available BSD releases,
+* the CSRG SCCS history,
+* two releases of 386BSD,
+* the FreeBSD 1.0 to 1.1.5 CVS history,
+* an import of the FreeBSD repository starting from its initial imports that led to FreeBSD 2.0, and
+* the current FreeBSD repository.
+
+The files appear to be added in the repository in chronological order according to their modification time, and large parts of the source code have been attributed to their actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
 
 The repository contains a number of two-way merges:
 
@@ -71,7 +82,7 @@ The following tags or branch names mark specific releases, listed in rough chron
 * FreeBSD-release/7.0.0, 7.1.0, 7.2.0, 7.3.0, 7.4.0
 * FreeBSD-release/8.0.0, 8.1.0, 8.2.0, 8.3.0, 8.4.0
 * FreeBSD-release/9.0.0, 9.1.0, 9.2.0
-* FreeBSD-release/10.0.0
+* FreeBSD-release/10.0.0, 10.1.0
 
 More tags and branches are available.
 * The `-Snapshot-Development` branches denote commits that have been synthesized from a time-ordered sequence of a snapshot's files.
