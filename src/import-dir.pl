@@ -404,7 +404,7 @@ issue_text_commits
 	print "# Development commits\n";
 	for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 		next if (defined($cutoff_time) && $fi{$name}->{mtime} > $cutoff_time);
-		printf STDERR "%-20s %3d %8s  %s\r", $name, pr_date($fi{$name}->{mtime}) if ($opt_v);
+		printf STDERR "%-20s %s\r", $name, pr_date($fi{$name}->{mtime}) if ($opt_v);
 		$last_mtime = $fi{$name}->{mtime};
 		next if ($fi{$name}->{commit_at_release});
 
