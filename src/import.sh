@@ -72,7 +72,7 @@ gfi()
   else
     cat
   fi |
-  git fast-import --stats --done --quiet || kill -s TERM $TOP_PID
+  git fast-import --stats --done --quiet 1>&2 || kill -s TERM $TOP_PID
 }
 
 # Import the data sources in archive into a Git archive
