@@ -264,6 +264,8 @@ my @fail;
 sub
 create_sccs_blobs
 {
+	my $now = time();
+
 	foreach my $f (sort @sccs) {
 		my $sccs;
 		eval { $sccs = VCS::SCCS->new ($f) };
@@ -280,6 +282,12 @@ create_sccs_blobs
 		foreach my $rm (@{$sccs->revision_map ()}) {
 			my ($rev, $vsn) = @{$rm};
 			my $delta = $sccs->delta ($rev);
+			# Adjust dates lying in the future
+			if ($delta->{stamp} > $now && defined($last_mtime)) {
+				print STDERR "\n" if ($opt_v);
+				printf STDERR "Adjust future date $delta->{stamp} to $last_mtime\n";
+				$delta->{stamp} = $last_mtime
+			}
 			$sccs{pack "NA*", $delta->{stamp}, $fn} = [ $sccs, $rev, $mark ];
 			my $data = scalar $sccs->body ($rev);
 			print "blob\nmark :", $mark,
