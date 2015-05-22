@@ -226,6 +226,7 @@ make
 ```
 
 ## Further reading
+- Diomidis Spinellis. A repository with 44 years of Unix evolution. In *MSR '15: Proceedings of the 12th Working Conference on Mining Software Repositories*, pages 13–16. IEEE, 2015. Best Data Showcase Award. [PDF](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/Spi15c.pdf), [HTML](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/Spi15c.html), [poster](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/poster.pdf).
 - Wikipedia: The Free Encyclopedia
     - [History of Unix](https://en.wikipedia.org/wiki/History_of_Unix)
     - [List of Unix systems](https://en.wikipedia.org/wiki/List_of_Unix_systems)
