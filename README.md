@@ -251,6 +251,7 @@ make
  * Clem Cole
  * Era Eriksson
  * Mary Ann Horton
+ * Warner Losh
  * Kirk McKusick
  * Jeremy C. Reed
  * Ingo Schwarze
