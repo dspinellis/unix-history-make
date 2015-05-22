@@ -46,11 +46,12 @@ create_readme()
 {
   cat ../README.md
   echo
-  echo '## Build software identification'
-  echo -n '* URL: '
+  echo '## Build identification'
+  echo -n '* Software URL: '
   git remote -v | sed -n 's/:/\//;s/.*git@/https:\/\//;s/\.git .*//;p;q'
-  echo -n '* SHA: '
+  echo -n '* Software SHA: '
   git rev-parse HEAD
+  date -u +'* Build timestamp: %F %T UTC'
 } >README-SHA.md
 
 add_boilerplate()
