@@ -113,6 +113,7 @@ archive/CSRG/cd4.patched: archive/CSRG/cd4.mnt
 	mkdir -p $@
 	tar -C $(subst .mnt,,$<) -cf - . | tar -C $@ -xf -
 	(cd $@ ; curl -s https://raw.githubusercontent.com/jonathangray/csrg-git-patches/master/SCCS-fix.patch | patch -p 1)
+	rm -f $@/local/ditroff/ditroff.old.okeeffe/driver/SCCS/s.ifontinfo.c-bad
 	touch $@
 
 archive/FreeBSD-1.0.iso:
