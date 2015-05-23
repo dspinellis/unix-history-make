@@ -9,8 +9,6 @@ all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
 
 .SUFFIXES:.iso .mnt
 
-.INTERMEDIATE: uncompress
-
 .iso.mnt:
 	mkdir -p $(subst .iso,,$<)
 	# Mount uses -o uid, because some directories have 750 permissions, e.g.
@@ -94,17 +92,13 @@ archive/CSRG/cd1.iso:
 
 archive/CSRG/cd1/4.3/usr/src/ucb/compress/compress.c: archive/CSRG/cd1.mnt
 
-# Compile from source, because Debian's version can't handle 16 bits
-uncompress: archive/CSRG/cd1/4.3/usr/src/ucb/compress/compress.c
-	cc -o $@ $<
-
-archive/386BSD-0.0: uncompress
+archive/386BSD-0.0:
 	mkdir -p $@
-	for i in `seq 1 8` ; do curl -s http://www.oldlinux.org/Linux.old/distributions/386BSD/386bsd-0.0/floppies/3in/src/floppy.$$i ; done | ./uncompress | tar -C $@ -xf -
+	for i in `seq 1 8` ; do curl -s http://www.oldlinux.org/Linux.old/distributions/386BSD/386bsd-0.0/floppies/3in/src/floppy.$$i ; done | gzip -dc | tar -C $@ -xf -
 
-archive/386BSD-0.1: uncompress
+archive/386BSD-0.1:
 	mkdir -p $@
-	for i in `perl -e 'print map {sprintf("%02d ", $$_)} 0..61'` ; do curl -s http://www.oldlinux.org/Linux.old/distributions/386BSD/0.1/386BSD/SRC01.$$i ; done | ./uncompress | (cd $@ ; cpio -imd)
+	for i in `perl -e 'print map {sprintf("%02d ", $$_)} 0..61'` ; do curl -s http://www.oldlinux.org/Linux.old/distributions/386BSD/0.1/386BSD/SRC01.$$i ; done | gzip -dc | (cd $@ ; cpio -imd)
 	# cpio does not set the modification time of symbolic links
 	# so we set it manually from the time recorded in the archive.
 	find $@ -type l | xargs touch  -h -d 'Jun 8 1992'
