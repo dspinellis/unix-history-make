@@ -20,10 +20,10 @@ Two repositories are associated with the project:
   a repository containing code and metadata used to build the above repository.
   Contributions to this repository are welcomed.
 
-The first phase of the project will be to create a single timeline from the First Edition of Unix until the present.
+The first phase of the project involved creating a single timeline from the First Edition of Unix until the present.
 
 ## Project status
-The project has achieved its first major goal with the establishment of a continuous timeline from 1972 to 2015. The repository contains
+The project has achieved its first major goal with the establishment of a continuous timeline from 1972 to 2015. The repository contains:
 
 * snapshots of V1, V3, V4, V5, V6, and V7 Research Edition,
 * Unix/32V,
@@ -36,7 +36,7 @@ The project has achieved its first major goal with the establishment of a contin
 
 The files appear to be added in the repository in chronological order according to their modification time, and large parts of the source code have been attributed to their actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
 
-The repository contains a number of two-way merges:
+The repository contains a number of two-way merges.
 
 * 3 BSD is merged from Unix/32V and Research Edition 6
 * Various BSD releases are merged from the development branch and a time point of BSD-SCCS
@@ -226,7 +226,7 @@ make
 ```
 
 ## Further reading
-- Diomidis Spinellis. A repository with 44 years of Unix evolution. In *MSR '15: Proceedings of the 12th Working Conference on Mining Software Repositories*, pages 13–16. IEEE, 2015. Best Data Showcase Award. [PDF](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/Spi15c.pdf), [HTML](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/Spi15c.html), [poster](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/poster.pdf).
+- Diomidis Spinellis. A repository with 44 years of Unix evolution. In *MSR '15: Proceedings of the 12th Working Conference on Mining Software Repositories*, pages 13-16. IEEE, 2015. Best Data Showcase Award. [PDF](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/Spi15c.pdf), [HTML](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/Spi15c.html), [poster](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/poster.pdf).
 - Wikipedia: The Free Encyclopedia
     - [History of Unix](https://en.wikipedia.org/wiki/History_of_Unix)
     - [List of Unix systems](https://en.wikipedia.org/wiki/List_of_Unix_systems)
@@ -248,7 +248,7 @@ make
  * Brian W. Kernighan
  * Doug McIlroy
  * Arnold D. Robbins
-* The following people helped with BSD login identifiers.
+* The following people helped with *BSD login identifiers.
  * Clem Cole
  * Era Eriksson
  * Mary Ann Horton
