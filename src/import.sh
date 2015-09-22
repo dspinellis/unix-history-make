@@ -121,7 +121,7 @@ import()
 
   # V6: Full
   perl ../import-dir.pl $VERBOSE -m Research-V5 -c ../author-path/Research-V6 \
-    -n ../bell.au -r Research-V5 $DEBUG \
+    -n ../bell.au -r Research-V4,Research-V5 $DEBUG \
     -u ../unmatched/Research-V6 $ARCHIVE/v6 Research V6 -0500 | gfi
 
   # BSD1: Just commands; forked from V6
