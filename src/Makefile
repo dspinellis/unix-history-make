@@ -166,4 +166,4 @@ empty:
 
 # Clear files signifying mounted ISO images (e.g. after a reboot)
 clear-mounts:
-	rm archive/*.mnt
+	rm archive/*.mnt archive/CSRG/*.mnt
