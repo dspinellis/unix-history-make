@@ -16,6 +16,10 @@
 # sort -u
 # # Detect duplicates to remove
 # awk -F: '{print $1}' all | sort | uniq -d
+# On freefall.freebsd.org run
+# finger $(cat unmatched/FreeBSD.authors) |
+# sed -n 's/^Login: \([^ ]*\).*Name: /\1:/p'
+#
 
 core:FreeBSD Core Development Team:core@freebsd.org
 aaron:Aaron Dalton
@@ -25,6 +29,7 @@ achim:Achim Leubner
 acm:Jose Alonso Cardenas Marquez
 adam:Adam David
 adamw:Adam Weinberger
+ade:Ade Lovett
 adrian:Adrian Chadd
 ae:Andrey V. Elsukov
 ahasty:Amancio Hasty
@@ -38,6 +43,7 @@ alepulver:Alejandro Pulver
 alex:Alexander Langer
 alexbl:Alexander Botero-Lowry
 alexey:Alexey Degtyarev
+alfred:Alfred Perlstein
 allanjude:Allan Jude
 alm:Andrew Moore
 alonso:Alonso Schaich
@@ -70,6 +76,8 @@ asmodai:Jeroen Ruigrok/Asmodai
 asomers:Alan Somers
 assar:Assar Westerlund
 ats:Andreas Schulz
+attilio:Attilio Rao
+avatar:Tai-hwa Liang
 avg:Andriy Gapon
 avilla:Alberto Villa
 avl:Alexander Logvinov
@@ -94,6 +102,7 @@ bf:Brendan Fabeny
 bgray:Ben Gray
 bhd:Bjoern Heidotting
 billf:Bill Fumerola
+bjk:Benjamin Kaduk
 blackend:Marc Fonvieille
 bland:Alexander Nedotsukov
 bmah:Bruce A. Mah
@@ -106,6 +115,7 @@ brandon:Brandon Gillespie
 brd:Brad Davis
 brian:Brian Somers
 brix:Henrik Brix Andersen
+brnrd:Bernard Spil
 brooks:Brooks Davis
 brucec:Bruce Cran
 brueffer:Christian Brueffer
@@ -120,10 +130,15 @@ bz:Bjoern A. Zeeb
 carl:Carl Delsey
 cbzimmer:Chris Zimmernmann
 cel:Chuck Lever
+cem:Conrad E. Meyer
 ceri:Ceri Davies
+cg:Cameron Grant
+charnier:Philippe Charnier
 chern:Chern Lee
+cherry:Cherry G. Mathew
 chinsan:Chinsan Huang
 chm:Christoph Herrmann
+chmr:Christoph Robitschko
 chris:Chris Costello
 chuckr:Chuck Robey
 cjc:Crist J. Clark
@@ -136,6 +151,7 @@ cokane:Coleman Kane
 cp:Chuck Paterson
 cperciva:Colin Percival
 cpiazza:Chris Piazza
+cracauer:Martin Cracauer
 crees:Chris Rees
 cs:Carlo Strub
 csgr:Geoff Rehmet
@@ -143,6 +159,7 @@ cshumway:Christopher Shumway
 csjp:Christian S.J. Peron
 culot:Frederic Culot
 cwt:Chris Timmons
+cy:Cy Schubert
 daichi:Daichi Goto
 damien:Damien Bergamini
 dan:Dan Moschuk
@@ -154,10 +171,11 @@ dannyboy:Daniel Harris
 darrenr:Darren Reed
 das:David Schultz
 davidc:Chad David
+davidch:David Christensen
+davidcs:David C Somayajulu
 davide:Davide Italiano
 davidn:David Nugent
 davidxu:David Xu
-day1:Birth of FreeBSD"]
 db:Diane Bruce
 dbaker:Daniel Baker
 dbn:David Naylor
@@ -168,6 +186,7 @@ dd:Dima Dorfman
 dds:Diomidis Spinellis
 dec:David E. Cross
 decke:Bernhard Froehlich
+deischen:Daniel Eischen
 delphij:Xin Li
 demon:Dmitry Sivachenko
 den:Denis Peplin
@@ -180,6 +199,9 @@ dick:Richard Seaman Jr.
 dillon:Matthew Dillon
 dim:Dimitry Andric
 dima:Dima Ruban
+dinoex:Dirk Meyer
+dirk:Dirk Froemberg
+dmarion:Damjan Marion
 dmlb:Duncan Barclay
 dougb:Doug Barton
 dru:Dru Lavigne
@@ -232,10 +254,12 @@ ganbold:Ganbold Tsagaankhuu
 garga:Renato Botelho
 garys:Gary W. Swearingen
 gavin:Gavin Atkinson
+gber:Grzegorz Bernacki
 gblach:Grzegorz Blach
 gclarkii:Gary Clark II
 gehenna:MAEKAWA Masahide
 gerald:Gerald Pfeifer
+ghelmer:Guy Helmer
 gibbs:Justin T. Gibbs
 gioria:Sebastien Gioria
 gj:Gary L. Jennejohn
@@ -245,6 +269,7 @@ gleb:Gleb Kurtsou
 glebius:Gleb Smirnoff
 glewis:Greg Lewis
 gnn:George V. Neville-Neil
+gonzo:Oleksandr Tymoshenko
 gordon:Gordon Tetlow
 gpalmer:Gary Palmer
 graichen:Thomas Graichen
@@ -268,6 +293,7 @@ horikawa:Kazuo Horikawa
 hosokawa:Tatsumi Hosokawa
 hq:Herve Quiroz
 hrs:Hiroki Sato
+hselasky:Hans Petter Selasky
 hsu:Jeffrey Hsu
 ian:Ian Lepore
 iedowse:Ian Dowse
@@ -278,7 +304,9 @@ imura:R. Imura
 issei:Issei Suzuki
 issyl0:Isabell Long
 itetcu:Ion-Mihai Tetcu
+itojun:Jun-ichiro itojun Hagino
 ivoras:Ivan Voras
+iwasaki:Mitsuru IWASAKI
 jacula:Giuseppe Pilichi
 jadawin:Philippe Audeoud
 jah:Jason A. Harmening
@@ -303,10 +331,12 @@ jesper:Jesper Skriver
 jesusr:Jesus Rodriguez Cuesta
 jfieber:John Fieber
 jfitz:James FitzGibbon
+jfv:Jack F Vogel
 jgh:Jason Helfman
 jgreco:Joe Greco
 jh:Jaakko Heinonen
 jhale:Jason E. Hale
+jhay:John Hay
 jhb:John Baldwin
 jhibbits:Justin Hibbits
 jhs:Julian Stacey
@@ -329,6 +359,7 @@ jmb:Jonathan M. Bresler
 jmelo:Jean Milanez Melo
 jmg:John-Mark Gurney
 jmmv:Julio Merino
+jmz:Jean-Marc Zucconi
 joe:Josef Karthauser
 joel:Joel Dahl
 joerg:Joerg Wunsch
@@ -343,8 +374,10 @@ jsa:Joseph S. Atkinson
 jseger:Justin Seger
 jtc:J.T. Conklin
 julian:Julian Elischer
+junovitch:Jason Unovitch
 jwd:John De Boskey
 jylefort:Jean-Yves Lefort
+kadesai:Kashyap D Desai
 kaiw:Kai Wang
 kami:Dominic Fandrey
 kan:Alexander Kabaev
@@ -359,6 +392,7 @@ kensmith:Ken Smith
 keramida:Giorgos Keramidas
 kevlo:Kevin Lo
 kib:Konstantin Belousov
+kientzle:Tim Kientzle
 kiri:Kazuhiko Kiriyama
 kishore:Kishore Sampathkumar
 kjc:Kenjiro Cho
@@ -369,6 +403,7 @@ koitsu:Jeremy Chadwick
 kp:Kristof Provost
 krion:Kirill Ponomarew
 kris:Kris Kennaway
+kuriyama:Jun Kuriyama
 kwm:Koop Mast
 lars:Lars Fredriksen
 laszlof:Frank J. Laszlo
@@ -391,6 +426,7 @@ logo:Valentino Vaschetto
 loos:Luiz Otavio O Souza
 lstewart:Lawrence Stewart
 lth:Lars Thegler
+luigi:Luigi Rizzo
 lulf:Ulf Lilleengen
 luoqi:Luoqi Chen
 lwhsu:Li-Wen Hsu
@@ -417,11 +453,15 @@ mat:Mathieu Arnold
 matk:Mathew Kanner
 matteo:Matteo Riondato
 matthew:Matthew Seaman
+matusita:Makoto Matsushita
 mav:Alexander Motin
+max:Masafumi Max NAKANE
 maxim:Maxim Konovalov
 mb:Maxim Bolotin
 mbarkah:Ade Barkah
 mbr:Martin Blapp
+mckay:Stephen McKay
+mckusick:Kirk McKusick
 mdf:Matthew Fleming
 mdodd:Matthew N. Dodd
 meganm:Megan McCormack
@@ -430,6 +470,7 @@ metal:Koichi Suzuki
 mezz:Jeremy Messenger
 mharo:Michael Haro
 mheinen:Martin Heinen
+mich:Michael Landin Hostbaek
 mike:Mike Barcroft
 mikeh:Mike Heffner
 milki:Jonathan Chu
@@ -456,6 +497,8 @@ murray:Murray Stokely
 mux:Maxime Henrion
 mva:Marcus von Appen
 mwlucas:Michael W. Lucas
+n_hibma:Nick Hibma
+naddy:Christian Weisgerber
 nakai:Yukihiro Nakai
 nate:Nate Williams
 nbm:Neil Blakey-Milner
@@ -469,6 +512,7 @@ ngie:Garrett Cooper
 niels:Niels Heinen
 nik:Nik Clayton
 niklas:Niklas Saers
+nivit:Nicola Vitale
 njl:Nate Lawson
 nobutaka:Nobutaka Mantani
 non:Noriaki Mitsunaga
@@ -480,10 +524,14 @@ nsayer:Nick Sayer
 nsj:Nate Johnson
 nsouch:Nicolas Souchu
 nwhitehorn:Nathan Whitehorn
+nyan:Takahashi Yoshihiro
 obraun:Oliver Braun
 obrien:David E. O'Brien
 okazaki:Tetsurou OKAZAKI
 olah:Andras Olah
+oleg:Oleg Bulyzhin
+olgeni:Jimmy Olgeni
+oliver:Oliver Lehmann
 olivierd:Olivier Duchateau
 olli:Oliver Fromme
 onoe:Atsushi Onoe
@@ -511,19 +559,22 @@ phantom:Alexey Zelkin
 philip:Philip Paeps
 phk:Poul-Henning Kamp
 pho:Peter Holm
+pi:Kurt Jaeger
 pirzyk:Jim Pirzyk
 piso:Paolo Pisati
 pjd:Pawel Jakub Dawidek
-pkelsey:Patrick Kelsey\pkelsey@FreeBSD.org
+pkelsey:Patrick Kelsey
 pluknet:Sergey Kandaurov
 ps:Paul Saab
 pst:Paul Traina
 qingli:Qing Li
 rafan:Rong-En Fan
+raj:Rafal Jaworowski
 rakuco:Raphael Kubo da Costa
 randi:Randi Harper
 ray:Aleksandr Rybalko
 rdivacky:Roman Divacky
+rea:Eygene Ryabinkin
 rees:Jim Rees
 reg:Jeremy Lea
 remko:Remko Lodder
@@ -542,6 +593,7 @@ roam:Peter Pentchev
 robak:Bartek Rutkowski
 robert:Robert Drehmel
 roberto:Ollivier Robert
+rodrigc:Craig Rodrigues
 rodrigo:Rodrigo Osorio
 roger:Roger Hardiman
 romain:Romain Tartiere
@@ -567,11 +619,14 @@ sat:Andrew Pantyukhin
 sbruno:Sean Bruno
 sbz:Sofian Brabez
 scf:Sean C. Farley
+scf:Sean Farley
 scheidell:Michael Scheidell
 schweikh:Jens Schweikhardt
+scop:Ville Skyttä
 scottl:Scott Long
 scrappy:Marc G. Fournier
 se:Stefan Esser
+sean:Sean Vickery
 seanc:Sean Chittenden
 sef:Sean Eric Fagan
 sem:Sergey Matveychuk
@@ -586,6 +641,8 @@ sheldonh:Sheldon Hearn
 shiba:Takeshi Shibagaki
 shige:Shigeyuki Fukushima
 shin:Yoshinobu Inoue
+shurd:Stephen Hurd
+silby:Mike Silbersack
 simokawa:Hidetoshi Shimokawa
 simon:Simon L. Nielsen
 sjg:Simon J. Gerraty
@@ -596,6 +653,7 @@ smh:Steven Hartland
 smkelly:Sean Kelly
 smpatel:Sujal Patel
 snb:Nick Barkas
+snb:Sean Nicholas Barkas
 sobomax:Maxim Sobolev
 sos:Soren Schmidt
 sperber:Armin Pirkovitsch
@@ -605,14 +663,17 @@ stark:Gene Stark
 stas:Stanislav Sedov
 stb:Stefan Bethke
 stefan:Stefan Walter
+stefanf:Stefan Farfeleder
 stephen:Stephen Montgomery-Smith
 steve:Steve Price
+sumikawa:Munechika SUMIKAWA
 sunpoet:Po-Chuan Hsieh
 suz:SUZUKI Shinsuke
 swallace:Steven Wallace
 swills:Steve Wills
 sylvio:Sylvio Cesar Teixeira
 syrinx:Shteryana Shopova
+syuu:Takuya ASADA
 tabthorpe:Thomas Abthorpe
 tackerman:Tony Ackerman
 takawata:Takanori Watanabe
@@ -626,6 +687,7 @@ tg:Thomas Gellekum
 thepish:Peter Hawkins
 theraven:David Chisnall
 thierry:Thierry Thomas
+thomas:Thomas Quinot
 thompsa:Andrew Thompson
 ticso:Bernd Walter
 tijl:Tijl Coosemans
@@ -634,6 +696,7 @@ tj:Tom Judge
 tjr:Tim J. Robbins
 tmclaugh:Tom McLaughlin
 tmm:Thomas Moestl
+tobez:Anton Berezin
 tom:Tom Hukins
 tomsoft:Thomas-Henning von Kamptz
 torstenb:Torsten Blum
@@ -643,6 +706,7 @@ trasz:Edward Tomasz Napierala
 trevor:Trevor Johnson
 trhodes:Tom Rhodes
 trociny:Mikolaj Golub
+truckman:Don Lewis
 tshiozak:Takuya SHIOZAKI
 tuexen:Michael Tuexen
 twinterg:Thomas Wintergerst
@@ -653,9 +717,11 @@ ugen:Ugen J.S. Antsilevich
 uhclem:Frank Durda IV
 ume:Hajimu UMEMOTO
 unfurl:Bill Swingle
+ups:Stephan Uphoff
 uqs:Ulrich Spoerlein
 vangyzen:Eric van Gyzen
 vanhu:Yvan Vanhullebus
+vanilla:Vanilla I. Shu
 vd:Vasil Dimov
 versus:Konrad Jankowski
 vg:Veniamin Gvozdikov
@@ -674,8 +740,10 @@ will:Will Andrews
 wjv:Johann Visagie
 wkoszek:Wojciech A. Koszek
 wollman:Garrett Wollman
+wosch:Wolfram Schneider
 wpaul:Bill Paul
 wsalamon:Wayne Salamon
+wsanchez:Wilfredo Sanchez
 wxs:Wesley Shields
 xmj:Johannes Jost Meixner
 xride:Soeren Straarup
