@@ -520,6 +520,19 @@ verify()
   echo Verification finished
 }
 
+preconditions()
+{
+  # Check for duplicate author definitions
+  for f in *.au ; do
+    duplicates=$(sed 's/#.*//;/^%/d;/^$/d' $f | cut -d: -f 1 | sort | uniq -d)
+    if [ "$duplicates" ] ; then
+      echo "Duplicate author definitions  in $f:" 1>&2
+      echo "$duplicates" 1>&2
+      exit 1
+    fi
+  done
+}
+
 # Option processing; see getopt-parse.bash
 # Note that we use `"$@"' to let each command-line parameter expand to a
 # separate word. The quotes around `$@' are essential!
@@ -560,6 +573,7 @@ while : ; do
 done
 
 # Main processing starts here
+preconditions
 test "$SKIP_IMPORT" || import
 test "$DEBUG" && exit
 test "$SKIP_VERIFY" || verify
