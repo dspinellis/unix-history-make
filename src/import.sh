@@ -531,6 +531,24 @@ preconditions()
       exit 1
     fi
   done
+
+  # Check that CDs are mounted
+  # List generated with the following command
+  # df -h | awk '/loop/{print $6}' | while read d ; do for i in $d/* ; do echo $i ; break ; done; done
+  for c in \
+    /home/dds/src/unix-history-make/src/archive/FreeBSD-1.0/cdinstal \
+    /home/dds/src/unix-history-make/src/archive/FreeBSD-1.1/cdinstal \
+    /home/dds/src/unix-history-make/src/archive/FreeBSD-1.1.5.1/00_TRANS.TBL \
+    /home/dds/src/unix-history-make/src/archive/CSRG/cd1/1bsd \
+    /home/dds/src/unix-history-make/src/archive/CSRG/cd2/4.3reno \
+    /home/dds/src/unix-history-make/src/archive/CSRG/cd3/4.4 \
+    /home/dds/src/unix-history-make/src/archive/CSRG/cd4/admin
+  do
+    if ! [ -r $c ] ; then
+      echo "No mounted file system in $(dirname $c); run make" 1>&2
+      exit 1
+    fi
+  done
 }
 
 # Option processing; see getopt-parse.bash
