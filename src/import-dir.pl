@@ -384,7 +384,9 @@ issue_start_commit
 		print "author $release_master $first_mtime $tz_offset\n";
 		print "committer $release_master $first_mtime $tz_offset\n";
 	}
-	print data("Start development on $branch $version\n" . ($opt_r ? "\nCreate reference copy of all prior development files\n" : ''));
+	print data("Start development on $branch $version\n" .
+		($opt_r ? "Create reference copy of all prior development files\n" : '') .
+		"(Synthetic commit)");
 	# Specify merges
 	for my $merge (split(/,/, $opt_m)) {
 		print "merge $merge\n";
@@ -426,7 +428,7 @@ issue_text_commits
 		my $author = committer($commit_path);
 		print "author $author $fi{$name}->{mtime} $tz_offset\n";
 		print "committer $author $fi{$name}->{mtime} $tz_offset\n";
-		print data("$branch $version development\n\nWork on file $commit_path");
+		print data("$branch $version development\nWork on file $commit_path\n(Synthetic commit)");
 		print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 	}
 }
@@ -445,7 +447,7 @@ print "mark :$mark\n";
 my $release_mark = $mark++;
 print "author $release_master $last_mtime $tz_offset\n";
 print "committer $release_master $last_mtime $tz_offset\n";
-print data("$branch $version release\n\nSnapshot of the completed development branch");
+print data("$branch $version release\nSnapshot of the completed development branch\n(Synthetic commit)");
 print "from :$last_devel_mark\n" if defined($last_devel_mark);
 for my $merge (split(/,/, $opt_m)) {
 	print "merge $merge\n";
@@ -470,7 +472,7 @@ for my $ref (split(/,/, $opt_r)) {
 print "tag $branch-$version\n";
 print "from :$release_mark\n";
 print "tagger $release_master $last_mtime $tz_offset\n";
-print data("Tagged $version release snapshot of $branch with $version\n\nSource directory: $directory");
+print data("Tagged $version release snapshot of $branch with $version\n\nSource directory: $directory\n(Synthetic tag)");
 
 
 # Signify that we're finished
