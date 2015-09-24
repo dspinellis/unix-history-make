@@ -27,7 +27,7 @@ local/ditroff/ditroff.van/ideal/.*	x-cvw
 usr/man/man1/indent\.1		x-dw
 usr/src/ucb/indent/.*		x-dw
 
-usr/contrib/pathalias/.*	x-ph
+usr/contrib/pathalias/.*	honey
 
 
 # Default

@@ -1,7 +1,7 @@
 # From Libes and Ressler, Life with Unix pp. 29-36
 usr/src/cmd/pascal/.*		wnj,chuck
-usr/lib/tmac/tmac\.vcat		x-br,x-td2,x-mt
-usr/src/cmd/versatec/vcat\.c	x-br,x-td2,x-mt
+usr/lib/tmac/tmac\.vcat		x-br,x-td2,mike
+usr/src/cmd/versatec/vcat\.c	x-br,x-td2,mike
 
 
 # Order by file path
@@ -61,7 +61,7 @@ usr/man/man1/lock\.1		kurt
 usr/man/man1/mail\.1		kurt
 usr/man/man1/man\.1		wnj
 usr/man/man1/mkstr\.1		wnj,chuck
-usr/man/man1/more\.1		x-es
+usr/man/man1/more\.1		erics
 usr/man/man1/msgs\.1		wnj
 usr/man/man1/net\.1		schmidt
 usr/man/man1/netcp\.1		schmidt
@@ -122,7 +122,7 @@ usr/src/cmd/lock\.c		kurt
 usr/src/cmd/mail\.c		kurt
 usr/src/cmd/man/.*		wnj
 usr/src/cmd/mkstr\.c		wnj,chuck
-usr/src/cmd/more\.c		x-es
+usr/src/cmd/more\.c		erics
 usr/src/cmd/msgs\.c		wnj
 usr/src/cmd/net/.*		schmidt
 usr/src/cmd/num\.c		wnj,mckusic
