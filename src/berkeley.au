@@ -90,7 +90,7 @@ kjd:Kevin Dunlap
 kre:Robert Elz
 kridle:Bob Kridle
 kupfer:Michael Kupfer
-kurt:Kurt A. Schoens
+kurt:Kurt A. Shoens
 lam:Karen Lam
 layer:Kevin Layer
 lem:Lee E. McMahon:research!lem
@@ -98,6 +98,7 @@ lepreau:Jay Lepreau
 leres:Craig Leres
 libs:Don Libes?
 linton:Mark Linton
+llc:Lorinda Cherry
 macklem:Rick Macklem
 mao:Mike A. Olson
 marc:Marc Teitelbaum
@@ -111,6 +112,7 @@ mckusick:Kirk McKusick
 minshall:Gregory Minshall
 miriam:Miriam Amos Nihart
 mis:Mark Seiden
+mja:Mike Accetta:mja@cs.cmu.edu
 mkm:Marshall Kirk McKusick
 mo:Mike O'Dell
 mosher:David A. Mosher
@@ -163,16 +165,27 @@ wall:Steve Wall
 walsh:Dan Walsh
 william:William Nesheim
 wnj:Bill Joy
+x-br:Bill Reeves
+x-cbh:Charles B. Haley
 x-ch:Charles Haley
 x-clm:Colin L. Mc Master
+x-cvw:Chris Van Wyk
 x-dl:Douglas Lanam
+x-dw:David Willcox
+x-es:Eric Schienbrood
 x-etc:Earl T. Cohen
+x-hg:Herb Gellis:research!x-hg
 x-im:Ivan Maltz
 x-jp:Juan Porcar
 x-le:Len Edmondson
+x-mr:Mark Rochkind:research!x-mr
+x-mt:Mike Tilson
 x-or:Olivier Roubine
+x-ph:Peter Honeyman
 x-rd:R. Dowell
 x-rh:Ross Harvey
 x-rt:Robert Toxen
+x-td2:Tom Duff
+x-td:Ted Dolotta:research!x-td
 x-tjk:T. J. Kowalski:research!x-tjk
 zliu:Zhishun Alex Liu

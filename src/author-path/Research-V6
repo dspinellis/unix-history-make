@@ -1,3 +1,8 @@
+# From Libes and Ressler, Life with Unix pp. 29-36
+# Ordered by author login name
+usr/source/s1/find\.c		x-dh
+usr/doc/man/man1/find\.1	x-dh
+
 # Brian W. Kernighan. Ratfor-a preprocessor for a rational Fortran.
 # Software: Practice & Experience, 5(4):395-406, 1975.
 usr/source/rat/.*		bwk
@@ -19,7 +24,6 @@ usr/source/iolib/.*		dmr
 usr/source/s1/bcd\.c		dmr
 usr/source/s1/cmp\.c		dmr
 usr/source/s1/date\.c		dmr
-usr/source/s1/find\.c		dmr
 usr/source/s1/db.\.s		dmr
 usr/source/s1/du\.s		dmr
 usr/source/s1/ld\.c		dmr
@@ -39,11 +43,13 @@ usr/source/fort/.*		dmr,ken
 # "The first interesting language to appear was a version of McClure's TMG
 # that was implemented by McIlroy"
 usr/source/tmg/.*		doug
+usr/doc/man/man6/tmg\.6		doug
 # http://www.cs.bell-labs.com/who/doug/index.html
 # Text- and data-processing utilities:
 # spell, diff, sort, join, graph, speak, etc.
 usr/source/s1/diff.*		doug
 usr/source/s2/sort\.c		doug
+usr/doc/man/man1/spell\.1	doug
 
 # See A.J. Cole. Macro Processors (Cambridge University Press, 1981)
 # "The M6 macro processor available with UNIX was designed by McIlroy
@@ -118,7 +124,6 @@ usr/source/s5/qsort\.c		lem
 # and hand tuning
 usr/doc/man/man1/cmp\.1		dmr
 usr/doc/man/man1/date\.1	dmr
-usr/doc/man/man1/find\.1	dmr
 usr/doc/man/man1/db\.1		dmr
 usr/doc/man/man1/du\.1		dmr
 usr/doc/man/man1/ld\.1		dmr

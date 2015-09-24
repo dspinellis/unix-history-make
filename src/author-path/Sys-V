@@ -1,0 +1,8 @@
+# This file records authorship, but is not used, because
+# System V is not legally available for incorporating it
+# into the repository.
+
+# From Libes and Ressler, Life with Unix pp. 29-36
+
+# lcomp produces a line-by-line profile of the program
+lcomp		pjw

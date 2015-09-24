@@ -1,0 +1,28 @@
+# This file records authorship, but is not used, because
+# System III is not legally available for incorporating it
+# into the repository.
+
+# From Libes and Ressler, Life with Unix pp. 29-36
+
+usr/src/cmd/xargs\.c			x-hg
+usr/src/man/man1/xargs\.1		x-hg
+
+usr/src/cmd/sccs/.*			x-mr
+usr/src/man/man5/sccsfile\.5		x-mr
+usr/src/man/man1/sccsdiff\.1		x-mr
+usr/src/man/docs/sccs_guide		x-mr
+usr/src/man/docs/sccs_inter		x-mr
+
+
+usr/src/cmd/text/macros.d/mmn\.src	x-td
+usr/src/cmd/text/macros.d/mmt\.src	x-td
+usr/src/cmd/text/macros.d/tmac\.m	x-td
+usr/src/cmd/text/mmchek/.*		x-td
+usr/src/cmd/text/shells.d/mm\.sh	x-td
+usr/src/cmd/text/shells.d/mmt\.sh	x-td
+usr/src/man/docs/mm_card		x-td
+usr/src/man/docs/sh_tut/ex1/mmt		x-td
+usr/src/man/docs/sh_tut/ex/mmt		x-td
+usr/src/man/man1/mm\.1			x-td
+usr/src/man/man1/mmchek\.1		x-td
+usr/src/man/man1/mmt\.1			x-td

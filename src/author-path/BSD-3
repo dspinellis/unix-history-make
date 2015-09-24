@@ -1,3 +1,9 @@
+# From Libes and Ressler, Life with Unix pp. 29-36
+usr/src/cmd/pascal/.*		wnj,x-cbh
+usr/lib/tmac/tmac\.vcat
+usr/src/cmd/versatec/vcat\.c	x-br,x-td2,x-mt
+
+
 # Order by file path
 
 # Find man page authors using
@@ -7,12 +13,14 @@
 # grep /man1/ bsd3.map | sed 's|man/man1|src/cmd|;s/\\.1./\t/' | perl -na -e 'print "$F[0]/.*\t\t$F[1]\n" if -d "archive/3bsd/$F[0]" ; print "$F[0]\\.c\t\t$F[1]\n" if -r "archive/3bsd/$F[0].c"' | winclip -c
 # Manually examine files in usr/doc and add authorship for documentation and
 # corresponding source code
+#
 
 usr/doc/as\.ms			jfr,rrh
 usr/doc/berknet/.*		schmidt
 usr/doc/cshms			wnj
 usr/doc/csh/.*			wnj
-usr/doc/ex/.*			wnj
+# From Libes and Ressler, Life with Unix pp. 29-36
+usr/doc/ex/.*			wnj,x-cbh
 usr/doc/libNS/.*		sklower
 usr/doc/lisp/.*			jkf
 usr/doc/mail/.*			kurt
@@ -23,6 +31,7 @@ usr/doc/sdb/.*			hpk
 usr/doc/spice			x-rd,arn,dop
 usr/doc/vi/.*			wnj
 usr/doc/vmunix/.*		ozalp,wnj,x-jp
+usr/games/lib/fortunes		arnold
 usr/lib/lisp/.*			jkf
 usr/man/man1/analyze\.1m	ozalp,wnj
 usr/man/man1/apl\.1		ken,x-rh,x-dl
@@ -52,7 +61,7 @@ usr/man/man1/lock\.1		kurt
 usr/man/man1/mail\.1		kurt
 usr/man/man1/man\.1		wnj
 usr/man/man1/mkstr\.1		wnj,x-ch
-usr/man/man1/more\.1		schmidt
+usr/man/man1/more\.1		x-es
 usr/man/man1/msgs\.1		wnj
 usr/man/man1/net\.1		schmidt
 usr/man/man1/netcp\.1		schmidt
@@ -76,7 +85,8 @@ usr/man/man1/tra\.1		wnj
 usr/man/man1/tset\.1		eric
 usr/man/man1/ul\.1		mark
 usr/man/man1/uncompact\.1	x-clm
-usr/man/man1/vgrind\.1		wnj
+# From Libes and Ressler, Life with Unix p. 34
+usr/man/man1/vgrind\.1		wnj,presott
 usr/man/man1/vi\.1		wnj
 usr/man/man1/vmstat\.1		wnj,ozalp
 usr/man/man1/vpac\.1m		kurt
@@ -112,7 +122,7 @@ usr/src/cmd/lock\.c		kurt
 usr/src/cmd/mail\.c		kurt
 usr/src/cmd/man/.*		wnj
 usr/src/cmd/mkstr\.c		wnj,x-ch
-usr/src/cmd/more\.c		schmidt
+usr/src/cmd/more\.c		x-es
 usr/src/cmd/msgs\.c		wnj
 usr/src/cmd/net/.*		schmidt
 usr/src/cmd/num\.c		wnj,mckusic
@@ -133,15 +143,19 @@ usr/src/cmd/tset/.*		eric
 usr/src/cmd/ucbmail/.*		kurt
 usr/src/cmd/ul\.c		mark
 usr/src/cmd/versatec/sidebyside\.c	wnj
+# From Libes and Ressler, Life with Unix p. 34
+usr/src/cmd/versatec/vgrind\.sh	wnj,presott
 usr/src/cmd/vmstat\.c		wnj,ozalp
 usr/src/cmd/w\.c		mark
 usr/src/cmd/whatis\.c		wnj
 usr/src/cmd/whereis\.c		wnj
 usr/src/cmd/xstr\.c		wnj
 usr/src/games/banner\.c		mark
+usr/src/games/fortune\.c	arnold
 usr/src/new/libI77uc/.*		dlw
 usr/src/sys/sys/locore\.s	ozalp,wnj,x-jp
 usr/src/sys/sys/vm.*		ozalp,wnj,x-jp
+
 
 # Default (wnj, given the number of contributions)
 .*			wnj

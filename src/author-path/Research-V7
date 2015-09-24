@@ -1,12 +1,30 @@
 # Order by section, and, unless otherwise noted, by
 # first author initials and then program path
 
+# From Libes and Ressler, Life with Unix pp. 29-36
+# Ordered by author login name
+usr/src/libdbm/.*		aho
+usr/man/man3/dbm\.3x		aho
+usr/man/man1/tar.1		x-cbh
+usr/src/cmd/tar/.*		x-cbh
+usr/source/s1/find\.c		x-dh
+usr/doc/man/man1/find\.1	x-dh
+usr/man/man1/expr.1		x-dh
+usr/src/cmd/expr.y		x-dh
+usr/src/cmd/uucp/pk[01]\.c	x-gc
+usr/man/man5/mpxio\.5		x-gc
+usr/man/man2/mpx\.2		x-gc
+usr/man/man2/mpxcall\.2		x-gc
+usr/include/sys/mpx\.h		x-gc
+usr/src/libc/gen/mpx\.c		x-gc
+usr/src/libc/sys/mpxcall\.s	x-gc
+usr/sys/h/mpx\.h		x-gc
+
 # 1. Owner listed in V1/man
 # http://minnie.tuhs.org/cgi-bin/utree.pl?file=V1/man/man1
 
 usr/src/cmd/cmp\.c		dmr
 usr/src/cmd/date\.c		dmr
-usr/src/cmd/find\.c		dmr
 usr/src/cmd/du\.c		dmr
 usr/src/cmd/ld\.c		dmr
 usr/src/cmd/strip\.c		dmr
@@ -31,6 +49,7 @@ usr/src/cmd/diff.*		doug
 usr/src/cmd/graph\.c		doug
 usr/src/cmd/join\.c		doug
 usr/src/cmd/spell/.*		doug
+bin/spell			doug
 
 
 # 3. [Morris] was also the author of the series of crypt programs
@@ -96,7 +115,7 @@ usr/doc/tbl			mel
 usr/doc/troff/.*		jfo
 usr/doc/trofftut/.*		bwk
 usr/doc/uprog/.*		bwk,dmr
-usr/doc/uucp/.*			dan
+usr/doc/uucp/.*			dan,mel
 usr/doc/yacc/.*			scj
 
 # 6. Commands based on Volume 2 authors
@@ -125,7 +144,8 @@ usr/src/cmd/sh/.*		srb
 usr/src/cmd/struct/.*		bsb
 usr/src/cmd/tbl/.*		mel
 usr/src/cmd/troff/.*		jfo
-usr/src/cmd/uucp/.*		dan
+usr/src/cmd/uucp/.*		dan,mel
+usr/src/cmd/uucp/.*		dan,mel
 usr/src/cmd/yacc/.*		scj
 
 # 7. Manual pages based on the preceding command authors
@@ -134,7 +154,6 @@ usr/src/cmd/yacc/.*		scj
 # and the hand-tuned
 usr/man/man1/cmp\.1		dmr
 usr/man/man1/date\.1		dmr
-usr/man/man1/find\.1		dmr
 usr/man/man1/du\.1		dmr
 usr/man/man1/ld\.1		dmr
 usr/man/man1/strip\.1		dmr
@@ -200,10 +219,6 @@ usr/src/cmd/sa\.c		ken
 usr/man/man1/sa\.1m		ken
 usr/src/cmd/dd\.c		ken
 usr/man/man1/dd\.1		ken
-
-usr/src/libdbm/.*		dmr
-usr/man/man3/dbm\.3x		dmr
-
 usr/src/libm/.*			rhm
 usr/man/man3/.*\.3m		rhm
 usr/src/cmd/primes\.s		rhm

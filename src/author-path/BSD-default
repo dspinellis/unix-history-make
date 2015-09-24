@@ -1,4 +1,34 @@
-# Order by file path
+# From Libes and Ressler, Life with Unix pp. 29-36
+# Order by contributor
+usr/lib/sendmail.*		eric
+usr/src/usr.lib/sendmail/.*	eric
+usr/doc/sendmail/.*		eric
 
-# Default (wnj, given the number of contributions)
-.*			csrg
+usr/doc/curses/.*		arnold,mark
+usr/src/lib/libcurses/.*	arnold,mark
+
+usr/doc/diction/.*		llc
+usr/man/man1/diction\.1		llc
+usr/src/usr.bin/diction/.*	llc
+
+usr/src/ucb/gprof/.*		mckusick,peter
+
+usr/contrib/enet/.*		mja
+a/sys/sys/tty_pty\.c		mja
+a/sys/GENERIC/pty\.h		mja
+usr/man/man4/pty\.4		mja
+
+usr/src/games/rogue/.*		toy
+usr/src/share/doc/usd/33.rogue/.*	toy
+usr/src/cmd/shutdown\.c		toy
+usr/man/man8/shutdown\.8	toy
+
+local/ditroff/ditroff.van/ideal/.*	x-cvw
+usr/man/man1/indent\.1		x-dw
+usr/src/ucb/indent/.*		x-dw
+
+usr/contrib/pathalias/.*	x-ph
+
+
+# Default
+.*				csrg
