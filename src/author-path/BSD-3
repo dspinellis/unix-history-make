@@ -1,7 +1,7 @@
 # From Libes and Ressler, Life with Unix pp. 29-36
 usr/src/cmd/pascal/.*		wnj,chuck
-usr/lib/tmac/tmac\.vcat		x-br,x-td2,mike
-usr/src/cmd/versatec/vcat\.c	x-br,x-td2,mike
+usr/lib/tmac/tmac\.vcat		x-br,td,mike
+usr/src/cmd/versatec/vcat\.c	x-br,td,mike
 
 
 # Order by file path
