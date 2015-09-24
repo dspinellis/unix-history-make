@@ -535,7 +535,7 @@ check_author()
   local missing_authors
   missing_authors=$(comm -13 \
     <(uncomment $author | cut -d: -f 1 | sort -u) \
-    <(uncomment "$@" | awk '{print $2}' | tr , \\n | sort -u | sed '/^$/d') )
+    <(uncomment "$@" | awk '{print $2}' | tr , \\n | sort -u) )
   if [ "$missing_authors" ] ; then
     echo "Missing author definitions:" 1>&2
     echo $missing_authors 1>&2
