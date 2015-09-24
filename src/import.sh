@@ -520,6 +520,29 @@ verify()
   echo Verification finished
 }
 
+# Remove comments and defaults from the specified file(s)
+uncomment()
+{
+  sed 's/#.*//;s/^%.*//;/^$/d' $*
+}
+
+# Verify authors are defined for specified author path file(s)
+check_author()
+{
+  local author
+  author=$1
+  shift
+  local missing_authors
+  missing_authors=$(comm -13 \
+    <(uncomment $author | cut -d: -f 1 | sort -u) \
+    <(uncomment "$@" | awk '{print $2}' | tr , \\n | sort -u | sed '/^$/d') )
+  if [ "$missing_authors" ] ; then
+    echo "Missing author definitions:" 1>&2
+    echo $missing_authors 1>&2
+    exit 1
+  fi
+}
+
 preconditions()
 {
   # Check for duplicate author definitions
@@ -531,6 +554,12 @@ preconditions()
       exit 1
     fi
   done
+
+  # Check for missing author definitions
+  check_author bell.au author-path/Research-* author-path/Bell-32V \
+    author-path/Sys-*
+  check_author berkeley.au author-path/BSD-*
+  check_author 386bsd.au author-path/386BSD
 
   # Check that CDs are mounted
   # List generated with the following command
