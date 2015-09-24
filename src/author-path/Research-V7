@@ -5,8 +5,8 @@
 # Ordered by author login name
 usr/src/libdbm/.*		aho
 usr/man/man3/dbm\.3x		aho
-usr/man/man1/tar.1		x-cbh
-usr/src/cmd/tar/.*		x-cbh
+usr/man/man1/tar.1		chuck
+usr/src/cmd/tar/.*		chuck
 usr/source/s1/find\.c		x-dh
 usr/doc/man/man1/find\.1	x-dh
 usr/man/man1/expr.1		x-dh
@@ -106,10 +106,10 @@ usr/doc/password		rhm,ken
 usr/doc/porttour/.*		scj
 usr/doc/ratfor/.*		bwk
 usr/doc/refer/.*		mel
-usr/doc/regen			x-cbh,dmr
+usr/doc/regen			chuck,dmr
 usr/doc/security		dmr
 usr/doc/sed			lem
-usr/doc/setup			x-cbh,dmr
+usr/doc/setup			chuck,dmr
 usr/doc/shell/.*		srb
 usr/doc/tbl			mel
 usr/doc/troff/.*		jfo

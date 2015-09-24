@@ -1,5 +1,5 @@
 # From Libes and Ressler, Life with Unix pp. 29-36
-usr/src/cmd/pascal/.*		wnj,x-cbh
+usr/src/cmd/pascal/.*		wnj,chuck
 usr/lib/tmac/tmac\.vcat		x-br,x-td2,x-mt
 usr/src/cmd/versatec/vcat\.c	x-br,x-td2,x-mt
 
@@ -20,7 +20,7 @@ usr/doc/berknet/.*		schmidt
 usr/doc/cshms			wnj
 usr/doc/csh/.*			wnj
 # From Libes and Ressler, Life with Unix pp. 29-36
-usr/doc/ex/.*			wnj,x-cbh
+usr/doc/ex/.*			wnj,chuck
 usr/doc/libNS/.*		sklower
 usr/doc/lisp/.*			jkf
 usr/doc/mail/.*			kurt
@@ -60,7 +60,7 @@ usr/man/man1/liszt\.1		tbl
 usr/man/man1/lock\.1		kurt
 usr/man/man1/mail\.1		kurt
 usr/man/man1/man\.1		wnj
-usr/man/man1/mkstr\.1		wnj,x-ch
+usr/man/man1/mkstr\.1		wnj,chuck
 usr/man/man1/more\.1		x-es
 usr/man/man1/msgs\.1		wnj
 usr/man/man1/net\.1		schmidt
@@ -121,7 +121,7 @@ usr/src/cmd/liszt/.*		tbl
 usr/src/cmd/lock\.c		kurt
 usr/src/cmd/mail\.c		kurt
 usr/src/cmd/man/.*		wnj
-usr/src/cmd/mkstr\.c		wnj,x-ch
+usr/src/cmd/mkstr\.c		wnj,chuck
 usr/src/cmd/more\.c		x-es
 usr/src/cmd/msgs\.c		wnj
 usr/src/cmd/net/.*		schmidt
