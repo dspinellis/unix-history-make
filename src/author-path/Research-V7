@@ -12,14 +12,14 @@ usr/source/s1/find\.c		haight
 usr/doc/man/man1/find\.1	haight
 usr/man/man1/expr.1		haight
 usr/src/cmd/expr.y		haight
-usr/src/cmd/uucp/pk[01]\.c	greg
-usr/man/man5/mpxio\.5		greg
-usr/man/man2/mpx\.2		greg
-usr/man/man2/mpxcall\.2		greg
-usr/include/sys/mpx\.h		greg
-usr/src/libc/gen/mpx\.c		greg
-usr/src/libc/sys/mpxcall\.s	greg
-usr/sys/h/mpx\.h		greg
+usr/src/cmd/uucp/pk[01]\.c	xtp
+usr/man/man5/mpxio\.5		xtp
+usr/man/man2/mpx\.2		xtp
+usr/man/man2/mpxcall\.2		xtp
+usr/include/sys/mpx\.h		xtp
+usr/src/libc/gen/mpx\.c		xtp
+usr/src/libc/sys/mpxcall\.s	xtp
+usr/sys/h/mpx\.h		xtp
 
 # 1. Owner listed in V1/man
 # http://minnie.tuhs.org/cgi-bin/utree.pl?file=V1/man/man1
