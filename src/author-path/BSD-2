@@ -33,7 +33,7 @@ man/dribble\.u		wnj,x-or
 man/edit\.u		wnj
 man/ex\.u		wnj
 man/expand\.u		wnj
-man/eyacc\.u		chuck,wnj
+man/eyacc\.u		cbh,wnj
 man/finger\.u		x-etc
 man/fleece\.u		kurt
 man/fmt\.u		kurt
@@ -47,7 +47,7 @@ man/libNS\.u		sklower
 man/libretro\.u		toy
 man/lock\.u		kurt
 man/man\.u		wnj
-man/mkstr\.u		wnj,chuck
+man/mkstr\.u		wnj,cbh
 man/msgs\.u		wnj
 man/net\.u		schmidt
 man/netcp\.u		schmidt
@@ -57,10 +57,10 @@ man/netq\.u		schmidt
 man/netrm\.u		schmidt
 man/num\.u		toy
 man/pcc\.u		wnj
-man/pi\.u		wnj,chuck,ken
+man/pi\.u		wnj,cbh,ken
 man/pix\.u		wnj
 man/print\.u		wnj
-man/px\.u		wnj,chuck,ken
+man/px\.u		wnj,cbh,ken
 man/pxp\.u		wnj
 man/pxref\.u		wnj
 man/reset\.u		kurt
@@ -86,7 +86,7 @@ src/diffdir\.c		wnj
 src/dribble\.c		wnj,x-or
 src/ex/.*		wnj
 src/expand\.c		wnj
-src/eyacc/.*		chuck,wnj
+src/eyacc/.*		cbh,wnj
 src/finger\.c		x-etc
 src/fleece\.c		kurt
 src/fold\.c		wnj
@@ -104,10 +104,10 @@ src/msgs\.c		wnj
 src/net/.*		schmidt
 src/num\.c		toy
 src/pascal/.*		wnj
-src/pi/.*		chuck,wnj
+src/pi/.*		cbh,wnj
 src/pi0/.*		wnj
 src/pi1/.*		wnj
-src/px/.*		wnj,chuck,ken
+src/px/.*		wnj,cbh,ken
 src/pxp/.*		wnj
 src/pxref/.*		wnj
 src/reset\.c		kurt

@@ -1,9 +1,9 @@
 # Order by file path
 
 usr/doc/efl		sif
-usr/doc/fsck/fsck\.mm	tjk
+usr/doc/fsck/fsck\.mm	frodo
 usr/src/cmd/efl/.*	sif
-usr/src/cmd/fsck\.c	tjk
+usr/src/cmd/fsck\.c	frodo
 
 # Default (wnj, given the number of contributions)
 .*			wnj

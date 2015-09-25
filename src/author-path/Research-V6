@@ -1,7 +1,7 @@
 # From Libes and Ressler, Life with Unix pp. 29-36
 # Ordered by author login name
-usr/source/s1/find\.c		x-dh
-usr/doc/man/man1/find\.1	x-dh
+usr/source/s1/find\.c		haight
+usr/doc/man/man1/find\.1	haight
 
 # Brian W. Kernighan. Ratfor-a preprocessor for a rational Fortran.
 # Software: Practice & Experience, 5(4):395-406, 1975.

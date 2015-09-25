@@ -1,5 +1,5 @@
 # From Libes and Ressler, Life with Unix pp. 29-36
-usr/src/cmd/pascal/.*		wnj,chuck
+usr/src/cmd/pascal/.*		wnj,cbh
 usr/lib/tmac/tmac\.vcat		x-br,td,mike
 usr/src/cmd/versatec/vcat\.c	x-br,td,mike
 
@@ -20,7 +20,7 @@ usr/doc/berknet/.*		schmidt
 usr/doc/cshms			wnj
 usr/doc/csh/.*			wnj
 # From Libes and Ressler, Life with Unix pp. 29-36
-usr/doc/ex/.*			wnj,chuck
+usr/doc/ex/.*			wnj,cbh
 usr/doc/libNS/.*		sklower
 usr/doc/lisp/.*			jkf
 usr/doc/mail/.*			kurt
@@ -60,7 +60,7 @@ usr/man/man1/liszt\.1		tbl
 usr/man/man1/lock\.1		kurt
 usr/man/man1/mail\.1		kurt
 usr/man/man1/man\.1		wnj
-usr/man/man1/mkstr\.1		wnj,chuck
+usr/man/man1/mkstr\.1		wnj,cbh
 usr/man/man1/more\.1		erics
 usr/man/man1/msgs\.1		wnj
 usr/man/man1/net\.1		schmidt
@@ -70,9 +70,9 @@ usr/man/man1/netmail\.1		schmidt
 usr/man/man1/netq\.1		schmidt
 usr/man/man1/netrm\.1		schmidt
 usr/man/man1/num\.1		wnj,mckusic
-usr/man/man1/pi\.1		chuck,wnj,ken
+usr/man/man1/pi\.1		cbh,wnj,ken
 usr/man/man1/pix\.1		wnj
-usr/man/man1/px\.1		chuck,wnj,ken
+usr/man/man1/px\.1		cbh,wnj,ken
 usr/man/man1/pxp\.1		wnj
 usr/man/man1/reset\.1		kurt
 usr/man/man1/rewind\.1		mark
@@ -121,14 +121,14 @@ usr/src/cmd/liszt/.*		tbl
 usr/src/cmd/lock\.c		kurt
 usr/src/cmd/mail\.c		kurt
 usr/src/cmd/man/.*		wnj
-usr/src/cmd/mkstr\.c		wnj,chuck
+usr/src/cmd/mkstr\.c		wnj,cbh
 usr/src/cmd/more\.c		erics
 usr/src/cmd/msgs\.c		wnj
 usr/src/cmd/net/.*		schmidt
 usr/src/cmd/num\.c		wnj,mckusic
-usr/src/cmd/pi/.*		chuck,wnj,ken
+usr/src/cmd/pi/.*		cbh,wnj,ken
 usr/src/cmd/pxp/.*		wnj
-usr/src/cmd/px/.*		chuck,wnj,ken
+usr/src/cmd/px/.*		cbh,wnj,ken
 usr/src/cmd/reset\.c		kurt
 usr/src/cmd/rewind\.c		mark
 usr/src/cmd/script\.c		mark

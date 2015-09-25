@@ -1,6 +1,6 @@
 # From Libes and Ressler, Life with Unix pp. 29-36
 # Ordered by author login name
-usr/src/cmd/cpio\.c		x-dh
+usr/src/cmd/cpio\.c		haight
 
 # Based on the document titled
 # "A UNIX Operating System for the DEC VAX-11/780 Computer"

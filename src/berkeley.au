@@ -25,7 +25,7 @@ carl:Carl Smith
 cda:Charlotte Allen
 cgd:Chris G. Demetriou
 christos:Christos Zoulas
-chuck:Charles B. Haley:research!chuck
+cbh:Charles B. Haley:research!cbh
 claudio:David L Wasley
 clemc:Clem Cole
 cohen:Ellis Cohen
@@ -39,6 +39,7 @@ csrg:CSRG
 csvaf:Alastair Fyfe
 csvsj:Steve Jacobson
 cuccia:Nick Cuccia
+cvw:Chris Van Wyk:research!cvw
 dab:Dave A. Borman
 denise:Denise Draper
 dist:Distribution Folks
@@ -60,6 +61,7 @@ evan
 feldman:Brian Feldman
 fitz:Dan Fitzpatrick
 fortran
+frodo:T. J. Kowalski:research!frodo
 fujita:Akito Fujita
 garrison:Gary M. Levin
 glickman:Matt Glickman
@@ -155,7 +157,6 @@ tbl:Tom London
 td:Tom Duff:research!td
 tef:Thomas Ferrin
 thien:Roger J. Thien
-tjk:T. J. Kowalski:research!tjk
 torek:Chris Torek
 toy:Michael Toy
 trent:Trent Hein
@@ -171,7 +172,6 @@ william:William Nesheim
 wnj:Bill Joy
 x-br:Bill Reeves
 x-clm:Colin L. Mc Master
-x-cvw:Chris Van Wyk:research!x-cvw
 x-dl:Douglas Lanam
 x-dw:David Willcox
 x-etc:Earl T. Cohen
@@ -179,7 +179,6 @@ x-hg:Herb Gellis:research!x-hg
 x-im:Ivan Maltz
 x-jp:Juan Porcar
 x-le:Len Edmondson
-x-mr:Mark Rochkind:research!x-mr
 x-or:Olivier Roubine
 x-rd:R. Dowell
 x-rh:Ross Harvey

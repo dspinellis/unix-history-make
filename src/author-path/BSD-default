@@ -23,7 +23,7 @@ usr/src/share/doc/usd/33.rogue/.*	toy
 usr/src/cmd/shutdown\.c		toy
 usr/man/man8/shutdown\.8	toy
 
-local/ditroff/ditroff.van/ideal/.*	x-cvw
+local/ditroff/ditroff.van/ideal/.*	cvw
 usr/man/man1/indent\.1		x-dw
 usr/src/ucb/indent/.*		x-dw
 

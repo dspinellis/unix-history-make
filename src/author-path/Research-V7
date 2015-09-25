@@ -5,20 +5,21 @@
 # Ordered by author login name
 usr/src/libdbm/.*		aho
 usr/man/man3/dbm\.3x		aho
-usr/man/man1/tar.1		chuck
-usr/src/cmd/tar/.*		chuck
-usr/source/s1/find\.c		x-dh
-usr/doc/man/man1/find\.1	x-dh
-usr/man/man1/expr.1		x-dh
-usr/src/cmd/expr.y		x-dh
-usr/src/cmd/uucp/pk[01]\.c	x-gc
-usr/man/man5/mpxio\.5		x-gc
-usr/man/man2/mpx\.2		x-gc
-usr/man/man2/mpxcall\.2		x-gc
-usr/include/sys/mpx\.h		x-gc
-usr/src/libc/gen/mpx\.c		x-gc
-usr/src/libc/sys/mpxcall\.s	x-gc
-usr/sys/h/mpx\.h		x-gc
+usr/include/varargs.h		ark
+usr/man/man1/tar.1		cbh
+usr/src/cmd/tar/.*		cbh
+usr/source/s1/find\.c		haight
+usr/doc/man/man1/find\.1	haight
+usr/man/man1/expr.1		haight
+usr/src/cmd/expr.y		haight
+usr/src/cmd/uucp/pk[01]\.c	greg
+usr/man/man5/mpxio\.5		greg
+usr/man/man2/mpx\.2		greg
+usr/man/man2/mpxcall\.2		greg
+usr/include/sys/mpx\.h		greg
+usr/src/libc/gen/mpx\.c		greg
+usr/src/libc/sys/mpxcall\.s	greg
+usr/sys/h/mpx\.h		greg
 
 # 1. Owner listed in V1/man
 # http://minnie.tuhs.org/cgi-bin/utree.pl?file=V1/man/man1
@@ -106,10 +107,10 @@ usr/doc/password		rhm,ken
 usr/doc/porttour/.*		scj
 usr/doc/ratfor/.*		bwk
 usr/doc/refer/.*		mel
-usr/doc/regen			chuck,dmr
+usr/doc/regen			cbh,dmr
 usr/doc/security		dmr
 usr/doc/sed			lem
-usr/doc/setup			chuck,dmr
+usr/doc/setup			cbh,dmr
 usr/doc/shell/.*		srb
 usr/doc/tbl			mel
 usr/doc/troff/.*		jfo

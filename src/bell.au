@@ -3,13 +3,16 @@
 
 # Id (used in path maps):Full name:email
 aho:Alfred V. Aho
+ark:Andrew Koenig
 bsb:Brenda S. Baker
 bwk:Brian W. Kernighan
-chuck:Charles B. Haley
+cbh:Charles B. Haley
 csr:C. S. Roberts
 dan:D. A. Nowitz
 dmr:Dennis Ritchie
 doug:Doug McIlroy
+greg:Greg Chesson
+haight:Dick Haight
 jfm:J. F. Maranzano
 jfo:Joe Ossanna
 jfr:John Reiser
@@ -17,16 +20,14 @@ ken:Ken Thompson
 lem:Lee E. McMahon
 llc:Lorinda Cherry
 mel:Michael E. Lesk
+mmr:Mark J Rochkind
 pjw:Peter J. Weinberger
 rhm:Robert Morris
 schmidt:Eric Schmidt:schmidt@ucbvax.Berkeley.EDU
 scj:Stephen C. Johnson
 sif:S. I. Feldman
 srb:S. R. Bourne
+tad:Ted Dolotta
 tbl:Tom London
-x-ak:Andrew Koenig
-x-dh:Dick Haight
-x-gc:Greg Chesson
 x-hg:Herb Gellis
 x-mr:Mark Rochkind
-x-td:Ted Dolotta
