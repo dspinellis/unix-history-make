@@ -13,6 +13,9 @@ usr/src/man/man1/sccsdiff\.1		marc
 usr/src/man/docs/sccs_guide		marc
 usr/src/man/docs/sccs_inter		marc
 
+usr/src/cmd/bfs.rc			marc
+usr/src/cmd/bfs.c			marc
+usr/src/man/man1/bfs.1			marc
 
 usr/src/cmd/text/macros.d/mmn\.src	tad
 usr/src/cmd/text/macros.d/mmt\.src	tad
