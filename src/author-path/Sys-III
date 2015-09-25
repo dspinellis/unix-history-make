@@ -7,11 +7,11 @@
 usr/src/cmd/xargs\.c			x-hg
 usr/src/man/man1/xargs\.1		x-hg
 
-usr/src/cmd/sccs/.*			mmr
-usr/src/man/man5/sccsfile\.5		mmr
-usr/src/man/man1/sccsdiff\.1		mmr
-usr/src/man/docs/sccs_guide		mmr
-usr/src/man/docs/sccs_inter		mmr
+usr/src/cmd/sccs/.*			marc
+usr/src/man/man5/sccsfile\.5		marc
+usr/src/man/man1/sccsdiff\.1		marc
+usr/src/man/docs/sccs_guide		marc
+usr/src/man/docs/sccs_inter		marc
 
 
 usr/src/cmd/text/macros.d/mmn\.src	tad
