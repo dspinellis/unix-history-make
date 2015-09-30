@@ -69,7 +69,7 @@ usr/man/man1/netlpr\.1		schmidt
 usr/man/man1/netmail\.1		schmidt
 usr/man/man1/netq\.1		schmidt
 usr/man/man1/netrm\.1		schmidt
-usr/man/man1/num\.1		wnj,mckusic
+usr/man/man1/num\.1		wnj,mckusick
 usr/man/man1/pi\.1		cbh,wnj,ken
 usr/man/man1/pix\.1		wnj
 usr/man/man1/px\.1		cbh,wnj,ken
@@ -125,7 +125,7 @@ usr/src/cmd/mkstr\.c		wnj,cbh
 usr/src/cmd/more\.c		erics
 usr/src/cmd/msgs\.c		wnj
 usr/src/cmd/net/.*		schmidt
-usr/src/cmd/num\.c		wnj,mckusic
+usr/src/cmd/num\.c		wnj,mckusick
 usr/src/cmd/pi/.*		cbh,wnj,ken
 usr/src/cmd/pxp/.*		wnj
 usr/src/cmd/px/.*		cbh,wnj,ken
