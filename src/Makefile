@@ -1,4 +1,5 @@
-all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
+# Downloaded and expanded data
+DATA=archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
 	archive/1bsd newoldar archive/2bsd archive/32v archive/3bsd \
 	archive/CSRG/cd1.mnt archive/CSRG/cd2.mnt \
 	archive/CSRG/cd3.mnt archive/CSRG/cd4.mnt archive/CSRG/cd4.patched \
@@ -7,8 +8,21 @@ all: archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
 	archive/freebsd.git archive/freebsd-doc.git \
 	archive/freebsd-early.git archive/FreeBSD-1.1.5 empty
 
+# Construct the Unix history repository in the import directory
+import: $(DATA)
+	./import.sh
+
+# Push the imported repository to GitHub
+push: import
+	./github-push.sh
+
+# Clear files signifying mounted ISO images (e.g. after a reboot)
+clear-mounts:
+	rm archive/*.mnt archive/CSRG/*.mnt
+
 .SUFFIXES:.iso .mnt
 
+# Mount an ISO filesystem (Linux-specific; tailor it for other systems)
 .iso.mnt:
 	mkdir -p $(subst .iso,,$<)
 	# Mount uses -o uid, because some directories have 750 permissions, e.g.
@@ -163,7 +177,3 @@ empty:
 	git add . && \
 	git commit -m 'Add README.md in empty repo' && \
 	git remote add origin git@github.com:dspinellis/unix-history-repo.git
-
-# Clear files signifying mounted ISO images (e.g. after a reboot)
-clear-mounts:
-	rm archive/*.mnt archive/CSRG/*.mnt
