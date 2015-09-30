@@ -1,6 +1,6 @@
 # Downloaded and expanded data
 DATA=archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
-	archive/1bsd newoldar archive/2bsd archive/32v archive/3bsd \
+	archive/1bsd archive/2bsd archive/32v archive/3bsd \
 	archive/CSRG/cd1.mnt archive/CSRG/cd2.mnt \
 	archive/CSRG/cd3.mnt archive/CSRG/cd4.mnt archive/CSRG/cd4.patched \
 	archive/386BSD-0.1 archive/386BSD-0.0 archive/FreeBSD-1.0.mnt \
