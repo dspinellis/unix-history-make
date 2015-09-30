@@ -21,6 +21,10 @@ usr/src/libc/gen/mpx\.c		xtp
 usr/src/libc/sys/mpxcall\.s	xtp
 usr/sys/h/mpx\.h		xtp
 
+# Contributed via email
+usr/man/man1/deroff.1		llc
+usr/src/cmd/deroff.c		llc
+
 # 1. Owner listed in V1/man
 # http://minnie.tuhs.org/cgi-bin/utree.pl?file=V1/man/man1
 
