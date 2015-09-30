@@ -115,8 +115,6 @@ archive/CSRG/cd3.iso archive/CSRG/cd4.iso:
 	@echo For availability see https://www.mckusick.com/csrg/
 	@false
 
-archive/CSRG/cd1/4.3/usr/src/ucb/compress/compress.c: archive/CSRG/cd1.mnt
-
 archive/386BSD-0.0:
 	mkdir -p $@
 	for i in `seq 1 8` ; do curl -s http://www.oldlinux.org/Linux.old/distributions/386BSD/386bsd-0.0/floppies/3in/src/floppy.$$i ; done | gzip -dc | tar -C $@ -xf -
