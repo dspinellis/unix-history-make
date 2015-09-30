@@ -472,7 +472,7 @@ for my $ref (split(/,/, $opt_r)) {
 print "tag $branch-$version\n";
 print "from :$release_mark\n";
 print "tagger $release_master $last_mtime $tz_offset\n";
-print data("Tagged $version release snapshot of $branch with $version\n\nSource directory: $directory\n(Synthetic tag)");
+print data("Tagged $version release snapshot of $branch with $version\nSource directory: $directory\n(Synthetic tag)");
 
 
 # Signify that we're finished
