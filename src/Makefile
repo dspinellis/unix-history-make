@@ -108,10 +108,12 @@ archive/3bsd:
 	mkdir -p $@
 	curl -s http://www.tuhs.org/Archive/4BSD/Distributions/3bsd.tar.gz | tar -C $@ -xzf - --exclude dev
 
-archive/CSRG/cd1.iso:
+archive/CSRG/cd1.iso archive/CSRG/cd2.iso \
+archive/CSRG/cd3.iso archive/CSRG/cd4.iso:
 	@echo Create the directory archive/CSRG, and save in it the ISO
 	@echo images of the four CSRG CD-ROMs, with names cd[1-4].iso.
 	@echo For availability see https://www.mckusick.com/csrg/
+	@false
 
 archive/CSRG/cd1/4.3/usr/src/ucb/compress/compress.c: archive/CSRG/cd1.mnt
 
