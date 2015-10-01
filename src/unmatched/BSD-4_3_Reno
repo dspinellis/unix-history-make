@@ -2920,8 +2920,6 @@ usr/src/games/hunt/driver/Makefile
 usr/src/games/monop/s.brd.dat
 usr/src/games/monop/s.mon.dat
 usr/src/games/monop/s.prop.dat
-usr/src/games/rogue/CHANGES
-usr/src/games/rogue/OWNER
 usr/src/games/trek/DOC/read_me.nr
 usr/src/games/trek/DOC/things
 usr/src/games/trek/DOC/trekmanual.nr
@@ -5053,7 +5051,6 @@ usr/src/usr.bin/awk/test/t.x
 usr/src/usr.bin/awk/test/test.data
 usr/src/usr.bin/awk/test/testall
 usr/src/usr.bin/compress/NOTES
-usr/src/usr.bin/diction/style/style.0
 usr/src/usr.bin/eqn/common_source/e.h
 usr/src/usr.bin/eqn/common_source/e.y
 usr/src/usr.bin/ex/OTHER/FLOCK_README

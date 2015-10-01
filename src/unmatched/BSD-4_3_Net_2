@@ -1957,8 +1957,6 @@ usr/src/games/ppt/tags
 usr/src/games/primes/tags
 usr/src/games/rain/tags
 usr/src/games/robots/tags
-usr/src/games/rogue/CHANGES
-usr/src/games/rogue/tags
 usr/src/games/sail/tags
 usr/src/games/snake/snake/tags
 usr/src/games/snake/snscore/tags
@@ -2161,7 +2159,6 @@ usr/src/lib/libc/i386/:errfix
 usr/src/lib/libc/i386/stdlib/atof.c
 usr/src/lib/libc/tags
 usr/src/lib/libc/tahoe/:errfix
-usr/src/lib/libcurses/tags
 usr/src/lib/libg++/COPYING
 usr/src/lib/libg++/ChangeLog
 usr/src/lib/libg++/Makefile

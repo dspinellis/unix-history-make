@@ -9022,8 +9022,6 @@ usr/src/games/quiz/tags
 usr/src/games/rain/tags
 usr/src/games/random/tags
 usr/src/games/robots/tags
-usr/src/games/rogue/CHANGES
-usr/src/games/rogue/tags
 usr/src/games/sail/tags
 usr/src/games/snake/snake/tags
 usr/src/games/snake/snscore/tags
@@ -9362,8 +9360,6 @@ usr/src/lib/libc/db/doc/recno.3.ps
 usr/src/lib/libc/tahoe/:errfix
 usr/src/lib/libcompat/4.3/hp300/DEFS.h
 usr/src/lib/libcompat/tags
-usr/src/lib/libcurses/PSD.doc/appenA
-usr/src/lib/libcurses/tags
 usr/src/lib/libedit/tags
 usr/src/lib/libkvm/kvm_luna68k.c
 usr/src/lib/libkvm/tags

@@ -204,7 +204,6 @@ usr/games/ching.d/hexagrams
 usr/games/ching.d/log
 usr/games/ching.d/macros
 usr/games/lib/backrules
-usr/games/lib/fortunes
 usr/games/quiz.k/africa
 usr/games/quiz.k/america
 usr/games/quiz.k/areas
@@ -876,7 +875,6 @@ usr/lib/tmac/tmac.scover
 usr/lib/tmac/tmac.sdisp
 usr/lib/tmac/tmac.skeep
 usr/lib/tmac/tmac.srefs
-usr/lib/tmac/tmac.vcat
 usr/lib/units
 usr/lib/uucp/.XQTDIR/dummy
 usr/lib/uucp/L.sys
@@ -1628,14 +1626,6 @@ usr/src/cmd/nice.c
 usr/src/cmd/nm.c
 usr/src/cmd/nohup.sh
 usr/src/cmd/od.c
-usr/src/cmd/pascal/READ_ME
-usr/src/cmd/pascal/how_pi
-usr/src/cmd/pascal/how_pix
-usr/src/cmd/pascal/how_pxp
-usr/src/cmd/pascal/makefile
-usr/src/cmd/pascal/pix.c
-usr/src/cmd/pascal/px_header.c
-usr/src/cmd/pascal/pxref.p
 usr/src/cmd/passwd.c
 usr/src/cmd/pcc/1diff
 usr/src/cmd/pcc/:rofix
@@ -2031,9 +2021,7 @@ usr/src/cmd/versatec/READ_ME
 usr/src/cmd/versatec/makefile
 usr/src/cmd/versatec/railmag.c
 usr/src/cmd/versatec/tmac.vgrind
-usr/src/cmd/versatec/vcat.c
 usr/src/cmd/versatec/vfontedpr.c
-usr/src/cmd/versatec/vgrind.sh
 usr/src/cmd/versatec/vpac.c
 usr/src/cmd/versatec/vpd.c
 usr/src/cmd/versatec/vpf.c
@@ -2068,7 +2056,6 @@ usr/src/cmd/yacc/yaccnews
 usr/src/cmd/yacc/yaccpar
 usr/src/games/arithmetic.c
 usr/src/games/bcd.c
-usr/src/games/fortune.c
 usr/src/games/number.c
 usr/src/games/quiz.c
 usr/src/lib/libNS/READ_ME

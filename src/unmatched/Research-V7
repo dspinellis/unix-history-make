@@ -9,7 +9,6 @@ bin/man
 bin/nohup
 bin/pcc
 bin/plot
-bin/spell
 bin/struct
 bin/true
 dev/makefile
@@ -103,7 +102,6 @@ usr/include/sys/times.h
 usr/include/time.h
 usr/include/tp_defs.h
 usr/include/utmp.h
-usr/include/varargs.h
 usr/include/whoami.h
 usr/lib/cign
 usr/lib/crontab
@@ -142,12 +140,10 @@ usr/man/man1/clri.1m
 usr/man/man1/col.1
 usr/man/man1/cp.1
 usr/man/man1/dcheck.1m
-usr/man/man1/deroff.1
 usr/man/man1/df.1m
 usr/man/man1/dump.1m
 usr/man/man1/dumpdir.1m
 usr/man/man1/echo.1
-usr/man/man1/expr.1
 usr/man/man1/file.1
 usr/man/man1/icheck.1m
 usr/man/man1/intro.1
@@ -191,7 +187,6 @@ usr/man/man1/sum.1
 usr/man/man1/sync.1m
 usr/man/man1/tabs.1
 usr/man/man1/tail.1
-usr/man/man1/tar.1
 usr/man/man1/tc.1
 usr/man/man1/tee.1
 usr/man/man1/test.1
@@ -217,7 +212,6 @@ usr/man/man5/dump.5
 usr/man/man5/environ.5
 usr/man/man5/filsys.5
 usr/man/man5/group.5
-usr/man/man5/mpxio.5
 usr/man/man5/mtab.5
 usr/man/man5/passwd.5
 usr/man/man5/plot.5
@@ -290,7 +284,6 @@ usr/src/cmd/cpp/makefile
 usr/src/cmd/cpp/yylex.c
 usr/src/cmd/cron.c
 usr/src/cmd/dcheck.c
-usr/src/cmd/deroff.c
 usr/src/cmd/df.c
 usr/src/cmd/dmesg.c
 usr/src/cmd/dump.c
@@ -298,7 +291,6 @@ usr/src/cmd/dumpdir.c
 usr/src/cmd/echo.c
 usr/src/cmd/ed.c
 usr/src/cmd/egrep.y
-usr/src/cmd/expr.y
 usr/src/cmd/file.c
 usr/src/cmd/getty.c
 usr/src/cmd/icheck.c
@@ -379,8 +371,6 @@ usr/src/cmd/sum.c
 usr/src/cmd/sync.c
 usr/src/cmd/tabs.c
 usr/src/cmd/tail.c
-usr/src/cmd/tar/makefile
-usr/src/cmd/tar/tar.c
 usr/src/cmd/tc.c
 usr/src/cmd/tee.c
 usr/src/cmd/test.c
@@ -582,7 +572,6 @@ usr/sys/h/ino.h
 usr/sys/h/inode.h
 usr/sys/h/map.h
 usr/sys/h/mount.h
-usr/sys/h/mpx.h
 usr/sys/h/mx.h
 usr/sys/h/pack.h
 usr/sys/h/param.h
