@@ -8,8 +8,8 @@ usr/man/man3/dbm\.3x		aho
 usr/include/varargs.h		ark
 usr/man/man1/tar.1		cbh
 usr/src/cmd/tar/.*		cbh
-usr/source/s1/find\.c		haight
-usr/doc/man/man1/find\.1	haight
+usr/src/cmd/find\.c		haight
+usr/man/man1/find\.1		haight
 usr/man/man1/expr.1		haight
 usr/src/cmd/expr.y		haight
 usr/src/cmd/uucp/pk[01]\.c	xtp
