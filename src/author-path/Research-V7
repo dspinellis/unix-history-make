@@ -10,8 +10,8 @@ usr/man/man1/tar.1		cbh
 usr/src/cmd/tar/.*		cbh
 usr/src/cmd/find\.c		haight
 usr/man/man1/find\.1		haight
-usr/man/man1/expr.1		haight
-usr/src/cmd/expr.y		haight
+usr/man/man1/expr\.1		haight
+usr/src/cmd/expr\.y		haight
 usr/src/cmd/uucp/pk[01]\.c	xtp
 usr/man/man5/mpxio\.5		xtp
 usr/man/man2/mpx\.2		xtp
@@ -22,8 +22,8 @@ usr/src/libc/sys/mpxcall\.s	xtp
 usr/sys/h/mpx\.h		xtp
 
 # Contributed via email
-usr/man/man1/deroff.1		llc
-usr/src/cmd/deroff.c		llc
+usr/man/man1/deroff\.1		llc
+usr/src/cmd/deroff\.c		llc
 
 # 1. Owner listed in V1/man
 # http://minnie.tuhs.org/cgi-bin/utree.pl?file=V1/man/man1
