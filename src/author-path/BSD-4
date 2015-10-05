@@ -1,9 +1,18 @@
-# Order by file path
+# Order by author
 
-usr/doc/efl		sif
-usr/doc/fsck/fsck\.mm	frodo
-usr/src/cmd/efl/.*	sif
-usr/src/cmd/fsck\.c	frodo
+usr/doc/fsck/fsck\.mm		frodo
+usr/src/cmd/fsck\.c		frodo
+
+# http://www.oreilly.com/openbook/opensources/book/kirkmck.html
+#  "Joy incorporated Jim Kulp's job control"
+usr/src/cmd/csh/sh\.c		jekulp
+usr/src/cmd/csh/sh\.h		jekulp
+usr/src/sys/dev/ttynew\.c	jekulp
+usr/man/man3/jobs\.3j		jekulp
+usr/src/lib/libjobs/.*		jekulp
+
+usr/doc/efl			sif
+usr/src/cmd/efl/.*		sif
 
 # Default (wnj, given the number of contributions)
-.*			wnj
+.*				wnj
