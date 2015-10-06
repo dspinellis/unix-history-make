@@ -1,0 +1,276 @@
+#Default email address template
+%A $@netbst.org
+
+#:Id (used in path maps):Full name:email
+#
+# The file contains the output of the following process.
+# curl https://www.netbsd.org/people/developers.html | awk -F'[<>]' '/td bgcolor="#f1f1f1"/{name = $3 ? $3 : $5} /<td bgcolor="#e8e8e8".*email/{print $7 ":" name }' | sort >netbsd.au
+
+abs:David Brownlee
+adam:Adam Ciarcinski
+agc:Alistair G. Crooks
+ahoka:Adam Hoka
+alc:Arnaud Lacombe
+alnsn:Alexander Nasonov
+apb:Alan Barrett
+ast:Adrian Steinmann
+aymeric:Aymeric Vincent
+bad:Christoph Badura
+billc:Bill Coldwell
+bjh21:Ben Harris
+bjoern:Bjoern Labitzke
+bjs:Blair Sadewitz
+blymn:Brett Lymn
+bouyer:Manuel Bouyer
+briggs:Allen Briggs
+brook:Brook Milligan
+bsiegert:Benny Siegert
+carrel:Dave Carrel
+cegger:Christoph Egger
+cgd:Chris Demetriou
+cherry:Cherry G. Mathew
+cheusov:Aleksey Cheusov
+chopps:Christian E. Hopps
+christos:Christos Zoulas
+chs:Chuck Silvers
+chuck:Charles D. Cranor
+cjep:Chris Pinnock
+cjs:Curt Sampson
+cl:Christian Limpach
+cnst:Constantine A. Murenin
+cube:Quentin Garnier
+cyber:Erik Berls
+darcy:D'Arcy J.M. Cain
+david:David Maxwell
+dbj:Darrin Jewell
+degroote:Arnaud Degroote
+dent:Reed Shadgett
+dholland:David A. Holland
+dillo:Dieter Baron
+dmcmahill:Dan McMahill
+dogcow:T K Spindler
+dopiera:Marek Dopiera
+drochner:Matthias Drochner
+dsainty:David Sainty
+dsieger:Daniel Sieger
+dsl:David Laight
+dyoung:David Young
+eeh:Eduardo Horvath
+elad:Elad Efrat
+elric:Roland Dowdeswell
+enami:Enami Tsugutomo
+epg:Eric Gillespie
+erh:Eric Haszlakiewicz
+fair:Erik Fair
+fredette:Matt Fredette
+freza:Jachym Holecek
+frueauf:Thorsten Frueauf
+fvdl:Frank van der Linden
+garbled:Tim Rightnour
+gavan:Gavan Fantom
+gdt:Greg Troxel
+gendalia:Tracy Di Marco White
+ghen:Geert Hendrickx
+ginsbach:Brian Ginsbach
+gls:Guillaume Lasmayous
+gmcgarry:Gregory McGarry
+grog:Greg Lehey
+groo:Bill Squier
+gson:Andreas Gustafsson
+gsutre:Grégoire Sutre
+haad:Adam Hamsik
+hannken:Juergen Hannken-Illjes
+hans:Hans Rosenfeld
+hasso:Hasso Tepper
+hauke:Hauke Fath
+heas:John Heasley
+he:Havard Eidnes
+hikaru:Hikaru Abe
+hira:Kouichirou Hiratsuka
+hkenken:Kenichi Hashimoto
+hpeyerl:Herb Peyerl
+hrs:Hiroki Sato
+hsuenaga:Hiroki Suenaga
+htodd:Hisashi Todd Fujinaka
+hubertf:Hubert Feyrer
+ichiro:Ichiro FUKUHARA
+imil:Emile Heitor
+isaki:Tetsuya Isaki
+is:Ignatios Souvatzis
+itohy:ITOH Yasufumi
+itojun:Jun-ichiro itojun Hagino
+jakllsch:Jonathan A. Kollasch
+jandberg:Jukka Andberg
+jdarrow:John Darrow
+jdc:Julian Coleman
+jdf:Julian Fagir
+jhawk:John Hawkinson
+jklos:John Klos
+jkoshy:Joseph Koshy
+jkunz:Jochen Kunz
+jld:Jed Davis
+jmmv:Julio Merino
+jnemeth:John Nemeth
+joda:Johan Danielsson
+joerg:Jörg Sonnenberger
+jonb:Jon Buller
+jruoho:Jukka Ruohonen
+jschauma:Jan Schaumann
+jsm:Joseph Myers
+jun:Jun Ebihara
+junyoung:Bang Jun-Young
+jwise:Jim Wise
+jym:Jean-Yves Migeon
+kamil:Kamil Rytarowski
+kardel:Frank Kardel
+kawamoto:KAWAMOTO Yosihisa
+kefren:Mihai Chelaru
+keiichi:Keiichi SHIMA
+kenh:Ken Hornstein
+kent:TAMURA Kent
+khorben:Pierre Pronchery
+kim:Kimmo Suominen
+kivinen:Tero Kivinen
+kiyohara:KIYOHARA Takashi
+kleink:Klaus Klein
+kml:Kevin Lahey
+kochi:Takayoshi Kochi
+kristerw:Krister Walfridsson
+leot:Leonardo Taccari
+lha:Love Hörnquist Åstrand
+liamjfoy:Liam J. Foy
+lukem:Luke Mewburn
+macallan:Michael Lorenz
+manu:Emmanuel Dreyfus
+marcus:Marcus Comstedt
+markd:Mark Davies
+martin:Martin Husemann
+martti:Martti Kuparinen
+marty:Marty Fouts
+matthias:Matthias Pfaller
+matt:Matt Thomas
+maxv:Maxime Villard
+mbalmer@NetBSD.org:Marc Balmer
+mef:Makoto Fujiwara
+mellon:Ted Lemon
+mhitch:Michael L. Hitch
+mike:Mike Pelley
+minoura:Minoura Makoto
+minskim:Min Sik Kim
+mishka:Mike M. Volokhov
+mjf:Matt J. Fleming
+mlelstv:Michael van Elst
+morr:Daniel Horecki
+mouse:der Mouse
+mrauch:Michael Rauch
+mrg:Matthew Green
+msaitoh:SAITOH Masanobu
+mschuett:Martin Schütte
+mspo:Matthew Sporleder
+nakayama:Takeshi Nakayama
+nathanw:Nathan Williams
+nat:Nathanial Sloss
+nils:Nils Ratusznik
+nisimura:Tohru Nishimura
+njoly:Nicolas Joly
+nonaka:NONAKA Kimihiro
+nros:Niclas Rosenvik
+nsmrtks:NISHIMURA Takeshi
+obache:OBATA Akio
+oki:Masaru Oki
+onoe:Atsushi Onoe
+oster:Greg Oster
+ozaki-r:Ryota Ozaki
+palle:Palle Lyckegaard
+pavel:Pavel Cahyna
+perry:Perry E. Metzger
+perseant:Konrad Schroder
+pettai:Fredrik Pettai
+pgoyette:Paul Goyette
+phil:Phil Nelson
+pho:Masatake Daimon
+phx:Frank Wille
+plunky:Iain Hibbert
+pooka:Antti Kantee
+ragge:Anders Magnusson
+rearnsha:Richard Earnshaw
+recht:Marc Recht
+reed:Jeremy C. Reed
+reide:Erik Reid
+reinoud:Reinoud Zandijk
+rhaen:Ulrich Habel
+rh:René Hexel
+riastradh:Taylor R. Campbell
+richard@NetBSD.org:Richard Palo
+riz:Jeff Rizzo
+rjs:Robert Swindells
+rkujawa:Radoslaw Kujawa
+rmind:Mindaugas Rasiukevicius
+roy:Roy Marples
+ruibiao:Ruibiao Qiu
+rumble:Steve Rumble
+rumko:Rumko
+rxg:Rui-Xiang Guo
+ryoon:Ryo ONODERA
+ryo:Ryo Shimizu
+salo:Lubomir Sedlacik
+sato:SATO Kazumi
+sbd:Steven Drake
+sborrill:Stephen Borrill
+schmonz:Amitai Schlair
+schnoebe:Eric Schnoebelen
+schwarz:Georg Schwarz
+seanb:Sean Boudreau
+seb:Stoned Elipot
+sevan:Sevan Janiyan
+shannonjr:John R. Shannon
+shattered:Sergey Svishchev
+shige:Shigeyuki Fukushima
+shin:Takao Shinohara
+shm:Mateusz Kocielski
+simonb:Simon Burge
+sjg:Simon J. Gerraty
+skrll:Nick Hudson
+slp:Sergio Lopez
+snj:Soren Jacobsen
+sno:Jens Rehsack
+soda:Noriyuki Soda
+soren:Søren Jørvang
+spz:S.P.Zeidler
+stacktic:Arnaud Ysmal
+symka:Simas Mockevicius
+szptvlfn:Ryosuke Moro
+taca:Takahiro Kambe
+tacha:Tatoku Ogaito
+taya:Shin'ichiro Taya
+tcort:Thomas Cort
+tez:Tim Zingelman
+tho:Anthony Mallet
+thomas:Thomas Gerner
+tls:Thor Lancelot Simon
+tnn:Tobias Nygren
+tnozaki:Takehiko NOZAKI
+tonio:Antoine Reilles
+tonnerre:Tonnerre Lombard
+toshii:IWAMOTO Toshihiro
+tron:Matthias Scheler
+tsutsui:Izumi Tsutsui
+uebayasi:Masao Uebayashi
+uwe:Valeriy E. Ushakov
+veego:Bernd Ernesti
+vixie:Paul Vixie
+wdk:Wayne Knowles
+weinem:Mark Weinem
+wennmach:Lex Wennmacher
+wiedi:Sebastian Wiedenroth
+wiz:Thomas Klausner
+wormey:Steve Allen
+wrstuden:Bill Studenmund
+ws:Wolfgang Solfrank
+wulf:Berndt Josef Wulf
+xela:Carl Alexander
+yamt:YAMAMOTO Takashi
+yhardy:Yorick Hardy
+youri:Youri Mouton
+yyamano:Yuji Yamano
+zuntum:Tomasz Luchowski

@@ -58,6 +58,8 @@ main::HELP_MESSAGE
 	my ($fh) = @_;
 	print $fh qq{
 Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
+-b sre	Regular expression substitution to perform on imported Git branch names
+	This is specified as /old/new/.
 -C date	Ignore commits after the specified cutoff date
 -c file	Map of the tree's parts written by specific contributors
 -G str	Import directory through git. Argument is author and timestamp
@@ -84,10 +86,10 @@ version_name and tz_offset are not required for SCCS imports
 };
 }
 
-our($opt_C, $opt_c, $opt_G, $opt_i, $opt_I, $opt_m, $opt_n, $opt_P, $opt_p, $opt_R, $opt_r, $opt_S, $opt_s, $opt_u, $opt_v);
+our($opt_b, $opt_C, $opt_c, $opt_G, $opt_i, $opt_I, $opt_m, $opt_n, $opt_P, $opt_p, $opt_R, $opt_r, $opt_S, $opt_s, $opt_u, $opt_v);
 $opt_m = $opt_r = '';
 
-if (!getopts('C:c:G:i:I:m:n:P:p:R:r:Ss:t:u:v')) {
+if (!getopts('b:C:c:G:i:I:m:n:P:p:R:r:Ss:t:u:v')) {
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 
@@ -130,6 +132,7 @@ my $mark = $opt_G ? 1000000 : 1;
 
 my $dev_branch = ($opt_S || $opt_G) ? "$branch-Import" : "$branch-$version-Snapshot-Development";
 $dev_branch = $opt_P . $dev_branch if ($opt_P);
+eval "\$dev_branch =~ s$opt_b" if ($opt_b);
 
 print STDERR "Import $dev_branch from $directory\n" if ($opt_v);
 

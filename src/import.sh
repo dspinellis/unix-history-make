@@ -306,6 +306,22 @@ EOF
     -G 'Diomidis Spinellis <dds@FreeBSD.org> 785501938 +0000' \
     -P FreeBSD- $ARCHIVE/freebsd.git/ $REFS --progress=1000 | gfi
 
+  # NetBSD
+  MERGED_NETBSD=386BSD-0.1,BSD-4_3_Net_2
+  # Branches to import
+  if [ -n "$DEBUG" ]
+  then
+    REFS='netbsd_0_9 netbsd_1_0'
+  else
+    REFS=$(cd $ARCHIVE/netbsd/src.git/ ; git branch -l | grep ' netbsd' | sort -t/ -k2n)\ trunk
+  fi
+
+  perl ../import-dir.pl $VERBOSE -r $MERGED_NETBSD -m $MERGED_NETBSD \
+    -R '1993-03-22 08:09:35 +0000' \
+    -n ../netbsd.au \
+    -G 'Diomidis Spinellis <dds@FreeBSD.org> 785501938 +0000' \
+    -b '/netbsd_|trunk/NetBSD-/' $ARCHIVE/netbsd/src.git/ $REFS --progress=1000 | gfi
+
   # Adding boilerplate again seems to help getting a modern
   # timestamp for the files displayed on GitHub
   add_boilerplate
