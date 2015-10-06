@@ -277,3 +277,5 @@ git log --all --pretty=format:'%ae' | sed 's/@.*//' | sort -u >../freebsd.author
 - Use the 4th Edition manual page authors to claim ownership of source files
 in later editions.
 - Jeremy C. Reed writes: By the way, there are scattered SCCS files or SCCS history found in the tarballs in the CSRG set that are not included in the csrg-sccs repo.  For example look for the SCCS files in 4.1c.1.  I didn't look recently, but I recall some of that code there was different.
+- Incorporate people from https://www.netbsd.org/people/CSRG-contrib.html into authorship information.
+
