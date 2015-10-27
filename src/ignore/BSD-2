@@ -33,3 +33,5 @@ bin/lib/how_pi
 # src/pascal/how_pix
 bin/lib/how_pix
 
+# Exclude tape labels
+TAPE
