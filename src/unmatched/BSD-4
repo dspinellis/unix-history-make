@@ -1544,7 +1544,6 @@ usr/man/man3/gets.3s
 usr/man/man3/hypot.3m
 usr/man/man3/intro.3
 usr/man/man3/j0.3m
-usr/man/man3/jobs.3j
 usr/man/man3/l3tol.3
 usr/man/man3/malloc.3
 usr/man/man3/mktemp.3
@@ -1975,7 +1974,6 @@ usr/src/cmd/cpp/cpy.y
 usr/src/cmd/cpp/yylex.c
 usr/src/cmd/csh/makefile
 usr/src/cmd/csh/sh.dir.h
-usr/src/cmd/csh/sh.h
 usr/src/cmd/csh/sh.local.h
 usr/src/cmd/csh/sh.proc.h
 usr/src/cmd/cxref.sh
@@ -3069,13 +3067,6 @@ usr/src/lib/libdbm/dbm.c
 usr/src/lib/libdbm/dbm.h
 usr/src/lib/libg/Makefile
 usr/src/lib/libg/dbxxx.s
-usr/src/lib/libjobs/getwd.c
-usr/src/lib/libjobs/killpg.s
-usr/src/lib/libjobs/makefile
-usr/src/lib/libjobs/setpgrp.s
-usr/src/lib/libjobs/signal.s
-usr/src/lib/libjobs/sigset.c
-usr/src/lib/libjobs/wait3.s
 usr/src/lib/libln/Makefile
 usr/src/lib/libln/allprint.c
 usr/src/lib/libln/main.c
@@ -3364,7 +3355,6 @@ usr/src/sys/dev/mx2.c
 usr/src/sys/dev/sw.c
 usr/src/sys/dev/tdump.c
 usr/src/sys/dev/tty.c
-usr/src/sys/dev/ttynew.c
 usr/src/sys/dev/ttyold.c
 usr/src/sys/dev/uba.c
 usr/src/sys/dev/up.c
