@@ -6,8 +6,6 @@
 usr/src/libdbm/.*		aho
 usr/man/man3/dbm\.3x		aho
 usr/include/varargs.h		ark
-usr/man/man1/tar.1		cbh
-usr/src/cmd/tar/.*		cbh
 usr/src/cmd/find\.c		haight
 usr/man/man1/find\.1		haight
 usr/man/man1/expr\.1		haight
@@ -24,6 +22,20 @@ usr/sys/h/mpx\.h		xtp
 # Contributed via email
 usr/man/man1/deroff\.1		llc
 usr/src/cmd/deroff\.c		llc
+
+# Note: cbh is listed as the author of tar in Life with Unix
+#
+# From: Doug McIlroy <doug@cs.dartmouth.edu>
+# Message-Id: <201512121717.tBCHHm5W064050@tahoe.cs.Dartmouth.EDU>
+# Date: Sat, 12 Dec 2015 12:17:48 -0500
+# To: tuhs@minnie.tuhs.org
+# Subject: Re: [TUHS] TUHS] why does tar have the tape device hard coded into
+# it and why is it mt1 instead of mt0
+#
+# Forget that I said, "I think that tar was written by Chuck Haley or Greg Chesson".
+# Ken confirms that he wrote it, for dectape.
+usr/man/man1/tar.1		ken
+usr/src/cmd/tar/.*		ken
 
 # 1. Owner listed in V1/man
 # http://minnie.tuhs.org/cgi-bin/utree.pl?file=V1/man/man1
