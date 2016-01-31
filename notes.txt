@@ -280,3 +280,4 @@ in later editions.
 - Incorporate people from https://www.netbsd.org/people/CSRG-contrib.html into authorship information.
 - Add the Second Edition source code http://www.tuhs.org/Archive/PDP-11/Distributions/research/1972_stuff/Readme
 Based on the path names in s2-bits and the Fifth Edition directory layout the the files should be placed in usr/source/s1
+- Visualize the repo with https://github.com/acaudwell/Gource (suggested by C.Meloche)
