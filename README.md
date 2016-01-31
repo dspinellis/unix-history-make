@@ -225,6 +225,21 @@ make
 ./import.sh
 ```
 
+## Adding a single source
+If you want to add a new source without running the full import process,
+you can do the following.
+
+* Prepare the source's maps and data
+* `cd` to the repo directory
+* Checkout the repo at the point where the new source will branch out
+* Run a Perl command such as the following.
+
+```
+perl ../import-dir.pl [-v] -m Research-V7 -c ../author-path/Bell-32V \
+-n ../bell.au -r Research-V7 -i ../ignore/Bell-32V \
+$ARCHIVE/32v Bell 32V -0500 | gfi
+```
+
 ## Further reading
 - Diomidis Spinellis. A repository with 44 years of Unix evolution. In *MSR '15: Proceedings of the 12th Working Conference on Mining Software Repositories*, pages 13-16. IEEE, 2015. Best Data Showcase Award. [PDF](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/Spi15c.pdf), [HTML](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/Spi15c.html), [poster](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/poster.pdf).
 - Wikipedia: The Free Encyclopedia
