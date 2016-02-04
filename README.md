@@ -89,6 +89,12 @@ More tags and branches are available.
 * The `-VCS-Development` tags denote the point along an imported version control history branch where a particular release occurred.
 
 ## Cool things you can do
+
+The easiest thing you can do is to
+watch the repository's [Gource Visualization](https://youtu.be/S7JB0mhrGCQ).
+
+If you have a broadband network connection and about 1.5GB of free disk space,
+you can download the repository and run Git commands that go back decades.
 Run
 ```sh
 git clone https://github.com/dspinellis/unix-history-repo
