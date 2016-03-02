@@ -725,8 +725,9 @@ git_import
 
 	# get the object from a Git::Repository
 	my $repo = Git::Repository->new(work_tree => $directory);
-	my $export = Git::FastExport->new($repo);
-	$export->fast_export(('--date-order', '--reverse', $branch, @ARGV));
+	my $fh = $repo->command(('fast-export', '--date-order', '--reverse', $branch, @ARGV))->stdout;
+	# Create parser on the output stream
+	my $export = Git::FastExport->new($fh);
 
 	my $added_ref = 0;
 	my $removed_ref = 0;
