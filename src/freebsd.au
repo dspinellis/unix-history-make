@@ -1,5 +1,5 @@
 #Default email address template
-%A $@freebsd.org
+%A $@FreeBSD.org
 
 #:Id (used in path maps):Full name:email
 #
