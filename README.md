@@ -225,7 +225,15 @@ source that contains information that is currently missing.
 ## Re-creating the historical repository from scratch
 The -make repository is provided to share and document the creation process, rather than as a bullet-proof way to get consistent and repeatable results.  For instance, importing the snapshots on a system that is case-insensitive (NTFS, HFS Plus with default settings) will result in a few files getting lost.
 
-Nevertheless, the -repo repository can be created with the following commands.
+### Prerequisites
+* Git
+* Perl
+* The Perl modules `VCS::SCCS` and `Git::FastExport`
+(Install with `sudo cpanm VCS::SCCS Git::FastExport`.)
+* Sudo (and authorization to use it to mount ISO images)
+
+### Repository creation
+The -repo repository can be created with the following commands.
 ```sh
 make
 ./import.sh
