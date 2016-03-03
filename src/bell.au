@@ -1,5 +1,5 @@
 # Email address template
-%A research!$
+%A $@research.uucp
 
 # Id (used in path maps):Full name:email
 aho:Alfred V. Aho
