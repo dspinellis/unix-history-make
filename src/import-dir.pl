@@ -41,6 +41,9 @@ my %merge_add_map;
 # Subsitute $ with an id to get a contributor's email address
 my $address_template;
 
+# Email address substitutions
+my %address_substitute;
+
 # Map from file paths to committers, ordered in terms of precedence
 my @committer_map;
 
@@ -541,7 +544,8 @@ create_map
 	}
 }
 
-# Create a map from contributor ids to full names and populate address_template
+# Create a map from contributor ids to full names and
+# populate address_template and address_substitute
 sub
 create_name_map
 {
@@ -552,10 +556,12 @@ create_name_map
 		s/#.*//;
 		s/^\s*//;
 		next if (/^$/);
-		# Address email format
-		# %A research!$1
-		if (/^%A (.*)/) {
+
+		if (/^%A (.*)/) { # Address email format e.g. %A research!$1
 			$address_template = $1;
+			next;
+		} elsif (/^%S ([^ ]*) +(.*)/) { # Substitutions %S @foo @foo.org
+			$address_substitute{$1} = $2;
 			next;
 		}
 		my ($id, $name, $email) = split(/:/, $_);
@@ -643,6 +649,9 @@ email_address
 		exit 1;
 	}
 	$address =~ s/\$/$id/g;
+	for my $from (keys %address_substitute) {
+		$address =~ s/$from/$address_substitute{$from}/;
+	}
 	return $address;
 }
 
@@ -719,6 +728,7 @@ add_file_blob
 # 3. It removes the injected specified reference files from all the
 #    graph edges they appear on after the specified time point.
 # 4. It prepends to all branch names the string specified with -P.
+# 5. It performs email substitutions based on %address_substitute
 sub
 git_import
 {
@@ -742,16 +752,22 @@ git_import
 		# print STDERR $block->{header}, ":", join(' ', keys(%$block)), "\n";
 		# Prepend the specified string to branch names
 		$block->{header} =~ s:((commit|reset) refs/heads/)(.+)$:${1}$opt_P$3:o if ($opt_P);
+
 		if ($block->{header} !~ m/^commit/) {
 			print $block->as_string();
 			next;
 		}
-		$block->{author}->[0] =~ s/^author\s+(\S+)\s+/author $full_name{$1} /
-			if ($block->{author}->[0] =~ m/^author\s+(\S+)\s+/ &&
-			    $full_name{$1});
-		$block->{committer}->[0] =~ s/^committer\s+(\S+)\s+/committer $full_name{$1} /
-			if ($block->{committer}->[0] =~ m/^committer\s+(\S+)\s+/ &&
-			    $full_name{$1});
+
+		# Subtitute full names and arbitrary addresses
+		for my $ac (qw(author committer)) {
+			$block->{$ac}->[0] =~ s/^$ac\s+(\S+)\s+/$ac $full_name{$1} /
+				if ($block->{$ac}->[0] =~ m/^$ac\s+(\S+)\s+/ &&
+				    $full_name{$1});
+			for my $from (keys %address_substitute) {
+				$block->{$ac}->[0] =~ s/^$from/$address_substitute{$from}/;
+			}
+		}
+
 		# Process commits
 		my ($mark) = ($block->{mark}->[0] =~ m/^mark\s+\:(\d+)/);
 		my ($time) = ($block->{committer}->[0] =~ m/^[^<]*\<[^>]*\>\s*(\d+)\s+/);
