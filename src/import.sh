@@ -297,7 +297,7 @@ EOF
   then
     REFS='release/2.0 release/3.0.0'
   else
-    REFS=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/| master' | sort -t/ -k2n)\ HEAD
+    REFS=$(cd $ARCHIVE/freebsd.git/ ; git branch -l | egrep -v 'projects/|user/| master|svn_head' | sort -t/ -k2n)\ HEAD
   fi
 
   perl ../import-dir.pl $VERBOSE -r $MERGED_FREEBSD_2 -m $MERGED_FREEBSD_2 \
