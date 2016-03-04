@@ -133,6 +133,12 @@ archive/CSRG/cd4.patched: archive/CSRG/cd4.mnt
 	rm -f $@/local/ditroff/ditroff.old.okeeffe/driver/SCCS/s.ifontinfo.c-bad
 	touch $@
 
+# 386BSD0.1 patchkit
+archive/386BSD-patchkit:
+	(cd archive ; curl ftp://www.tuhs.org/BSD/386bsd-patchkits/pk023.tar.gz | tar xzf - ; curl ftp://www.tuhs.org/BSD/386bsd-patchkits/pk023024.tar.gz | tar xzf -)
+	mv archive/patch $@
+	( cd $@/inbound && gzip -d * && for i in *.tar ; do tar xf $$i && rm $$i ; done )
+
 archive/FreeBSD-1.0.iso:
 	curl -s http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/i386/ISO-IMAGES/1.0/1.0-disc1.iso >$@
 
