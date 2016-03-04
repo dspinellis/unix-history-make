@@ -266,6 +266,7 @@ EOF
   perl ../import-dir.pl $VERBOSE -m 386BSD-0.0 -c ../author-path/386BSD \
     -n ../386bsd.au -r 386BSD-0.0 $DEBUG \
     -u ../unmatched/386BSD-0.1 \
+    -i ../ignore/386BSD-0.1 \
     $ARCHIVE/386BSD-0.1 386BSD 0.1 -0800 | gfi
 
   # Early FreeBSD from the CVS repo converted into git
