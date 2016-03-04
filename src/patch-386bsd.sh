@@ -3,11 +3,12 @@
 #
 # patches.sh
 #
-# This is a bourne shell program to determine what patches are available and
-# allow the user the option of applying them.
+# This is a bourne shell program to apply the specified patch
+# It is derived from the 386BSD interactive program
 #
 # When		Who			Description
 # ---------	--------------------	------------------------------------
+# 04 Mar 16	Diomidis Spinellis	Create non-interactive version
 # 18 Apr 93	Rodney W. Grimes	New version number for patchkit release
 # 13 Apr 93	Rodney W. Grimes	Merge in J.T. Conklins fixes agains
 #					version 0.2.2, now at version 0.2.3-A7
@@ -71,33 +72,22 @@
 #
 #
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/patch/bin:/usr/local/bin
-VERSION="0.2.3-B1"
+VERSION="0.3.0-B1"
 COPYRIGHT="Copyright (c) 1992,1993 Terry Lambert"
 BAR="-------------------------------------------------------------------------------"
-DONTWAIT=0
+DONTWAIT=1
 YESNO=0
 
-PATCHDIR=/patch
-AVAILDIR=$PATCHDIR/ready
+ROOTDIR="$1"
+PATCHDIR="$2"
+
+AVAILDIR=$PATCHDIR/inbound
 INSTDIR=$PATCHDIR/installed
-INPUTDIR=$PATCHDIR/inbound
 LOGDIR=$PATCHDIR/log
 TMPDIR=$PATCHDIR/tmp
 FINDTMP=$TMPDIR/find
 DIFFTMP=$TMPDIR/diff
 TARDIR=$TMPDIR/tar
-
-###################
-# ROOT!
-###################
-xUID=`id -u`
-
-if test "$xUID" != "0"
-then
-	echo "You are not root."
-	echo "This program will not run correctly if you are not root."
-	exit 7
-fi
 
 
 ######################################################################
@@ -156,7 +146,6 @@ getyn() {
 # Print out the program header (usually per screen)
 #
 header() {
-	clear
 	echo "$BAR"
 	echo "[ Patches v$VERSION			$COPYRIGHT ]"
 	echo "$BAR"
@@ -213,26 +202,6 @@ m_install() {
 			condwait
 			return
 		fi
-
-		header
-
-		echo "***************************************************"
-		echo "WARNING: THIS WILL INSTALL ALL UNINSTALLED PATCHES!"
-		echo "***************************************************"
-		echo -n "THIS IS YOUR LAST CHANCE!  CONTINUE INSTALLING? "
-		YESNO=0
-		getyn
-
-		if test "$YESNO" = "0"
-		then
-			echo
-			echo "[ MASS INSTALLATION ABORTED BY USER ]"
-			echo
-			condwait
-			return
-		fi
-
-		clear
 
 		echo
 		echo "[ BEGINNING MASS INSTALLATION ... DO NOT INTERRUPT! ]"
@@ -328,35 +297,6 @@ m_install() {
 	rm -f reqs.$patch
 
 	#
-	# Give a chance to back out
-	#
-	echo
-	echo "All prerequisite patches found."
-	echo
-	echo -n "THIS IS YOUR LAST CHANCE!  CONTINUE INSTALLING $patch? "
-	if $interactive
-	then
-		echo -n ""
-		YESNO=0
-		getyn
-	else
-		YESNO=1
-		echo "YES"
-	fi
-
-	#
-	# Notify of backout if backout was requested
-	#
-	if test "$YESNO" = "0"
-	then
-		echo
-		echo "[ INSTALLATION OF $patch ABORTED BY USER ]"
-		echo
-		condwait
-		return
-	fi
-
-	#
 	# REALLY INSTALL THE PATCH
 	#
 	header
@@ -385,7 +325,7 @@ m_install() {
 		case $field in
 		DIR)	dstowner=$2
 			dstmode=$3
-			dst=$4
+			dst=$ROOTDIR/$4
 			echo "rmdir $dst > /dev/null 2>&1" >> $UNDODIR;
 			echo "    mkdir $dst" >> $LOG;
 			if test ! -d $dst ; then
@@ -394,11 +334,6 @@ m_install() {
 					break
 				}
 			fi;
-			echo "    chown $dstowner $dst" >> $LOG;
-			chown $dstowner $dst || {
-				touch $FAIL
-				break
-			}
 			echo "    chmod $dstmode $dst" >> $LOG;
 			chmod $dstmode $dst || {
 				touch $FAIL
@@ -408,15 +343,10 @@ m_install() {
 		NEW)	src=$AVAILDIR/$patch/$2;
 			dstowner=$3
 			dstmode=$4
-			dst=$5
+			dst=$ROOTDIR/$5
 			echo "rm $dst" >> $UNDO;
 			echo "    cp -p $src $dst" >> $LOG;
 			cp -p $src $dst || {
-				touch $FAIL
-				break
-			}
-			echo "    chown $dstowner $dst" >> $LOG;
-			chown $dstowner $dst || {
 				touch $FAIL
 				break
 			}
@@ -428,16 +358,16 @@ m_install() {
 			;;
 		PATCH)	lvl=$2
 			pch=$3
-			fle=$4
+			fle=$ROOTDIR/$4
 			echo "mv $fle.pl$lvl $fle" >> $UNDO;
-			echo "    patch -b .pl$lvl -c $fle $AVAILDIR/$patch/$pch" >> $LOG;
-			patch -b .pl$lvl -c $fle $AVAILDIR/$patch/$pch 2>>$LOG || {
+			echo "    patch -c $fle $AVAILDIR/$patch/$pch" >> $LOG;
+			patch -c $fle $AVAILDIR/$patch/$pch 2>>$LOG || {
 				touch $FAIL
 				break
 			}
 			;;
 		TARZ)	pch=$2
-			dir=$3
+			dir=$ROOTDIR/$3
 			echo "cd $dir" >> $UNDO;
 			echo "    cd $dir" >> $LOG;
 			cd $dir
@@ -455,8 +385,8 @@ m_install() {
 			echo "cd $TMPDIR" >> $UNDO
 			cd $TMPDIR
 			;;
-		MOV)	src=$2
-			dst=$3
+		MOV)	src=$ROOTDIR/$2
+			dst=$ROOTDIR/$3
 			echo "mv $dst $src" >> $UNDO;
 			echo "    mv $src $dst" >> $LOG;
 			mv $src $dst
@@ -623,8 +553,6 @@ m_deinstall() {
 			condwait
 			return
 		fi
-
-		clear
 
 		echo
 		echo "[ BEGINNING MASS DEINSTALLATION ... DO NOT INTERRUPT! ]"
@@ -1085,237 +1013,11 @@ EOF_MARK
 #
 ######################################################################
 
-
-#---------------------------------------------------------------------
-#
-# P R O C E S S   U N I N S T A L L E D   P A T C H E S
-#
-#---------------------------------------------------------------------
-
-
-#
-# Get a list of the uninstalled patches
-#
-header
-echo -n "Scanning for new patches... please wait"
-cd $INPUTDIR
-NUMINCOMING=`ls | wc -l`
-NUMINCOMING=`expr $NUMINCOMING`
-
-echo
-echo
-if test "$NUMINCOMING" != "0"
-then
-	DONTWAIT=0
-	echo -n "There are new patches available.  Unpack them? "
-	YESNO=1
-	getyn
-	if test "$YESNO" = "1"
-	then
-		echo
-		echo "Unpacking new patches.  Please wait"
-		echo
-		for i in *
-		do
-			echo -n "Moving: $i                   "
-			mv $i $AVAILDIR
-			echo -n ""
-		done
-		sync
-		echo
-
-		cd $AVAILDIR
-		NUMTODO=`ls *.z 2>/dev/null | wc -l`
-		NUMTODO=`expr $NUMTODO`
-		if test "$NUMTODO" != "0"
-		then
-			for i in *.z
-			do
-				echo -n "Unziping: $i                   "
-				gzip -d $i
-				echo -n ""
-			done
-			sync
-		fi
-		echo
-
-		NUMTODO=`ls *.Z 2>/dev/null | wc -l`
-		NUMTODO=`expr $NUMTODO`
-		if test "$NUMTODO" != "0"
-		then
-			for i in *.Z
-			do
-				echo -n "Uncompressing: $i                   "
-				compress -d $i
-				echo -n ""
-			done
-			sync
-		fi
-		echo
-
-		for i in *.tar
-		do
-			echo -n "Dearchiving: $i                   "
-			tar xf $i
-			echo -n ""
-			sync
-			rm $i
-			sync
-		done
-		echo
-	else
-		echo "You may rerun Patches to unpack them later."
-		echo "You can not install a patch until it has been unpacked."
-	fi
-else
-	# echo "No new patches."
-	DONTWAIT=1
+if [ -z "$3" ] ; then
+  echo "Usage: $0 source-dir patchkit-dir patch-to-apply" 1>&2
+  echo "Example: patch-386bsd archive/386BSD-0.1-patched archive/386BSD-patchkit/ patch00001" 1>&2
+  exit 1
 fi
 
-echo
-echo
-condwait
-
-
-#---------------------------------------------------------------------
-#
-# P A T C H   I N S T A L L A T I O N   M E N U
-#
-#---------------------------------------------------------------------
-
-header
-echo -n "Scanning for installable patches... please wait"
-# Get number installed
-cd $INSTDIR
-NUMINST=`ls | wc -l`
-NUMINST=`expr $NUMINST`
-# Get number ready to install
-cd $AVAILDIR
-NUMAVAIL=`ls | wc -l`
-NUMAVAIL=`expr $NUMAVAIL`
-
-#
-# Notify user what can be installed or deinstalled
-#
-echo
-echo
-if test "$NUMAVAIL" = "0"
-then
-	echo "There are no patches which may be installed."
-	if test "$NUMINST" = "0"
-	then
-		echo "There are no patches which may be deinstalled."
-		echo
-		condwait
-		# Nothing to do at the menu
-		exit 0
-	else
-		echo "There are $NUMINST patches which may be deinstalled."
-	fi
-else
-	echo "There are $NUMAVAIL patches which may be installed."
-	if test "$NUMINST" = "0"
-	then
-		echo "There are no patches which may be deinstalled."
-	else
-		echo "There are $NUMINST patches which may be deinstalled."
-	fi
-fi
-echo
-condwait
-
-
-#
-# Main menu loop
-#
-while true
-do
-	#
-	# Redo this each time, as we are moving patches around
-	#
-
-	sync
-	# Get number installed
-	cd $INSTDIR
-	NUMINST=`ls | wc -l`
-	NUMINST=`expr $NUMINST`
-	# Get number ready to install
-	cd $AVAILDIR
-	NUMAVAIL=`ls | wc -l`
-	NUMAVAIL=`expr $NUMAVAIL`
-	header
-
-	#
-	# We make the patch menu by getting a list of directories.  We make
-	# "help" available on-the-fly by reading the "PATCH" file in a
-	# directory.
-	#
-	if test "$NUMINST" != "0"
-	then
-		cd $INSTDIR
-		echo $BAR
-		echo "The following patches may be deinstalled:"
-		echo $BAR
-		/bin/ls
-	fi
-	if test "$NUMAVAIL" != "0"
-	then
-		cd $AVAILDIR
-		echo $BAR
-		echo "The following patches may be installed:"
-		echo $BAR
-		/bin/ls
-	fi
-	echo $BAR
-	echo -n "Command (?,I,D,IALL,DALL,Q): "
-	QUIT=true
-
-	#
-	# This will be non-zero if ^D was typed...
-	#
-	if read x
-	then
-		firstchar=`echo $x | cut -c 1`
-		parameter=`echo $x | cut -c 2-99`
-		QUIT=false
-
-		#
-		# Check the first character of x for one of our menu
-		# characters in either upper or lower case.
-		#
-		case "$firstchar" in
-		I|i)	if test "$NUMAVAIL" != "0";
-			then
-				m_install true $parameter
-			else
-				echo "There are no installable patches."
-				echo
-				condwait
-			fi;;
-		D|d)	if test "$NUMINST" != "0";
-			then
-				m_deinstall true $parameter
-			else
-				echo "There are no installed patches."
-				echo
-				condwait
-			fi;;
-		q|Q)	QUIT=true;;
-		*)	m_help $parameter;;
-		esac
-	fi
-
-	#
-	# A ^D at the prompt or an explicit q or Q input means quit...
-	#
-	if $QUIT
-	then
-		clear
-		exit 0
-	fi
-done
-
-
-#
-# EOF -- This file has not been truncated
-#
+mkdir -p $TMPDIR $INSTDIR
+m_install false "$3"
