@@ -40,7 +40,11 @@
 #include <spawn.h>
 #include <stddef.h>
 #include <stdint.h>
+#ifdef linux
+#include <bsd/stdio.h>
+#else
 #include <stdio.h>
+#endif
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>

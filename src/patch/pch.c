@@ -34,8 +34,13 @@
 #include <libgen.h>
 #include <limits.h>
 #include <stdint.h>
-#include <stdio.h>
+#ifdef linux
+#include <bsd/stdio.h>
+#include <bsd/stdlib.h>
+#else
+#include <stdlio.h>
 #include <stdlib.h>
+#endif
 #include <string.h>
 #include <unistd.h>
 
