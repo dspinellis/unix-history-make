@@ -145,12 +145,7 @@ getyn() {
 # Print out the program header (usually per screen)
 #
 header() {
-	echo "$BAR"
-	echo "[ Patches v$VERSION			$COPYRIGHT ]"
-	echo "$BAR"
-	echo
-	echo
-	echo
+  :
 }
 
 #
