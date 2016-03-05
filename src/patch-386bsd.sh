@@ -71,7 +71,6 @@
 # SUCH DAMAGE.
 #
 #
-PATH=/sbin:/usr/sbin:/bin:/usr/bin:/patch/bin:/usr/local/bin
 VERSION="0.3.0-B1"
 COPYRIGHT="Copyright (c) 1992,1993 Terry Lambert"
 BAR="-------------------------------------------------------------------------------"
