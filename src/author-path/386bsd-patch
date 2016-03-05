@@ -34,7 +34,7 @@ patch00032	Paul Kranenburg
 patch00033	Paul Kranenburg
 patch00034	Gary A. Browning
 patch00035	Felix Gaehtgens
-patch00036	Goran Hammarback[?]
+patch00036	Goran Hammarback
 patch00037	Adrian Hall
 patch00038	Frank Maclachlan
 patch00039	David Dawes
@@ -61,10 +61,10 @@ patch00057	Havard Eidnes
 patch00058	Havard Eidnes
 patch00059	Scott Reynolds
 patch00060	Poul-Henning Kamp
-patch00061	Williams Jolitz
+patch00061	William Jolitz
 patch00062	Warren Toomey
 patch00063	Poul-Henning Kamp
-patch00064	Frank MacLachlan
+patch00064	Frank Maclachlan
 patch00065	Mark Tinguely
 patch00066	Warren Toomey
 patch00067	Holger Veit
@@ -72,115 +72,114 @@ patch00068	Karl Lehenbauer
 patch00069	Julian Elischer
 patch00070	Julian Elischer
 patch00071	Bruce Evans
+patch00072	Andrey A. Chernov
 patch00072	Bruce Evans
-patch00072	Andrew Chernov
-patch00073	Frank MacLachlan
+patch00073	Frank Maclachlan
 patch00074	Paul Mackerras
 patch00075	Bruce Evans
 patch00076	David Dawes
-patch00077	Williams Jolitz
+patch00077	William Jolitz
 patch00078	Rich Murphey
 patch00079	Chris G. Demetriou
 patch00079	Jordan K. Hubbard
 patch00080	Julian Elischer
 patch00081	Julian Elischer
 patch00082	Julian Elischer
-patch00083	Frank MacLachlan
 patch00083	Bruce Evans
 patch00083	Chris G. Demetriou
+patch00083	Frank Maclachlan
 patch00084	Nick Handel
 patch00085	Nick Handel
 patch00085	Rodney W. Grimes
+patch00086	Daniel Poirot
 patch00086	Nick Handel
 patch00086	Peter da Silva
-patch00086	Daniel Poirot
 patch00087	Karl Lehenbauer
 patch00087	Rodney W. Grimes
-patch00088	Joerg Lohse
 patch00088	James da Silva
+patch00088	Jörg Lohse
 patch00088	Rodney W. Grimes
-patch00089	Joerg Wunsch
-patch00090	The Unknown Author.
+patch00089	Jörg Wunsch
+patch00090	Greg Hackney
 patch00091	Chris G. Demetriou
-patch00091	Rodney W. Grimes
-patch00092	The Editors
+patch00092	Jordan K. Hubbard
 patch00093	Charles Hannum
 patch00094	Charles Hannum
 patch00095	Charles Hannum
 patch00096	Julian Elischer
-patch00097	Julian Elischer
 patch00097	Jordan K. Hubbard
+patch00097	Julian Elischer
 patch00097	Rodney W. Grimes
 patch00098	Julian Elischer
 patch00098	Rodney W. Grimes
 patch00099	Julian Elischer
 patch00099	Rodney W. Grimes
-patch00100	Mike Durkin
-patch00100	Michael Galassi
 patch00100	Barry Lustig
+patch00100	Michael Galassi
+patch00100	Mike Durkin
 patch00101	Andy Valencia
 patch00101	Rodney W. Grimes
 patch00102	Herb Peyerl
 patch00102	Rodney W. Grimes
 patch00103	Rodney W. Grimes
 patch00104	Bakul Shah
-patch00104	Rodney Grimes
-patch00105	Kent Talarico
+patch00104	Rodney W. Grimes
 patch00105	Charles Hannum
+patch00105	Kent Talarico
 patch00106	Chris Torek
 patch00107	Ken Hughes
 patch00108	Jordan K. Hubbard
-patch00109	Rog Egge
 patch00109	Branko Lankester
+patch00109	Tor Egge
 patch00110	Keith Bostic
 patch00111	Julian Elischer
-patch00111	Rodney W. Grimes
-patch00111	Paul Popelka
 patch00111	Kent Talarico
+patch00111	Paul Popelka
+patch00111	Rodney W. Grimes
 patch00112	David Greenman
 patch00112	Marc Frajola
 patch00112	Rodney W. Grimes
-patch00113	Sean Eric Fagan
 patch00113	Poul-Henning Kamp
+patch00113	Sean Eric Fagan
 patch00114	David Greenman
 patch00114	Rodney W. Grimes
 patch00115	Charles Hannum
 patch00116	Rodney W. Grimes
-patch00117	Rodney W. Grimes
 patch00117	Phil Sutherland
+patch00117	Rodney W. Grimes
 patch00118	Rodney W. Grimes
 patch00119	Rodney W. Grimes
 patch00120	Rodney W. Grimes
 patch00121	Rodney W. Grimes
 patch00122	Rodney W. Grimes
 patch00123	Rodney W. Grimes
-patch00124	Rodney W. Grimes
 patch00124	Kevin Lahey
 patch00124	Paul Kranenburg
+patch00124	Rodney W. Grimes
 patch00125	Rodney W. Grimes
 patch00126	Rodney W. Grimes
 patch00127	Rodney W. Grimes
 patch00128	Rodney W. Grimes
+patch00129	James Jegers
 patch00129	Paul Popelka
 patch00129	Ralf Friedl
-patch00129	James Jegers
 patch00130	Sascha Wildner
 patch00131	Adam Glass
 patch00132	Geoff Rehmet
+patch00133	Andy Valencia
 patch00133	Eric J. Haug
 patch00133	Rodney W. Grimes
 patch00133	Wolfgang Stanglmeier
-patch00133	Andy Valencia
 patch00134	Andrew Herbert
-patch00134	Chris G. Demetrio
-patch00134	John Dyson -
+patch00134	Chris G. Demetriou
+patch00134	John Dyson
 patch00134	Rodney W. Grimes
 patch00135	Rodney W. Grimes
 patch00136	Paul Kranenburg
-patch00137	Yoval Yarom
-patch00137	David Greenman
 patch00137	Bruce Evans
+patch00137	David Greenman
 patch00137	Paul Kranenburg
+patch00137	Yuval Yarom
 patch00138	Rodney W. Grimes
 patch00139	Peter da Silva
 patch00140	Dave Burgess
@@ -201,9 +200,9 @@ patch00152	David Greenman
 patch00152	Rodney W. Grimes
 patch00153	Julian Elischer
 patch00154	Bruce Evans
-patch00155	Terry Lee
 patch00155	Brett Lymn
 patch00155	Rodney W. Grimes
+patch00155	Terry Lee
 patch00156	Bruce Evans
 patch00157	Rodney W. Grimes
 patch00158	Bruce Evans
@@ -212,9 +211,9 @@ patch00159	Rodney W. Grimes
 patch00160	Holger Veit
 patch00160	Rodney W. Grimes
 patch00161	Rodney W. Grimes
-patch00162	Holger Viet
+patch00162	Holger Veit
+patch00163	Andrey A. Chernov
 patch00163	Bruce Evans
-patch00163	Andrew A. Chernov
 patch00163	Guido van Rooij
 patch00163	Rodney W. Grimes
 patch00164	Rodney W. Grimes
@@ -223,6 +222,6 @@ patch00166	Rodney W. Grimes
 patch00167	Bruce Evans
 patch00168	Jim Wilson
 patch00169	Paul Kranenburg
+patch00170	Holger Veit
 patch00170	Jordan K. Hubbard
 patch00170	Rodney W. Grimes
-patch00170	Holger Viet
