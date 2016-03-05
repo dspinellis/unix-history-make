@@ -1,220 +1,228 @@
-patch00001	Chris G. Demetriou (cgd@berkeley.edu)
-patch00002	William Jolitz (withheld)
-patch00003	Terry Lambert (terry@icarus.weber.edu)
-patch00004	Frank Maclachlan (fpm@crash.cts.com)
-patch00005	Andrew Moore (alm@netcom.com)
-patch00006	Christoph Robitschko (chmr@fstgs01.tu-graz.ac.at)
-patch00007	David Greenman (davidg@agora.uucp)
+patch00001	Chris G. Demetriou
+patch00002	William Jolitz
+patch00003	Terry Lambert
+patch00004	Frank Maclachlan
+patch00005	Andrew Moore
+patch00006	Christoph Robitschko
+patch00007	David Greenman
 patch00008	James W. Dolter
-patch00009	Wolfgang Solfrank (ws@tools.de)
-patch00010	Frank Maclachlan (fpm@crash.cts.com)
-patch00011	Paul Kranenburg (pk@cs.few.eur.nl)
-patch00012	Stephen McKay (robert@psych.psy.uq.oz.au [forwarder])
-patch00013	Kevin Lahey (kml@mosquito.cis.ufl.edu)
-patch00014	Paul Kranenburg (pk@cs.few.eur.nl)
-patch00015	John Woods (jfw@eddie.mit.edu)
-patch00016	Arne Henrik Juul (arnej@Lise.Unit.NO)
-patch00017	Frank Maclachlan (fpm@crash.cts.com)
-patch00018	Christoph Robitschko (chmr@fstgds01.tu-graz.ac.at)
-patch00019	Poul-Henning Kamp (phk@data.fls.dk)
-patch00020	Julian Elischer (julian@tfs.com)
-patch00021	Christoph Robitschko (chmr@edvz.tu-graz.ac.at)
-patch00022	Christoph Robitschko (chmr@edvz.tu-graz.ac.at)
-patch00023	Nate Williams (osynw@terra.oscs.montana.edu)
-patch00024	Mark Tinguely (tinguely@plains.nodak.edu)
-patch00025	Paul Kranenburg (pk@cs.few.eur.nl)
-patch00026	Bruce Evans (bde@runx.oz.au)
-patch00027	Wiljo Heinen (wiljo@freeside.ki.open.de)
-patch00028	Pace Willisson (pace@blitz.com)
-patch00029	David Dawes (dawes@physics.su.OZ.AU)
-patch00030	Pace Willisson (pace@blitz.com)
-patch00031	Pace Willisson (pace@blitz.com)
-patch00032	Paul Kranenburg, David Greenman
-patch00033	Paul Kranenburg (pk@cs.few.eur.nl)
-patch00034	Gary A. Browning (gab10@griffcd.amdahl.com)
-patch00035	Felix Gaehtgens (felix@escape.vsse.in-berlin.de)
-patch00036	Goran Hammarback[?] (goran@astro.uu.se)
-patch00037	Adrian Hall (adrian@ibmpcug.co.uk)
-patch00038	Frank Maclachlan (fpm@crash.cts.com)
-patch00039	David Dawes (dawes@physics.su.OZ.AU)
-patch00040	Scott Burris (scott@pita.cns.ucla.edu)
-patch00041	Bob Wilcox (bob@obiwan.uucp)
-patch00042	Martin Renters (martin@innovus.com)
-patch00043	Felix Gaehtgens (felix@escape.vsse.in-berlin.de)
-patch00044	Arne Henrik Juul <arnej@lise.unit.no>
-patch00045	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00046	Ishii Masahiro, R. Kym Horsell
-patch00047	Dave Rivers (rivers@ponds.uucp)
-patch00048	Guy Harris (guy@auspex.com)
-patch00049	Robert D. Thrush (rd@phoenix.aii.com)
-patch00050	Paul Kranenburg (pk@cs.few.eur.nl)
-patch00051	David Greenman (davidg%implode@percy.rain.com)
-patch00052	David Greenman, Paul Kranenburg
-patch00053	Rick "gopher I" (root@snowhite.cis.uoguelph.ca)
-patch00054	Rick "gopher I" (root@snowhite.cis.uoguelph.ca)
-patch00055	Terry Lee (terry@uivlsi.csl.uiuc.edu)
-patch00056	James Clark (jjc@jclark.com)
-patch00057	Havard Eidnes (Havard.Eidnes@runit.sintef.no)
-patch00058	Havard Eidnes (Havard.Eidnes@runit.sintef.no)
-patch00059	Scott Reynolds (scott@clmqt.marquette.mi.us)
+patch00009	Wolfgang Solfrank
+patch00010	Frank Maclachlan
+patch00011	Paul Kranenburg
+patch00012	Stephen McKay
+patch00013	Kevin Lahey
+patch00014	Paul Kranenburg
+patch00015	John Woods
+patch00016	Arne Henrik Juul
+patch00017	Frank Maclachlan
+patch00018	Christoph Robitschko
+patch00019	Poul-Henning Kamp
+patch00020	Julian Elischer
+patch00021	Christoph Robitschko
+patch00022	Christoph Robitschko
+patch00023	Nate Williams
+patch00024	Mark Tinguely
+patch00025	Paul Kranenburg
+patch00026	Bruce Evans
+patch00027	Wiljo Heinen
+patch00028	Pace Willisson
+patch00029	David Dawes
+patch00030	Pace Willisson
+patch00031	Pace Willisson
+patch00032	David Greenman
+patch00032	Paul Kranenburg
+patch00033	Paul Kranenburg
+patch00034	Gary A. Browning
+patch00035	Felix Gaehtgens
+patch00036	Goran Hammarback[?]
+patch00037	Adrian Hall
+patch00038	Frank Maclachlan
+patch00039	David Dawes
+patch00040	Scott Burris
+patch00041	Bob Wilcox
+patch00042	Martin Renters
+patch00043	Felix Gaehtgens
+patch00044	Arne Henrik Juul
+patch00045	Rodney W. Grimes
+patch00046	Ishii Masahiro
+patch00046	R. Kym Horsell
+patch00047	Dave Rivers
+patch00048	Guy Harris
+patch00049	Robert D. Thrush
+patch00050	Paul Kranenburg
+patch00051	David Greenman
+patch00052	David Greenman
+patch00052	Paul Kranenburg
+patch00053	Rick "gopher I"
+patch00054	Rick "gopher I"
+patch00055	Terry Lee
+patch00056	James Clark
+patch00057	Havard Eidnes
+patch00058	Havard Eidnes
+patch00059	Scott Reynolds
 patch00060	Poul-Henning Kamp
-patch00061	Williams Jolitz (withheld)
+patch00061	Williams Jolitz
 patch00062	Warren Toomey
 patch00063	Poul-Henning Kamp
-patch00064	Frank MacLachlan (fpm@crash.cts.com)
-patch00065	Mark Tinguely (tinguely@plains.nodak.edu)
-patch00066	Warren Toomey (wkt@csadfa.cs.adfa.oz.au)
-patch00067	Holger Veit (veit@du9ds3.uni-duisburg.de)
-patch00068	Karl Lehenbauer (karl@one.neosoft.com)
-patch00069	Julian Elischer (julian@ref.tfs.com)
-patch00070	Julian Elischer (julian@ref.tfs.com)
-patch00071	Bruce Evans (bde@runx.oz.au)
-patch00072	Bruce Evans and Andrew Chernov
-patch00073	Frank MacLachlan (fpm@crash.cts.com)
-patch00074	Paul Mackerras (paulus@cs.anu.edu.au)
-patch00075	Bruce Evans (bde@runx.oz.au)
-patch00076	XXX
-patch00077	Williams Jolitz (withheld)
-patch00078	Rich Murphey (rich@lamprey.utmb.edu)
-patch00079	Jordan K. Hubbard (jkh@whisker.lotus.ie) & Chris Demetriou
-patch00080	Julian Elischer (julian@ref.tfs.com)
-patch00081	Julians Elischer (julian@ref.tfs.com)
-patch00082	Julian Elischer (julian@ref.tfs.com)
-patch00083	Scotty ? & Frank MacLachlan (fpm@crash.cts.com) - A20 fix
-patch00083	Bruce Evans - PCPROBE fixes
-patch00083	Chris G. Demetriou (cgd@berkeley.edu) - COMCONSOLE
-patch00084	Nick Handel (nick@madhouse.neosoft.com)
-patch00085	Nick Handel (nick@madhouse.neosoft.com)
-patch00085	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00086	Nick Handel (nhandel@NeoSoft.com)
-patch00086	Peter da Silva (peter@NeoSoft.com)
-patch00086	Daniel Poirot (poirot@aio.jsc.nasa.gov)
-patch00087	Karl Lehenbauer (karl@NeoSoft.com)
-patch00087	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00088	Joerg Lohse (lohse@tech7.informatik.uni-hamburg.de)
-patch00088	James da Silva (jds@cs.umd.edu) et al
-patch00088	Rodney W. Grimes (rgrimes@agora.rain.com)
+patch00064	Frank MacLachlan
+patch00065	Mark Tinguely
+patch00066	Warren Toomey
+patch00067	Holger Veit
+patch00068	Karl Lehenbauer
+patch00069	Julian Elischer
+patch00070	Julian Elischer
+patch00071	Bruce Evans
+patch00072	Bruce Evans
+patch00072	Andrew Chernov
+patch00073	Frank MacLachlan
+patch00074	Paul Mackerras
+patch00075	Bruce Evans
+patch00076	David Dawes
+patch00077	Williams Jolitz
+patch00078	Rich Murphey
+patch00079	Chris G. Demetriou
+patch00079	Jordan K. Hubbard
+patch00080	Julian Elischer
+patch00081	Julian Elischer
+patch00082	Julian Elischer
+patch00083	Frank MacLachlan
+patch00083	Bruce Evans
+patch00083	Chris G. Demetriou
+patch00084	Nick Handel
+patch00085	Nick Handel
+patch00085	Rodney W. Grimes
+patch00086	Nick Handel
+patch00086	Peter da Silva
+patch00086	Daniel Poirot
+patch00087	Karl Lehenbauer
+patch00087	Rodney W. Grimes
+patch00088	Joerg Lohse
+patch00088	James da Silva
+patch00088	Rodney W. Grimes
 patch00089	Joerg Wunsch
 patch00090	The Unknown Author.
-patch00091	Chris Demetriou
-patch00091	Rodney W. Grimes        (rgrimes@agora.rain.com)
+patch00091	Chris G. Demetriou
+patch00091	Rodney W. Grimes
 patch00092	The Editors
 patch00093	Charles Hannum
 patch00094	Charles Hannum
 patch00095	Charles Hannum
-patch00096	Julian Elischer (julian@ref.tfs.com)
-patch00097	Julian Elischer (julian@ref.tfs.com)
-patch00097	Jordan K. Hubbard (jkh@violet.berkeley.edu)
-patch00097	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00098	Julian Elischer (julian@ref.tfs.com)
-patch00098	Rodney W. Grimes [repackaging] (rgrimes@agora.rain.com))
-patch00099	Julian Elischer (julian@ref.tfs.com)
-patch00099	Rodney W. Grimes [repackaging] (rgrimes@agora.rain.com))
-patch00100	Mike Durkin (mdurkin@tsoft.sf-bay.org)
-patch00100	Michael Galassi (nerd@percival.rain.com)
-patch00100	Barry Lustig (barry@ictv.com)
-patch00101	Andy Valencia (ajv@csd.mot.com) (makewhatis.sed fixes)
-patch00101	Rodney W. Grimes (rgrimes@agora.rain.com) (all other fixes)
-patch00102	Herb Peyerl (hpeyerl@novatel.cuc.ab.ca
-patch00102	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00103	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00104	Bakul Shah (bvs@bitblocks.com) & Rodney Grimes [Assembly]
-patch00105	Kent Talarico and Charles Hannum
+patch00096	Julian Elischer
+patch00097	Julian Elischer
+patch00097	Jordan K. Hubbard
+patch00097	Rodney W. Grimes
+patch00098	Julian Elischer
+patch00098	Rodney W. Grimes
+patch00099	Julian Elischer
+patch00099	Rodney W. Grimes
+patch00100	Mike Durkin
+patch00100	Michael Galassi
+patch00100	Barry Lustig
+patch00101	Andy Valencia
+patch00101	Rodney W. Grimes
+patch00102	Herb Peyerl
+patch00102	Rodney W. Grimes
+patch00103	Rodney W. Grimes
+patch00104	Bakul Shah
+patch00104	Rodney Grimes
+patch00105	Kent Talarico
+patch00105	Charles Hannum
 patch00106	Chris Torek
 patch00107	Ken Hughes
 patch00108	Jordan K. Hubbard
-patch00109	Rog Egge & Branko Lankester
+patch00109	Rog Egge
+patch00109	Branko Lankester
 patch00110	Keith Bostic
-patch00111	Julian Elischer (???) (fdisk)
-patch00111	Rodney W. Grimes (rgrimes@agora.rain.com) (Net/2 quotacheck)
-patch00111	Paul Popelka (paulp@uts.amdahl.com) (mount_pcfs)
-patch00111	Kent Talarico (kent@shipwreck.tsoft.net) (Net/2 quotacheck fixes)
-patch00112	David Greenman (davidg@implode.rain.com)
-patch00112	Marc Frajola (marc@escargot.rain.com)
-patch00112	Rodney W. Grimes(rgrimes@agora.rain.com)
-patch00113	Sean Eric Fagan (sef@moria.cygnus.com) (microtime support)
-patch00113	Poul-Henning Kamp (phk@data.fls.dk) (dcfclock support)
-patch00114	David Greenman (davidg@implode.rain.com)
-patch00114	Rodney W. Grimes (rgrimes@agora.rain.com)
+patch00111	Julian Elischer
+patch00111	Rodney W. Grimes
+patch00111	Paul Popelka
+patch00111	Kent Talarico
+patch00112	David Greenman
+patch00112	Marc Frajola
+patch00112	Rodney W. Grimes
+patch00113	Sean Eric Fagan
+patch00113	Poul-Henning Kamp
+patch00114	David Greenman
+patch00114	Rodney W. Grimes
 patch00115	Charles Hannum
-patch00116	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00117	Rodney W. Grimes (rgrimes@agora.rain.com) (vmstat/iostat, probe)
-patch00117	Phil Sutherland (philsuth@mycroft.dialix.oz.au) (config no irqs)
-patch00117	(???@sun-lamp) (autoconf.c add support for floppy swap)
-patch00118	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00119	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00120	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00121	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00122	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00123	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00124	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00124	arnej ???  (tset fixes)
-patch00124	Kevin Lahey (kml%rokkaku.UUCP@mathcs.emory.edu) (vmstat memory counters)
-patch00124	Paul Kranenburg (pk@cs.few.eur.nl) vmstat dk_stat fix
-patch00125	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00126	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00127	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00128	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00129	Paul Popelka (paulp@uts.amdahl.com)
-patch00129	Ralf Friedl (friedl@informatik.uni-kl.de) (nfs fixes)
-patch00129	James Jegers (jimj@miller.cs.uwm.edu) (patchkit submission)
-patch00130	Sascha Wildner (swildner@channelz.GUN.de)
-patch00131	Adam Glass (glass@postgres.berkeley.edu)
-patch00132	Geoff Rehmet (csgr@alpha.ru.ac.za)
-patch00133	Eric J. Haug (ejh@slustl.slu.edu) (Fixed comments and includes) (lpt)
-patch00133	Rodney W. Grimes (rgrimes@agora.rain.com) (New lpt probe)
-patch00133	Wolfgang Stanglmeier (wolf@dentaro.GUN.de) (lpa code)
-patch00133	Andy Valencia (jtk@netcom.com) (lpa code fixes)
-patch00134	Andrew Herbert (andrew@werple.apana.org.au) (kmem_malloc)
-patch00134	Chris G. Demetrio (cdg@sun-lamp.cs.berkeley.edu) (kmem_alloc)
-patch00134	John Dyson - (formerly dyson@ref.tfs.com) (vm_map_simplify)
-patch00134	Rodney W. Grimes (rgrimes@agora.rain.com) (tunable MCLSHIFT)
-patch00135	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00136	Paul Kranenburg (pk@cs.few.eur.nl)
-patch00137	Yoval Yarom (???), fwd by David Greenman (davidg@implode.rain.com)
-patch00137	Bruce Evans (???), fwd by David Greenman (davidg@implode.rain.com)
-patch00137	Paul Kranenburg (pk@cs.few.eur.nl) (trap.c add counter for vmstat)
-patch00138	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00139	Peter da Silva (peter@taronga.com)
-patch00140	Dave Burgess <burgess@hrd769.brooks.af.mil>
-patch00141	Jay Fenlason <hack@datacube.com>
-patch00142	Simon J Gerraty <sjg@melb.bull.oz.au> <sjg@zen.void.oz.au>
-patch00143	Unknown, obtained from comp.unix.2bsd
-patch00144	Julian Stacey <stacey@guug.de>
-patch00145	Richard Murphey (rich@omicron.rice.edu)
-patch00146	markie (tinguely@hookie.cs.ndsu.NoDak.edu)
-patch00147	Paul Kranenburg <pk@cs.few.eur.nl>
-patch00148	J.T. Conklin <conklin@talisman.kaleida.com>
-patch00149	Julian Elischer (???)
-patch00149	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00150	davidg@implode.rain.com (David Greenman)
-patch00150	rgrimes@agora.rain.com (Rodney W. Grimes)
-patch00151	Jagane D Sundar ( jagane@netcom.com )
-patch00152	David Greenman (davidg@implode.rain.com)
-patch00152	Rodney W. Grimes (rgrimes@agora.rain.com)
-patch00153	Julian Elischer (???)
-patch00154	Bruce Evans (???)
-patch00155	Terry Lee <terry@uivlsisd.csl.uiuc.edu>
-patch00155	Brett Lymn (blymn@mulga.awadi.com.AU)
-patch00155	Rodney W. Grimes (rgrimes@agora.rain.com)
+patch00116	Rodney W. Grimes
+patch00117	Rodney W. Grimes
+patch00117	Phil Sutherland
+patch00118	Rodney W. Grimes
+patch00119	Rodney W. Grimes
+patch00120	Rodney W. Grimes
+patch00121	Rodney W. Grimes
+patch00122	Rodney W. Grimes
+patch00123	Rodney W. Grimes
+patch00124	Rodney W. Grimes
+patch00124	Kevin Lahey
+patch00124	Paul Kranenburg
+patch00125	Rodney W. Grimes
+patch00126	Rodney W. Grimes
+patch00127	Rodney W. Grimes
+patch00128	Rodney W. Grimes
+patch00129	Paul Popelka
+patch00129	Ralf Friedl
+patch00129	James Jegers
+patch00130	Sascha Wildner
+patch00131	Adam Glass
+patch00132	Geoff Rehmet
+patch00133	Eric J. Haug
+patch00133	Rodney W. Grimes
+patch00133	Wolfgang Stanglmeier
+patch00133	Andy Valencia
+patch00134	Andrew Herbert
+patch00134	Chris G. Demetrio
+patch00134	John Dyson -
+patch00134	Rodney W. Grimes
+patch00135	Rodney W. Grimes
+patch00136	Paul Kranenburg
+patch00137	Yoval Yarom
+patch00137	David Greenman
+patch00137	Bruce Evans
+patch00137	Paul Kranenburg
+patch00138	Rodney W. Grimes
+patch00139	Peter da Silva
+patch00140	Dave Burgess
+patch00141	Jay Fenlason
+patch00142	Simon J Gerraty
+patch00143	Steven M. Schultz
+patch00144	Julian Stacey
+patch00145	Richard Murphey
+patch00146	Mark Tinguely
+patch00147	Paul Kranenburg
+patch00148	J.T. Conklin
+patch00149	Julian Elischer
+patch00149	Rodney W. Grimes
+patch00150	David Greenman
+patch00150	Rodney W. Grimes
+patch00151	Jagane D Sundar
+patch00152	David Greenman
+patch00152	Rodney W. Grimes
+patch00153	Julian Elischer
+patch00154	Bruce Evans
+patch00155	Terry Lee
+patch00155	Brett Lymn
+patch00155	Rodney W. Grimes
 patch00156	Bruce Evans
 patch00157	Rodney W. Grimes
-patch00158	Bruce Evans (bde@runx.oz.au)
-patch00158	Rodney W. Grimes (rgrimes@agora.rain.com) (intergrate, and cleanup)
+patch00158	Bruce Evans
+patch00158	Rodney W. Grimes
 patch00159	Rodney W. Grimes
-patch00160	Holger Veit (holger.veit@gmd.de) (codrv support)
-patch00160	Rodney W. Grimes (rgrimes@agora.rain.com)
+patch00160	Holger Veit
+patch00160	Rodney W. Grimes
 patch00161	Rodney W. Grimes
-patch00162	Holger Viet (Holget.Veit@gmd.de)
-patch00163	Bruce Evans (bde@runx.oz.au)
-patch00163	Andrew A. Chernov (ache@astral.msk.su) (POSIX fixes for tty_compat.c)
-patch00163	Guido van Rooij (guido@gvr.win.tue.nl) (com driver enhancements)
-patch00163	Rodney W. Grimes (rgrimes@agora.rain.com) (intergrate, and cleanup)
+patch00162	Holger Viet
+patch00163	Bruce Evans
+patch00163	Andrew A. Chernov
+patch00163	Guido van Rooij
+patch00163	Rodney W. Grimes
 patch00164	Rodney W. Grimes
-patch00165	Chris Demetriou (cdg@sun-lamp.cs.berkeley.edu)
+patch00165	Chris G. Demetriou
 patch00166	Rodney W. Grimes
 patch00167	Bruce Evans
-patch00168	Jim Wilson (wilson@moria.cygnus.com)
-patch00169	Paul Kranenburg (pk@cs.few.eur.nl)
-patch00170	Jordan K. Hubbard, Rodney W. Grimes (rgrimes@cdrom.com)
+patch00168	Jim Wilson
+patch00169	Paul Kranenburg
+patch00170	Jordan K. Hubbard
+patch00170	Rodney W. Grimes
 patch00170	Holger Viet
