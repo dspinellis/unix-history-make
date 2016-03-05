@@ -69,7 +69,7 @@ gfi()
 {
   if [ -n "$DEBUG" ]
   then
-    tee ../gfi.in
+    tee ../out/gfi.in
   else
     cat
   fi |
