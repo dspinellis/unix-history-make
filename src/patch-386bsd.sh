@@ -295,7 +295,7 @@ m_install() {
 	#
 	header
 
-	echo -n  "INSTALLATION OF $patch IN PROGRESS.  DO NOT INTERRUPT"
+	echo "INSTALLATION OF $patch IN PROGRESS.  DO NOT INTERRUPT"
 
 	LOG=$TMPDIR/log
 	UNDO=$TMPDIR/uninstall
