@@ -17,6 +17,10 @@
 # limitations under the License.
 #
 
+if [ "$1" = -d ] ; then
+  DEBUG=1
+fi
+
 # Unix history make source directory
 SRCDIR=$(pwd)
 
@@ -71,6 +75,35 @@ sudo rm -rf $PATCHED &&
 chmod -R u+w $PATCHED
 sudo rm -rf $WORK && cp -r archive/386BSD-patchkit $WORK
 
+# Remove non-source files
+mv $PATCHED/dev/MAKEDEV /tmp/MAKEDEV.$$
+cd $PATCHED &&
+  grep -v '^#' $SRCDIR/ignore/386BSD-0.1 | xargs rm -rf
+
+# Reinstate stuff required by various patches
+mv /tmp/MAKEDEV.$$ $PATCHED/dev/MAKEDEV
+mkdir -p $PATCHED/usr/bin
+mkdir -p $PATCHED/usr/share/man/cat1 $PATCHED/usr/share/misc
+mkdir -p $PATCHED/var $PATCHED/dev
+
+# Quickly verify patches
+if [ -n "$DEBUG" ] ; then
+  relative_links
+
+  git()
+  {
+    :
+  }
+  relative_links()
+  {
+    :
+  }
+  absolute_links()
+  {
+    :
+  }
+fi
+
 # Initialize Git repo
 cd $PATCHED &&
   git init &&
@@ -119,4 +152,10 @@ while read patch ; do
   )
 done
 
-rm -rf $WORK $RESTORE_LINKS $MESSAGE
+cd $PATCHED &&
+  git branch -m master 386BSD-0.1-patchkit &&
+  cd $SRC
+
+if [ -z "$DEBUG" ] ; then
+  rm -rf $WORK $RESTORE_LINKS $MESSAGE
+fi
