@@ -141,6 +141,9 @@ archive/386BSD-patchkit:
 	mv archive/patch $@
 	( cd $@/inbound && gzip -d * && for i in *.tar ; do tar xf $$i && rm $$i ; done )
 
+archive/386BSD-0.1-patched: archive/386BSD-patchkit archive/386BSD-0.1
+	./patch2git.sh
+
 archive/FreeBSD-1.0.iso:
 	curl -s http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/i386/ISO-IMAGES/1.0/1.0-disc1.iso >$@
 
