@@ -289,8 +289,8 @@ m_install() {
 			pch=$3
 			fle=$ROOTDIR/$4
 			echo "mv $fle.pl$lvl $fle" >> $UNDO;
-			echo "    patch -c $fle $AVAILDIR/$patch/$pch" >> $LOG;
-			patch -c $fle $AVAILDIR/$patch/$pch 2>>$LOG || {
+			echo "    patch -V none -c $fle $AVAILDIR/$patch/$pch" >> $LOG;
+			patch -V none -c $fle $AVAILDIR/$patch/$pch 2>>$LOG || {
 				touch $FAIL
 				break
 			}
