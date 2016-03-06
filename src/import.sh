@@ -269,8 +269,14 @@ EOF
     -i ../ignore/386BSD-0.1 \
     $ARCHIVE/386BSD-0.1 386BSD 0.1 -0800 | gfi
 
+  # 386BSD 0.1 patchkit
+  perl ../import-dir.pl $VERBOSE -m 386BSD-0.1 \
+    -G 'Diomidis Spinellis <dds@FreeBSD.org> 739659600 +0000' \
+    $ARCHIVE/386BSD-0.1-patched/ 386BSD-0.1-patchkit \
+    --progress=1000 | gfi
+
   # Early FreeBSD from the CVS repo converted into git
-  MERGED_FREEBSD_1=386BSD-0.1,BSD-4_3_Net_2
+  MERGED_FREEBSD_1=386BSD-0.1-patchkit,BSD-4_3_Net_2
 
   #"FINAL_1_0" transformed to "FreeBSD-release/1.0" in 7525 files
   #"FINAL_1_1" transformed to "FreeBSD-release/1.1" in 8728 files

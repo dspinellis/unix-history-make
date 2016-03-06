@@ -6,7 +6,8 @@ DATA=archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
 	archive/386BSD-0.1 archive/386BSD-0.0 archive/FreeBSD-1.0.mnt \
 	archive/FreeBSD-1.1.mnt archive/FreeBSD-1.1.5.1.mnt \
 	archive/freebsd.git archive/freebsd-doc.git \
-	archive/freebsd-early.git archive/FreeBSD-1.1.5
+	archive/freebsd-early.git archive/FreeBSD-1.1.5 \
+	archive/386BSD-0.1-patched
 
 # Author detail files
 AU=$(wildcard *.au)
