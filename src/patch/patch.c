@@ -379,6 +379,7 @@ main(int argc, char *argv[])
 					toutkeep = true;
 					realout = TMPOUTNAME;
 					chmod(TMPOUTNAME, filemode);
+					failed++;
 				} else
 					chmod(outname, filemode);
 
