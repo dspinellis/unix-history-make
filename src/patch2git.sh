@@ -81,10 +81,10 @@ cd $PATCHED &&
   grep -v '^#' $SRCDIR/ignore/386BSD-0.1 | xargs rm -rf
 
 # Reinstate stuff required by various patches
-mv /tmp/MAKEDEV.$$ $PATCHED/dev/MAKEDEV
 mkdir -p $PATCHED/usr/bin
 mkdir -p $PATCHED/usr/share/man/cat1 $PATCHED/usr/share/misc
 mkdir -p $PATCHED/var $PATCHED/dev
+mv /tmp/MAKEDEV.$$ $PATCHED/dev/MAKEDEV
 
 # Quickly verify patches
 if [ -n "$DEBUG" ] ; then
@@ -125,7 +125,7 @@ while read patch ; do
   # Patch
   relative_links
   chmod -R u+w $PATCHED
-  PATH=patch:$PATH $SRCDIR/patch-386bsd.sh $PATCHED $WORK $patch || break
+  PATH=patch:$PATH $SRCDIR/patch-386bsd.sh $PATCHED $WORK $patch || exit 1
   absolute_links
 
   # Commit
