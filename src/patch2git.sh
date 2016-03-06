@@ -110,7 +110,7 @@ while read patch ; do
   sed -n '/^DESCRIPTION:/,/^%%/ {/^DESCRIPTION:/d; /^%%/d; p; }' $INBOUND/$patch/PATCH >>$MESSAGE
   echo >>$MESSAGE
   grep '^AUTHOR:' $INBOUND/$patch/PATCH >>$MESSAGE
-  echo "386BSD PATCHKIT: $patch" >>$MESSAGE
+  echo "386BSD-Patchkit: $patch" >>$MESSAGE
 
   (
     cd $PATCHED &&
