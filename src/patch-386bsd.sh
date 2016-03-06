@@ -362,43 +362,10 @@ m_install() {
 		rm -f $FAIL
 		echo
 		echo "INSTALLATION OF $patch HAS FAILED!"
-cat << EOF_MARK
-
-All is not lost!  During installation, a recovery script was created for
-just such an emergency.  This will remove new files and back out changes
-to any original files.
-
-EOF_MARK
-		echo -n "Undo changes? "
-		YESNO=1
-		getyn
-		if test "$YESNO" = "0"
-		then
-			header
-			echo "If you change your mind, and I strongly recommend you do!, the file"
-			echo "        $UNDO"
-			echo "contains the necessary commands.  Note that this is a temporary file"
-			echo "and will go away unless you save it somewhere permanent *NOW*."
-			echo
-
-			exit 2
-		fi
-
-		#
-		# Back out changes from patch
-		#
-		header
-		echo -n "UNDOING $patch.  DO NOT INTERRUPT."
-		/bin/sh $UNDO
-
-		echo
 		echo
 		echo "You should check the log file"
 		echo "        $LOG"
-		echo "which contains the commands executed during installation and the file"
-		echo "        $UNDO"
-		echo "which contains the commands executed during the undo."
-		echo "Do this *NOW* to insure the undo was successful."
+		echo "which contains the commands executed during installation."
 		exit 2
 	fi
 
