@@ -270,7 +270,7 @@ EOF
     $ARCHIVE/386BSD-0.1 386BSD 0.1 -0800 | gfi
 
   # 386BSD 0.1 patchkit
-  perl ../import-dir.pl $VERBOSE -m 386BSD-0.1 \
+  perl ../import-dir.pl $VERBOSE -m 386BSD-0.1 -b 386BSD-0.1 \
     -G 'Diomidis Spinellis <dds@FreeBSD.org> 739659600 +0000' \
     $ARCHIVE/386BSD-0.1-patched/ 386BSD-0.1-patchkit \
     --progress=1000 | gfi
@@ -491,13 +491,18 @@ verify()
 
   # Exact numbers
   compare_repo 386BSD-0.1-patchkit ../archive/386BSD-0.1-patched 0 0 15 726
-  exit
   compare_repo 386BSD-0.1-patchkit-Import ../archive/../archive/386BSD-0.1 0 0 459 0
   compare_repo 386BSD-0.0-Snapshot-Development ../archive/../archive/386BSD-0.0/src 0 0 27 0
   compare_repo 386BSD-0.1-Snapshot-Development ../archive/../archive/386BSD-0.1 0 0 459 0
 
-
   # Verify reference files in git imports work as expected
+  if ! : ; then
+  git checkout 386BSD-0.1-patchkit-Import
+    ensure_present .ref-386BSD-0.1
+    git checkout 386BSD-0.1-patchkit
+    ensure_absent .ref-386BSD-0.1
+  fi
+
   git checkout FreeBSD-release/1.0
   for i in $(echo $MERGED_FREEBSD_1 | sed 's/,/ /')
   do

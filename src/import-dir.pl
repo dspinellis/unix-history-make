@@ -61,6 +61,7 @@ main::HELP_MESSAGE
 	my ($fh) = @_;
 	print $fh qq{
 Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
+-b T	Before import keep the specified files
 -C date	Ignore commits after the specified cutoff date
 -c file	Map of the tree's parts written by specific contributors
 -G str	Import directory through git. Argument is author and timestamp
@@ -87,10 +88,10 @@ version_name and tz_offset are not required for SCCS imports
 };
 }
 
-our($opt_C, $opt_c, $opt_G, $opt_i, $opt_I, $opt_m, $opt_n, $opt_P, $opt_p, $opt_R, $opt_r, $opt_S, $opt_s, $opt_u, $opt_v);
-$opt_m = $opt_r = '';
+our($opt_b, $opt_C, $opt_c, $opt_G, $opt_i, $opt_I, $opt_m, $opt_n, $opt_P, $opt_p, $opt_R, $opt_r, $opt_S, $opt_s, $opt_u, $opt_v);
+$opt_b = $opt_m = $opt_r = '';
 
-if (!getopts('C:c:G:i:I:m:n:P:p:R:r:Ss:t:u:v')) {
+if (!getopts('b:C:c:G:i:I:m:n:P:p:R:r:Ss:t:u:v')) {
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 
@@ -366,6 +367,21 @@ if (!defined($first_mtime)) {
 
 issue_start_commit();
 
+# Add the specified Git files to the repo prefixing their path as specified
+sub
+add_git_files
+{
+	my ($ref, $prefix) = @_;
+
+	my $cmd;
+	open(my $ls, '-|', $cmd = "git ls-tree -r $ref") || die "Unable to open run $cmd: $!\n";
+	while (<$ls>) {
+		chop;
+		my ($mode, $blob, $sha, $path) = split;
+		print "M $mode $sha $prefix$path\n";
+	}
+}
+
 # Issue the commit that starts development
 # Return the commit's mark
 sub
@@ -377,7 +393,11 @@ issue_start_commit
 	my $readme_blob = add_file_blob('../README-SHA.md');
 
 	# The actual development commits
-	print "# Start development commits from a clean slate\n";
+	if ($opt_b) {
+		print "# Continue further development commits\n";
+	} else {
+		print "# Start development commits from a clean slate\n";
+	}
 	print "commit refs/heads/$dev_branch\n";
 	print "mark :$mark\n";
 	if ($opt_G) {
@@ -389,21 +409,23 @@ issue_start_commit
 	}
 	print data("Start development on $branch $version\n" .
 		($opt_r ? "Create reference copy of all prior development files\n" : '') .
+		($opt_b ? "Keep prior development files\n" : '') .
 		"(Synthetic commit)");
 	# Specify merges
 	for my $merge (split(/,/, $opt_m)) {
 		print "merge $merge\n";
 	}
+
 	# Add reference copies of older files
 	for my $ref (split(/,/, $opt_r)) {
-		my $cmd;
-		open(my $ls, '-|', $cmd = "git ls-tree -r $ref") || die "Unable to open run $cmd: $!\n";
-		while (<$ls>) {
-			chop;
-			my ($mode, $blob, $sha, $path) = split;
-			print "M $mode $sha .ref-$ref/$path\n";
-		}
+		add_git_files($ref, ".ref-$ref/");
 	}
+
+	# Add copies of existing files
+	for my $ref (split(/,/, $opt_b)) {
+		add_git_files($ref, '');
+	}
+
 	# Add README and licenses
 	print "M 644 :$readme_blob README.md\n";
 	print "M 644 :$text_license_blob LICENSE\n";
@@ -780,14 +802,14 @@ git_import
 			($from) = ($block->{from}->[0] =~ m/^from\s+\:(\d+)/);
 			$has_ref[$mark] = $has_ref[$from];
 		}
-		# Add reference files, if needed
+		# Add reference files, if a time was specified with -R
 		if ($opt_r && $time < $reference_stop_time && !$block->{from}) {
 			my @from = ("from :$ref_mark");
 			$block->{from} = \@from;
 			$has_ref[$mark] = 1;
 			$added_ref++;
 		}
-		# Remove reference files, if needed
+		# Remove reference files, if a time was specified with -R
 		if ($opt_r && $time >= $reference_stop_time && $has_ref[$mark]) {
 			my @files;
 			@files = @{$block->{files}} if (defined($block->{files}));
@@ -797,6 +819,12 @@ git_import
 			$block->{files} = \@files;
 			$has_ref[$mark] = 0;
 			$removed_ref++;
+		}
+		# Indicate parent of initial commit
+		if ($opt_b && defined($ref_mark) && !$block->{from}) {
+			my @from = ("from :$ref_mark");
+			$block->{from} = \@from;
+			undef($ref_mark);
 		}
 		print $block->as_string();
 	}
