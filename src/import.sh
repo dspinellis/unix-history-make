@@ -20,6 +20,9 @@
 # The directory where the repository will be created
 REPO=import
 
+# Commit label used for verification of parents
+FIRST_COMMIT='Research V1'
+
 # Location of archive mirror
 ARCHIVE=../archive
 
@@ -97,7 +100,6 @@ import()
 
   # Release branch
   git branch Research-Release
-
 
   # V1: Assembly language kernel
   perl ../import-dir.pl $VERBOSE -m Epoch -c ../author-path/Research-V1 -n ../bell.au \
@@ -422,6 +424,15 @@ compare_repo()
 verify()
 {
   cd $REPO
+
+  # Verify that trees go back all the way to the first commit
+  for i in 386BSD-0.1-patchkit FreeBSD-release/1.0 FreeBSD-release/2.0 \
+    FreeBSD-release/3.0.0 ; do
+    if ! git log --oneline --reverse $i -- | head -1 | grep "$FIRST_COMMIT" >/dev/null ; then
+      echo "Incorrect parent for $i" 1>&2
+      exit 1
+    fi
+  done
 
   # Verify Research releases are the same
   for i in 3 4 5 6
