@@ -383,32 +383,46 @@ compare_repo()
   local expected_diff_files="$3"
   local expected_diff_lines="$4"
   local expected_only_files="$5"
+  local expected_errors="$6"
 
   git checkout "$id"
-  # Exit with an error on fatal diff problems (e.g. missing source directory)
-  DIFFS="$(diff -r . $dir | ../diff-sum.awk ; exit  $((${PIPESTATUS[0]} > 1)) )" || exit 1
+  DIFFS="$(diff -r . $dir 2>../diff.errors | tee ../diff.out | ../diff-sum.awk)"
   set $DIFFS
   local actual_diff_files="$1"
   local actual_diff_lines="$2"
   local actual_only_files="$3"
+  local actual_errors=$(wc -l <../diff.errors)
+
+  if [ $actual_errors -gt $expected_errors ] ; then
+    cat ../diff.errors
+    echo "More errors ($actual_errors) than expected ($expected_errors)" 1>&2
+    exit 1
+  fi
+  rm ../diff.errors
+
   if [ $actual_diff_files -gt $expected_diff_files ] ; then
     echo "More different files ($actual_diff_files) than expected ($expected_diff_files)" 1>&2
+    echo 'See diff.out' 1>&2
     exit 1
   fi
   if [ $actual_diff_lines -gt $expected_diff_lines ] ; then
     echo "More different lines ($actual_diff_lines) than expected ($expected_diff_lines)" 1>&2
+    echo 'See diff.out' 1>&2
     exit 1
   fi
   if [ $actual_only_files -gt $expected_only_files ] ; then
     echo "More missing / extra files ($actual_only_files) than expected ($expected_only_files)" 1>&2
+    echo 'See diff.out' 1>&2
     exit 1
   fi
+  rm ../diff.out
 }
 
 # Verify the import
 verify()
 {
   cd $REPO
+
   # Verify Research releases are the same
   for i in 3 4 5 6
   do
@@ -475,6 +489,14 @@ verify()
     exit 1
   fi
 
+  # Exact numbers
+  compare_repo 386BSD-0.1-patchkit ../archive/386BSD-0.1-patched 0 0 15 726
+  exit
+  compare_repo 386BSD-0.1-patchkit-Import ../archive/../archive/386BSD-0.1 0 0 459 0
+  compare_repo 386BSD-0.0-Snapshot-Development ../archive/../archive/386BSD-0.0/src 0 0 27 0
+  compare_repo 386BSD-0.1-Snapshot-Development ../archive/../archive/386BSD-0.1 0 0 459 0
+
+
   # Verify reference files in git imports work as expected
   git checkout FreeBSD-release/1.0
   for i in $(echo $MERGED_FREEBSD_1 | sed 's/,/ /')
@@ -484,7 +506,7 @@ verify()
 
   # Actually 33 1220 54
   # Missing files are GNU utilities
-  compare_repo FreeBSD-release/1.0 ../archive/FreeBSD-1.0/filesys/usr/src/ 40 1300 54
+  compare_repo FreeBSD-release/1.0 ../archive/FreeBSD-1.0/filesys/usr/src/ 40 1300 54 0
 
   git checkout FreeBSD-release/1.1
   for i in $(echo $MERGED_FREEBSD_1 | sed 's/,/ /')
@@ -494,11 +516,11 @@ verify()
 
   # Actually 43 272 126
   # Missing files are mainly from gnu/lib/libg++/g++-include
-  compare_repo FreeBSD-release/1.1 ../archive/FreeBSD-1.1/filesys/usr/src/ 45 300 126
+  compare_repo FreeBSD-release/1.1 ../archive/FreeBSD-1.1/filesys/usr/src/ 45 300 126 0
 
   # Actually 64 234 20
   # Missing files are mainly kernel configurations
-  compare_repo FreeBSD-release/1.1.5 ../archive/FreeBSD-1.1.5/usr/src/ 70 300 20
+  compare_repo FreeBSD-release/1.1.5 ../archive/FreeBSD-1.1.5/usr/src/ 70 300 20 0
 
   git checkout FreeBSD-release/2.0
   for i in $(echo $MERGED_FREEBSD_2 | sed 's/,/ /')
