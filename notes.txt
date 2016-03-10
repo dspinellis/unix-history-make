@@ -282,3 +282,6 @@ in later editions.
 Based on the path names in s2-bits and the Fifth Edition directory layout the the files should be placed in usr/source/s1
 - Visualize the repo with https://github.com/acaudwell/Gource (suggested by C.Meloche)
 - Add 386BSD patchkit
+- Add PDP7 Unix: https://github.com/DoctorWkt/pdp7-unix/tree/master/scans
+- Use single author in commit messages (this will improve GitHub attribution).  Additional authors can be added in the comment.
+- Perform seamless merges (without reference files) when the next import is Git based and includes all files. For example, import freebsd-early.git from ec7d9c94e5bf, which contains all files from 386BSD + patchkit
