@@ -15,6 +15,9 @@ BEGIN {
 # Ignore obj directories and tags files
 /: (obj|tags)$/ { next }
 
+# Ignore Git repo
+/\/\.git\// { next }
+
 # Ignore RCS ids
 /\$(Id|Header|Log|Revision|Source|Author)/ { next }
 
