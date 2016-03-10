@@ -4,10 +4,13 @@
 # and missing files.
 # Ignore RCS ids and some development artefacts
 
-# Set to see the actual differences
-# OK for human consumption, disable it to get only a summary suitable for
-# scripts
-BEGIN { verbose = 0 }
+BEGIN {
+	# Set to 1 for human-readable output of the actual differences
+	# Set to 0 to get only a summary suitable for scripts
+	verbose = 0
+
+	diff_files = diff_lines = only_files = 0
+}
 
 # Ignore obj directories and tags files
 /: (obj|tags)$/ { next }
