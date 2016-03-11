@@ -501,7 +501,7 @@ verify()
   fi
 
   # Exact numbers
-  compare_repo 386BSD-0.1-patchkit ../archive/386BSD-0.1-patched 0 0 15 726
+  compare_repo 386BSD-0.1-patchkit ../archive/386BSD-0.1-patched 0 0 296 726
   compare_repo 386BSD-0.1-patchkit-Import ../archive/../archive/386BSD-0.1 0 0 459 0
   compare_repo 386BSD-0.0-Snapshot-Development ../archive/../archive/386BSD-0.0/src 0 0 27 0
   compare_repo 386BSD-0.1-Snapshot-Development ../archive/../archive/386BSD-0.1 0 0 459 0
