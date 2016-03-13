@@ -25,7 +25,7 @@ carl:Carl Smith
 cda:Charlotte Allen
 cgd:Chris G. Demetriou
 christos:Christos Zoulas
-cbh:Charles B. Haley:research!cbh
+cbh:Charles B. Haley:cbh@research.uucp
 claudio:David L Wasley
 clemc:Clem Cole
 cohen:Ellis Cohen
@@ -39,7 +39,7 @@ csrg:CSRG
 csvaf:Alastair Fyfe
 csvsj:Steve Jacobson
 cuccia:Nick Cuccia
-cvw:Chris Van Wyk:research!cvw
+cvw:Chris Van Wyk:cvw@research.uucp
 dab:Dave A. Borman
 denise:Denise Draper
 dist:Distribution Folks
@@ -61,7 +61,7 @@ evan
 feldman:Brian Feldman
 fitz:Dan Fitzpatrick
 fortran
-frodo:T. J. Kowalski:research!frodo
+frodo:T. J. Kowalski:frodo@research.uucp
 fujita:Akito Fujita
 garrison:Gary M. Levin
 glickman:Matt Glickman
@@ -74,13 +74,13 @@ helge:Helge Skrivervik
 henry:Robert R. Henry
 hibler:Mike Hibler
 hickman:Kipp Hickman
-honey:Peter Honeyman:allegra!honey
+honey:Peter Honeyman:honey@alegra.uucp
 hpk:Howard Katseff
 jaap:Jaap Akkerhuis
 jak:John A. Kunze
 jas:Jim Shankland or Jeffrey A Silber
 jeff:Jeff Schriebman
-jekulp:Jim Kulp:jekulp@mit-mc
+jekulp:Jim Kulp:jekulp@mit-mc.arpa
 jerry:Jerry Berkman
 jfr:John Reiser
 jg:Jim Gettys
@@ -88,7 +88,7 @@ jkf:John Foderaro
 johnh:John Heidemann
 karels:Mike Karels
 kas:Kurt A. Schoens
-ken:Ken Thompson:research!ken
+ken:Ken Thompson:ken@research.uucp
 kfall:Kevin Fall
 kjd:Kevin Dunlap
 kre:Robert Elz
@@ -97,12 +97,12 @@ kupfer:Michael Kupfer
 kurt:Kurt A. Shoens
 lam:Karen Lam
 layer:Kevin Layer
-lem:Lee E. McMahon:research!lem
+lem:Lee E. McMahon:lem@research.uucp
 lepreau:Jay Lepreau
 leres:Craig Leres
 libs:Don Libes?
 linton:Mark Linton
-llc:Lorinda Cherry:research!llc
+llc:Lorinda Cherry:llc@research.uucp
 macklem:Rick Macklem
 mao:Mike A. Olson
 marc:Marc Teitelbaum
@@ -150,13 +150,13 @@ sellgren:Steve Sellgren
 serge:Serge ???
 shannon:Bill Shannon
 shantz:Mike Schantz
-sif:S. I. Feldman:research!sif
+sif:S. I. Feldman:sif@research.uucp
 sklower:Keith Sklower
 slatteng:Dave Slattengren
 staelin:Carl Staelin
 tapers:BSD Tape Makers
 tbl:Tom London
-td:Tom Duff:research!td
+td:Tom Duff:td@research.uucp
 tef:Thomas Ferrin
 thien:Roger J. Thien
 torek:Chris Torek
@@ -177,7 +177,7 @@ x-clm:Colin L. Mc Master
 x-dl:Douglas Lanam
 x-dw:David Willcox
 x-etc:Earl T. Cohen
-x-hg:Herb Gellis:research!x-hg
+x-hg:Herb Gellis:x-hg@research.uucp
 x-im:Ivan Maltz
 x-jp:Juan Porcar
 x-le:Len Edmondson
@@ -185,5 +185,5 @@ x-or:Olivier Roubine
 x-rd:R. Dowell
 x-rh:Ross Harvey
 x-rt:Robert Toxen
-x-td:Ted Dolotta:research!x-td
+x-td:Ted Dolotta:x-td@research.uucp
 zliu:Zhishun Alex Liu
