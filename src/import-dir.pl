@@ -123,6 +123,8 @@ if ($opt_R) {
 }
 
 my $directory = shift;
+my $source_dir = $directory;
+$source_dir =~ s/\.\.\/archive\///;
 my $branch = shift;
 my $version = '';
 $version = shift unless ($opt_S || $opt_G);
@@ -410,7 +412,7 @@ issue_start_commit
 	print data("Start development on $branch $version\n" .
 		($opt_r ? "Create reference copy of all prior development files\n" : '') .
 		($opt_b ? "Keep prior development files\n" : '') .
-		"\n\nSynthesized-from: $directory");
+		"\n\nSynthesized-from: $source_dir");
 	# Specify merges
 	for my $merge (split(/,/, $opt_m)) {
 		print "merge $merge\n";
@@ -450,16 +452,17 @@ issue_text_commits
 		my $commit_path = $name;
 		$commit_path =~ s/$opt_s// if ($opt_s);
 		$commit_path = $opt_P . $commit_path if ($opt_P);
-		my ($author, $coauthor) = author($commit_path);
+		my ($author, $coauthors) = author($commit_path);
 		my $coauthorship = '';
-		if (defined($coauthor)) {
-			for my $ca (@$coauthor) {
+		if (defined($coauthors)) {
+			for my $ca (@$coauthors) {
+				print STDERR "Added co-author $ca\n";
 				$coauthorship .= "\nCo-Authored-By: $ca";
 			}
-		|
+		}
 		print "author $author $fi{$name}->{mtime} $tz_offset\n";
 		print "committer $author $fi{$name}->{mtime} $tz_offset\n";
-		print data("$branch $version development\nWork on file $commit_path\n$coauthorship\nSynthesized-from: $directory");
+		print data("$branch $version development\nWork on file $commit_path\n$coauthorship\nSynthesized-from: $source_dir");
 		print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 	}
 }
@@ -478,7 +481,7 @@ print "mark :$mark\n";
 my $release_mark = $mark++;
 print "author $release_master $last_mtime $tz_offset\n";
 print "committer $release_master $last_mtime $tz_offset\n";
-print data("$branch $version release\nSnapshot of the completed development branch\n\nSynthesized-from: $directory");
+print data("$branch $version release\nSnapshot of the completed development branch\n\nSynthesized-from: $source_dir");
 print "from :$last_devel_mark\n" if defined($last_devel_mark);
 for my $merge (split(/,/, $opt_m)) {
 	print "merge $merge\n";
@@ -503,7 +506,7 @@ for my $ref (split(/,/, $opt_r)) {
 print "tag $branch-$version\n";
 print "from :$release_mark\n";
 print "tagger $release_master $last_mtime $tz_offset\n";
-print data("Tagged $version release snapshot of $branch with $version\n\nSynthesized-from: $directory");
+print data("Tagged $version release snapshot of $branch with $version\n\nSynthesized-from: $source_dir");
 
 
 # Signify that we're finished
@@ -535,13 +538,13 @@ create_committer_map
 				print STDERR "$opt_c($.): Unspecied author\n";
 				exit 1;
 			}
-			my ($author, $coauthors) = add_name_email($author);
+			my ($full_author, $coauthors) = add_name_email($author);
 			push(@committer_map, {
 				pattern => $pattern,
-				author => $author,
+				author => $full_author,
 				coauthors => $coauthors
 			});
-			$release_master = $author if ($pattern eq '.*');
+			$release_master = $full_author if ($pattern eq '.*');
 		}
 		close($in);
 	}
@@ -642,7 +645,7 @@ add_name_email
 	my ($author, @coauthors);
 	my @ids = split(/,/, $id);
 	for (my $i = 0; $i <= $#ids; $i++) {
-		$my $id = $ids[$i];
+		my $id = $ids[$i];
 		check_name($id);
 		my $contributor = "$full_name{$id} <$email{$id}>";
 		if ($i == 0) {
@@ -708,7 +711,7 @@ author
 			if (defined($unmatched) && $re->{pattern} eq '.*') {
 				print $unmatched "$path\n";
 			}
-			return ($re->{author}, $re->{coauthor});
+			return ($re->{author}, $re->{coauthors});
 		}
 	}
 	print STDERR "Unable to map comitter for $path\n";
