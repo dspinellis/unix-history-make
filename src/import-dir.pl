@@ -410,7 +410,7 @@ issue_start_commit
 	print data("Start development on $branch $version\n" .
 		($opt_r ? "Create reference copy of all prior development files\n" : '') .
 		($opt_b ? "Keep prior development files\n" : '') .
-		"(Synthetic commit)");
+		"\n\nSynthesized-from: $directory");
 	# Specify merges
 	for my $merge (split(/,/, $opt_m)) {
 		print "merge $merge\n";
@@ -450,10 +450,16 @@ issue_text_commits
 		my $commit_path = $name;
 		$commit_path =~ s/$opt_s// if ($opt_s);
 		$commit_path = $opt_P . $commit_path if ($opt_P);
-		my $author = committer($commit_path);
+		my ($author, $coauthor) = author($commit_path);
+		my $coauthorship = '';
+		if (defined($coauthor)) {
+			for my $ca (@$coauthor) {
+				$coauthorship .= "\nCo-Authored-By: $ca";
+			}
+		|
 		print "author $author $fi{$name}->{mtime} $tz_offset\n";
 		print "committer $author $fi{$name}->{mtime} $tz_offset\n";
-		print data("$branch $version development\nWork on file $commit_path\n(Synthetic commit)");
+		print data("$branch $version development\nWork on file $commit_path\n$coauthorship\nSynthesized-from: $directory");
 		print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 	}
 }
@@ -472,7 +478,7 @@ print "mark :$mark\n";
 my $release_mark = $mark++;
 print "author $release_master $last_mtime $tz_offset\n";
 print "committer $release_master $last_mtime $tz_offset\n";
-print data("$branch $version release\nSnapshot of the completed development branch\n(Synthetic commit)");
+print data("$branch $version release\nSnapshot of the completed development branch\n\nSynthesized-from: $directory");
 print "from :$last_devel_mark\n" if defined($last_devel_mark);
 for my $merge (split(/,/, $opt_m)) {
 	print "merge $merge\n";
@@ -497,7 +503,7 @@ for my $ref (split(/,/, $opt_r)) {
 print "tag $branch-$version\n";
 print "from :$release_mark\n";
 print "tagger $release_master $last_mtime $tz_offset\n";
-print data("Tagged $version release snapshot of $branch with $version\nSource directory: $directory\n(Synthetic tag)");
+print data("Tagged $version release snapshot of $branch with $version\n\nSynthesized-from: $directory");
 
 
 # Signify that we're finished
@@ -524,22 +530,23 @@ create_committer_map
 			s/#.*//;
 			s/^\s*//;
 			next if (/^$/);
-			my ($pattern, $committer) = split(/\t+/, $_);
-			if (!$committer) {
-				print STDERR "$opt_c($.): Unspecied committer\n";
+			my ($pattern, $author) = split(/\t+/, $_);
+			if (!$author) {
+				print STDERR "$opt_c($.): Unspecied author\n";
 				exit 1;
 			}
-			$committer = add_name_email($committer);
+			my ($author, $coauthors) = add_name_email($author);
 			push(@committer_map, {
 				pattern => $pattern,
-				committer => $committer
+				author => $author,
+				coauthors => $coauthors
 			});
-			$release_master = $committer if ($pattern eq '.*');
+			$release_master = $author if ($pattern eq '.*');
 		}
 		close($in);
 	}
 	if (!defined($release_master)) {
-		print STDERR "No default committer specified\n";
+		print STDERR "No default author specified\n";
 		exit 1;
 	}
 }
@@ -618,10 +625,12 @@ get_domain
 	}
 }
 
-# Given a committer id (or full details) add full name and email if needed
+# Given an author id (or full details) add full name and email if needed
 # Examples:
 # Jon Doe <joe@example.com> stays as is
 # jd becomes Jon Doe <joe@example.com>
+# More than one id can be specified.
+# In this case the co-author(s) are returned as an array
 sub
 add_name_email
 {
@@ -630,36 +639,22 @@ add_name_email
 	# Return if id already contains an email field
 	return $id if ($id =~ m/</);
 
-	if ($id =~ m/,/) {
-		# Multiple names
-		my @ids = split(/,/, $id);
-		# Check that names are valid and set same_domain to true
-		# if all share the same domain
-		my $same_domain = 1;
-		my $domain = defined($address_template) ? get_domain(email_address("x.y.z.z.y")) : '';
-		for my $i (@ids) {
-			check_name($i);
-			my $this_domain = get_domain($email{$i});
-			$same_domain = 0 if ($domain ne $this_domain);
-		}
-		my @names = map { $full_name{$_} } @ids;
-		my $name = join(' and ', @names);
-
-		my $address;
-		if ($same_domain) {
-			$address = email_address("{$id}");
-		} else {
-			my @addresses = map { $email{$_} } @ids;
-			$address = '{' . join(',', @addresses) . '}';
-		}
-		return "$name <$address>";
-	} else {
+	my ($author, @coauthors);
+	my @ids = split(/,/, $id);
+	for (my $i = 0; $i <= $#ids; $i++) {
+		$my $id = $ids[$i];
 		check_name($id);
-		return "$full_name{$id} <$email{$id}>";
+		my $contributor = "$full_name{$id} <$email{$id}>";
+		if ($i == 0) {
+			$author = $contributor;
+		} else {
+			push(@coauthors, $contributor);
+		}
 	}
+	return ($author, \@coauthors);
 }
 
-# Given a committer id, return the email address based on the
+# Given an author id, return the email address based on the
 # address template
 sub
 email_address
@@ -687,7 +682,7 @@ check_name
 	exit 1;
 }
 
-# Return a committer's full name, if available
+# Return an author's full name, if available
 # If not return the id, and save the unmatched id
 sub
 full_name
@@ -702,9 +697,9 @@ full_name
 	}
 }
 
-# Return the committer for the specified file path
+# Return the author (and possible co-authors) for the specified file path
 sub
-committer
+author
 {
 	my ($path) = @_;
 
@@ -713,7 +708,7 @@ committer
 			if (defined($unmatched) && $re->{pattern} eq '.*') {
 				print $unmatched "$path\n";
 			}
-			return $re->{committer};
+			return ($re->{author}, $re->{coauthor});
 		}
 	}
 	print STDERR "Unable to map comitter for $path\n";
