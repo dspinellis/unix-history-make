@@ -1,0 +1,124 @@
+In-Reply-To: <56FBFB59.6000308@acm.org>
+References: <56FB8616.6060908@aueb.gr>
+ <CAOkr1zUow1CNrP_ZRMD1FxoAD2+kZkspEX3iLz-ZHGBeQBQTsQ@mail.gmail.com>
+ <56FBF576.2000103@aueb.gr> <56FBFB59.6000308@acm.org>
+From: Clem Cole <clemc@ccc.com>
+Date: Thu, 31 Mar 2016 16:06:45 -0500
+Message-ID: <CAC20D2MWhZczOAd-pCTTOspTejyvTYEwRm+Sd_XTd_62aTuBpg@mail.gmail.com>
+To: Pat Barron <patbarron@acm.org>
+Subject: Re: [TUHS] Claim your early Unix contributions on GitHub
+List-Id: The Unix Heritage Society mailing list <tuhs.minnie.tuhs.org>
+List-Unsubscribe: <http://minnie.tuhs.org/cgi-bin/mailman/options/tuhs>,
+ <mailto:tuhs-request@minnie.tuhs.org?subject=unsubscribe>
+List-Archive: <http://minnie.tuhs.org/pipermail/tuhs/>
+List-Post: <mailto:tuhs@minnie.tuhs.org>
+List-Help: <mailto:tuhs-request@minnie.tuhs.org?subject=help>
+List-Subscribe: <http://minnie.tuhs.org/cgi-bin/mailman/listinfo/tuhs>,
+ <mailto:tuhs-request@minnie.tuhs.org?subject=subscribe>
+Cc: TUHS main list <tuhs@minnie.tuhs.org>
+Sender: "TUHS" <tuhs-bounces@minnie.tuhs.org>
+
+I've rehashed this here before... I'd really like to put this to bed (
+Dioxides Spinellis -- it would be great if you could put this some where in
+you files so it does not get lost).
+
+
+I'll restate the history of fsck for my friend and one time lab partner,
+Ted Kowalski - aka research!frodo or frodo@ece.cmu.edu as Ted passed a few
+years ago and can not do this for himself.
+
+Ted did his undergrad at Michigan and was Bill Joy's housemate (where wnj
+was also an undergrad) in the early 1970s.  Both were MTS/360 hackers and
+were introduced to UNIX there.    Ted would go to CMU for his grad work in
+the mid/late 1970s (where I knew him when I was there) and Joy would do his
+grad work at UCB in the same time frame (as did I were I knew him).  I
+was originally a CMU TSS/360 [MTS's older brother] hacker and was
+introduced to UNIX by Ted.***
+
+
+
+The original FS tools for UNIX icheck/dcheck/ncheck were very crude.  TSS
+and MTS (used a similar/same FS format) and and had a similar program in
+the key of fsck that Ted was familiar (as did a number of DEC systems for
+that matter).    Ted wrote the original version of premordial fsck for v6
+at UMich (maybe v5 - Joy probably would know what the version of UNIX was
+there then).
+
+Ted took "pre-fsck" to Bell Lab the summer between Mich and CMU.     Ted
+would rewrite and "continue hacking" fsck at CMU in the next year targeting
+V6.   It was at this time that CMU was switching from V5 to V6, I do not
+believe (remember) that Ted ever had fsck running on a V5 format FS, but
+early versions could definitely be compiled for either v6 or v7 with
+#ifdefs (I'm likely to have those sources somewhere if I can read a tape --
+but I can tell you the bits were not in SCCS control).  I remember taking
+his ire when we both edited a file at the same time ;-)
+
+BTW: the reason why the errors from the original version of fsck were all
+in UPPER CASE was because that's TSS and MTS did that.  So that's how I was
+taught for sure and I believe Ted also.   A number of early CMU UNIX
+programs look this way.
+
+Note:  Ted was *originally* in the "UNIX Support Group" @ BTL - aka USG
+(summit, not research and IIRC was Armando's officemate at USG).  By the
+early 1980s, Ted would become part of Research, so the research!frodo
+moniker became his (although I can not state when that was but other might
+know).
+
+When Ted (and Armando) were part of USB ???1977 or 78 maybe?? working on a
+kernel referred to as UNIX/TS - which would later become the kernel release
+by USG in PWB 2.0.  UNIX/TS was loosely based on bits that Ken and Dennis
+were working with in Murray Hill - but the kernel and FS difference between
+v6 and v7 were in UNIX/TS (PWB 2.0 et els).
+
+At some point (June I think) Dennis (and the research folks) took a snap
+shot of what was the research in 1979.  This would be released the folks
+outside of BTL as V7.    Ted had not yet completed fsck and so it was not
+(yet) in the research system (*i.e.* they still used
+icheck/ncheck/dcheck).  But Ted would later put it into what would become
+PWB 2.0.
+
+
+Similarly, Ted would also give copies of the CMU program to Ken/Dennis,
+Bill, and Armando for sure and I suspect some of his other friends at UMich
+had it also.  I had done some >>small<< things to help him with the program
+during my CMU time so I had it (it was how I learned C after being an
+assembler, Bliss, Algol and SAIL hacker from the TSS, 10s and VMS).
+
+Those of us UNIX hackers from CMU are also likely to have had fsck such as
+dvk (CS),  gss (BIO), tron(Mellon), and others (for instance, I believe
+Wayne Gramlich who was gss's housemate in Pittsburgh brought fsck from CMU
+to MIT when he moved from undergrad @ CMU to grad student at MIT - again
+someone like Noah might know when it showed up there).
+
+The point is that fsck was officially a "CMU/EE Dept developed program"  -
+although frodo certainly used UMich, as well as AT&T resources at USG
+hacking on it also.  But because of the CMU origins it was able to swim the
+UNIX oceans independently of the AT&T distribution methods of either
+research or summit.  For instance, I brought it to Tektronix before I was
+at UCB and it was at UCB by the time I was there.
+
+I suspect it was Joy who put it into BSD at some point, although there was
+definitely a number of students and faculty starting with Ken that moved
+between BTL and UCB (i.e. any BTL "OYOC" student could have
+brought anything with them); much less common students between CMU/UCB such
+as myself, Mike Carey, Shafi Goldwasser just in my class but as I said I
+think it predates us there.  I would have expected fsck to become part of
+BSD around 3.0 but it might not have been until 4.0 or 4.1.   Also any SCCS
+files you have from Joy/Kirk, are a number of years later than the original
+development.  They are based on the version wnj would have gotten from Ted
+at some point.
+
+How it made it to DEC, I do not know, although there were enough folks from
+lots of places like BTL much less academic institutions such as CMU
+(including Gordon Bell who was one of our Profs, Dave Roger's who ran the
+Vax project, Sam Fuller, and Bell's student Bell Strecker), that went to
+DEC that it's not surprising fsck made it there too.
+
+Clem
+
+
+***A side note, while Multics/CTSS impacted the BTL & MIT folks, and
+untold story
+of UNIX history is how TSS, MTS and VM/CMS for the IBM 360 had  impact on
+many for the UNIX hackers of that same time from other academic centers
+(CMU, MIT, Stanford, Cornell, Princeton ...).
