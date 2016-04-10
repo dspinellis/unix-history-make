@@ -1,4 +1,4 @@
-# Unix History Repository
+## Unix History Repository
 
 The goal of this project is to create a git repository representing the Unix source code history, starting from the 1970s and ending in the modern time.  To fulfill this goal the project brings data from early snapshots, repositories, and primary research.  The project aims to put in the repository as much metadata as possible, allowing the automated analysis of Unix history.  The following table illustrates the type of material that can be gathered and integrated into the repository.
 
@@ -23,13 +23,14 @@ Two repositories are associated with the project:
 The first phase of the project involved creating a single timeline from the First Edition of Unix until the present.
 
 ## Project status
-The project has achieved its first major goal with the establishment of a continuous timeline from 1972 to 2015. The repository contains:
+The project has achieved its first major goal with the establishment of a continuous timeline from 1972 until today. The repository contains:
 
 * snapshots of V1, V3, V4, V5, V6, and V7 Research Edition,
 * Unix/32V,
 * all available BSD releases,
 * the CSRG SCCS history,
 * two releases of 386BSD,
+* the 386BSD patchkit,
 * the FreeBSD 1.0 to 1.1.5 CVS history,
 * an import of the FreeBSD repository starting from its initial imports that led to FreeBSD 2.0, and
 * the current FreeBSD repository.
@@ -40,7 +41,7 @@ The repository contains a number of two-way merges.
 
 * 3 BSD is merged from Unix/32V and Research Edition 6
 * Various BSD releases are merged from the development branch and a time point of BSD-SCCS
-* FreeBSD 1.0 is merged from Net/2 BSD and 386BSD-0.1
+* FreeBSD 1.0 is merged from Net/2 BSD and 386BSD-0.1-patchkit
 * FreeBSD 2.0 is merged from BSD 4.4/Lite1 and FreeBSD 1.1.5
 
 Blame is apportioned appropriately.
@@ -73,6 +74,7 @@ The following tags or branch names mark specific releases, listed in rough chron
 * BSD-SCCS-END
 * 386BSD-0.0
 * 386BSD-0.1
+* 386BSD-0.1-patchkit
 * FreeBSD-release/1.0, 1.1, 1.1.5
 * FreeBSD-release/2.0 2.0.5, 2.1.0, 2.1.5, 2.1.6, 2.1.6.1, 2.1.7, 2.2.0, 2.2.1, 2.2.2, 2.2.5, 2.2.6, 2.2.7, 2.2.8
 * FreeBSD-release/3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.4.0, 3.5.0
@@ -82,7 +84,7 @@ The following tags or branch names mark specific releases, listed in rough chron
 * FreeBSD-release/7.0.0, 7.1.0, 7.2.0, 7.3.0, 7.4.0
 * FreeBSD-release/8.0.0, 8.1.0, 8.2.0, 8.3.0, 8.4.0
 * FreeBSD-release/9.0.0, 9.1.0, 9.2.0
-* FreeBSD-release/10.0.0, 10.1.0
+* FreeBSD-release/10.0.0, 10.1.0, 10.2.0
 
 More tags and branches are available.
 * The `-Snapshot-Development` branches denote commits that have been synthesized from a time-ordered sequence of a snapshot's files.
@@ -106,48 +108,54 @@ Running
 ```sh
 git log --reverse --date-order
 ```
-will give you commits like the following
+will give you commits such as the following
 
 ```
-commit 94a21182365ebb258eeee2aa41c5fbcb1f7fd566
-Author: Ken Thompson and Dennis Ritchie <research!{ken,dmr}>
-Date:   Tue Jun 20 04:00:00 1972 -0500
+commit 64d7600ea5210a9125bd1a06e5d184ef7547d23d
+Author: Ken Thompson <ken@research.uucp>
+Date:   Tue Jun 20 05:00:00 1972 -0500
 
     Research V1 development
-
     Work on file u5.s
+
+    Co-Authored-By: Dennis Ritchie <dmr@research.uucp>
+    Synthesized-from: v1/sys
 [...]
-commit b7b2640b9e27415d453a8fbe975a87902a01849d
-Author: Ken Thompson <research!ken>
-Date:   Tue Nov 26 18:13:21 1974 -0500
+commit 4030f8318890a026e065bc8926cebefb71e9d353
+Author: Ken Thompson <ken@research.uucp>
+Date:   Thu Aug 30 19:30:25 1973 -0500
 
-    Research V5 development
+    Research V3 development
+    Work on file sys/ken/slp.c
 
-    Work on file usr/sys/ken/slp.c
+    Synthesized-from: v3
 [...]
-commit 3d19667a65d35a411d911282ed8b87e32a56a349
-Author: Dennis Ritchie <research!dmr>
-Date:   Mon Dec 2 18:18:02 1974 -0500
+commit c4999ec655319a01e84d9460d84df824006f9e2d
+Author: Dennis Ritchie <dmr@research.uucp>
+Date:   Thu Aug 30 19:33:01 1973 -0500
 
-    Research V5 development
+    Research V3 development
+    Work on file sys/dmr/kl.c
 
-    Work on file usr/sys/dmr/kl.c
+    Synthesized-from: v3
 [...]
-commit 171931a3f6f28ce4d196c20fdec6a4413a843f89
-Author: Brian W. Kernighan <research!bwk>
+commit 355c543c6840fa5f37d8daf2e2eaa735ea6daa4a
+Author: Brian W. Kernighan <bwk@research.uucp>
 Date:   Tue May 13 19:43:47 1975 -0500
 
     Research V6 development
+    Work on file usr/source/rat/r.g
 
-    Work on file rat/r.g
+    Synthesized-from: v6
 [...]
-commit ac4b13bca433a44a97689af10247970118834696
-Author: S. R. Bourne <research!srb>
+commit 0ce027f7fb2cf19b7e92d74d3f09eb02e8fea50e
+Author: S. R. Bourne <srb@research.uucp>
 Date:   Fri Jan 12 02:17:45 1979 -0500
 
     Research V7 development
-
     Work on file usr/src/cmd/sh/blok.c
+
+    Synthesized-from: v7
 [...]
 Author: Eric Schmidt <schmidt@ucbvax.Berkeley.EDU>
 Date:   Sat Jan 5 22:49:18 1980 -0800
@@ -220,7 +228,7 @@ source that contains information that is currently missing.
   [4.3BSD-Tahoe](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD-Tahoe/),
   [4.3BSD-Alpha](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD-Alpha/), and
   [Net2](http://www.tuhs.org/Archive/4BSD/Distributions/Net2/).
-* Import further branches, such as 2BSD and NetBSD.
+* Import further branches, such as 2BSD, NetBSD, and Plan 9.
 
 ## Re-creating the historical repository from scratch
 The -make repository is provided to share and document the creation process, rather than as a bullet-proof way to get consistent and repeatable results.  For instance, importing the snapshots on a system that is case-insensitive (NTFS, HFS Plus with default settings) will result in a few files getting lost.
