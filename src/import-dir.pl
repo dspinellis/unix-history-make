@@ -462,7 +462,7 @@ issue_text_commits
 		my $coauthorship = '';
 		if (defined($coauthors)) {
 			for my $ca (@$coauthors) {
-				print STDERR "Added co-author $ca\n";
+				print STDERR "Added co-author $ca\n" if ($opt_v);
 				$coauthorship .= "\nCo-Authored-By: $ca";
 			}
 		}
