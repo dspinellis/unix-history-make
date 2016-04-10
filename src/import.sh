@@ -160,13 +160,13 @@ import()
     STRIP="-s $DIR"
     DIR=$DIR/sys/sys
   fi
-  perl ../import-dir.pl $VERBOSE -S -C 1996-01-01 -m BSD-3 -c ../author-path/BSD-3 \
+  perl ../import-dir.pl $VERBOSE -l -S -C 1996-01-01 -m BSD-3 -c ../author-path/BSD-3 \
     -n ../berkeley.au -u ../unmatched/BSD-SCCS.authors $DEBUG \
     -r BSD-3 -P usr/src/ $STRIP $DIR BSD-SCCS | gfi
 
   # Merge SCCS and incremental 4BSD additions
   SCCS_AT_RELEASE=$(git log --before='1980-11-15 11:24:58 +0200' -n 1 --format='%H' BSD-SCCS)
-  perl ../import-dir.pl $VERBOSE -m BSD-3,$SCCS_AT_RELEASE -c ../author-path/BSD-4 \
+  perl ../import-dir.pl $VERBOSE -l -m BSD-3,$SCCS_AT_RELEASE -c ../author-path/BSD-4 \
     -n ../berkeley.au \
     -r BSD-3,$SCCS_AT_RELEASE $DEBUG \
     -i ../ignore/BSD-4-src,../ignore/BSD-4-catman,../ignore/BSD-4-other,../ignore/BSD-4-map \
@@ -245,6 +245,7 @@ EOF
     ) | sort -u >../ignore/"BSD-${version}-sccs"
 
     perl ../import-dir.pl $VERBOSE -m $parent,$SCCS_AT_RELEASE \
+      -l \
       -c ../author-path/BSD-default \
       -n ../berkeley.au \
       -r $parent,$SCCS_AT_RELEASE $DEBUG \

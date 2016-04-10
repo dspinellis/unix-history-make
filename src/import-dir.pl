@@ -69,6 +69,7 @@ Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 -i file	Comma-separated list of files containing pathnames of files to ignore
 -I file	Comma-separated list of files containing pathnames of files to ignore
 	during incremental import, and add when merging
+-l	When importing symbolic links use linked file's date
 -m T	The commit(s) from which the import will be merged
 -n file	Map between contributor login names and full names
 -P path	Path to prepend to file paths (branches for git) being committed
@@ -88,10 +89,10 @@ version_name and tz_offset are not required for SCCS imports
 };
 }
 
-our($opt_b, $opt_C, $opt_c, $opt_G, $opt_i, $opt_I, $opt_m, $opt_n, $opt_P, $opt_p, $opt_R, $opt_r, $opt_S, $opt_s, $opt_u, $opt_v);
+our($opt_b, $opt_C, $opt_c, $opt_G, $opt_i, $opt_I, $opt_l, $opt_m, $opt_n, $opt_P, $opt_p, $opt_R, $opt_r, $opt_S, $opt_s, $opt_u, $opt_v);
 $opt_b = $opt_m = $opt_r = '';
 
-if (!getopts('b:C:c:G:i:I:m:n:P:p:R:r:Ss:t:u:v')) {
+if (!getopts('b:C:c:G:i:I:lm:n:P:p:R:r:Ss:t:u:v')) {
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 
@@ -193,6 +194,11 @@ gather_text_files
 		my $target = readlink;
 		$fi{$_}->{size} = length($target);
 		$fi{$_}->{mode} = '120000';
+		if ($opt_l) {
+			# Use date of linked file
+			my ($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, $ctime, $blksize, $blocks) = stat;
+			$fi{$_}->{mtime} = $mtime;
+		}
 	} else {
 		$fi{$_}->{size} = $size;
 		$fi{$_}->{mode} = (-x $_) ? '100755' : '100644';
