@@ -482,9 +482,9 @@ verify()
   verify_nodes '|\' 32
 
   echo Verify symbolic links
-  if ! [ -L usr/src/usr.sbin/sendmail/src/sysexits.h ]
+  if ! [ -L usr/src/usr.bin/pascal/libpc/whoami.h ]
   then
-    echo "usr/src/usr.sbin/sendmail/src/sysexits.h is not a symbolic link" 1>&2
+    echo "usr/src/usr.bin/pascal/libpc/whoami.h is not a symbolic link" 1>&2
     exit 1
   fi
 

@@ -10387,7 +10387,6 @@ usr/src/usr.sbin/sendmail/makemap/tags
 usr/src/usr.sbin/sendmail/praliases/tags
 usr/src/usr.sbin/sendmail/src/Makefiles/Makefile.SunOS.5.1
 usr/src/usr.sbin/sendmail/src/Makefiles/Makefile.SunOS.5.2
-usr/src/usr.sbin/sendmail/src/sysexits.h
 usr/src/usr.sbin/sendmail/src/tags
 usr/src/usr.sbin/sendmail/test/Results
 usr/src/usr.sbin/sendmail/test/mime01

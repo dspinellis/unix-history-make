@@ -35,7 +35,7 @@ my %email;
 # A map containing paths of files to ignore
 my %ignore_map;
 
-# A map containing paths of file to add when merging
+# A map containing paths of files to add when merging
 my %merge_add_map;
 
 # Subsitute $ with an id to get a contributor's email address
@@ -67,7 +67,7 @@ Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 -G str	Import directory through git. Argument is author and timestamp
 	to use for the reference files commit.
 -i file	Comma-separated list of files containing pathnames of files to ignore
--I file	Comma-separated list of files containing pathnames of files to ignore
+-I file	Comma-separated list of files containing SCCS pathnames to merge
 	during incremental import, and add when merging
 -l	When importing symbolic links use linked file's date
 -m T	The commit(s) from which the import will be merged
@@ -195,9 +195,24 @@ gather_text_files
 		$fi{$_}->{size} = length($target);
 		$fi{$_}->{mode} = '120000';
 		if ($opt_l) {
-			# Use date of linked file
-			my ($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, $ctime, $blksize, $blocks) = stat;
-			$fi{$_}->{mtime} = $mtime;
+			# Use date of linked file if possible
+			my ($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, @rest);
+			print STDERR "Link $_\n" if ($opt_v);
+			# Resolve absolute symbolic link paths
+			if ($target =~ m|^/|) {
+				($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, @rest) = stat($directory . $target);
+			} else {
+				($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, @rest) = stat;
+			}
+			if (defined($ino)) {
+				$fi{$_}->{mtime} = $mtime;
+				print STDERR "Setting mtime to $mtime\n" ($opt_v);
+			} else {
+				# Ignore
+				delete $fi{$_};
+				print STDERR "Ignoring unresolved symlink entry\n" ($opt_v);
+				return;
+			}
 		}
 	} else {
 		$fi{$_}->{size} = $size;

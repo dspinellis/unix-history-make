@@ -4507,8 +4507,6 @@ usr/src/usr.sbin/named/doc/rfc1035.lpr
 usr/src/usr.sbin/named/doc/rfc1101.lpr
 usr/src/usr.sbin/named/doc/rfc920.lpr
 usr/src/usr.sbin/named/doc/rfc974.lpr
-usr/src/usr.sbin/named/nameser.h
-usr/src/usr.sbin/named/resolv.h
 usr/src/usr.sbin/named/tags
 usr/src/usr.sbin/named/test/:pwedit
 usr/src/usr.sbin/named/test/atod.y
