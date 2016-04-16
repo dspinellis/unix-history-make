@@ -1,4 +1,4 @@
-## Unix History Repository
+### Unix History Repository
 
 The goal of this project is to create a git repository representing the Unix source code history, starting from the 1970s and ending in the modern time.  To fulfill this goal the project brings data from early snapshots, repositories, and primary research.  The project aims to put in the repository as much metadata as possible, allowing the automated analysis of Unix history.  The following table illustrates the type of material that can be gathered and integrated into the repository.
 
@@ -279,6 +279,7 @@ $ARCHIVE/32v Bell 32V -0500 | gfi
 - USENIX: The Advanced Computing Systems Association
     - [The Restoration of Early UNIX Artifacts](https://www.usenix.org/legacy/events/usenix09/tech/full_papers/toomey/toomey.pdf) (pdf)
 - Historical documents and data
+    - [PDP-7 Unix restoration project](https://github.com/DoctorWkt/pdp7-unix)
     - [First Edition Unix printout - 1972](http://bitsavers.trailing-edge.com/pdf/bellLabs/unix/PreliminaryUnixImplementationDocument_Jun72.pdf)
     - [Unix 32/V Report - 1978](http://cm.bell-labs.com/cm/cs/who/dmr/otherports/32vscan.pdf)
     - [Berkeley CSRG Archive CD-ROMs](https://www.mckusick.com/csrg/index.html)
