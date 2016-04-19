@@ -208,7 +208,7 @@ source that contains information that is currently missing.
 * If your current GitHub account is not linked to your past contributions,
   (you can search them through [this page](https://github.com/settings/emails)),
   associate your past email with your current account through your
-  [GitHub account settings][https://github.com/settings/emails].
+  [GitHub account settings](https://github.com/settings/emails).
   (Contact me for instructions on how to add email addresses to which you no
   longer have access.)
 * Look for errors and omissions in the
@@ -234,7 +234,7 @@ source that contains information that is currently missing.
   [4.3BSD-Tahoe](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD-Tahoe/),
   [4.3BSD-Alpha](http://www.tuhs.org/Archive/4BSD/Distributions/4.3BSD-Alpha/), and
   [Net2](http://www.tuhs.org/Archive/4BSD/Distributions/Net2/).
-* Import further branches, such as 2BSD, NetBSD, and Plan 9.
+* Import further branches, such as 2BSD, NetBSD, OpenBSD, and _Plan 9 from Bell Labs_.
 
 ## Re-creating the historical repository from scratch
 The -make repository is provided to share and document the creation process, rather than as a bullet-proof way to get consistent and repeatable results.  For instance, importing the snapshots on a system that is case-insensitive (NTFS, HFS Plus with default settings) will result in a few files getting lost.
