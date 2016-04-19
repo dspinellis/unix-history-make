@@ -205,6 +205,12 @@ to see how the Unix pipe functionality evolved over the years.
 ## How you can help
 You can help if you were there at the time, or if you can locate a
 source that contains information that is currently missing.
+* If your current GitHub account is not linked to your past contributions,
+  (you can search them through [this page](https://github.com/settings/emails)),
+  associate your past email with your current account through your
+  [GitHub account settings][https://github.com/settings/emails].
+  (Contact me for instructions on how to add email addresses to which you no
+  longer have access.)
 * Look for errors and omissions in the
   [files that map file paths to authors](https://github.com/dspinellis/unix-history-make/blob/master/src/author-path).
 * Look for parts of the system that have not yet been attributed
