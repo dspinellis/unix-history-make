@@ -206,11 +206,11 @@ gather_text_files
 			}
 			if (defined($ino)) {
 				$fi{$_}->{mtime} = $mtime;
-				print STDERR "Setting mtime to $mtime\n" ($opt_v);
+				print STDERR "Setting mtime to $mtime\n" if ($opt_v);
 			} else {
 				# Ignore
 				delete $fi{$_};
-				print STDERR "Ignoring unresolved symlink entry\n" ($opt_v);
+				print STDERR "Ignoring unresolved symlink entry\n" if ($opt_v);
 				return;
 			}
 		}
