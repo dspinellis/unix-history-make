@@ -101,9 +101,14 @@ import()
   # Release branch
   git branch Research-Release
 
-  # V1: Assembly language kernel
+  # PDP-7: Assembly language kernel and utilities
   perl ../import-dir.pl $VERBOSE -m Epoch -c ../author-path/Research-V1 -n ../bell.au \
-    $DEBUG \
+    $DEBUG -i ../ignore/Research-PDP7 \
+    $ARCHIVE/pdp7-unix/scans Research PDP7 -0500 | gfi
+
+  # V1: Assembly language kernel
+  perl ../import-dir.pl $VERBOSE -m Research-PDP7 -c ../author-path/Research-V1 -n ../bell.au \
+    $DEBUG -r Research-PDP7 \
     $ARCHIVE/v1/sys Research V1 -0500 | gfi
 
   # V3: C kernel

@@ -30,6 +30,9 @@ The organisation of the Unix Archive, the documents describing this archive's
 contents & organisation, and the HTML files in the directories TUHS_Html &
 PUPS_Html are copyright Warren Toomey.
 
+The code in the original PDP-7 Unix scans is copyright by Novell,
+which owns the rights to the Unix source code.
+
 The BSD snaphshots and SCCS commits are distributed with the following license.
 
 -----------------------------------------

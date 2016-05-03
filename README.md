@@ -25,7 +25,7 @@ The first phase of the project involved creating a single timeline from the Firs
 ## Project status
 The project has achieved its first major goal with the establishment of a continuous timeline from 1972 until today. The repository contains:
 
-* snapshots of V1, V3, V4, V5, V6, and V7 Research Edition,
+* snapshots of PDP-7, V1, V3, V4, V5, V6, and V7 Research Edition,
 * Unix/32V,
 * all available BSD releases,
 * the CSRG SCCS history,
@@ -49,6 +49,7 @@ Blame is apportioned appropriately.
 ## Tags and Branches
 The following tags or branch names mark specific releases, listed in rough chronological order.
 * Epoch
+* Research-PDP7
 * Research-V1
 * Research-V3
 * Research-V4

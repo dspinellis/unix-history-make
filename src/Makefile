@@ -1,5 +1,6 @@
 # Downloaded and expanded data
-DATA=archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
+DATA=archive/pdp7-unix \
+	archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
 	archive/1bsd archive/2bsd archive/32v archive/3bsd \
 	archive/CSRG/cd1.mnt archive/CSRG/cd2.mnt \
 	archive/CSRG/cd3.mnt archive/CSRG/cd4.mnt archive/CSRG/cd4.patched \
@@ -39,6 +40,11 @@ clear-mounts:
 	# drwxr-x--- 2 root news  4096 Mar  9  1989 netns
 	sudo mount -o loop -o uid=`id -u` $< $(subst .iso,,$<)
 	touch $@
+
+archive/pdp7-unix:
+	(cd archive ; git clone --depth=1 https://github.com/DoctorWkt/pdp7-unix.git)
+	sed -i '/"\*\*/d' $@/scans/*
+	touch -d '1970-06-30 12:00' $@/scans/*
 
 archive/v1:
 	mkdir -p archive
