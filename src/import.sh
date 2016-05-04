@@ -21,7 +21,7 @@
 REPO=import
 
 # Commit label used for verification of parents
-FIRST_COMMIT='Research V1'
+FIRST_COMMIT='Research PDP7'
 
 # Location of archive mirror
 ARCHIVE=../archive
