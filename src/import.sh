@@ -27,8 +27,9 @@ FIRST_COMMIT='Research PDP7'
 ARCHIVE=../archive
 
 # Used to terminate when git fast-import fails
-trap "exit 1" TERM
-export TOP_PID=$$
+# This ensures the exit from nested subshells
+set -E
+trap '[ "$?" -eq 77 ] && exit 77' ERR
 
 # Print usage information and exit
 usage()
@@ -76,7 +77,12 @@ gfi()
   else
     cat
   fi |
-  git fast-import --stats --done --quiet 1>&2 || kill -s TERM $TOP_PID
+  git fast-import --stats --done --quiet 1>&2
+  GFI_EXIT=${PIPESTATUS[1]}
+  if [ $GFI_EXIT != 0 ] ; then
+    exit 77
+  fi
+  set +x
 }
 
 # Import the data sources in archive into a Git archive
