@@ -648,7 +648,7 @@ while : ; do
   case "$1" in
     -d|--debug)
       # When debugging import only a few representative files
-      export DEBUG=-p\ '(u1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((sysexits)|(proc)|(stat)|(telextrn))\.h)'
+      export DEBUG=-p\ '([su]1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((sysexits)|(proc)|(stat)|(telextrn))\.h)'
       shift
       ;;
     -I|--no-import)
