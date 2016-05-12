@@ -483,6 +483,7 @@ a/sys/vaxuba/va.c
 a/sys/vaxuba/vp.c
 dev/MAKEDEV.local
 dev/mail
+sys
 tmp/as000387
 tmp/t
 usr/adm/acct
@@ -896,6 +897,28 @@ usr/games/lib/quiz.k/trek
 usr/games/lib/quiz.k/ucc
 usr/games/lib/snake.log
 usr/hosts/MAKEHOSTS
+usr/hosts/arpa
+usr/hosts/cad
+usr/hosts/calder
+usr/hosts/dali
+usr/hosts/degas
+usr/hosts/ear
+usr/hosts/ernie
+usr/hosts/esvax
+usr/hosts/ic
+usr/hosts/icw
+usr/hosts/ingres
+usr/hosts/jade
+usr/hosts/kim
+usr/hosts/matisse
+usr/hosts/medea
+usr/hosts/miro
+usr/hosts/monet
+usr/hosts/oz
+usr/hosts/statvax
+usr/hosts/turner
+usr/hosts/ucbvax
+usr/hosts/vax
 usr/include/a.out.h
 usr/include/ar.h
 usr/include/assert.h
@@ -925,6 +948,8 @@ usr/include/utmp.h
 usr/include/valign.h
 usr/include/varargs.h
 usr/include/vfont.h
+usr/ingres/bin
+usr/ingres/source
 usr/lib/Mail.help
 usr/lib/Mail.help.~
 usr/lib/Mail.rc
@@ -3652,6 +3677,7 @@ usr/src/usr.bin/uucp/pk.p
 usr/src/usr.bin/uucp/pk0.c
 usr/src/usr.bin/uucp/syskludge/INSTALL
 usr/src/usr.bin/uucp/syskludge/README
+usr/src/usr.bin/uucp/syskludge/SYS.h
 usr/src/usr.bin/uucp/tags
 usr/src/usr.bin/uucp/uuxqt.c
 usr/src/usr.bin/xsend/enroll.c
@@ -3870,6 +3896,7 @@ usr/src/usr.lib/libdbm/dbm.c
 usr/src/usr.lib/libdbm/dbm.h
 usr/src/usr.lib/libg/Makefile
 usr/src/usr.lib/libg/dbxxx.s
+usr/src/usr.lib/libjobs/SYS.h
 usr/src/usr.lib/libm/profiled/tar_holder
 usr/src/usr.lib/libmp/make.out
 usr/src/usr.lib/libnm/Makefile
@@ -3890,6 +3917,7 @@ usr/src/usr.lib/libnm/sqrt.s.old
 usr/src/usr.lib/libnm/tan.s
 usr/src/usr.lib/libnm/tanh.s
 usr/src/usr.lib/libpc/profiled/tar_holder
+usr/src/usr.lib/libpc/whoami.h
 usr/src/usr.lib/libplot/Makefile
 usr/src/usr.lib/libplot/plot.c.a
 usr/src/usr.lib/libplot/t300.c.a
@@ -3935,3 +3963,5 @@ usr/src/usr.lib/vpr/sidebyside.c
 usr/src/usr.lib/vpr/vcat.c
 usr/src/usr.lib/vpr/vpf.c
 usr/src/usr.lib/vpr/vsort.c
+usr/ucb/mailq
+usr/ucb/newaliases

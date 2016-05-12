@@ -1,4 +1,5 @@
 dev/MAKEDEV.local
+sys
 usr/adm/acct
 usr/adm/aculog
 usr/adm/daily
@@ -660,8 +661,10 @@ usr/contrib/X/include/X/Xlib.h
 usr/contrib/X/include/X/Xproto.h
 usr/contrib/X/include/X/Xtext.h
 usr/contrib/X/include/X/Xtty.h
+usr/contrib/X/include/X/cursors
 usr/contrib/X/include/X/mit-copyright.h
 usr/contrib/X/include/X/rgb.h
+usr/contrib/X/include/vaxuba
 usr/contrib/X/inline/README
 usr/contrib/X/keycomp/Makefile
 usr/contrib/X/keycomp/Xkeymap.default
@@ -770,6 +773,8 @@ usr/contrib/X/sys/README
 usr/contrib/X/sys/vax/ATHENA
 usr/contrib/X/sys/vax/README
 usr/contrib/X/sys/vaxuba/qevent.h
+usr/contrib/X/sys/vaxuba/vs.c
+usr/contrib/X/sys/vaxuba/vsreg.h
 usr/contrib/X/uwm/func.mm
 usr/contrib/X/uwm/jg.uwmrc
 usr/contrib/X/uwm/uwm.1
@@ -2711,6 +2716,7 @@ usr/contrib/icon/tran/token.h
 usr/contrib/icon/tran/tokens
 usr/contrib/icon/tran/toktab.c
 usr/contrib/icon/tran/tree.h
+usr/contrib/icon/v5g
 usr/contrib/jove/Makefile
 usr/contrib/jove/Ovmakefile
 usr/contrib/jove/README
@@ -2726,6 +2732,7 @@ usr/contrib/jove/disp.c
 usr/contrib/jove/doc/cmds.doc
 usr/contrib/jove/doc/cmds.doc.nr
 usr/contrib/jove/doc/example.rc
+usr/contrib/jove/doc/jove.4
 usr/contrib/jove/doc/jove.nr
 usr/contrib/jove/doc/manual.n
 usr/contrib/jove/doc/recover.nr
@@ -4323,6 +4330,7 @@ usr/contrib/spms/include/yesno.h
 usr/contrib/spms/lib/Makefile
 usr/contrib/spms/lib/p.Makefile
 usr/contrib/spms/man/catn/spmsintro.n
+usr/contrib/spms/man/man1
 usr/contrib/spms/man/man3/pgrep.3p
 usr/contrib/spms/man/mann/Makefile
 usr/contrib/spms/man/mann/chproject.n
@@ -4616,6 +4624,7 @@ usr/contrib/sunrpc/doc/rpc.prog2
 usr/contrib/sunrpc/doc/rpc.spec
 usr/contrib/sunrpc/doc/xdr.spec
 usr/contrib/sunrpc/doc/xdr.spec2
+usr/contrib/sunrpc/rpc
 usr/contrib/sunrpc/rpcinfo.c
 usr/contrib/sunrpc/toys/Makefile
 usr/contrib/sunrpc/toys/sort_prot.c
@@ -4782,6 +4791,7 @@ usr/dict/papers/Ind.ic
 usr/dict/papers/Rbstjissue
 usr/dict/papers/Rv7man
 usr/dict/papers/runinv
+usr/dict/spellhist
 usr/dict/web2
 usr/dict/web2a
 usr/dict/words
@@ -4883,6 +4893,7 @@ usr/doc/ps1/14.sccs/spell.ok
 usr/doc/ps2/04.implement/fig1.pic
 usr/doc/ps2/04.implement/fig2.pic
 usr/doc/ps2/05.iosys/Makefile
+usr/doc/ps2/10.ingres
 usr/doc/run/Ind.ic
 usr/doc/run/REFS
 usr/doc/run/tmac.sU
@@ -5128,13 +5139,23 @@ usr/include/assert.h
 usr/include/ctype.h
 usr/include/grp.h
 usr/include/math.h
+usr/include/net
+usr/include/netimp
+usr/include/netinet
+usr/include/netns
 usr/include/pwd.h
 usr/include/ranlib.h
 usr/include/setjmp.h
 usr/include/sgtty.h
+usr/include/stand
 usr/include/struct.h
+usr/include/sys
 usr/include/time.h
 usr/include/varargs.h
+usr/include/vax
+usr/include/vaxif
+usr/include/vaxmba
+usr/include/vaxuba
 usr/lib/Mail.help
 usr/lib/Mail.rc
 usr/lib/Mail.tildehelp
@@ -5843,10 +5864,12 @@ usr/lib/lib.b
 usr/lib/lint/llib-lm
 usr/lib/lint/llib-lmp
 usr/lib/lint/llib-ltermlib
+usr/lib/lint/llib-ltermlib.ln
 usr/lib/lisp/Makefile
 usr/lib/lisp/ReadMe
 usr/lib/lisp/array.l
 usr/lib/lisp/array.x
+usr/lib/lisp/as
 usr/lib/lisp/autorun/68k
 usr/lib/lisp/autorun/mc500
 usr/lib/lisp/autorun/sun4.2
@@ -5919,6 +5942,7 @@ usr/lib/lisp/manual/ch9.r
 usr/lib/lisp/manual/chb.r
 usr/lib/lisp/manual/chc.r
 usr/lib/lisp/manual/helpindex
+usr/lib/lisp/nld
 usr/lib/lisp/pp.l
 usr/lib/lisp/pp.x
 usr/lib/lisp/prof.l
@@ -5998,6 +6022,8 @@ usr/lib/uucp/SEQF
 usr/lib/uucp/USERFILE
 usr/lib/uucp/clean.daily
 usr/lib/uucp/clean.weekly
+usr/lib/vfont/fix.8
+usr/lib/vfont/fix.8r
 usr/lib/vfont/fontmap
 usr/lib/vfont/railmag
 usr/lib/vgrindefs
@@ -6654,6 +6680,9 @@ usr/src/games/trek/board.x
 usr/src/games/wump.c
 usr/src/games/zork/zork.c
 usr/src/games/zork/zorklib/dindex.dat
+usr/src/include/curses.h
+usr/src/include/pascal/unixio.h
+usr/src/include/pascal/unixio.i
 usr/src/include/varargs.h
 usr/src/lib/c2/Test.d/botch.c
 usr/src/lib/c2/Test.d/botch.s
@@ -6772,6 +6801,7 @@ usr/src/sys/GENERIC/rx.h
 usr/src/sys/GENERIC/sl.h
 usr/src/sys/GENERIC/swaphkvmunix.c
 usr/src/sys/GENERIC/swaphpvmunix.c
+usr/src/sys/GENERIC/sys
 usr/src/sys/GENERIC/tb.h
 usr/src/sys/GENERIC/te.h
 usr/src/sys/GENERIC/tj.h
@@ -6879,6 +6909,7 @@ usr/src/sys/floppy/upmboo.cmd
 usr/src/sys/floppy/upsboo.cmd
 usr/src/sys/floppy/utboot.cmd
 usr/src/sys/h/tags
+usr/src/sys/machine
 usr/src/sys/net/tags
 usr/src/sys/netimp/tags
 usr/src/sys/netinet/tags
@@ -7060,6 +7091,7 @@ usr/src/ucb/lisp/Makefile
 usr/src/ucb/lisp/Notice
 usr/src/ucb/lisp/ReadMe
 usr/src/ucb/lisp/cvt.awk
+usr/src/ucb/lisp/doc
 usr/src/ucb/lisp/franz/68k/68k.c
 usr/src/ucb/lisp/franz/68k/Makefile
 usr/src/ucb/lisp/franz/68k/adbig.c
@@ -8121,6 +8153,7 @@ usr/src/usr.lib/libm/profiled/tar_holder
 usr/src/usr.lib/liboldnm/README
 usr/src/usr.lib/liboldnm/sqrt.s.old
 usr/src/usr.lib/libpc/profiled/tar_holder
+usr/src/usr.lib/libpc/whoami.h
 usr/src/usr.lib/libplot/Makefile
 usr/src/usr.lib/libplot/plot/Makefile
 usr/src/usr.lib/libplot/t300/Makefile
@@ -8135,3 +8168,5 @@ usr/src/usr.lib/me/revisions
 usr/src/usr.lib/me/summary.external
 usr/src/usr.lib/me/test.accent
 usr/src/usr.lib/me/test.umlaut
+usr/ucb/mailq
+usr/ucb/newaliases

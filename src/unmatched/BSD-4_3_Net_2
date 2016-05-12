@@ -33,6 +33,7 @@ Foreign/src/rlogin/tags
 Foreign/src/rlogind/tags
 Foreign/src/rsh/tags
 Foreign/src/rshd/tags
+sys
 usr/src/README
 usr/src/bin/cat/tags
 usr/src/bin/chmod/tags
@@ -781,6 +782,7 @@ usr/src/contrib/isode/others/quipu/quipu-db/national/c=GB/UCL/cn=bells/EDB
 usr/src/contrib/isode/others/quipu/quipu-db/national/quiputailor
 usr/src/contrib/isode/others/quipu/quipu-db/non-root/READ-ME
 usr/src/contrib/isode/others/quipu/quipu-db/non-root/c=GB/EDB.map
+usr/src/contrib/isode/others/quipu/quipu-db/non-root/c=GB/UCL/CS
 usr/src/contrib/isode/others/quipu/quipu-db/non-root/c=GB/UCL/EDB
 usr/src/contrib/isode/others/quipu/quipu-db/non-root/c=GB/UCL/EDB.map
 usr/src/contrib/isode/others/quipu/quipu-db/non-root/quiputailor
@@ -788,6 +790,7 @@ usr/src/contrib/isode/others/quipu/quipu-db/organisation/EDB
 usr/src/contrib/isode/others/quipu/quipu-db/organisation/READ-ME
 usr/src/contrib/isode/others/quipu/quipu-db/organisation/c=GB/EDB
 usr/src/contrib/isode/others/quipu/quipu-db/organisation/c=GB/EDB.map
+usr/src/contrib/isode/others/quipu/quipu-db/organisation/c=GB/UCL
 usr/src/contrib/isode/others/quipu/quipu-db/organisation/quiputailor
 usr/src/contrib/isode/others/quipu/tools/Makefile
 usr/src/contrib/isode/others/quipu/tools/dsaconfig/Makefile
@@ -4542,8 +4545,10 @@ usr/src/usr.sbin/sendmail/doc/rfc822.lpr
 usr/src/usr.sbin/sendmail/doc/spell.good
 usr/src/usr.sbin/sendmail/doc/usenix.abs
 usr/src/usr.sbin/sendmail/doc/usenix.me
+usr/src/usr.sbin/sendmail/mail.local
 usr/src/usr.sbin/sendmail/mailstats/tags
 usr/src/usr.sbin/sendmail/praliases/tags
+usr/src/usr.sbin/sendmail/rmail
 usr/src/usr.sbin/sendmail/src/Makefile.dist
 usr/src/usr.sbin/sendmail/src/tags
 usr/src/usr.sbin/sliplogin/slip.hosts
