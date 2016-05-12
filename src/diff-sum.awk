@@ -3,11 +3,11 @@
 # Summarize the output of diff -r in terms of different files, lines,
 # and missing files.
 # Ignore RCS ids and some development artefacts
+# Run ./diff-sum.awk verbose=1 diff.out to get human-readable
+# output of the actual differences
+# Otherwise the program outputs only a summary suitable for scripts
 
 BEGIN {
-	# Set to 1 for human-readable output of the actual differences
-	# Set to 0 to get only a summary suitable for scripts
-	verbose = 0
 
 	diff_files = diff_lines = only_files = 0
 }
