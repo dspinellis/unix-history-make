@@ -138,7 +138,7 @@ my $mark = $opt_G ? 1000000 : 1;
 my $dev_branch = ($opt_S || $opt_G) ? "$branch-Import" : "$branch-$version-Snapshot-Development";
 $dev_branch = $opt_P . $dev_branch if ($opt_P);
 
-print STDERR "Import $dev_branch from $directory\n" if ($opt_v);
+print STDERR "\n\n\nImport $dev_branch from $directory\n" if ($opt_v);
 
 create_name_map() if (defined($opt_n));
 
@@ -180,14 +180,18 @@ gather_text_files
 		$File::Find::prune = 1;
 		return;
 	}
-	return unless (-f && -T);
 	return if ($opt_p && !m|/$opt_p$|);
 	if ($opt_i || $opt_I) {
 		my $commit_path = $_;
 		$commit_path =~ s/$opt_s// if ($opt_s);
+		if ($ignore_map{$commit_path}) {
+			# Ignore all finds below if a directory was specified
+			$File::Find::prune = 1 if (-d);
+			return;
+		}
 		$fi{$_}->{commit_at_release} = 1 if ($merge_add_map{$commit_path});
-		return if ($ignore_map{$commit_path});
 	}
+	return unless ((-f && -T) || -l);
 	my ($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, $ctime, $blksize, $blocks) = lstat;
 	$fi{$_}->{mtime} = $mtime;
 	if (-l) {

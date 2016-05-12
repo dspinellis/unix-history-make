@@ -518,6 +518,12 @@ verify()
   compare_repo 386BSD-0.0-Snapshot-Development ../archive/../archive/386BSD-0.0/src 0 0 27 0
   compare_repo 386BSD-0.1-Snapshot-Development ../archive/../archive/386BSD-0.1 0 0 459 0
 
+  # Verify that we're not including ignored directory
+  if [ -z "$DEBUG" ] ; then
+    git checkout 386BSD-0.1
+    ensure_absent usr/include
+  fi
+
   git checkout FreeBSD-release/1.0
   for i in $(echo $MERGED_FREEBSD_1 | sed 's/,/ /')
   do
