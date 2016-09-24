@@ -1,4 +1,4 @@
-### Unix History Repository
+#### Unix History Repository
 
 The goal of this project is to create a git repository representing the Unix source code history, starting from the 1970s and ending in the modern time.  To fulfill this goal the project brings data from early snapshots, repositories, and primary research.  The project aims to put in the repository as much metadata as possible, allowing the automated analysis of Unix history.  The following table illustrates the type of material that can be gathered and integrated into the repository.
 
@@ -86,6 +86,9 @@ The following tags or branch names mark specific releases, listed in rough chron
 * FreeBSD-release/8.0.0, 8.1.0, 8.2.0, 8.3.0, 8.4.0
 * FreeBSD-release/9.0.0, 9.1.0, 9.2.0
 * FreeBSD-release/10.0.0, 10.1.0, 10.2.0
+
+A detailed description of the major tags is available in the
+file [releases.md](https://github.com/dspinellis/unix-history-make/blob/master/releases.md).
 
 More tags and branches are available.
 * The `-Snapshot-Development` branches denote commits that have been synthesized from a time-ordered sequence of a snapshot's files.
