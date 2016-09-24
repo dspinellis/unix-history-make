@@ -1,4 +1,8 @@
-# Research Edition
+The following sections detail important software releases included in the
+Unix history repository.
+The level-2 headings mostly correspond to tag or branch names.
+
+# Research Editions
 ## Research-PDP7
 The PDP-7 Unix (sometime in mid 1970) is the earliest available
 version of Unix.
