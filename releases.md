@@ -1,4 +1,4 @@
-# Research Editions
+# Research Edition
 ## Research-PDP7
 The PDP-7 Unix (sometime in mid 1970) is the earliest available
 version of Unix.
@@ -64,7 +64,7 @@ new influential commands, such as *awk*, *expr*, *find*, *lex*, *lint*, *m4*, *m
 file systems and more user accounts. It is the version that was widely
 ported to other architectures.
 
-## Bell-32V
+# Bell-32V
 *Unix 32V* (or *32/V*) is the port of the 7th Edition Unix to the
 DEC/VAX architecture. It was created by John Raiser and Tom London,
 managed by Charlier Roberts, at Bell Labs in Holmdel in 1978. There seem
@@ -78,22 +78,24 @@ capability. In the fall of 1978 *Bell-32V* was sent to the
 University of California at Berkeley under a “special research
 agreement”.
 
-*BSD–X* tags correspond to 15 snapshots released from
-Berkeley. Their contents are summarized in the following paragraphs,
-based on published descriptions and the manual examination of their
-contents. The first Berkeley Software Distribution () (tagged
-<span>BSD-1</span>), released in early 1978, contained the Unix Pascal
-System the *ex* line editor, and a number of tools. The
-Second Berkeley Software Distribution (2BSD, tagged <span>BSD-2</span>),
+# Berkeley Distributions
+
+## BSD-1
+The first Berkeley Software Distribution (early 1978)
+contained the Unix Pascal System the *ex* line editor,
+and a number of tools.
+
+## BSD-2
+The Second Berkeley Software Distribution (May 1979),
 included the full screen editor *vi*, the associated
 terminal capability database and management library
 *termcap*, and many more tools, such as the
-*csh* shell. The 3BSD release (tagged <span>BSD-3</span>),
-released in late 1979, extended *Unix 32V* with support for
-virtual memory and the 2BSD additions. Subsequent releases included in
-the repository are marked with the following tags.
+*csh* shell.
 
-# Berkeley Releases
+## BSD-3
+The 3BSD release (late 1979), extended *Unix 32V* with support for
+virtual memory and the 2BSD additions.
+
 ## BSD-4
 4BSD (October 1980) was developed by the newly
 established Computer Systems Research Group (CSRG) working on a
