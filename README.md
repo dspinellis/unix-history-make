@@ -276,10 +276,12 @@ $ARCHIVE/32v Bell 32V -0500 | gfi
 ```
 
 ## Further reading
+- Diomidis Spinellis. A repository of Unix history and evolution. *Empirical Software Engineering*, 2017. doi:10.1007/s10664-016-9445-5.
+[HTML](http://www.dmst.aueb.gr/dds/pubs/jrnl/2016-EMPSE-unix-history/html/unix-history.html), [PDF](http://www.dmst.aueb.gr/dds/pubs/jrnl/2016-EMPSE-unix-history/html/unix-history.pdf)
 - Diomidis Spinellis. A repository with 44 years of Unix evolution. In *MSR '15: Proceedings of the 12th Working Conference on Mining Software Repositories*, pages 13-16. IEEE, 2015. Best Data Showcase Award. [PDF](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/Spi15c.pdf), [HTML](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/Spi15c.html), [poster](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/poster.pdf).
-- Warren Toomey, First Edition Unix: Its Creation and Restoration, in *IEEE Annals of the History of Computing*, vol. 32, no. 3, pp. 74-82, July-Sept. 2010. doi: 10.1109/MAHC.2009.55. [PDF](http://www.tuhs.org/Archive/Documentation/Papers/1eUnix_creation_restoration.pdf)
+- Warren Toomey, First Edition Unix: Its Creation and Restoration, in *IEEE Annals of the History of Computing*, vol. 32, no. 3, pp. 74-82, July-Sept. 2010. doi:10.1109/MAHC.2009.55. [PDF](http://www.tuhs.org/Archive/Documentation/Papers/1eUnix_creation_restoration.pdf)
 - Diomidis Spinellis, Panagiotis Louridas, and Maria Kechagia. An exploratory study on the evolution of C programming in the Unix operating system. In Qing Wang and Guenther Ruhe, editors, *ESEM '15: 9th International Symposium on Empirical Software Engineering and Measurement*, pages 54–57. IEEE, October 2015. [HTML](http://www.dmst.aueb.gr/dds/pubs/conf/2015-ESEM-CodeStyle/html/SLK15.html), [PDF](http://www.dmst.aueb.gr/dds/pubs/conf/2015-ESEM-CodeStyle/html/SLK15.pdf)
-- Diomidis Spinellis, Panos Louridas, and Maria Kechagia. The evolution of C programming practices: A study of the Unix operating system 1973–2015. In Willem Visser and Laurie Williams, editors, *ICSE '16: Proceedings of the 38th International Conference on Software Engineering*, May 2016. Association for Computing Machinery. doi:10.1145/2884781.2884799.
+- Diomidis Spinellis, Panos Louridas, and Maria Kechagia. The evolution of C programming practices: A study of the Unix operating system 1973–2015. In Willem Visser and Laurie Williams, editors, *ICSE '16: Proceedings of the 38th International Conference on Software Engineering*, May 2016. Association for Computing Machinery. doi:10.1145/2884781.2884799. [PDF](http://www.dmst.aueb.gr/dds/pubs/conf/2016-ICSE-ProgEvol/html/SLK16.pdf), [HTML](http://www.dmst.aueb.gr/dds/pubs/conf/2016-ICSE-ProgEvol/html/SLK16.html)
 - Wikipedia: The Free Encyclopedia
     - [History of Unix](https://en.wikipedia.org/wiki/History_of_Unix)
     - [List of Unix systems](https://en.wikipedia.org/wiki/List_of_Unix_systems)
