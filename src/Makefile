@@ -29,7 +29,7 @@ push: import empty
 
 # Clear files signifying mounted ISO images (e.g. after a reboot)
 clear-mounts:
-	rm archive/*.mnt archive/CSRG/*.mnt
+	rm -f archive/*.mnt archive/CSRG/*.mnt
 
 unmount:
 	df | awk '/loop/{print $1}' | xargs -n 1 sudo umount
