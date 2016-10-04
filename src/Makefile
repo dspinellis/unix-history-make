@@ -31,6 +31,9 @@ push: import empty
 clear-mounts:
 	rm archive/*.mnt archive/CSRG/*.mnt
 
+unmount:
+	df | awk '/loop/{print $1}' | xargs -n 1 sudo umount
+
 .SUFFIXES:.iso .mnt
 
 # Mount an ISO filesystem (Linux-specific; tailor it for other systems)
@@ -204,3 +207,8 @@ empty:
 	git add . && \
 	git commit -m 'Add README.md in empty repo' && \
 	git remote add origin git@github.com:dspinellis/unix-history-repo.git
+
+clean:
+	rm -rf archive/CSRG/cd4.patched archive/FreeBSD-1.0 \
+		archive/FreeBSD-1.1 archive/FreeBSD-1.1.5.1 \
+		archive/freebsd-early.git archive/FreeBSD-1.1.5
