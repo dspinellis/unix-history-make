@@ -102,7 +102,8 @@ The following tags or branch names mark specific releases, listed in rough chron
 * FreeBSD-release/7.0.0, 7.1.0, 7.2.0, 7.3.0, 7.4.0
 * FreeBSD-release/8.0.0, 8.1.0, 8.2.0, 8.3.0, 8.4.0
 * FreeBSD-release/9.0.0, 9.1.0, 9.2.0
-* FreeBSD-release/10.0.0, 10.1.0, 10.2.0
+* FreeBSD-release/10.0.0, 10.1.0, 10.2.0, 10.3.0
+* FreeBSD-release/11.0.0, 11.0.1
 
 A detailed description of the major tags is available in the
 file [releases.md](https://github.com/dspinellis/unix-history-make/blob/master/releases.md).
