@@ -14,17 +14,8 @@ the early ones through primary research.
 The data set can be used for empirical research in software engineering,
 information systems, and software archaeology.
 
-The project aims to put in the repository as much metadata as possible,
-allowing the automated analysis of Unix history.
-The following table illustrates the type of material that can be gathered
-and integrated into the repository.
-
-             |Snapshot | Repository | Primary Research
--------------|---------|------------|-----------------
-Source Code  |    X    |      X     |
-Time         |    X    |      X     |
-Contributors |         |      X     |       X
-Branches     |         |      X     |       X
+You can read more details about the contents, creation, and uses of this
+repository through [this link](http://www.dmst.aueb.gr/dds/pubs/jrnl/2016-EMPSE-unix-history/html/unix-history.html).
 
 Two repositories are associated with the project:
 * [unix-history-repo](https://github.com/dspinellis/unix-history-repo) is
@@ -37,10 +28,8 @@ Two repositories are associated with the project:
   a repository containing code and metadata used to build the above repository.
   Contributions to this repository are welcomed.
 
-The first phase of the project involved creating a single timeline from the First Edition of Unix until the present.
-
 ## Project status
-The project has achieved its first major goal with the establishment of a continuous timeline from 1970 until today. The repository contains:
+The project has achieved its major goal with the establishment of a continuous timeline from 1970 until today. The repository contains:
 
 * snapshots of PDP-7, V1, V3, V4, V5, V6, and V7 Research Edition,
 * Unix/32V,
@@ -52,7 +41,7 @@ The project has achieved its first major goal with the establishment of a contin
 * an import of the FreeBSD repository starting from its initial imports that led to FreeBSD 2.0, and
 * the current FreeBSD repository.
 
-The files appear to be added in the repository in chronological order according to their modification time, and large parts of the source code have been attributed to their actual authors.  Commands like `git blame` and (sometimes) `git log` produce the expected results.
+The files appear to be added in the repository in chronological order according to their modification time, and large parts of the source code have been attributed to their actual authors.  Commands like `git blame` and `git log` produce the expected results.
 
 The repository contains a number of two-way merges.
 
