@@ -40,7 +40,7 @@ Two repositories are associated with the project:
 The first phase of the project involved creating a single timeline from the First Edition of Unix until the present.
 
 ## Project status
-The project has achieved its first major goal with the establishment of a continuous timeline from 1972 until today. The repository contains:
+The project has achieved its first major goal with the establishment of a continuous timeline from 1970 until today. The repository contains:
 
 * snapshots of PDP-7, V1, V3, V4, V5, V6, and V7 Research Edition,
 * Unix/32V,
