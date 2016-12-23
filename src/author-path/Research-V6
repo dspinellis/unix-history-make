@@ -48,7 +48,8 @@ usr/doc/man/man6/tmg\.6		doug
 # Text- and data-processing utilities:
 # spell, diff, sort, join, graph, speak, etc.
 usr/source/s1/diff.*		doug
-usr/source/s2/sort\.c		doug
+# Ken did the original, I [doug] added the options
+usr/source/s2/sort\.c		ken,doug
 usr/doc/man/man1/spell\.1	doug
 
 # See A.J. Cole. Macro Processors (Cambridge University Press, 1981)
@@ -136,7 +137,7 @@ usr/doc/man/man1/tty\.1		dmr,ken
 usr/doc/man/man1/who\.1		dmr,ken
 usr/doc/man/man1/write\.1	dmr,ken
 usr/doc/man/man1/diff\.1	doug
-usr/doc/man/man1/sort\.1	doug
+usr/doc/man/man1/sort\.1	ken,doug
 usr/doc/man/man1/wc\.1		jfo
 usr/doc/man/man1/bas\.1		ken
 usr/doc/man/man1/dc\.1		ken
@@ -161,6 +162,14 @@ usr/doc/rat/.*			bwk
 usr/doc/secur			dmr
 usr/doc/unix			dmr,ken
 usr/doc/yacc/.*			scj
+
+# From Doug McIlroy email 2016-12-03
+usr/doc/man/man1/echo\.1	doug
+usr/source/s1/echo\.c		doug
+usr/source/s2/tr\.c		doug
+usr/doc/man/man1/tr\.1		doug
+usr/doc/man/man1/spell\.1	scj,doug,mrw,rje
+usr/doc/man/man3/alloc\.3	doug
 
 # Default
 # Regarding the order of names

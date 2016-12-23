@@ -29,12 +29,14 @@ man/man1/mkdir\.1	ken,dmr
 man/man8/mount\.8	ken,dmr
 man/man1/mv\.1		ken,dmr
 man/man1/pr\.1		ken,dmr
+man/man1/proof\.1	mel
 man/man1/rew\.1		ken,dmr
 man/man1/rm\.1		ken,dmr
 man/man1/rmdir\.1	ken,dmr
 man/man1/roff\.1	jfo
 man/man1/sh\.1		dmr,ken
-man/man1/sort\.1	dmr,ken
+# Ken did the original, I [doug] added the options
+man/man1/sort\.1	ken,doug
 man/man1/strip\.1	dmr
 man/man1/stty\.1	jfo
 man/man1/tss\.1		csr
@@ -126,6 +128,9 @@ man/man1/mail\.1	ken
 # Based on later work
 man/man1/nroff\.1	jfo
 man/man1/troff\.1	jfo
+
+# From Doug McIlroy email 2016-12-03
+man/man1/tr\.1	doug
 
 # Default
 # Regarding the order of names

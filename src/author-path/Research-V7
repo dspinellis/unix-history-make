@@ -65,8 +65,8 @@ usr/src/cmd/mail\.c		ken
 usr/src/cmd/diff.*		doug
 usr/src/cmd/graph\.c		doug
 usr/src/cmd/join\.c		doug
-usr/src/cmd/spell/.*		doug
-bin/spell			doug
+usr/src/cmd/spell/.*		scj,doug,mrw,rje
+bin/spell			scj,doug,mrw,rje
 
 
 # 3. [Morris] was also the author of the series of crypt programs
@@ -187,7 +187,7 @@ usr/man/man1/mail\.1		ken
 usr/man/man1/diff.*		doug
 usr/man/man1/graph\.1g		doug
 usr/man/man1/join\.1		doug
-usr/man/man1/spell\.1		doug
+usr/man/man1/spell\.1		scj,doug,mrw,rje
 usr/man/man1/crypt\.1		rhm
 usr/man/man1/adb\.1		jfm,srb
 usr/man/man1/as\.1		dmr
@@ -222,9 +222,11 @@ usr/src/cmd/ed/.*		ken,dmr
 usr/man/man1/ed\.1		ken,dmr
 usr/src/cmd/roff/.*		ken
 usr/man/man1/roff\.1		ken
-# Also claimed by Doug McIlroy
-usr/src/cmd/sort\.c		ken
-usr/man/man1/sort\.1		ken
+
+# doug: Ken did the original, I [doug] added the options
+usr/src/cmd/sort\.c		ken,doug
+usr/man/man1/sort\.1		ken,doug
+
 usr/src/cmd/grep\.c		ken,lem
 usr/man/man1/grep\.1		ken,lem
 usr/src/cmd/uniq\.c		ken
@@ -242,8 +244,8 @@ usr/src/cmd/primes\.s		rhm
 usr/src/cmd/factor\.s		rhm
 usr/man/man1/factor\.1		rhm
 
-usr/src/cmd/look\.c		doug
-usr/man/man1/look\.1		doug
+usr/src/cmd/look\.c		jfo
+usr/man/man1/look\.1		jfo
 
 usr/src/cmd/comm\.c		lem
 usr/man/man1/comm\.1		lem
@@ -261,9 +263,19 @@ usr/man/man1/egrep\.1		aho
 usr/src/cmd/fgrep\.c		aho
 usr/man/man1/fgrep\.1		aho
 
+# From Doug McIlroy email 2016-12-03
+usr/man/man1/echo\.1		doug
+usr/src/cmd/echo\.c		doug
+usr/man/man1/tr\.1		doug
+usr/src/cmd/tr\.c		doug
+
 # 9. Default for C library
 usr/src/libc/.*			dmr
 usr/man/man3/.*			dmr
+
+# From Doug McIlroy email 2016-12-03
+usr/man/man3/malloc\.3		doug
+usr/src/libc/gen/malloc\.c	doug
 
 # Default
 # Regarding the order of names

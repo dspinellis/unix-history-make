@@ -29,7 +29,8 @@ usr/source/s2/write\.s	dmr,ken
 # Text- and data-processing utilities:
 # spell, diff, sort, join, graph, speak, etc.
 usr/source/s1/diff.*	doug
-usr/source/s2/sort\.c	doug
+# Ken did the original, I [doug] added the options
+usr/source/s2/sort\.c	ken,doug
 
 # Login name supplied by bwk
 # Contribution through authorship of NROFF/TROFF User's Manual
@@ -62,6 +63,10 @@ usr/source/s./crypt\.s 	rhm
 # From V1 manual OWNER section
 usr/source/s1/fed..\.s	rhm,ken
 usr/source/s1/form.\.s	rhm,ken
+
+# From Doug McIlroy email 2016-12-03
+usr/source/s1/echo\.c	doug
+usr/source/s2/tr\.c	doug
 
 # Default
 # Regarding the order of names
