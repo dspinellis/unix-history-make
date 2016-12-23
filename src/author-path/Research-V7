@@ -65,8 +65,8 @@ usr/src/cmd/mail\.c		ken
 usr/src/cmd/diff.*		doug
 usr/src/cmd/graph\.c		doug
 usr/src/cmd/join\.c		doug
-usr/src/cmd/spell/.*		scj,doug,mrw,rje
-bin/spell			scj,doug,mrw,rje
+usr/src/cmd/spell/.*		scj,doug,rje
+bin/spell			scj,doug,rje
 
 
 # 3. [Morris] was also the author of the series of crypt programs
@@ -187,7 +187,7 @@ usr/man/man1/mail\.1		ken
 usr/man/man1/diff.*		doug
 usr/man/man1/graph\.1g		doug
 usr/man/man1/join\.1		doug
-usr/man/man1/spell\.1		scj,doug,mrw,rje
+usr/man/man1/spell\.1		scj,doug,rje
 usr/man/man1/crypt\.1		rhm
 usr/man/man1/adb\.1		jfm,srb
 usr/man/man1/as\.1		dmr

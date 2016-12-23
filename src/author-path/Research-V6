@@ -168,7 +168,7 @@ usr/doc/man/man1/echo\.1	doug
 usr/source/s1/echo\.c		doug
 usr/source/s2/tr\.c		doug
 usr/doc/man/man1/tr\.1		doug
-usr/doc/man/man1/spell\.1	scj,doug,mrw,rje
+usr/doc/man/man1/spell\.1	scj,doug,rje
 usr/doc/man/man3/alloc\.3	doug
 
 # Default
