@@ -1,14 +1,16 @@
 # Downloaded and expanded data
+MOUNTS= archive/CSRG/cd1.mnt archive/CSRG/cd2.mnt \
+	archive/CSRG/cd3.mnt archive/CSRG/cd4.mnt \
+	archive/FreeBSD-1.0.mnt archive/FreeBSD-1.1.mnt \
+	archive/FreeBSD-1.1.5.1.mnt
+
 DATA=archive/pdp7-unix archive/v1 archive/v2 archive/v3 archive/v4 \
 	archive/v5 archive/v6 archive/v7 \
 	archive/1bsd archive/2bsd archive/32v archive/3bsd \
-	archive/CSRG/cd1.mnt archive/CSRG/cd2.mnt \
-	archive/CSRG/cd3.mnt archive/CSRG/cd4.mnt archive/CSRG/cd4.patched \
-	archive/386BSD-0.1 archive/386BSD-0.0 archive/FreeBSD-1.0.mnt \
-	archive/FreeBSD-1.1.mnt archive/FreeBSD-1.1.5.1.mnt \
+	archive/CSRG/cd4.patched archive/386BSD-0.1 archive/386BSD-0.0 \
 	archive/freebsd.git archive/freebsd-doc.git \
 	archive/freebsd-early.git archive/FreeBSD-1.1.5 \
-	archive/386BSD-0.1-patched
+	archive/386BSD-0.1-patched $(MOUNTS)
 
 # Author detail files
 AU=$(wildcard *.au)
@@ -30,6 +32,8 @@ push: import empty
 # Clear files signifying mounted ISO images (e.g. after a reboot)
 clear-mounts:
 	rm -f archive/*.mnt archive/CSRG/*.mnt
+
+mount: $(MOUNTS)
 
 unmount:
 	df | awk '/loop/{print $1}' | xargs -n 1 sudo umount
