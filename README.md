@@ -304,6 +304,7 @@ $ARCHIVE/32v Bell 32V -0500 | gfi
     - [Unix 32/V Report - 1978](http://cm.bell-labs.com/cm/cs/who/dmr/otherports/32vscan.pdf)
     - [Berkeley CSRG Archive CD-ROMs](https://www.mckusick.com/csrg/index.html)
 - Studies
+    - [M. Douglas McIlroy. A Research UNIX Reader: Annotated Excerpts from the Programmer's Manual, 1971-1986](https://archive.org/details/a_research_unix_reader)
     - [Unix at the Bell Labs - People](http://www.princeton.edu/~hos/Mahoney/unixpeople.htm)
 
 ## Acknowledgements
