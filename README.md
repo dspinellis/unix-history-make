@@ -305,7 +305,7 @@ $ARCHIVE/32v Bell 32V -0500 | gfi
     - [Berkeley CSRG Archive CD-ROMs](https://www.mckusick.com/csrg/index.html)
 - Studies
     - [M. Douglas McIlroy. A Research UNIX Reader: Annotated Excerpts from the Programmer's Manual, 1971-1986](https://archive.org/details/a_research_unix_reader)
-    - [Unix at the Bell Labs - People](http://www.princeton.edu/~hos/Mahoney/unixpeople.htm)
+    - [Michael S. Mahoney. Unix at the Bell Labs - People](http://www.princeton.edu/~hos/Mahoney/unixpeople.htm)
 
 ## Acknowledgements
 * The following people helped with Bell Labs login identifiers.
