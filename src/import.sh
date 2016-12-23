@@ -2,7 +2,7 @@
 #
 # Import Unix branches into a single repo
 #
-# Copyright 2013-2014 Diomidis Spinellis
+# Copyright 2013-2016 Diomidis Spinellis
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -117,9 +117,14 @@ import()
     $DEBUG -r Research-PDP7 \
     $ARCHIVE/v1/sys Research V1 -0500 | gfi
 
-  # V3: C kernel
-  perl ../import-dir.pl $VERBOSE -m Research-V1 -c ../author-path/Research-V3 \
+  # V2: Fragments of a few commands mostly in assembly
+  perl ../import-dir.pl $VERBOSE -m Research-V1 -c ../author-path/Research-V1 \
     -n ../bell.au -r Research-V1 $DEBUG \
+    -u ../unmatched/Research-V2 $ARCHIVE/v2 Research V2 -0500 | gfi
+
+  # V3: C kernel
+  perl ../import-dir.pl $VERBOSE -m Research-V2 -c ../author-path/Research-V3 \
+    -n ../bell.au -r Research-V2 $DEBUG \
     -u ../unmatched/Research-V3 $ARCHIVE/v3 Research V3 -0500 | gfi
 
   # V4: Manual pages

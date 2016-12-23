@@ -1,6 +1,6 @@
 # Downloaded and expanded data
-DATA=archive/pdp7-unix \
-	archive/v1 archive/v3 archive/v4 archive/v5 archive/v6 archive/v7 \
+DATA=archive/pdp7-unix archive/v1 archive/v2 archive/v3 archive/v4 \
+	archive/v5 archive/v6 archive/v7 \
 	archive/1bsd archive/2bsd archive/32v archive/3bsd \
 	archive/CSRG/cd1.mnt archive/CSRG/cd2.mnt \
 	archive/CSRG/cd3.mnt archive/CSRG/cd4.mnt archive/CSRG/cd4.patched \
@@ -64,7 +64,13 @@ archive/v1:
 	#http://bitsavers.informatik.uni-stuttgart.de/pdf/bellLabs/unix/PreliminaryUnixImplementationDocument_Jun72.pdf
 	touch -d '1972-06-20 12:00' $@/sys/*
 
-# The only thing remaining from V2 are formatted manual pages
+# The things remaining from V2 are formatted manual pages and a few fragmets
+archive/v2:
+	mkdir -p archive/v2
+	cd archive/v2 && \
+		curl http://www.tuhs.org/Archive/PDP-11/Distributions/research/1972_stuff/s1-fragments.tar.gz | \
+		tar xzf - && \
+		../../tools/remake-v2.sh
 
 archive/v3:
 	mkdir -p $@/sys

@@ -21,13 +21,15 @@ took a scanned June 1972 280-page printout of 1st Edition UNIX source
 code and documentation, and restored it to an incomplete but running
 system.
 
-## Research-V2 (missing?)
+## Research-V2
 The 2nd Edition (June 12, 1972) source code has only survived in the
 form of fragments. These were manually restored by Warren Toomey,
 who pieced together data from a subset of a disk dump’s DECtapes,
 that were extracted by Dennis Ritchie. The fragments comprise
-the source code for some of the system’s utilities. In addition,
-this edition’s manual survives as a printed document.
+the source code for some of the system’s utilities. The file metadata
+appears to have been lost. Consequently the file names are guesses,
+and the timestamps are based on those of the corresponding binary
+files.  This edition’s manual survives as a printed document.
 
 ## Research-V3
 The 3rd Edition (February 1973) contains

@@ -57,6 +57,7 @@ The following tags or branch names mark specific releases, listed in rough chron
 * Epoch
 * Research-PDP7
 * Research-V1
+* Research-V2
 * Research-V3
 * Research-V4
 * Research-V5
