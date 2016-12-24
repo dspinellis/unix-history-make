@@ -31,7 +31,7 @@ Two repositories are associated with the project:
 ## Project status
 The project has achieved its major goal with the establishment of a continuous timeline from 1970 until today. The repository contains:
 
-* snapshots of PDP-7, V1, V3, V4, V5, V6, and V7 Research Edition,
+* snapshots of PDP-7, V1, V2, V3, V4, V5, V6, and V7 Research Edition,
 * Unix/32V,
 * all available BSD releases,
 * the CSRG SCCS history,
