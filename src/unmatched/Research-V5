@@ -36,7 +36,6 @@ usr/source/s1/dd.c
 usr/source/s1/df.c
 usr/source/s1/dsw.s
 usr/source/s1/dump.c
-usr/source/s1/echo.c
 usr/source/s1/exit.c
 usr/source/s1/fc.c
 usr/source/s1/fed1.s
@@ -90,7 +89,6 @@ usr/source/s2/tp1.s
 usr/source/s2/tp2.s
 usr/source/s2/tp3.s
 usr/source/s2/tp4.s
-usr/source/s2/tr.c
 usr/source/s2/typo.c
 usr/source/s2/umount.c
 usr/source/s2/uniq.c

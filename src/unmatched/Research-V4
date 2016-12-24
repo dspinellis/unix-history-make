@@ -32,7 +32,6 @@ man/man1/opr.1
 man/man1/passwd.1
 man/man1/pfe.1
 man/man1/plot.1
-man/man1/proof.1
 man/man1/ps.1
 man/man1/shift.1
 man/man1/size.1
@@ -43,7 +42,6 @@ man/man1/split.1
 man/man1/sum.1
 man/man1/time.1
 man/man1/tp.1
-man/man1/tr.1
 man/man1/typo.1
 man/man1/uniq.1
 man/man1/wait.1

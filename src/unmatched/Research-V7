@@ -143,7 +143,6 @@ usr/man/man1/dcheck.1m
 usr/man/man1/df.1m
 usr/man/man1/dump.1m
 usr/man/man1/dumpdir.1m
-usr/man/man1/echo.1
 usr/man/man1/file.1
 usr/man/man1/icheck.1m
 usr/man/man1/intro.1
@@ -194,7 +193,6 @@ usr/man/man1/time.1
 usr/man/man1/tk.1
 usr/man/man1/touch.1
 usr/man/man1/tp.1
-usr/man/man1/tr.1
 usr/man/man1/troff.1
 usr/man/man1/true.1
 usr/man/man1/tsort.1
@@ -288,7 +286,6 @@ usr/src/cmd/df.c
 usr/src/cmd/dmesg.c
 usr/src/cmd/dump.c
 usr/src/cmd/dumpdir.c
-usr/src/cmd/echo.c
 usr/src/cmd/ed.c
 usr/src/cmd/egrep.y
 usr/src/cmd/file.c
@@ -383,7 +380,6 @@ usr/src/cmd/tp/tp0.c
 usr/src/cmd/tp/tp1.c
 usr/src/cmd/tp/tp2.c
 usr/src/cmd/tp/tp3.c
-usr/src/cmd/tr.c
 usr/src/cmd/tsort.c
 usr/src/cmd/umount.c
 usr/src/cmd/units.c

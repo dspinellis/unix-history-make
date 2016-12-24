@@ -32,7 +32,6 @@ usr/doc/man/man1/cp.1
 usr/doc/man/man1/cref.1
 usr/doc/man/man1/dd.1
 usr/doc/man/man1/dsw.1
-usr/doc/man/man1/echo.1
 usr/doc/man/man1/eqn.1
 usr/doc/man/man1/exit.1
 usr/doc/man/man1/fc.1
@@ -70,7 +69,6 @@ usr/doc/man/man1/stty.1
 usr/doc/man/man1/tee.1
 usr/doc/man/man1/time.1
 usr/doc/man/man1/tp.1
-usr/doc/man/man1/tr.1
 usr/doc/man/man1/troff.1
 usr/doc/man/man1/typo.1
 usr/doc/man/man1/wait.1
@@ -120,7 +118,6 @@ usr/doc/man/man2/wait.2
 usr/doc/man/man2/write.2
 usr/doc/man/man3/abort.3
 usr/doc/man/man3/abs.3
-usr/doc/man/man3/alloc.3
 usr/doc/man/man3/atan.3
 usr/doc/man/man3/atof.3
 usr/doc/man/man3/atoi.3
@@ -346,7 +343,6 @@ usr/source/s1/dcheck.c
 usr/source/s1/df.c
 usr/source/s1/dsw.s
 usr/source/s1/dump.c
-usr/source/s1/echo.c
 usr/source/s1/exit.c
 usr/source/s1/fc.c
 usr/source/s1/fed1.s
@@ -405,7 +401,6 @@ usr/source/s2/tp1.s
 usr/source/s2/tp2.s
 usr/source/s2/tp3.s
 usr/source/s2/tp4.s
-usr/source/s2/tr.c
 usr/source/s2/typo.c
 usr/source/s2/umount.c
 usr/source/s2/units.c
