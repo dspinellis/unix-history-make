@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <ar.h>
+#include "ar.h"
 #include <signal.h>
 struct	stat	stbuf;
 struct	ar_hdr	arbuf;
@@ -30,7 +30,7 @@ char	**namv;
 int	namc;
 char	*arnam;
 char	*ponam;
-char	*tmpnam		=	{ "/tmp/vXXXXX" };
+char	*ar_tmpnam		=	{ "/tmp/vXXXXX" };
 char	*tmp1nam	=	{ "/tmp/v1XXXXX" };
 char	*tmp2nam	=	{ "/tmp/v2XXXXX" };
 char	*tfnam;
@@ -108,7 +108,7 @@ char *argv[];
 		done(1);
 	}
 	if(flg['l'-'a']) {
-		tmpnam = "vXXXXX";
+		ar_tmpnam = "vXXXXX";
 		tmp1nam = "v1XXXXX";
 		tmp2nam = "v2XXXXX";
 		}
@@ -315,7 +315,7 @@ init()
 {
 	static mbuf = ARMAG;
 
-	tfnam = mktemp(tmpnam);
+	tfnam = mktemp(ar_tmpnam);
 	close(creat(tfnam, 0600));
 	tf = open(tfnam, 2);
 	if(tf < 0) {
@@ -683,10 +683,10 @@ pmode()
 	register int **mp;
 
 	for (mp = &m[0]; mp < &m[9];)
-		select(*mp++);
+		ar_select(*mp++);
 }
 
-select(pairp)
+ar_select(pairp)
 int *pairp;
 {
 	register int n, *ap;
