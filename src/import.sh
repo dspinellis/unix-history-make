@@ -122,12 +122,12 @@ import()
     -n ../bell.au -r Research-V1 $DEBUG \
     -u ../unmatched/Research-V2 $ARCHIVE/v2 Research V2 -0500 | gfi
 
-  # V3: C kernel
+  # V3: Part of the C compiler, manual pages
   perl ../import-dir.pl $VERBOSE -m Research-V2 -c ../author-path/Research-V3 \
     -n ../bell.au -r Research-V2 $DEBUG \
     -u ../unmatched/Research-V3 $ARCHIVE/v3 Research V3 -0500 | gfi
 
-  # V4: Manual pages
+  # V4: C kernel, manual pages
   perl ../import-dir.pl $VERBOSE -m Research-V3 -c ../author-path/Research-V4 \
     -n ../bell.au -r Research-V3 $DEBUG \
     -u ../unmatched/Research-V4 $ARCHIVE/v4 Research V4 -0500 | gfi

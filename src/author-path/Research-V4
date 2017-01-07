@@ -1,3 +1,5 @@
+sys/dmr/.*		dmr
+sys/ken/.*		ken
 
 # Based on v2man.pdf
 man/man1/as\.1		dmr

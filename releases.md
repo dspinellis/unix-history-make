@@ -33,14 +33,19 @@ files.  This edition’s manual survives as a printed document.
 
 ## Research-V3
 The 3rd Edition (February 1973) contains
-only the Unix kernel: 7609 lines of which just 768 are written in
-PDP-11 assembly and the rest are written in C. This was the first
-Unix version to support pipes.
+part of the C compiler (just before it started using structures in
+its own source code) and the manual pages.
 
 ## Research-V4
 The 4th Edition (November 1973) contains
-only source markup for the manual pages: 18975 lines of
-*troff* code.
+the Unix kernel and the source markup of the manual pages.
+The kernel predates the actual edition by a few months.
+It consists of 7609 lines of which just 768 are written in
+PDP-11 assembly and the rest are written in C.
+This was the first Unix version to support pipes.
+However, the C kernel found here had not yet included the pipe
+support from the assembly language kernel.
+The manual pages comprise 18975 lines of *troff* code.
 
 ## Research-V5
 The 5th Edition (June 1974) is missing

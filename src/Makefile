@@ -77,12 +77,16 @@ archive/v2:
 		../../tools/remake-v2.sh
 
 archive/v3:
-	mkdir -p $@/sys
-	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v3/nsys.tar.gz | tar -C $@/sys -xzf -
+	mkdir -p $@/man
+	curl -s http://minnie.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v3/v3man.tar.gz | tar -C $@/man -xzf -
+	mkdir -p $@/c
+	curl -s http://minnie.tuhs.org/Archive/Applications/Early_C_Compilers/prestructc.tar.gz | tar --strip-components=1 -C $@/c -xzf -
 
 archive/v4:
 	mkdir -p $@/man
 	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v4/v4man.tar.gz | tar -C $@/man -xzf -
+	mkdir -p $@/sys
+	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v3/nsys.tar.gz | tar -C $@/sys -xzf -
 
 archive/v5:
 	mkdir -p $@
