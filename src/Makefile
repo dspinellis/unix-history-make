@@ -36,7 +36,7 @@ clear-mounts:
 mount: $(MOUNTS)
 
 unmount:
-	df | awk '/loop/{print $1}' | xargs -n 1 sudo umount
+	df | awk '/loop/{print $1}' | xargs -r -n 1 sudo umount
 
 .SUFFIXES:.iso .mnt
 
