@@ -701,7 +701,7 @@ longt()
 	
 	pmode();
 	printf("%3d/%1d", arbuf.ar_uid, arbuf.ar_gid);
-	printf(" %7D", arsize);
+	printf(" %7d", arsize);
 	cp = ctime(&ardate);
 	printf(" %-12.12s %-4.4s ", cp+4, cp+20);
 }
