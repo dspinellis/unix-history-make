@@ -30,6 +30,8 @@ the source code for some of the system’s utilities. The file metadata
 appears to have been lost. Consequently the file names are guesses,
 and the timestamps are based on those of the corresponding binary
 files.  This edition’s manual survives as a printed document.
+In addition to the surviving fragments the repository contains the
+last C compiler used on the PDP-11/20 and the corresponding C library.
 
 ## Research-V3
 The 3rd Edition (February 1973) contains

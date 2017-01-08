@@ -69,12 +69,23 @@ archive/v1:
 	touch -d '1972-06-20 12:00' $@/sys/*
 
 # The things remaining from V2 are formatted manual pages and a few fragmets
-archive/v2:
-	mkdir -p archive/v2
-	cd archive/v2 && \
+archive/v2: newoldar arcv
+	# Commands
+	mkdir -p $@/cmd
+	cd $@/cmd && \
 		curl http://www.tuhs.org/Archive/PDP-11/Distributions/research/1972_stuff/s1-fragments.tar.gz | \
 		tar xzf - && \
-		../../tools/remake-v2.sh
+		../../../tools/remake-v2.sh
+	# C compiler
+	mkdir -p $@/c
+	curl http://minnie.tuhs.org/Archive/Applications/Early_C_Compilers/last1120c.tar.gz | tar --strip-components=1 -C $@/c -xzf -
+	find $@/c -name \*.o | xargs rm
+	rm $@/c/nc1/c1 $@/c/cvopt $@/c/nc $@/c/nc0/c0
+	# C library
+	mkdir -p $@/lib
+	# Convert and unpack $@/c/rt/libc.sa
+	( cd $@/lib && ../../../arcv ../c/rt/libc.sa && ../../../newoldar xo ../c/rt/libc.sa )
+	rm -rf $@/c/rt
 
 archive/v3:
 	mkdir -p $@/man
@@ -118,6 +129,8 @@ archive/1bsd: newoldar
 	rm -f $@/TAPE
 
 newoladar: newoldar.c
+
+arcv: arcv.c ar.h
 
 archive/2bsd:
 	mkdir -p $@
