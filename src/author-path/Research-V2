@@ -2,13 +2,14 @@ c/.*			dmr
 
 # Command owners obtained from Research-V3
 cmd/a[0-9].*		dmr
+cmd/as[0-9].*		dmr
 cmd/bas.\.s		ken
-cmd/cc.\.c		dmr
-cmd/cmp.\.s		dmr
-cmd/date.\.s		dmr
-cmd/db..\.s		dmr
-cmd/if.\.s		dmr
-cmd/ld..\.s		dmr
+cmd/cc\.c		dmr
+cmd/cmp\.s		dmr
+cmd/date\.s		dmr
+cmd/db.\.s		dmr
+cmd/if\.s		dmr
+cmd/ld.\.s		dmr
 
 lib/.*			dmr
 
