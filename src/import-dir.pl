@@ -461,19 +461,38 @@ issue_start_commit
 }
 
 sub
+print_pending_commit
+{
+	my ($author, $mtime, $work, $coauthorship, $mod) = @_;
+
+	return if (!defined($mtime));
+
+	print "commit refs/heads/$dev_branch\n";
+	print "mark :$mark\n";
+	$last_devel_mark = $mark++;
+	print "author $author $mtime $tz_offset\n";
+	print "committer $author $mtime $tz_offset\n";
+	print data("$branch $version development\n$work$coauthorship\nSynthesized-from: $source_dir");
+	print $mod;
+}
+
+# Issue text commits squashing thogether those with same author
+# modification time and co-author
+sub
 issue_text_commits
 {
+	my ($previous_mtime, $previous_author, $previous_coauthorship);
+	my ($work, $mod);
+
 	print "# Development commits\n";
 	for my $name (sort {$fi{$a}->{mtime} <=> $fi{$b}{mtime}} keys %fi) {
 		next if (defined($cutoff_time) && $fi{$name}->{mtime} > $cutoff_time);
 		printf STDERR "%-20s %s\r", $name, pr_date($fi{$name}->{mtime}) if ($opt_v);
-		$last_mtime = $fi{$name}->{mtime};
+		my $mtime = $fi{$name}->{mtime};
+		$last_mtime = $mtime;
 		next if ($fi{$name}->{commit_at_release});
 
-		print "# $fi{$name}->{mtime} $name\n";
-		print "commit refs/heads/$dev_branch\n";
-		print "mark :$mark\n";
-		$last_devel_mark = $mark++;
+		print "# $mtime $name\n";
 		my $commit_path = $name;
 		$commit_path =~ s/$opt_s// if ($opt_s);
 		$commit_path = $opt_P . $commit_path if ($opt_P);
@@ -485,11 +504,23 @@ issue_text_commits
 				$coauthorship .= "\nCo-Authored-By: $ca";
 			}
 		}
-		print "author $author $fi{$name}->{mtime} $tz_offset\n";
-		print "committer $author $fi{$name}->{mtime} $tz_offset\n";
-		print data("$branch $version development\nWork on file $commit_path\n$coauthorship\nSynthesized-from: $source_dir");
-		print "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
+		if (!defined($previous_mtime) ||
+		    $mtime != $previous_mtime ||
+		    $author ne $previous_author ||
+		    $coauthorship ne $previous_coauthorship) {
+			print_pending_commit($previous_author, $previous_mtime,
+				$work, $previous_coauthorship, $mod);
+			$previous_mtime = $mtime;
+			$previous_author = $author;
+			$previous_coauthorship = $coauthorship;
+			$work = '';
+			$mod = '';
+		}
+		$work .= "Work on file $commit_path\n";
+		$mod .= "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 	}
+	print_pending_commit($previous_author, $previous_mtime,
+		$work, $previous_coauthorship, $mod);
 }
 
 if ($opt_S) {
