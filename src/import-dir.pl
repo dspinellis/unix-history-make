@@ -55,6 +55,9 @@ $main::VERSION = '0.1';
 # Exit after command processing error
 $Getopt::Std::STANDARD_HELP_VERSION = 1;
 
+# Time difference (in seconds) to squash commits from snapshots together
+$squash_snapshot_dt = 10;
+
 sub
 main::HELP_MESSAGE
 {
@@ -505,17 +508,17 @@ issue_text_commits
 			}
 		}
 		if (!defined($previous_mtime) ||
-		    $mtime != $previous_mtime ||
+		    $mtime - $previous_mtime > $squash_snapshot_dt ||
 		    $author ne $previous_author ||
 		    $coauthorship ne $previous_coauthorship) {
 			print_pending_commit($previous_author, $previous_mtime,
 				$work, $previous_coauthorship, $mod);
-			$previous_mtime = $mtime;
 			$previous_author = $author;
 			$previous_coauthorship = $coauthorship;
 			$work = '';
 			$mod = '';
 		}
+		$previous_mtime = $mtime;
 		$work .= "Work on file $commit_path\n";
 		$mod .= "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 	}
