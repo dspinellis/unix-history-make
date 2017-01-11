@@ -55,8 +55,11 @@ $main::VERSION = '0.1';
 # Exit after command processing error
 $Getopt::Std::STANDARD_HELP_VERSION = 1;
 
-# Time difference (in seconds) to squash commits from snapshots together
-$squash_snapshot_dt = 10;
+# Time difference (in seconds) to squash together commits from snapshots
+my $squash_snapshot_dt = 10;
+
+# Time difference (in seconds) to squash together commits from SCCS
+my $squash_sccs_dt = 60 * 60;
 
 sub
 main::HELP_MESSAGE
@@ -280,6 +283,16 @@ pr_date
 	$dt[2], $dt[1], $dt[0];
 }
 
+# Return the directory name of a path
+sub
+dirname
+{
+	my ($n) = @_;
+
+	$n =~ s|/[^/]*$||;
+	return $n;
+}
+
 # use a best guess at user, hostname, etc.
 my $domain = "ucbvax.Berkeley.EDU";
 my %tzoffset;
@@ -338,46 +351,88 @@ create_sccs_blobs
 }
 
 sub
+issue_pending_sccs_commit
+{
+	my ($author, $stamp, $all_mr, $all_vsn, $comment, $mod) = @_;
+
+	return if (!defined($stamp));
+
+	print "commit refs/heads/$dev_branch\n";
+	print "mark :$mark\n";
+	$last_devel_mark = $mark++;
+	print "committer ", full_name($author), " <",
+		($author, "@", $domain, "> ", $stamp + 64800,
+		 " ", $tz_offset = $tzoffset->($stamp), "\n");
+
+	$all_mr and $comment  .= "\n";
+	my $msg  = "$comment\n$all_mr$all_vsn";
+	print "data ", length ($msg), "\n$msg\n";
+	print $mod;
+	print "\n";
+}
+
+# Issue SCCS commits squashing together those with same
+# author, comment, and almost same timestamp.
+# For empty comments squash only those that affect files in the
+# same directoy.
+sub
 issue_sccs_commits
 {
+	my ($previous_stamp, $previous_author, $previous_comment, $previous_fn);
+	my ($all_mr, $all_vsn, $mod);
+
 	foreach my $c (sort keys %sccs) {
 		my ($sccs, $rev, $commit_mark) = @{$sccs{$c}};
 
-		my $fn	= $sccs->file ();
+		my $fn	= $sccs->file();
 		my %delta = %{$sccs->delta ($rev)};
-		return if (defined($cutoff_time) && $delta{stamp} > $cutoff_time);
-		my $stamp = pr_date($delta{stamp});
-		my $vsn   = $delta{version};
-
-		printf STDERR "%-20s %3d %6s  %s %s %s\n", $fn, $rev, $vsn,
-			$stamp, $delta{date}, $delta{"time"} if ($opt_v);
-
-		print "commit refs/heads/$dev_branch\n";
-		print "mark :$mark\n";
-		$last_devel_mark = $mark++;
-		print "committer ", full_name($delta{committer}), " <",
-			($delta{committer}, "@", $domain, "> ", $delta{stamp} + 64800,
-			 " ", $tz_offset = $tzoffset->($delta{stamp}), "\n");
+		my $stamp = $delta{stamp};
+		last if (defined($cutoff_time) && $stamp > $cutoff_time);
+		$fn =~ s/$opt_s// if ($opt_s);
+		my $author = $delta{committer};
 
 		# tradition is to save all potentially useful but
 		# uncategorized metadata as RFC822-style headers in the commit
 		# message
 		my $mr  = $delta{mr} || ""; $mr =~ s/^-$//;
-		$mr  and $mr  = "SCCS-mr: $mr";
-		$vsn and $vsn = "SCCS-vsn: $vsn";
-		my $cmnt = $delta{comment} || "";
-		$cmnt ||= "(no message)";
-		$cmnt  .= "\n";
-		my $msg  = join "\n", $cmnt, grep m/\S/, $mr, $vsn;
+		$mr  and $mr  = "SCCS-mr: $fn $mr\n";
+		my $vsn   = $delta{version};
+		$vsn and $vsn = "SCCS-vsn: $fn $vsn\n";
+		my $comment = $delta{comment} || "";
+		$comment ||= "(no message)";
+		$comment  .= "\n";
 
-		print "data ", length ($msg), "\n$msg\n";
+		printf STDERR "%-20s %3d %6s  %s %s %s\n", $fn, $rev, $vsn,
+		    pr_date($stamp), $delta{date}, $delta{"time"}
+			if ($opt_v);
+		if (!defined($previous_stamp) ||
+		    $stamp - $previous_stamp > $squash_sccs_dt ||
+		    $author ne $previous_author ||
+		    $comment ne $previous_comment ||
+		    ($comment eq "(no message)\n" && (
+			    dirname($previous_fn) ne dirname($fn)))) {
+			issue_pending_sccs_commit($previous_author,
+				$previous_stamp, $all_mr, $all_vsn,
+				$previous_comment,
+				$mod);
+			$previous_author = $author;
+			$previous_comment = $comment;
+			$previous_fn = $fn;
+			$all_mr = '';
+			$all_vsn = '';
+			$mod = '';
+		}
+		$previous_stamp = $stamp;
+		$mr and $all_mr .= $mr;
+		$vsn and $all_vsn .= $vsn;
 
 		my $mode = $delta{flags}{x} ? "755" : "644";
 		$fn =~ s/$opt_s// if ($opt_s);
 		$fn = $opt_P . $fn if ($opt_P);
-		print "M $mode :$commit_mark $fn\n";
-		print "\n";
+		$mod .= "M $mode :$commit_mark $fn\n";
 	}
+	issue_pending_sccs_commit($previous_author, $previous_stamp,
+		$all_mr, $all_vsn, $previous_comment, $mod);
 }
 
 if ($opt_S) {
@@ -464,7 +519,7 @@ issue_start_commit
 }
 
 sub
-print_pending_commit
+issue_pending_text_commit
 {
 	my ($author, $mtime, $work, $coauthorship, $mod) = @_;
 
@@ -480,7 +535,7 @@ print_pending_commit
 }
 
 # Issue text commits squashing thogether those with same author
-# modification time and co-author
+# and co-author and almost same modification time.
 sub
 issue_text_commits
 {
@@ -511,8 +566,10 @@ issue_text_commits
 		    $mtime - $previous_mtime > $squash_snapshot_dt ||
 		    $author ne $previous_author ||
 		    $coauthorship ne $previous_coauthorship) {
-			print_pending_commit($previous_author, $previous_mtime,
-				$work, $previous_coauthorship, $mod);
+			issue_pending_text_commit($previous_author,
+				$previous_mtime, $work,
+				$previous_coauthorship,
+				$mod);
 			$previous_author = $author;
 			$previous_coauthorship = $coauthorship;
 			$work = '';
@@ -522,7 +579,7 @@ issue_text_commits
 		$work .= "Work on file $commit_path\n";
 		$mod .= "M $fi{$name}->{mode} :$fi{$name}->{id} $commit_path\n";
 	}
-	print_pending_commit($previous_author, $previous_mtime,
+	issue_pending_text_commit($previous_author, $previous_mtime,
 		$work, $previous_coauthorship, $mod);
 }
 
