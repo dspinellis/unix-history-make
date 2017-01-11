@@ -114,12 +114,12 @@ import()
 
   # V1: Assembly language kernel
   perl ../import-dir.pl $VERBOSE -m Research-PDP7 -c ../author-path/Research-V1 -n ../bell.au \
-    $DEBUG -r Research-PDP7 \
+    $DEBUG \
     $ARCHIVE/v1/sys Research V1 -0500 | gfi
 
   # V2: Fragments of a few commands mostly in assembly, C compiler and library
   perl ../import-dir.pl $VERBOSE -m Research-V1 -c ../author-path/Research-V2 \
-    -n ../bell.au -r Research-V1 $DEBUG \
+    -n ../bell.au $DEBUG \
     -u ../unmatched/Research-V2 $ARCHIVE/v2 Research V2 -0500 | gfi
 
   # V3: Part of the C compiler, manual pages
