@@ -85,6 +85,12 @@ gfi()
   set +x
 }
 
+# Succeed if the specified file exists and is newer than this script
+is_up_to_date()
+{
+  test -r "$1" -a "$1" -nt ../import.sh
+}
+
 # Import the data sources in archive into a Git archive
 import()
 {
@@ -219,14 +225,14 @@ EOF
 
     # Exclude administrative files (SCCS and .MAP), and
     # files with spaces in their names
-    test -r ../ignore/BSD-${version}-admin ||
+    is_up_to_date ../ignore/BSD-${version}-admin ||
       find $dir -type f |
       egrep '(/\.MAP)|(/SCCS/)| ' |
       sed "s|$dir/||" |
       sort >../ignore/BSD-${version}-admin
 
     # Exclude additional installed files
-    test -r ../ignore/BSD-${version}-other || (
+    is_up_to_date ../ignore/BSD-${version}-other || (
       find $dir/bin -type f
       find $dir/etc -type f
       find $dir/usr/bin -type f
@@ -244,7 +250,7 @@ EOF
     # Tag the release at the SCCS branch
     git tag BSD-$version-Snapshot-Development $SCCS_AT_RELEASE
 
-    test -r ../ignore/"BSD-${version}-sccs" || (
+    is_up_to_date ../ignore/"BSD-${version}-sccs" || (
       # Files in the SCCS tree
       git ls-tree --full-tree --name-only -r $SCCS_AT_RELEASE |
       egrep -v '^((\.ref)|(LICENSE)|(README\.md)|(Caldera-license\.pdf))'
