@@ -3,6 +3,7 @@
 .login
 .profile
 .rhosts
+LABEL
 a/sys/GENERIC/acc.h
 a/sys/GENERIC/ad.h
 a/sys/GENERIC/assym.s

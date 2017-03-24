@@ -1,6 +1,3 @@
-LABEL
-TAPE/FILE.1
-TAPE/FILE.2
 a/.MAP
 arch/.MAP
 a/sys/cassette/.MAP

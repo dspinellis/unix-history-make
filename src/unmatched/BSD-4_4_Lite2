@@ -2550,7 +2550,6 @@ usr/src/contrib/emacs-18.57/etc/server.c
 usr/src/contrib/emacs-18.57/etc/sex.6
 usr/src/contrib/emacs-18.57/etc/sorted-doc.c
 usr/src/contrib/emacs-18.57/etc/termcap.dat
-usr/src/contrib/emacs-18.57/etc/termcap.ucb
 usr/src/contrib/emacs-18.57/etc/test-distrib.c
 usr/src/contrib/emacs-18.57/etc/ulimit.hack
 usr/src/contrib/emacs-18.57/etc/vipcard.tex
@@ -8359,7 +8358,6 @@ usr/src/contrib/nvi.1.43/PORT/wgs6386.s5r4/local/PATCH.recover.c
 usr/src/contrib/nvi.1.43/PORT/wgs6386.s5r4/regex
 usr/src/contrib/nvi.1.43/PORT/wgs6386.s5r4/sys
 usr/src/contrib/nvi.1.43/README
-usr/src/contrib/nvi.1.43/USD.doc/edit/edittut.ms
 usr/src/contrib/nvi.1.43/USD.doc/vi.man/vi.0
 usr/src/contrib/nvi.1.43/USD.doc/vi.man/vi.0.ps
 usr/src/contrib/nvi.1.43/USD.doc/vi.ref/spell.ok

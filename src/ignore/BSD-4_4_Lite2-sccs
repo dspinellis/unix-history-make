@@ -1,4 +1,3 @@
-Caldera-license.pdf
 COPYRIGHT
 dev/MAKEDEV
 dev/MAKEDEV.hpux
@@ -99,8 +98,6 @@ Foreign/src/telnet/ring.h
 Foreign/src/telnet/telnet.c
 Foreign/src/telnet/terminal.c
 Foreign/src/telnet/utilities.c
-LICENSE
-README.md
 usr/share/doc/psd/05.sysman.ps
 usr/share/doc/psd/07.pascal.ps
 usr/share/doc/psd/12.make.ps
@@ -894,6 +891,7 @@ usr/src/contrib/emacs-18.57/etc/emacsclient.c
 usr/src/contrib/emacs-18.57/etc/env.c
 usr/src/contrib/emacs-18.57/etc/loadst.c
 usr/src/contrib/emacs-18.57/etc/movemail.c
+usr/src/contrib/emacs-18.57/etc/termcap.ucb
 usr/src/contrib/emacs-18.57/Makefile
 usr/src/contrib/emacs-18.57/src/alloca.c
 usr/src/contrib/emacs-18.57/src/dispnew.c
@@ -1925,6 +1923,7 @@ usr/src/contrib/nvi.1.43/svi/svi_smap.c
 usr/src/contrib/nvi.1.43/svi/svi_split.c
 usr/src/contrib/nvi.1.43/svi/svi_term.c
 usr/src/contrib/nvi.1.43/svi/svi_util.c
+usr/src/contrib/nvi.1.43/USD.doc/edit/edittut.ms
 usr/src/contrib/nvi.1.43/USD.doc/edit/edit.vindex
 usr/src/contrib/nvi.1.43/USD.doc/edit/Makefile
 usr/src/contrib/nvi.1.43/USD.doc/exref/ex.rm
@@ -5604,7 +5603,6 @@ usr/src/local/ditroff/ditroff.old.okeeffe/driver/dvar.c
 usr/src/local/ditroff/ditroff.old.okeeffe/driver/dver.c
 usr/src/local/ditroff/ditroff.old.okeeffe/driver/graph.c
 usr/src/local/ditroff/ditroff.old.okeeffe/driver/ifontinfo.c
-usr/src/local/ditroff/ditroff.old.okeeffe/driver/ifontinfo.c-bad
 usr/src/local/ditroff/ditroff.old.okeeffe/driver/makeifont.c
 usr/src/local/ditroff/ditroff.old.okeeffe/driver/makevfont.c
 usr/src/local/ditroff/ditroff.old.okeeffe/driver/qms2ch.c

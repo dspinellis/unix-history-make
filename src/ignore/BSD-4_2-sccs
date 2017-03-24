@@ -1225,7 +1225,6 @@ usr/src/local/ditroff/ditroff.old.okeeffe/driver/dvar.c
 usr/src/local/ditroff/ditroff.old.okeeffe/driver/dver.c
 usr/src/local/ditroff/ditroff.old.okeeffe/driver/graph.c
 usr/src/local/ditroff/ditroff.old.okeeffe/driver/ifontinfo.c
-usr/src/local/ditroff/ditroff.old.okeeffe/driver/ifontinfo.c-bad
 usr/src/local/ditroff/ditroff.old.okeeffe/driver/makeifont.c
 usr/src/local/ditroff/ditroff.old.okeeffe/driver/makevfont.c
 usr/src/local/ditroff/ditroff.old.okeeffe/driver/rst.h
