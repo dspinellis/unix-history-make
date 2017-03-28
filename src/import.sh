@@ -62,8 +62,9 @@ add_boilerplate()
 {
   cp ../old-code-license LICENSE
   cp ../Caldera-license.pdf .
+  cp ../ALU-USA-statement.pdf .
   cp ../README-SHA.md README.md
-  git add LICENSE README.md Caldera-license.pdf
+  git add LICENSE README.md Caldera-license.pdf ALU-USA-statement.pdf
   git commit -a -m "Add licenses and README" >/dev/null
 }
 
@@ -253,7 +254,7 @@ EOF
     is_up_to_date ../ignore/"BSD-${version}-sccs" || (
       # Files in the SCCS tree
       git ls-tree --full-tree --name-only -r $SCCS_AT_RELEASE |
-      egrep -v '^((\.ref)|(LICENSE)|(README\.md)|(Caldera-license\.pdf))'
+      egrep -v '^((\.ref)|(LICENSE)|(README\.md)|(ALU-USA-statement\.pdf)(Caldera-license\.pdf))'
 
       # Files with SCCS mark
       find $dir -type f |
@@ -357,6 +358,7 @@ verify_same_text()
       if (!s/^Only in // || !s|: |/| || -T) {
         next if (/LICENSE/);
         next if (/Caldera-license\.pdf/);
+        next if (/ALU-USA-statement\.pdf/);
         next if (/README\.md/);
         $exit = 1;
         print "$_\n"

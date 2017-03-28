@@ -475,6 +475,7 @@ issue_start_commit
 	# Add license blobs
 	my $text_license_blob = add_file_blob('../old-code-license');
 	my $caldera_license_blob = add_file_blob('../Caldera-license.pdf');
+	my $alu_usa_license_blob = add_file_blob('../ALU-USA-statement.pdf');
 	my $readme_blob = add_file_blob('../README-SHA.md');
 
 	# The actual development commits
@@ -515,6 +516,7 @@ issue_start_commit
 	print "M 644 :$readme_blob README.md\n";
 	print "M 644 :$text_license_blob LICENSE\n";
 	print "M 644 :$caldera_license_blob Caldera-license.pdf\n";
+	print "M 644 :$alu_usa_license_blob ALU-USA-statement.pdf\n";
 	return $mark++;
 }
 

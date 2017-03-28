@@ -5,7 +5,7 @@ MOUNTS= archive/CSRG/cd1.mnt archive/CSRG/cd2.mnt \
 	archive/FreeBSD-1.1.5.1.mnt
 
 DATA=archive/pdp7-unix archive/v1 archive/v2 archive/v3 archive/v4 \
-	archive/v5 archive/v6 archive/v7 \
+	archive/v5 archive/v6 archive/v7 archive/v8 archive/v9 archive/v10 \
 	archive/1bsd archive/2bsd archive/32v archive/3bsd \
 	archive/CSRG/cd4.patched archive/386BSD-0.1 archive/386BSD-0.0 \
 	archive/freebsd.git archive/freebsd-doc.git \
@@ -121,6 +121,18 @@ archive/v7:
 	rm -rf v7-patch
 	# Remove file epoch timestamp (it just printed the block size)
 	rm $@/bs.c
+
+archive/v8:
+	mkdir -p $@
+	curl -s http://www.tuhs.org/Archive/Distributions/Research/Dan_Cross_v8/v8.tar.bz2 | bzip2 -dc | tar -C $@ -xf -
+
+archive/v9:
+	mkdir -p $@
+	curl -s http://www.tuhs.org/Archive/Distributions/Research/Norman_v9/batterpudding.tar.gz | tar -C $@ -xzf -
+
+archive/v10:
+	mkdir -p $@
+	curl -s http://www.tuhs.org/Archive/Distributions/Research/Dan_Cross_v10/v10src.tar.bz2 | bzip2 -dc | tar -C $@ -xf -
 
 archive/1bsd: newoldar
 	mkdir -p $@
