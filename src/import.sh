@@ -646,6 +646,12 @@ preconditions()
       exit 1
     fi
   done
+
+  # Check that ignored files are still there
+  if ! grep LABEL ignore/BSD-4_1c_2-admin >/dev/null ; then
+    echo "Missing ignored files in ignore/BSD-4_1c_2-admin" 1>&2
+    exit 1
+  fi
 }
 
 # Option processing; see getopt-parse.bash
