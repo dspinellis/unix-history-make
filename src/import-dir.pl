@@ -186,6 +186,10 @@ gather_text_files
 		$File::Find::prune = 1;
 		return;
 	}
+	if (!-r) {
+		print STDERR "Unable to read $_: $!\n";
+		exit 1;
+	}
 	return if ($opt_p && !m|/$opt_p$|);
 	if ($opt_i || $opt_I) {
 		my $commit_path = $_;
