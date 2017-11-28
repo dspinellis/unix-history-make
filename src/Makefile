@@ -45,7 +45,7 @@ unmount:
 	mkdir -p $(subst .iso,,$<)
 	# Mount uses -o uid, because some directories have 750 permissions, e.g.
 	# drwxr-x--- 2 root news  4096 Mar  9  1989 netns
-	sudo mount -o loop -o uid=`id -u` $< $(subst .iso,,$<)
+	sudo mount -o loop -o uid=`id -u` -o gid=`id -g` $< $(subst .iso,,$<)
 	touch $@
 
 archive/pdp7-unix:
