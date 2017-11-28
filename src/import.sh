@@ -527,9 +527,9 @@ verify()
 
   # Exact numbers
   compare_repo 386BSD-0.1-patchkit ../archive/386BSD-0.1-patched 0 0 296 726
-  compare_repo 386BSD-0.1-patchkit-Import ../archive/../archive/386BSD-0.1 0 0 116 692
-  compare_repo 386BSD-0.0-Snapshot-Development ../archive/../archive/386BSD-0.0/src 0 0 27 574
-  compare_repo 386BSD-0.1-Snapshot-Development ../archive/../archive/386BSD-0.1 0 0 117 692
+  compare_repo 386BSD-0.1-patchkit-Import ../archive/../archive/386BSD-0.1 0 0 117 692
+  compare_repo 386BSD-0.0-Snapshot-Development ../archive/../archive/386BSD-0.0/src 0 0 28 574
+  compare_repo 386BSD-0.1-Snapshot-Development ../archive/../archive/386BSD-0.1 0 0 118 692
 
   # Verify that we're not including ignored directory
   if [ -z "$DEBUG" ] ; then
@@ -545,7 +545,7 @@ verify()
 
   # Actually 33 1220 54
   # Missing files are GNU utilities
-  compare_repo FreeBSD-release/1.0 ../archive/FreeBSD-1.0/filesys/usr/src/ 40 1300 54 0
+  compare_repo FreeBSD-release/1.0 ../archive/FreeBSD-1.0/filesys/usr/src/ 40 1300 55 0
 
   git checkout FreeBSD-release/1.1
   for i in $(echo $MERGED_FREEBSD_1 | sed 's/,/ /')
@@ -555,11 +555,11 @@ verify()
 
   # Actually 43 272 126
   # Missing files are mainly from gnu/lib/libg++/g++-include
-  compare_repo FreeBSD-release/1.1 ../archive/FreeBSD-1.1/filesys/usr/src/ 45 300 126 0
+  compare_repo FreeBSD-release/1.1 ../archive/FreeBSD-1.1/filesys/usr/src/ 45 300 127 0
 
   # Actually 64 234 20
   # Missing files are mainly kernel configurations
-  compare_repo FreeBSD-release/1.1.5 ../archive/FreeBSD-1.1.5/usr/src/ 70 300 20 0
+  compare_repo FreeBSD-release/1.1.5 ../archive/FreeBSD-1.1.5/usr/src/ 70 300 21 0
 
   git checkout FreeBSD-release/2.0
   for i in $(echo $MERGED_FREEBSD_2 | sed 's/,/ /')
