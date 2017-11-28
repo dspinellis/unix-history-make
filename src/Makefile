@@ -42,6 +42,8 @@ unmount:
 
 # Mount an ISO filesystem (Linux-specific; tailor it for other systems)
 .iso.mnt:
+	# Ensure we do not run make mount with sudo
+	test `id -u` != 0
 	mkdir -p $(subst .iso,,$<)
 	# Mount uses -o uid, because some directories have 750 permissions, e.g.
 	# drwxr-x--- 2 root news  4096 Mar  9  1989 netns
