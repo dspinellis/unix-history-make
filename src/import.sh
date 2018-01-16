@@ -108,14 +108,21 @@ import()
   mkdir $REPO
   cd $REPO
   git init
+
   add_boilerplate
-  git tag Epoch
+  git tag Licenses
+
+  # Create a blank repository to avoid the first release having as its
+  # only parent one that was committed in the modern era
+  git checkout --orphan Epoch
+  GIT_COMMITTER_DATE='1970-01-01T00:00:00' \
+    GIT_AUTHOR_DATE='1970-01-01T00:00:00' git commit --allow-empty -m 'Empty repository at start of Unix Epoch'
 
   # Release branch
   git branch Research-Release
 
   # PDP-7: Assembly language kernel and utilities
-  perl ../import-dir.pl $VERBOSE -m Epoch -c ../author-path/Research-V1 -n ../bell.au \
+  perl ../import-dir.pl $VERBOSE -m Epoch,Licenses -c ../author-path/Research-V1 -n ../bell.au \
     $DEBUG -i ../ignore/Research-PDP7 \
     $ARCHIVE/pdp7-unix/scans Research PDP7 -0500 | gfi
 
