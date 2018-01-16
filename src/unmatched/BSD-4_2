@@ -2783,7 +2783,6 @@ usr/src/new/new/bib/macs/doit
 usr/src/new/new/bib/macs/srcs
 usr/src/new/new/bib/man/Makefile
 usr/src/new/new/bib/src/invert.c
-usr/src/new/new/bib/src/listrefs
 usr/src/new/new/courier/Makefile
 usr/src/new/new/courier/README
 usr/src/new/new/courier/compiler/Courier.h

@@ -3,6 +3,7 @@
 .login
 .profile
 .rhosts
+LABEL
 a/sys/GENERIC/acc.h
 a/sys/GENERIC/ad.h
 a/sys/GENERIC/assym.s
@@ -3916,7 +3917,6 @@ usr/src/usr.lib/libnm/sqrt.s
 usr/src/usr.lib/libnm/sqrt.s.old
 usr/src/usr.lib/libnm/tan.s
 usr/src/usr.lib/libnm/tanh.s
-usr/src/usr.lib/libpc/ACTFILE.o
 usr/src/usr.lib/libpc/profiled/tar_holder
 usr/src/usr.lib/libpc/whoami.h
 usr/src/usr.lib/libplot/Makefile

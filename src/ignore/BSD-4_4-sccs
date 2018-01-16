@@ -1,3 +1,4 @@
+ALU-USA-statement.pdf
 BAK/dev/MAKEDEV
 BAK/dev/MAKEDEV.hpux
 BAK/dev/MAKEDEV.local
@@ -30,6 +31,7 @@ BAK/etc/security
 BAK/etc/services
 BAK/etc/ttys
 BAK/etc/weekly
+Caldera-license.pdf
 COPYRIGHT
 dev/MAKEDEV
 ".ref-BSD-3/\"usr/src/cmd/adb/old\\031sym.c\""

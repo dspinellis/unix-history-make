@@ -1,3 +1,5 @@
+ALU-USA-statement.pdf
+Caldera-license.pdf
 dev/MAKEDEV
 ".ref-BSD-3/\"usr/src/cmd/adb/old\\031sym.c\""
 usr/doc/as/asdocs0.me
@@ -1410,6 +1412,7 @@ usr/src/new/new/bib/src/alpha.seek.c
 usr/src/new/new/bib/src/bibargs.c
 usr/src/new/new/bib/src/bib.c
 usr/src/new/new/bib/src/bib.h
+usr/src/new/new/bib/src/listrefs
 usr/src/new/new/bib/src/listrefs.c
 usr/src/new/new/bib/src/locate.c
 usr/src/new/new/bib/src/lookup.c

@@ -1,8 +1,10 @@
+ALU-USA-statement.pdf
 a/sys/dist/buildmini
 a/sys/dist/get
 a/sys/dist/MAKEDEV
 a/sys/dist/maketape
 a/sys/mdec/Makefile
+Caldera-license.pdf
 dev/MAKEDEV
 ".ref-BSD-3/\"usr/src/cmd/adb/old\\031sym.c\""
 usr/doc/as/asdocs0.me
@@ -3826,6 +3828,7 @@ usr/src/usr.lib/libm/sqrt.c
 usr/src/usr.lib/libm/tan.c
 usr/src/usr.lib/libm/tanh.c
 usr/src/usr.lib/libpc/ACTFILE.c
+usr/src/usr.lib/libpc/ACTFILE.o
 usr/src/usr.lib/libpc/ADDT.c
 usr/src/usr.lib/libpc/APPEND.c
 usr/src/usr.lib/libpc/ARGV.c
