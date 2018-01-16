@@ -57,7 +57,7 @@ archive/pdp7-unix:
 
 archive/v1:
 	mkdir -p archive
-	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v1/svntree-20081216.tar.gz | tar -C archive -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v1/svntree-20081216.tar.gz | tar -C archive -xzf -
 	mv archive/unix72 $@
 	# Convert OCR to source code files
 	(cd $@ && tools/rebuild >/dev/null)
@@ -70,12 +70,12 @@ archive/v1:
 	#http://bitsavers.informatik.uni-stuttgart.de/pdf/bellLabs/unix/PreliminaryUnixImplementationDocument_Jun72.pdf
 	touch -d '1971-11-03 12:00' $@/sys/*
 
-# The things remaining from V2 are formatted manual pages and a few fragmets
+# The things remaining from V2 are formatted manual pages and a few fragments
 archive/v2: newoldar arcv
 	# Commands
 	mkdir -p $@/cmd
 	cd $@/cmd && \
-		curl http://www.tuhs.org/Archive/PDP-11/Distributions/research/1972_stuff/s1-fragments.tar.gz | \
+		curl http://www.tuhs.org/Archive//Distributions/Research/1972_stuff/s1-fragments.tar.gz | \
 		tar xzf - && \
 		../../../tools/remake-v2.sh
 	# C compiler
@@ -91,32 +91,32 @@ archive/v2: newoldar arcv
 
 archive/v3:
 	mkdir -p $@/man
-	curl -s http://minnie.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v3/v3man.tar.gz | tar -C $@/man -xzf -
+	curl -s http://minnie.tuhs.org/Archive/Distributions/research/Dennis_v3/v3man.tar.gz | tar -C $@/man -xzf -
 	mkdir -p $@/c
 	curl -s http://minnie.tuhs.org/Archive/Applications/Early_C_Compilers/prestructc.tar.gz | tar --strip-components=1 -C $@/c -xzf -
 
 archive/v4:
 	mkdir -p $@/man
-	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v4/v4man.tar.gz | tar -C $@/man -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v4/v4man.tar.gz | tar -C $@/man -xzf -
 	mkdir -p $@/sys
-	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v3/nsys.tar.gz | tar -C $@/sys -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v3/nsys.tar.gz | tar -C $@/sys -xzf -
 
 archive/v5:
 	mkdir -p $@
-	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v5/v5root.tar.gz | tar -C $@ -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v5/v5root.tar.gz | tar -C $@ -xzf -
 
 archive/v6:
 	mkdir -p $@
-	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v6/v6root.tar.gz | tar -C $@ -xzf -
-	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v6/v6src.tar.gz | tar -C archive/v6/usr/source -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v6/v6root.tar.gz | tar -C $@ -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v6/v6src.tar.gz | tar -C archive/v6/usr/source -xzf -
 	mkdir -p $@/usr/doc
-	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Dennis_v6/v6doc.tar.gz | tar -C $@/usr/doc -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v6/v6doc.tar.gz | tar -C $@/usr/doc -xzf -
 
 archive/v7:
 	mkdir -p $@
-	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Henry_Spencer_v7/v7.tar.gz | tar -C $@ -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/research/Henry_Spencer_v7/v7.tar.gz | tar -C $@ -xzf -
 	mkdir v7-patch
-	curl -s http://www.tuhs.org/Archive/PDP-11/Distributions/research/Henry_Spencer_v7/v7.patches.tar.gz | tar -C v7-patch -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/research/Henry_Spencer_v7/v7.patches.tar.gz | tar -C v7-patch -xzf -
 	mv v7-patch/lpr $@/usr/src/cmd/
 	mv v7-patch/lp.c $@/usr/sys/dev/
 	mv v7-patch/lpd.8 $@/usr/man/man8/
@@ -138,7 +138,7 @@ archive/v10:
 
 archive/1bsd: newoldar
 	mkdir -p $@
-	curl -s http://unixarchive.cn-k.de/PDP-11/Distributions/ucb/1bsd.tar.gz | tar -C $@ -xzf -
+	curl -s http://www.tuhs.org/Archive//Distributions/UCB/1bsd.tar.gz | tar -C $@ -xzf -
 	( AR=`pwd`/newoldar ; cd $@ && find . -name cont.a  | awk -F/ '{print $$2}' | while read d ; do ( cd $$d && $$AR xo cont.a && rm cont.a ) ; done)
 	rm -f $@/TAPE
 
@@ -148,12 +148,12 @@ arcv: arcv.c ar.h
 
 archive/2bsd:
 	mkdir -p $@
-	curl -s http://unixarchive.cn-k.de/PDP-11/Distributions/ucb/2bsd.tar.gz | tar -C $@ -xzf -
+	curl -s http://www.tuhs.org/Archive//Distributions/UCB/2bsd.tar.gz | tar -C $@ -xzf -
 	rm -f $@/TAPE
 
 archive/32v:
 	mkdir -p $@
-	curl -s http://www.tuhs.org/Archive/VAX/Distributions/32V/32v_usr.tar.gz | tar -C $@ -xzf -
+	curl -s http://www.tuhs.org/Archive//Distributions/USDL/32V/32v_usr.tar.gz | tar -C $@ -xzf -
 
 archive/3bsd:
 	mkdir -p $@
