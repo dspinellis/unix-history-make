@@ -234,10 +234,17 @@ EOF
     # Exclude administrative files (SCCS and .MAP), and
     # files with spaces in their names
     is_up_to_date ../ignore/BSD-${version}-admin ||
-      find $dir -type f |
-      egrep '(/\.MAP)|(/SCCS/)| ' |
-      sed "s|$dir/||" |
-      sort >../ignore/BSD-${version}-admin
+      (
+	if [ ${version} = BSD-4_1c_2 ] ; then
+	  echo LABEL
+	  echo TAPE/FILE.1
+	  echo TAPE/FILE.2
+	fi
+	find $dir -type f |
+	egrep '(/\.MAP)|(/SCCS/)| ' |
+	sed "s|$dir/||" |
+	sort
+      ) >../ignore/BSD-${version}-admin
 
     # Exclude additional installed files
     is_up_to_date ../ignore/BSD-${version}-other || (
