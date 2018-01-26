@@ -115,7 +115,7 @@ import()
   # Create a blank repository to avoid the first release having as its
   # only parent one that was committed in the modern era
   git checkout --orphan Epoch
-  GIT_COMMITTER_DATE='1970-01-01T00:00:00' \
+  TZ=UTC GIT_COMMITTER_DATE='1970-01-01T00:00:00' \
     GIT_AUTHOR_DATE='1970-01-01T00:00:00' git commit --allow-empty -m 'Empty repository at start of Unix Epoch'
 
   # Release branch
