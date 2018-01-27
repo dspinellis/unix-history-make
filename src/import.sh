@@ -21,7 +21,7 @@
 REPO=import
 
 # Commit label used for verification of parents
-FIRST_COMMIT='Research PDP7'
+FIRST_COMMIT='Empty repository at start of Unix Epoch'
 
 # Location of archive mirror
 ARCHIVE=../archive
@@ -117,7 +117,7 @@ import()
   # only parent one that was committed in the modern era
   git checkout --orphan Epoch
   TZ=UTC GIT_COMMITTER_DATE='1970-01-01T00:00:00' \
-    GIT_AUTHOR_DATE='1970-01-01T00:00:00' git commit --allow-empty -m 'Empty repository at start of Unix Epoch'
+    GIT_AUTHOR_DATE='1970-01-01T00:00:00' git commit --allow-empty -m "$FIRST_COMMIT"
 
   # Release branch
   git branch Research-Release
