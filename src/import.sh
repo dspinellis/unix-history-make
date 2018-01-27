@@ -38,6 +38,7 @@ usage()
 Usage: $0 [--debug] [--no-import] [--no-verify] [--verbose]
 
 -d|--debug	Import only a small subset, and generate debugging information
+-g|--git-fast-import-dump Dump the import to git-fast-import to gfi.in
 -I|--no-import	Skip importing phase
 -V|--no-verify	Skip verification phase
 -v|--verbose	Pass verbose to the import-dir command
@@ -72,7 +73,7 @@ add_boilerplate()
 # Git fast import
 gfi()
 {
-  if [ -n "$DEBUG" ]
+  if [ -n "$GFI_DUMP" ]
   then
     tee ../out/gfi.in
   else
@@ -688,6 +689,10 @@ while : ; do
     -d|--debug)
       # When debugging import only a few representative files
       export DEBUG=-p\ '([su]1\.s)|(a1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((sysexits)|(proc)|(stat)|(telextrn))\.h)'
+      shift
+      ;;
+    -g|--git-fast-import-dump)
+      GFI_DUMP=true
       shift
       ;;
     -I|--no-import)
