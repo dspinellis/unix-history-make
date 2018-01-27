@@ -311,7 +311,7 @@ EOF
     $ARCHIVE/386BSD-0.1 386BSD 0.1 -0800 | gfi
 
   # 386BSD 0.1 patchkit
-  perl ../import-dir.pl $VERBOSE -m 386BSD-0.1 -b 386BSD-0.1 \
+  perl ../import-dir.pl $VERBOSE -m 386BSD-0.1 -b 386BSD-0.1 $DEBUG \
     -G 'Diomidis Spinellis <dds@FreeBSD.org> 739659600 +0000' \
     $ARCHIVE/386BSD-0.1-patched/ 386BSD-0.1-patchkit \
     --progress=1000 | gfi
