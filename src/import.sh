@@ -236,7 +236,7 @@ EOF
     # files with spaces in their names
     is_up_to_date ../ignore/BSD-${version}-admin ||
       (
-	if [ ${version} = BSD-4_1c_2 ] ; then
+	if [ ${version} = 4_1c_2 ] ; then
 	  echo LABEL
 	  echo TAPE/FILE.1
 	  echo TAPE/FILE.2
