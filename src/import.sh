@@ -236,11 +236,16 @@ EOF
     # files with spaces in their names
     is_up_to_date ../ignore/BSD-${version}-admin ||
       (
-	if [ ${version} = 4_1c_2 ] ; then
-	  echo LABEL
-	  echo TAPE/FILE.1
-	  echo TAPE/FILE.2
-	fi
+	case ${version} in
+	  4_1c_2)
+	    echo LABEL
+	    echo TAPE/FILE.1
+	    echo TAPE/FILE.2
+	    ;;
+	  4_4)
+	    echo BAK
+	    ;;
+	esac
 	find $dir -type f |
 	egrep '(/\.MAP)|(/SCCS/)| ' |
 	sed "s|$dir/||" |
