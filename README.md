@@ -294,8 +294,11 @@ $ARCHIVE/32v Bell 32V -0500 | gfi
 - Wikipedia: The Free Encyclopedia
     - [History of Unix](https://en.wikipedia.org/wiki/History_of_Unix)
     - [List of Unix systems](https://en.wikipedia.org/wiki/List_of_Unix_systems)
+    - [List of Unix commands](https://en.wikipedia.org/wiki/List_of_Unix_commands)    
+    - [List of Unix daemons](https://en.wikipedia.org/wiki/List_of_Unix_daemons)
     - [Research Unix](https://en.wikipedia.org/wiki/Research_Unix)
     - [Berkeley Software Distribution](http://en.wikipedia.org/wiki/BSD_Unix)
+    - [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy)
 - TUHS: The Unix Heritage Society
     - [The Unix Tree](http://minnie.tuhs.org/cgi-bin/utree.pl)
 - Historical documents and data
