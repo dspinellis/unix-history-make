@@ -1,4 +1,7 @@
 # Unix History Repository
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2525586.svg)](https://doi.org/10.5281/zenodo.2525586)
+
 The history and evolution of the Unix operating system is made available
 as a revision management repository, covering the period from its
 inception in 1970 as a 2.5 thousand line kernel and 26 commands,
