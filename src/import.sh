@@ -109,6 +109,8 @@ import()
   mkdir $REPO
   cd $REPO
   git init
+  rm .git/hooks/*.sample
+  echo Unix History Repository >.git/description
 
   add_boilerplate
   git tag Licenses
