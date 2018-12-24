@@ -49,9 +49,12 @@ EOF
 # Create a version of the README file with version SHA information appended
 create_readme()
 {
+  fgrep -v zenodo.org/badge ../README.md
   cat ../README.md
   echo
   echo '## Build identification'
+  echo 'Data set versioned DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2525586.svg)](https://doi.org/10.5281/zenodo.2525586)'
+  echo 'Software versioned DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2525601.svg)](https://doi.org/10.5281/zenodo.2525601)'
   echo -n '* Software URL: '
   git remote -v | sed -n 's/:/\//;s/.*git@/https:\/\//;s/\.git .*//;p;q'
   echo -n '* Software SHA: '

@@ -1,6 +1,6 @@
 # Unix History Repository
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2525586.svg)](https://doi.org/10.5281/zenodo.2525586)
+[![DOI](https://zenodo.org/badge/20166486.svg)](https://zenodo.org/badge/latestdoi/20166486)
 
 The history and evolution of the Unix operating system is made available
 as a revision management repository, covering the period from its
