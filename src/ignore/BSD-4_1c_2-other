@@ -31,6 +31,7 @@ bin/login
 bin/ls
 bin/mail
 bin/make
+bin/.MAP
 bin/mkdir
 bin/mt
 bin/mv
@@ -118,6 +119,7 @@ etc/kgmon
 etc/lpdrestart
 etc/makekey
 etc/makewhatis
+etc/.MAP
 etc/mkfs
 etc/mklost+found
 etc/mknod
