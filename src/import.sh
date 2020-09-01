@@ -31,6 +31,9 @@ ARCHIVE=../archive
 set -E
 trap '[ "$?" -eq 77 ] && exit 77' ERR
 
+# Ensure consistent sorting
+export LC_ALL=C
+
 # Print usage information and exit
 usage()
 {
