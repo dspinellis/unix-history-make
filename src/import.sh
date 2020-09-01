@@ -272,7 +272,7 @@ EOF
     ) |
     sed "s|$dir/||" |
     sort |
-    comm -23 - ../ignore/BSD-${version}-admin >../ignore/BSD-${version}-other
+    comm -23 - <(sort ../ignore/BSD-${version}-admin) >../ignore/BSD-${version}-other
 
     # Exclude files that are under SCCS control
     SCCS_AT_RELEASE=$(git log --before="$date $time $tz" -n 1 --format='%H' BSD-SCCS)
