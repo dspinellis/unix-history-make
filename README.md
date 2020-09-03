@@ -287,6 +287,8 @@ $ARCHIVE/32v Bell 32V -0500 | gfi
 ```
 
 ## Further reading
+- [Documented Unix facilities timeline](https://dspinellis.github.io/unix-history-man/index.html)
+- [edX open online course on Unix tools for data, software, and production engineering](https://www.spinellis.gr/unix/?uhr)
 - Scientific publications
     - Diomidis Spinellis. A repository of Unix history and evolution. *Empirical Software Engineering*, 2017. doi:10.1007/s10664-016-9445-5.
     [HTML](http://www.dmst.aueb.gr/dds/pubs/jrnl/2016-EMPSE-unix-history/html/unix-history.html), [PDF](http://www.dmst.aueb.gr/dds/pubs/jrnl/2016-EMPSE-unix-history/html/unix-history.pdf)
@@ -297,6 +299,16 @@ $ARCHIVE/32v Bell 32V -0500 | gfi
     - Diomidis Spinellis, Panagiotis Louridas, and Maria Kechagia. An exploratory study on the evolution of C programming in the Unix operating system. In Qing Wang and Guenther Ruhe, editors, *ESEM '15: 9th International Symposium on Empirical Software Engineering and Measurement*, pages 54–57. IEEE, October 2015. [HTML](http://www.dmst.aueb.gr/dds/pubs/conf/2015-ESEM-CodeStyle/html/SLK15.html), [PDF](http://www.dmst.aueb.gr/dds/pubs/conf/2015-ESEM-CodeStyle/html/SLK15.pdf)
     - Diomidis Spinellis, Panos Louridas, and Maria Kechagia. The evolution of C programming practices: A study of the Unix operating system 1973–2015. In Willem Visser and Laurie Williams, editors, *ICSE '16: Proceedings of the 38th International Conference on Software Engineering*, May 2016. Association for Computing Machinery. doi:10.1145/2884781.2884799. [PDF](http://www.dmst.aueb.gr/dds/pubs/conf/2016-ICSE-ProgEvol/html/SLK16.pdf), [HTML](http://www.dmst.aueb.gr/dds/pubs/conf/2016-ICSE-ProgEvol/html/SLK16.html)
     - Diomidis Spinellis. Documented Unix facilities over 48 years.  In *MSR '18: Proceedings of the 15th Conference on Mining Software Repositories*.  Association for Computing Machinery, May 2018.  [doi:10.1145/3196398.3196476](http://dx.doi.org/10.1145/3196398.3196476) [PDF](https://www.dmst.aueb.gr/dds/pubs/conf/2018-MSR-Unix-man/html/unix-man.pdf), [poster](https://www.dmst.aueb.gr/dds/pubs/conf/2018-MSR-Unix-man/html/poster.pdf)
+- Research Edition Unix Manuals
+    - [First Edition, November 1971](http://www.tuhs.org/Archive/Distributions/Research/Dennis_v1/UNIX_ProgrammersManual_Nov71.pdf)
+    - [Second Edition, June 1972](http://www.tuhs.org/Archive/Distributions/Research/Dennis_v2/v2man.pdf)
+    - [Third Edition, February 1973](https://dspinellis.github.io/unix-v3man/v3man.pdf)
+    - [Fourth Edition, November 1973](https://dspinellis.github.io/unix-v4man/v4man.pdf)
+    - [Fifth Edition, June 1974](http://www.tuhs.org/Archive/Distributions/Research/Dennis_v5/v5man.pdf)
+    - [Sixth Edition, May 1975](https://archive.org/download/v6-manual/v6-manual.pdf)
+    - [Seventh Edition, January 1979, Volume 1](https://s3.amazonaws.com/plan9-bell-labs/7thEdMan/v7vol1.pdf)
+    - [Seventh Edition, January 1979, Volume 2a](https://s3.amazonaws.com/plan9-bell-labs/7thEdMan/v7vol2a.pdf)
+    - [Seventh Edition, January 1979, Volume 2b](https://s3.amazonaws.com/plan9-bell-labs/7thEdMan/v7vol2b.pdf)
 - Wikipedia: The Free Encyclopedia
     - [History of Unix](https://en.wikipedia.org/wiki/History_of_Unix)
     - [List of Unix systems](https://en.wikipedia.org/wiki/List_of_Unix_systems)
