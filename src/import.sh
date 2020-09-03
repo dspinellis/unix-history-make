@@ -688,7 +688,7 @@ preconditions()
 # We need TEMP as the `eval set --' would nuke the return value of getopt.
 # Usage: $0 [--debug] [--no-import] [--no-verify]
 
-TEMP=`getopt -o d,I,V,v --long debug,no-import,no-verify,verbose -n 'import' -- "$@"`
+TEMP=`getopt -o d,g,G,I,V,v --long debug,git-fast-import-dump,no-gc,no-import,no-verify,verbose -n 'import' -- "$@"`
 
 if [ $? != 0 ] ; then
 	usage
@@ -706,6 +706,10 @@ while : ; do
       ;;
     -g|--git-fast-import-dump)
       GFI_DUMP=true
+      shift
+      ;;
+    -G|--no-gc)
+      SKIP_GC=true
       shift
       ;;
     -I|--no-import)
@@ -730,3 +734,4 @@ preconditions
 test "$SKIP_IMPORT" || import
 test "$DEBUG" && exit
 test "$SKIP_VERIFY" || verify
+test "$SKIP_GC" || git gc --aggressive
