@@ -45,9 +45,9 @@ etc/hosts
 etc/hosts.equiv
 etc/hosts.lpd
 etc/inetd.conf
+etc/kerberosIV/README
 etc/kerberosIV/krb.conf
 etc/kerberosIV/krb.realms
-etc/kerberosIV/README
 etc/localtime
 etc/man.conf
 etc/master.passwd
@@ -76,6 +76,7 @@ etc/shells
 etc/syslog.conf
 etc/ttys
 etc/weekly
+usr/bin/Mail
 usr/bin/addbib
 usr/bin/apply
 usr/bin/apropos
@@ -183,7 +184,6 @@ usr/bin/lprm
 usr/bin/m4
 usr/bin/machine
 usr/bin/mail
-usr/bin/Mail
 usr/bin/mailq
 usr/bin/make
 usr/bin/man

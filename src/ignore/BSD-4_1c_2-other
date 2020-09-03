@@ -31,7 +31,6 @@ bin/login
 bin/ls
 bin/mail
 bin/make
-bin/.MAP
 bin/mkdir
 bin/mt
 bin/mv
@@ -119,7 +118,6 @@ etc/kgmon
 etc/lpdrestart
 etc/makekey
 etc/makewhatis
-etc/.MAP
 etc/mkfs
 etc/mklost+found
 etc/mknod
@@ -256,7 +254,8 @@ usr/bin/xget
 usr/bin/xsend
 usr/bin/yacc
 usr/ingres/.cshrc
-usr/ingres/data/base/demo/admin
+usr/ingres/.msgsrc
+usr/ingres/.rhosts
 usr/ingres/data/base/demo/_SYSdesc1157
 usr/ingres/data/base/demo/_SYSdesc13363
 usr/ingres/data/base/demo/_SYSdesc13455
@@ -325,12 +324,13 @@ usr/ingres/data/base/demo/_SYSsort9189
 usr/ingres/data/base/demo/_SYSsort9402
 usr/ingres/data/base/demo/_SYSsort9414
 usr/ingres/data/base/demo/_SYSsort9421
-usr/ingres/data/base/joe/admin
+usr/ingres/data/base/demo/admin
 usr/ingres/data/base/joe/_SYSnewr3849
 usr/ingres/data/base/joe/_SYSsort3849
-usr/ingres/data/base/test/admin
+usr/ingres/data/base/joe/admin
 usr/ingres/data/base/test/_SYSnewr3820
 usr/ingres/data/base/test/_SYSsort3820
+usr/ingres/data/base/test/admin
 usr/ingres/demo/DEMO
 usr/ingres/demo/dept
 usr/ingres/demo/employee
@@ -341,6 +341,7 @@ usr/ingres/demo/sale
 usr/ingres/demo/store
 usr/ingres/demo/supplier
 usr/ingres/demo/supply
+usr/ingres/files/READ_ME
 usr/ingres/files/dbtmplt7
 usr/ingres/files/equel7
 usr/ingres/files/equel7P
@@ -355,12 +356,10 @@ usr/ingres/files/joe
 usr/ingres/files/proctab7
 usr/ingres/files/proctab7P
 usr/ingres/files/proctab7V
-usr/ingres/files/READ_ME
 usr/ingres/files/startup
 usr/ingres/files/usage
 usr/ingres/files/users
-usr/ingres/.msgsrc
-usr/ingres/.rhosts
+usr/ucb/Mail
 usr/ucb/apply
 usr/ucb/apropos
 usr/ucb/arcv
@@ -410,7 +409,6 @@ usr/ucb/lpr
 usr/ucb/lprm
 usr/ucb/lxref
 usr/ucb/mail
-usr/ucb/Mail
 usr/ucb/man
 usr/ucb/mkstr
 usr/ucb/more

@@ -19,9 +19,9 @@ etc/hosts
 etc/hosts.equiv
 etc/hosts.lpd
 etc/inetd.conf
+etc/kerberosIV/README
 etc/kerberosIV/krb.conf
 etc/kerberosIV/krb.realms
-etc/kerberosIV/README
 etc/man.conf
 etc/master.passwd
 etc/monthly
