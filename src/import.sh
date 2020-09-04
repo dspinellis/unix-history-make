@@ -53,7 +53,6 @@ EOF
 create_readme()
 {
   fgrep -v zenodo.org/badge ../README.md
-  cat ../README.md
   echo
   echo '## Build identification'
   echo 'Data set versioned DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2525586.svg)](https://doi.org/10.5281/zenodo.2525586)'
