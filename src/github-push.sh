@@ -10,7 +10,9 @@ git checkout Research-V1-Snapshot-Development
 
 # Empty old repo
 pushd ../empty
-git push origin --mirror
+# Don't error when GitHub refuses to delete current branch:
+# refs/heads/Research-PDP7-Snapshot-Development
+git push origin --mirror || true
 popd
 
 # Push to GitHub
