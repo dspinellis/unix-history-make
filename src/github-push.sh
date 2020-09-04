@@ -2,6 +2,8 @@
 # Push the generated repository to GitHub
 #
 
+set -e
+
 cd import
 
 git checkout Research-V1-Snapshot-Development
