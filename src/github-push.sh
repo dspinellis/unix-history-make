@@ -15,8 +15,3 @@ popd
 git remote add origin git@github.com:dspinellis/unix-history-repo.git
 git push -fu --all origin
 git push --tags origin
-
-# Update istlab author search copy
-tar -cf - .git |
-ssh istlab.dmst.aueb.gr cd /home/dds/db/unix-history-repo/ \; \
-  rm -rf .git \; tar xf -
