@@ -137,6 +137,7 @@ usr/doc/man/man1/tty\.1		dmr,ken
 usr/doc/man/man1/who\.1		dmr,ken
 usr/doc/man/man1/write\.1	dmr,ken
 usr/doc/man/man1/diff\.1	doug
+usr/doc/man/man1/tee\.1		doug
 usr/doc/man/man1/sort\.1	ken,doug
 usr/doc/man/man1/wc\.1		jfo
 usr/doc/man/man1/bas\.1		ken
@@ -170,6 +171,9 @@ usr/source/s2/tr\.c		doug
 usr/doc/man/man1/tr\.1		doug
 usr/doc/man/man1/spell\.1	scj,doug,rje
 usr/doc/man/man3/alloc\.3	doug
+
+# https://www.cs.dartmouth.edu/~doug/
+usr/source/s2/tee\.c		doug
 
 # Default
 # Regarding the order of names

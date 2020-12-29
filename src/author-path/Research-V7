@@ -186,6 +186,7 @@ usr/man/man1/cal\.1		ken
 usr/man/man1/mail\.1		ken
 usr/man/man1/diff.*		doug
 usr/man/man1/graph\.1g		doug
+usr/man/man1/tee\.1		doug
 usr/man/man1/join\.1		doug
 usr/man/man1/spell\.1		scj,doug,rje
 usr/man/man1/crypt\.1		rhm
@@ -266,6 +267,7 @@ usr/man/man1/fgrep\.1		aho
 # From Doug McIlroy email 2016-12-03
 usr/man/man1/echo\.1		doug
 usr/src/cmd/echo\.c		doug
+usr/src/cmd/tee\.c		doug
 usr/man/man1/tr\.1		doug
 usr/src/cmd/tr\.c		doug
 
@@ -276,6 +278,13 @@ usr/man/man3/.*			dmr
 # From Doug McIlroy email 2016-12-03
 usr/man/man3/malloc\.3		doug
 usr/src/libc/gen/malloc\.c	doug
+
+# https://www.cs.dartmouth.edu/~doug/
+bin/calendar			doug
+usr/man/man1/calendar\.1	doug
+usr/src/cmd/calendar\.c		doug
+usr/man/man1/tsort\.1		doug
+usr/src/cmd/tsort\.c		doug
 
 # Default
 # Regarding the order of names
