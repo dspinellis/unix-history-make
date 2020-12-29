@@ -111,6 +111,7 @@ archive/v6:
 	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v6/v6src.tar.gz | tar -C archive/v6/usr/source -xzf -
 	mkdir -p $@/usr/doc
 	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v6/v6doc.tar.gz | tar -C $@/usr/doc -xzf -
+	cp bits/v6-speak.c $@/usr/source/s2/speak.c
 
 archive/v7:
 	mkdir -p $@
