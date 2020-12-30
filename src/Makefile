@@ -112,6 +112,9 @@ archive/v6:
 	mkdir -p $@/usr/doc
 	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v6/v6doc.tar.gz | tar -C $@/usr/doc -xzf -
 	cp bits/v6-speak.c $@/usr/source/s2/speak.c
+	cp bits/v6-speak.v $@/usr/source/s2/speak.v
+	# Same date as vs.c
+	touch -d 1974-11-27 $@/usr/source/s2/speak.?
 
 archive/v7:
 	mkdir -p $@
