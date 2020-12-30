@@ -83,7 +83,6 @@ usr/source/s2/split.c
 usr/source/s2/strip.s
 usr/source/s2/stty.c
 usr/source/s2/sync.c
-usr/source/s2/tee.c
 usr/source/s2/time.s
 usr/source/s2/tp1.s
 usr/source/s2/tp2.s

@@ -1,5 +1,4 @@
 bin/1
-bin/calendar
 bin/diff3
 bin/false
 bin/lint
@@ -130,7 +129,6 @@ usr/man/man1/ar.1
 usr/man/man1/arcv.1m
 usr/man/man1/at.1
 usr/man/man1/basename.1
-usr/man/man1/calendar.1
 usr/man/man1/cat.1
 usr/man/man1/cb.1
 usr/man/man1/cd.1
@@ -187,7 +185,6 @@ usr/man/man1/sync.1m
 usr/man/man1/tabs.1
 usr/man/man1/tail.1
 usr/man/man1/tc.1
-usr/man/man1/tee.1
 usr/man/man1/test.1
 usr/man/man1/time.1
 usr/man/man1/tk.1
@@ -195,7 +192,6 @@ usr/man/man1/touch.1
 usr/man/man1/tp.1
 usr/man/man1/troff.1
 usr/man/man1/true.1
-usr/man/man1/tsort.1
 usr/man/man1/units.1
 usr/man/man1/uux.1c
 usr/man/man1/wait.1
@@ -263,7 +259,6 @@ usr/src/cmd/arcv.c
 usr/src/cmd/at.c
 usr/src/cmd/atrun.c
 usr/src/cmd/basename.c
-usr/src/cmd/calendar.c
 usr/src/cmd/cat.c
 usr/src/cmd/cb.c
 usr/src/cmd/cc.c
@@ -369,7 +364,6 @@ usr/src/cmd/sync.c
 usr/src/cmd/tabs.c
 usr/src/cmd/tail.c
 usr/src/cmd/tc.c
-usr/src/cmd/tee.c
 usr/src/cmd/test.c
 usr/src/cmd/time.c
 usr/src/cmd/tk.c
@@ -380,7 +374,6 @@ usr/src/cmd/tp/tp0.c
 usr/src/cmd/tp/tp1.c
 usr/src/cmd/tp/tp2.c
 usr/src/cmd/tp/tp3.c
-usr/src/cmd/tsort.c
 usr/src/cmd/umount.c
 usr/src/cmd/units.c
 usr/src/cmd/update.c

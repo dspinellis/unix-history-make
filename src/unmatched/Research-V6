@@ -66,7 +66,6 @@ usr/doc/man/man1/size.1
 usr/doc/man/man1/sleep.1
 usr/doc/man/man1/split.1
 usr/doc/man/man1/stty.1
-usr/doc/man/man1/tee.1
 usr/doc/man/man1/time.1
 usr/doc/man/man1/tp.1
 usr/doc/man/man1/troff.1
@@ -395,7 +394,6 @@ usr/source/s2/split.c
 usr/source/s2/stty.c
 usr/source/s2/sum.s
 usr/source/s2/sync.c
-usr/source/s2/tee.c
 usr/source/s2/time.s
 usr/source/s2/tp1.s
 usr/source/s2/tp2.s
