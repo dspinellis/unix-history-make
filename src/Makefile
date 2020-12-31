@@ -114,7 +114,7 @@ archive/v6:
 	cp bits/v6-speak.c $@/usr/source/s2/speak.c
 	cp bits/v6-speak.v $@/usr/source/s2/speak.v
 	# Same date as vs.c
-	touch -d 1974-11-27 $@/usr/source/s2/speak.?
+	touch -d '1974-11-27 12:00' $@/usr/source/s2/speak.?
 
 archive/v7:
 	mkdir -p $@
@@ -181,7 +181,7 @@ archive/386BSD-0.1:
 	for i in `perl -e 'print map {sprintf("%02d ", $$_)} 0..96'` ; do curl -s http://www.oldlinux.org/Linux.old/distributions/386BSD/0.1/386BSD/ETC01.$$i ; done | gzip -dc | (cd $@ ; cpio -imd)
 	# cpio does not set the modification time of symbolic links
 	# so we set it manually from the time recorded in the archive.
-	find $@ -type l | xargs touch  -h -d 'Jun 8 1992'
+	find $@ -type l | xargs touch  -h -d 'Jun 8 1992 12:00'
 
 archive/CSRG/cd4.patched: archive/CSRG/cd4.mnt
 	mkdir -p $@
