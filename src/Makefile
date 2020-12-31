@@ -57,7 +57,7 @@ archive/pdp7-unix:
 
 archive/v1:
 	mkdir -p archive
-	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v1/svntree-20081216.tar.gz | tar -C archive -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/Research/Dennis_v1/svntree-20081216.tar.gz | tar -C archive -xzf -
 	mv archive/unix72 $@
 	# Convert OCR to source code files
 	(cd $@ && tools/rebuild >/dev/null)
@@ -91,26 +91,26 @@ archive/v2: newoldar arcv
 
 archive/v3:
 	mkdir -p $@/man
-	curl -s http://minnie.tuhs.org/Archive/Distributions/research/Dennis_v3/v3man.tar.gz | tar -C $@/man -xzf -
+	curl -s http://minnie.tuhs.org/Archive/Distributions/Research/Dennis_v3/v3man.tar.gz | tar -C $@/man -xzf -
 	mkdir -p $@/c
 	curl -s http://minnie.tuhs.org/Archive/Applications/Early_C_Compilers/prestructc.tar.gz | tar --strip-components=1 -C $@/c -xzf -
 
 archive/v4:
 	mkdir -p $@/man
-	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v4/v4man.tar.gz | tar -C $@/man -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/Research/Dennis_v4/v4man.tar.gz | tar -C $@/man -xzf -
 	mkdir -p $@/sys
-	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v3/nsys.tar.gz | tar -C $@/sys -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/Research/Dennis_v3/nsys.tar.gz | tar -C $@/sys -xzf -
 
 archive/v5:
 	mkdir -p $@
-	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v5/v5root.tar.gz | tar -C $@ -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/Research/Dennis_v5/v5root.tar.gz | tar -C $@ -xzf -
 
 archive/v6:
 	mkdir -p $@
-	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v6/v6root.tar.gz | tar -C $@ -xzf -
-	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v6/v6src.tar.gz | tar -C archive/v6/usr/source -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/Research/Dennis_v6/v6root.tar.gz | tar -C $@ -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/Research/Dennis_v6/v6src.tar.gz | tar -C archive/v6/usr/source -xzf -
 	mkdir -p $@/usr/doc
-	curl -s http://www.tuhs.org/Archive/Distributions/research/Dennis_v6/v6doc.tar.gz | tar -C $@/usr/doc -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/Research/Dennis_v6/v6doc.tar.gz | tar -C $@/usr/doc -xzf -
 	cp bits/v6-speak.c $@/usr/source/s2/speak.c
 	cp bits/v6-speak.v $@/usr/source/s2/speak.v
 	# Same date as vs.c
@@ -118,9 +118,9 @@ archive/v6:
 
 archive/v7:
 	mkdir -p $@
-	curl -s http://www.tuhs.org/Archive/Distributions/research/Henry_Spencer_v7/v7.tar.gz | tar -C $@ -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/Research/Henry_Spencer_v7/v7.tar.gz | tar -C $@ -xzf -
 	mkdir v7-patch
-	curl -s http://www.tuhs.org/Archive/Distributions/research/Henry_Spencer_v7/v7.patches.tar.gz | tar -C v7-patch -xzf -
+	curl -s http://www.tuhs.org/Archive/Distributions/Research/Henry_Spencer_v7/v7.patches.tar.gz | tar -C v7-patch -xzf -
 	mv v7-patch/lpr $@/usr/src/cmd/
 	mv v7-patch/lp.c $@/usr/sys/dev/
 	mv v7-patch/lpd.8 $@/usr/man/man8/
