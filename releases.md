@@ -70,6 +70,12 @@ multiple-generation *samizdat* photocopies, until in late
 1995 the lawyers of Santa Cruz Operation, Inc. gave permission for its
 official publication.
 
+The snapshot used is amended to include the source code and vocabulary
+file of M. D. McIlroy's _speak(1)_ program.
+This is documented in the provided manual pages, but its source code
+was lost, until Jonathan Gevaryahu
+[found it in unallocated space of a disk dump tape](https://web.archive.org/web/20140620170452/https://minnie.tuhs.org/pipermail/tuhs/2011-December/002538.html).
+
 ## Research-V7
 The 7th Edition (January 1979), includes many
 new influential commands, such as *awk*, *expr*, *find*, *lex*, *lint*, *m4*, *make*,
