@@ -59,33 +59,14 @@ Blame is apportioned appropriately.
 The following tags or branch names mark specific releases, listed in rough chronological order.
 * Epoch
 * Research-PDP7
-* Research-V1
-* Research-V2
-* Research-V3
-* Research-V4
-* Research-V5
-* Research-V6
+* Research-V1–6
 * BSD-1
 * BSD-2
 * Research-V7
 * Bell-32V
-* BSD-3
-* BSD-4
-* BSD-4\_1\_snap
-* BSD-4\_1c\_2
-* BSD-4\_2
-* BSD-4\_3
-* BSD-4\_3\_Reno
-* BSD-4\_3\_Net\_1
-* BSD-4\_3\_Tahoe
-* BSD-4\_3\_Net\_2
-* BSD-4\_4
-* BSD-4\_4\_Lite1
-* BSD-4\_4\_Lite2
-* BSD-SCCS-END
-* 386BSD-0.0
-* 386BSD-0.1
-* 386BSD-0.1-patchkit
+* BSD-3, 4, 4\_1\_snap, 4\_1c\_2, 4\_2, 4\_3, 4\_3\_Reno, 4\_3\_Net\_1, 4\_3\_Tahoe, 4\_3\_Net\_2, 4\_4, 4\_4\_Lite1, 4\_4\_Lite2
+SCCS-END,
+* 386BSD-0.0, 0.1, patchkit
 * FreeBSD-release/1.0, 1.1, 1.1.5
 * FreeBSD-release/2.0 2.0.5, 2.1.0, 2.1.5, 2.1.6, 2.1.6.1, 2.1.7, 2.2.0, 2.2.1, 2.2.2, 2.2.5, 2.2.6, 2.2.7, 2.2.8
 * FreeBSD-release/3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.4.0, 3.5.0
