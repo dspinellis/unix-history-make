@@ -173,7 +173,9 @@ usr/doc/man/man1/spell\.1	scj,doug,rje
 usr/doc/man/man3/alloc\.3	doug
 
 # https://www.cs.dartmouth.edu/~doug/
+usr/doc/man/man6/speak\.6	doug
 usr/source/s2/speak\.c		doug
+usr/source/s2/speak\.v		doug
 usr/source/s2/tee\.c		doug
 
 # Default
