@@ -53,6 +53,7 @@ unmount:
 archive/pdp7-unix:
 	(cd archive ; git clone --depth=1 https://github.com/DoctorWkt/pdp7-unix.git)
 	sed -i '/"\*\*/d' $@/scans/*
+	cd $@/scans && rm Makefile README.md joshd-*
 	touch -d '1970-06-30 12:00' $@/scans/*
 
 archive/v1:
