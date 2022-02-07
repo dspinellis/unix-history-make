@@ -312,18 +312,18 @@ $ARCHIVE/32v Bell 32V -0500 | gfi
 
 ## Acknowledgements
 * The following people helped with Bell Labs login identifiers.
- * Brian W. Kernighan
- * Doug McIlroy
- * Arnold D. Robbins
+  * Brian W. Kernighan
+  * Doug McIlroy
+  * Arnold D. Robbins
 * The following people helped with *BSD login identifiers.
- * Clem Cole
- * Era Eriksson
- * Mary Ann Horton
- * Warner Losh
- * Kirk McKusick
- * Jeremy C. Reed
- * Ingo Schwarze
- * Anatole Shaw
+  * Clem Cole
+  * Era Eriksson
+  * Mary Ann Horton
+  * Warner Losh
+  * Kirk McKusick
+  * Jeremy C. Reed
+  * Ingo Schwarze
+  * Anatole Shaw
 * The BSD SCCS import code is based on work by
- * [H. Merijn Brand](http://search.cpan.org/~hmbrand/VCS-SCCS-0.20/SCCS.pm)
- * [Jonathan Gray](https://github.com/jonathangray/csrg-git-patches/)
+  * [H. Merijn Brand](http://search.cpan.org/~hmbrand/VCS-SCCS-0.20/SCCS.pm)
+  * [Jonathan Gray](https://github.com/jonathangray/csrg-git-patches/)
