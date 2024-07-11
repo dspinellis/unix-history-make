@@ -5,7 +5,7 @@
 The history and evolution of the Unix operating system is made available
 as a revision management repository, covering the period from its
 inception in 1970 as a 2.5 thousand line kernel and 48 commands,
-to 2018 as a widely-used 30 million line system. The 1.5GB repository
+to 2022 as a widely-used 30 million line system. The 1.5GB repository
 contains about half a million commits and more than two thousand merges.
 The repository employs Git system for its storage and is hosted on GitHub.
 It has been created by synthesizing with custom software 24 snapshots of
@@ -272,7 +272,7 @@ $ARCHIVE/32v Bell 32V -0500 | gfi
     - Diomidis Spinellis. A repository of Unix history and evolution. *Empirical Software Engineering*, 2017. doi:10.1007/s10664-016-9445-5.
     [HTML](http://www.dmst.aueb.gr/dds/pubs/jrnl/2016-EMPSE-unix-history/html/unix-history.html), [PDF](http://www.dmst.aueb.gr/dds/pubs/jrnl/2016-EMPSE-unix-history/html/unix-history.pdf)
     - Diomidis Spinellis. A repository with 44 years of Unix evolution. In *MSR '15: Proceedings of the 12th Working Conference on Mining Software Repositories*, pages 13-16. IEEE, 2015. Best Data Showcase Award. [PDF](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/Spi15c.pdf), [HTML](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/Spi15c.html), [poster](http://www.dmst.aueb.gr/dds/pubs/conf/2015-MSR-Unix-History/html/poster.pdf).
-    - Diomidis Spinellis and Paris Avgeriou. Evolution of the Unix system architecture: An exploratory case study.  *IEEE Transactions on Software Engineering*, 2020. [http://dx.doi.org/10.1109/TSE.2019.2892149](https://dx.doi.org/10.1109/TSE.2019.2892149).
+    - Diomidis Spinellis and Paris Avgeriou. Evolution of the Unix system architecture: An exploratory case study.  *IEEE Transactions on Software Engineering*, 47(6):1134–1163, June 2021. [http://dx.doi.org/10.1109/TSE.2019.2892149](https://dx.doi.org/10.1109/TSE.2019.2892149).
     - Warren Toomey, First Edition Unix: Its Creation and Restoration, in *IEEE Annals of the History of Computing*, vol. 32, no. 3, pp. 74-82, July-Sept. 2010. doi:10.1109/MAHC.2009.55. [PDF](http://www.tuhs.org/Archive/Documentation/Papers/1eUnix_creation_restoration.pdf)
     - Warren Toomey,  The Restoration of Early UNIX Artifacts, in *USENIX ATC '09: 2009 USENIX Annual Technical Conference*. 2009. [PDF](https://www.usenix.org/legacy/events/usenix09/tech/full_papers/toomey/toomey.pdf)
     - Diomidis Spinellis, Panagiotis Louridas, and Maria Kechagia. An exploratory study on the evolution of C programming in the Unix operating system. In Qing Wang and Guenther Ruhe, editors, *ESEM '15: 9th International Symposium on Empirical Software Engineering and Measurement*, pages 54–57. IEEE, October 2015. [HTML](http://www.dmst.aueb.gr/dds/pubs/conf/2015-ESEM-CodeStyle/html/SLK15.html), [PDF](http://www.dmst.aueb.gr/dds/pubs/conf/2015-ESEM-CodeStyle/html/SLK15.pdf)
@@ -305,7 +305,7 @@ $ARCHIVE/32v Bell 32V -0500 | gfi
     - [Berkeley CSRG Archive CD-ROMs](https://www.mckusick.com/csrg/index.html)
 - Studies
     - [M. Douglas McIlroy. A Research UNIX Reader: Annotated Excerpts from the Programmer's Manual, 1971-1986](https://archive.org/details/a_research_unix_reader)
-    - [Michael S. Mahoney. Unix at the Bell Labs - People](http://www.princeton.edu/~hos/Mahoney/unixpeople.htm)
+    - [Michael S. Mahoney. Unix at the Bell Labs - People](https://github.com/dspinellis/oral-history-of-unix/)
 
 ## Acknowledgements
 * The following people helped with Bell Labs login identifiers.
