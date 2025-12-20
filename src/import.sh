@@ -335,8 +335,8 @@ EOF
   # 386BSD 0.1 patchkit
   perl ../import-dir.pl $VERBOSE -m 386BSD-0.1 -b 386BSD-0.1 $DEBUG \
     -G 'Diomidis Spinellis <dds@FreeBSD.org> 739659600 +0000' \
-    $ARCHIVE/386BSD-0.1-patched/ 386BSD-0.1-patchkit \
-    --progress=1000 | gfi
+    --progress=1000 $ARCHIVE/386BSD-0.1-patched/ 386BSD-0.1-patchkit |
+    gfi
 
   # Early FreeBSD from the CVS repo converted into git
   MERGED_FREEBSD_1=386BSD-0.1-patchkit,BSD-4_3_Net_2
@@ -374,7 +374,7 @@ EOF
     -R '1994-11-22 10:59:00 +0000' \
     -n ../freebsd.au \
     -G 'Diomidis Spinellis <dds@FreeBSD.org> 785501938 +0000' \
-    -P FreeBSD- $ARCHIVE/freebsd.git/ $REFS --progress=1000 | gfi
+    -P FreeBSD- --progress=1000 $ARCHIVE/freebsd.git/ $REFS | gfi
 
   # Adding boilerplate again seems to help getting a modern
   # timestamp for the files displayed on GitHub
