@@ -70,7 +70,7 @@ Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 -b T	Before import keep the specified files
 -C date	Ignore commits after the specified cutoff date
 -c file	Map of the tree's parts written by specific contributors
--G str	Import directory through git. Argument is author and timestamp
+-G str	Import directory through Git. Argument is author and timestamp
 	to use for the reference files commit.
 -i file	Comma-separated list of files containing pathnames of files to ignore
 -I file	Comma-separated list of files containing SCCS pathnames to merge
@@ -78,9 +78,9 @@ Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 -l	When importing symbolic links use linked file's date
 -m T	The commit(s) from which the import will be merged
 -n file	Map between contributor login names and full names
--P path	Path to prepend to file paths (branches for git) being committed
+-P path	Path to prepend to file paths (branches for Git) being committed
 -p re	Regular expression of files to process
--R date	Remove reference files after the specified date (for git import)
+-R date	Remove reference files after the specified date (for Git import)
 -r T	During import keep by side a reference copy of the specified files
 -S	Import directory through SCCS
 -s path	Leading path to strip from file paths being committed
@@ -148,7 +148,7 @@ print STDERR "\n\n\nImport $dev_branch from $directory\n" if ($opt_v);
 
 create_name_map() if (defined($opt_n));
 
-# Fast exit for git import
+# Fast exit for Git import
 if ($opt_G) {
 	git_import();
 	exit 0;
@@ -872,8 +872,14 @@ git_import
 {
 
 	# get the object from a Git::Repository
-	my $repo = Git::Repository->new(work_tree => $directory);
-	my $fh = $repo->command(('fast-export', '--date-order', '--reverse', $branch, @ARGV))->stdout;
+	my $repo = Git::Repository->new(git_dir => $directory);
+	# Make refs refer to branches by default to avoid
+	# ambiguous refs.
+	@ARGV = map { m{^refs/|HEAD} ? $_ : "refs/heads/$_" } @ARGV;
+	$branch =~ s|^|refs/heads/| unless $branch =~ m{^refs/|HEAD};
+
+	print STDERR "Run git --git-dir=$directory fast-export --date-order --reverse $branch @ARGV\n" if ($opt_v);
+	my $fh = $repo->command(('fast-export', '--progress=1000', '--date-order', '--reverse', $branch, @ARGV))->stdout;
 	# Create parser on the output stream
 	my $export = Git::FastExport->new($fh);
 
