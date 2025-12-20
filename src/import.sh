@@ -2,7 +2,7 @@
 #
 # Import Unix branches into a single repo
 #
-# Copyright 2013-2016 Diomidis Spinellis
+# Copyright 2013-2025 Diomidis Spinellis
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -98,13 +98,23 @@ is_up_to_date()
   test -r "$1" -a "$1" -nt ../import.sh
 }
 
+# Run find only if the directory exists
+find_files_in_existing_dir()
+{
+  local dir="$1"
+
+  if [ -d "$dir" ] ; then
+    find $dir -type f
+  fi
+}
+
 # Import the data sources in archive into a Git archive
 import()
 {
   # Check prerequisite Perl module
   if ! perl -MVCS::SCCS -e 1 2>/dev/null
   then
-    echo "The VCS::SCCS module is not installed"
+    echo "The Perl VCS::SCCS module is not installed"
     exit 1
   fi
 
@@ -261,13 +271,13 @@ EOF
 
     # Exclude additional installed files
     is_up_to_date ../ignore/BSD-${version}-other || (
-      find $dir/bin -type f
-      find $dir/etc -type f
-      find $dir/usr/bin -type f
-      find $dir/usr/ingres -type f 2>/dev/null
-      find $dir/usr/lasttape -type f 2>/dev/null
-      find $dir/usr/ucb -type f
-      find $dir/usr/include/sys -type f
+      find_files_in_existing_dir $dir/bin
+      find_files_in_existing_dir $dir/etc
+      find_files_in_existing_dir $dir/usr/bin
+      find_files_in_existing_dir $dir/usr/ingres
+      find_files_in_existing_dir $dir/usr/lasttape
+      find_files_in_existing_dir $dir/usr/ucb
+      find_files_in_existing_dir $dir/usr/include/sys
     ) |
     sed "s|$dir/||" |
     sort |
