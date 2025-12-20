@@ -238,8 +238,8 @@ The -make repository is provided to share and document the creation process, rat
 * Git
 * Perl
 * The Perl modules `VCS::SCCS` and `Git::FastExport`
-(Install with `sudo cpanm VCS::SCCS Git::FastExport`.)
-* If compiling patch under GNU/Linux and library `libbsd`
+(Install with `sudo cpan VCS::SCCS Git::FastExport`.)
+* If compiling patch under GNU/Linux the library `libbsd`
 (e.g. the `libbsd-dev` package).
 * Sudo (and authorization to use it to mount ISO images)
 
