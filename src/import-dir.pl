@@ -17,6 +17,7 @@
 use strict;
 use warnings;
 
+use Data::Dumper;
 use Date::Parse;
 use File::Copy;
 use File::Find;
@@ -77,6 +78,7 @@ Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 	during incremental import, and add when merging
 -l	When importing symbolic links use linked file's date
 -m T	The commit(s) from which the import will be merged
+-M S:R  Add a merge of ref R at imported SHA S
 -n file	Map between contributor login names and full names
 -P path	Path to prepend to file paths (branches for Git) being committed
 -p re	Regular expression of files to process
@@ -95,10 +97,10 @@ version_name and tz_offset are not required for SCCS imports
 };
 }
 
-our($opt_b, $opt_C, $opt_c, $opt_G, $opt_i, $opt_I, $opt_l, $opt_m, $opt_n, $opt_P, $opt_p, $opt_R, $opt_r, $opt_S, $opt_s, $opt_u, $opt_v);
+our($opt_b, $opt_C, $opt_c, $opt_G, $opt_i, $opt_I, $opt_l, $opt_M, $opt_m, $opt_n, $opt_P, $opt_p, $opt_R, $opt_r, $opt_S, $opt_s, $opt_u, $opt_v);
 $opt_b = $opt_m = $opt_r = '';
 
-if (!getopts('b:C:c:G:i:I:lm:n:P:p:R:r:Ss:t:u:v')) {
+if (!getopts('b:C:c:G:i:I:lM:m:n:P:p:R:r:Ss:t:u:v')) {
 	main::HELP_MESSAGE(*STDERR);
 	exit 1;
 
@@ -878,8 +880,17 @@ git_import
 	@ARGV = map { m{^refs/|HEAD} ? $_ : "refs/heads/$_" } @ARGV;
 	$branch =~ s|^|refs/heads/| unless $branch =~ m{^refs/|HEAD};
 
-	print STDERR "Run git --git-dir=$directory fast-export --date-order --reverse $branch @ARGV\n" if ($opt_v);
-	my $fh = $repo->command(('fast-export', '--progress=1000', '--date-order', '--reverse', $branch, @ARGV))->stdout;
+	my @git_cmd = (
+		'fast-export',
+		'--progress=1000',
+		'--date-order',
+		'--reverse',
+		($opt_M ? '--show-original-ids' : ()),
+		$branch,
+		@ARGV
+	);
+	print STDERR "Run git @git_cmd\n" if ($opt_v);
+	my $fh = $repo->command(@git_cmd)->stdout;
 	# Create parser on the output stream
 	my $export = Git::FastExport->new($fh);
 
@@ -891,6 +902,12 @@ git_import
 
 	# Commits that have reference files in their ancestors
 	my @has_ref;
+
+	# Set reference to merge at specified match.
+	my ($merge_sha, $merge_ref);
+	if ($opt_M) {
+		($merge_sha, $merge_ref) = split(/:/, $opt_M);
+	}
 
 	while (my $block = $export->next_block()) {
 		# print STDERR $block->{header}, ":", join(' ', keys(%$block)), "\n";
@@ -947,6 +964,20 @@ git_import
 			my @from = ("from :$ref_mark");
 			$block->{from} = \@from;
 			undef($ref_mark);
+		}
+		# Add any specified merge if needed
+		if ($merge_sha) {
+			# warn Dumper($block);
+			# Obtain block's SHA
+			my $block_sha = $block->{original}
+			    && $block->{original}[0] =~ /^original-oid ([0-9a-f]{40})$/
+				? $1
+				: undef;
+			if ($block_sha eq $merge_sha) {
+				$block->{merge} //= [];
+				push @{ $block->{merge} }, "merge $merge_ref";
+				undef $merge_sha;
+			}
 		}
 		print $block->as_string();
 	}
