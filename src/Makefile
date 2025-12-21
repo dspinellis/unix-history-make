@@ -9,7 +9,7 @@ DATA=archive/pdp7-unix archive/v1 archive/v2 archive/v3 archive/v4 \
 	archive/1bsd archive/2bsd archive/32v archive/3bsd \
 	archive/CSRG/cd4.patched archive/386BSD-0.1 archive/386BSD-0.0 \
 	archive/freebsd.git archive/freebsd-doc.git \
-	archive/freebsd-early.git archive/FreeBSD-1.1.5 \
+	archive/FreeBSD-1.1.5 \
 	archive/386BSD-0.1-patched $(MOUNTS)
 
 # Author detail files
@@ -215,29 +215,6 @@ archive/freebsd.git:
 archive/freebsd-doc.git:
 	(cd archive ; git clone --mirror https://github.com/freebsd/freebsd-doc)
 
-# Create an importable CVS repo from the one existing in archive/FreeBSD-1.1.5.1/cvs/386BSD/src
-archive/freebsd1-cvs: archive/FreeBSD-1.1.5.1.mnt
-	rm -rf $@
-	# Keep only the FINAL_ symbols
-	# For the rest there are cases where the same symbol is assigned
-	# to multiple revisions, which cvs2git can't handle
-	cp -r archive/FreeBSD-1.1.5.1/cvs/386BSD/src $@
-	perl clean-cvs.pl archive/freebsd1-cvs/ 'FINAL_.*?'
-	# Files here clash with live files and cvs2git can't handle that
-	rm -rf $@/share/doc/ps1/Attic
-	rm -rf $@/share/doc/smm/Attic
-	rm -rf $@/share/doc/usd/Attic
-
-# Convert early FreeBSD CVS repo into git
-archive/freebsd-early.git: archive/freebsd1-cvs
-	../../cvs2svn-2.4.0/cvs2git --options=cvs2svn-FreeBSD-1.options
-	rm -rf $@
-	mkdir $@
-	(cd $@ && \
-	git init && \
-	cat ../../cvs2svn-tmp/git-blob.dat ../../cvs2svn-tmp/git-dump.dat | git fast-import && \
-	git tag -d FreeBSD-release/1.0.2 )
-
 archive/FreeBSD-1.1.5: archive/FreeBSD-1.1.5.1.mnt
 	rm -rf $@
 	( cd archive/FreeBSD-1.1.5.1/tarballs/srcdist && \
@@ -257,4 +234,4 @@ empty:
 clean:
 	rm -rf archive/CSRG/cd4.patched archive/FreeBSD-1.0 \
 		archive/FreeBSD-1.1 archive/FreeBSD-1.1.5.1 \
-		archive/freebsd-early.git archive/FreeBSD-1.1.5
+		archive/FreeBSD-1.1.5

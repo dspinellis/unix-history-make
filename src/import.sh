@@ -339,41 +339,37 @@ EOF
     gfi
 
   # Early FreeBSD from the CVS repo converted into git
-  MERGED_FREEBSD_1=386BSD-0.1-patchkit,BSD-4_3_Net_2
+  MERGED_FREEBSD=386BSD-0.1-patchkit
 
-  #"FINAL_1_0" transformed to "FreeBSD-release/1.0" in 7525 files
-  #"FINAL_1_1" transformed to "FreeBSD-release/1.1" in 8728 files
-  #"FINAL_1_1_5" transformed to "FreeBSD-release/1.1.5" in 9530 files
+  # Branches to import
+  if [ -n "$DEBUG" ]
+  then
+    # releng2.0 contains the 4.4BSD Lite merge
+    REFS='releng/1 release/2.0 releng/2.0 release/3.0.0'
+  else
+    REFS=$(git --git-dir="$ARCHIVE/freebsd.git" branch -l | egrep -v 'projects/|user/| master|svn_head|main|pull' | sort -t/ -k2n)\ HEAD
+  fi
+
+  # Modern FreeBSD starting with 1
+  # See http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/share/misc/bsd-family-tree
+  # BSD-4-4 merged during FreeBSD 2 development at the specified SHA
   # Reference commit date obtained as two days earlied than first commit
   # Author: Rod Grimes <rgrimes@FreeBSD.org>
   # Date: 12 June 1993 17:58:18
   # Initial import, 0.1 + pk 0.2.4-B1
   # date +%s -d '1993-06-10'
   # 739659600
-  perl ../import-dir.pl $VERBOSE -r $MERGED_FREEBSD_1 -m $MERGED_FREEBSD_1 \
-    -R 1993-10-29 \
-    -G 'Diomidis Spinellis <dds@FreeBSD.org> 739659600 +0000' \
-    $ARCHIVE/freebsd-early.git/ \
-    FreeBSD-release/1.0 FreeBSD-release/1.1 FreeBSD-release/1.1.5 HEAD |
-    gfi
-
-  # Modern FreeBSD starting from 2.0
-  # Branches that get merged
-  # See http://ftp.netbsd.org/pub/NetBSD/NetBSD-current/src/share/misc/bsd-family-tree
-  MERGED_FREEBSD_2="BSD-4_4_Lite1,FreeBSD-release/1.1.5"
-
-  # Branches to import
-  if [ -n "$DEBUG" ]
-  then
-    REFS='release/2.0 release/3.0.0'
-  else
-    REFS=$(git --git-dir="$ARCHIVE/freebsd.git" branch -l | egrep -v 'projects/|user/| master|svn_head|main|pull|(releng/1$)' | sort -t/ -k2n)\ HEAD
-  fi
-
-  perl ../import-dir.pl $VERBOSE -r $MERGED_FREEBSD_2 -m $MERGED_FREEBSD_2 \
-    -R '1994-11-22 10:59:00 +0000' \
+  # Remove files one day after FreeBSD 1.1.5.1 release/1.1.5.1_cvs
+  #
+  # Could also specify a BSD4.4-Lite merge with
+  # -M 26f9a76710a312a951848542b9ca1f44100450e2:BSD-4_4_Lite1 \
+  # but what was actually merged in 26f9a767 isn't clear;
+  # it doesn't look like any of the two Lite tips.
+  perl ../import-dir.pl $VERBOSE \
+    -r $MERGED_FREEBSD -m $MERGED_FREEBSD \
+    -R 1994-07-02 \
     -n ../freebsd.au \
-    -G 'Diomidis Spinellis <dds@FreeBSD.org> 785501938 +0000' \
+    -G 'Diomidis Spinellis <dds@FreeBSD.org> 739659600 +0000' \
     -P FreeBSD- $ARCHIVE/freebsd.git/ $REFS | gfi
 
   # Adding boilerplate again seems to help getting a modern
@@ -488,7 +484,7 @@ verify()
   cd $REPO
 
   # Verify that trees go back all the way to the first commit
-  for i in 386BSD-0.1-patchkit FreeBSD-release/1.0 FreeBSD-release/2.0 \
+  for i in 386BSD-0.1-patchkit FreeBSD-releng/1 FreeBSD-release/2.0 \
     FreeBSD-release/3.0.0 ; do
     if ! git log --oneline --reverse $i -- | head -1 | grep "$FIRST_COMMIT" >/dev/null ; then
       echo "Incorrect parent for $i" 1>&2
@@ -539,7 +535,7 @@ verify()
 
   git checkout BSD-Release
   echo Verify branches and merges
-  verify_nodes '|/' 55
+  verify_nodes '|/' 49
   verify_nodes '|\' 32
 
   echo Verify symbolic links
@@ -574,38 +570,25 @@ verify()
     ensure_absent usr/include
   fi
 
-  git checkout FreeBSD-release/1.0
+  git checkout FreeBSD-releng/1
   for i in $(echo $MERGED_FREEBSD_1 | sed 's/,/ /')
   do
     ensure_present .ref-$i
   done
 
+
   # Actually 33 1220 54
   # Missing files are GNU utilities
-  compare_repo FreeBSD-release/1.0 ../archive/FreeBSD-1.0/filesys/usr/src/ 40 1300 55 0
-
-  git checkout FreeBSD-release/1.1
-  for i in $(echo $MERGED_FREEBSD_1 | sed 's/,/ /')
-  do
-    ensure_absent .ref-$i
-  done
-
-  # Actually 43 272 126
-  # Missing files are mainly from gnu/lib/libg++/g++-include
-  compare_repo FreeBSD-release/1.1 ../archive/FreeBSD-1.1/filesys/usr/src/ 45 300 127 0
-
-  # Actually 64 234 20
-  # Missing files are mainly kernel configurations
-  compare_repo FreeBSD-release/1.1.5 ../archive/FreeBSD-1.1.5/usr/src/ 70 300 21 0
+  compare_repo FreeBSD-releng/1 ../archive/FreeBSD-1.1.5.1/filesys/usr/src/ 40 1300 55 0
 
   git checkout FreeBSD-release/2.0
-  for i in $(echo $MERGED_FREEBSD_2 | sed 's/,/ /')
+  for i in $(echo $MERGED_FREEBSD | sed 's/,/ /')
   do
     ensure_present .ref-$i
   done
 
   git checkout FreeBSD-release/3.0.0
-  for i in $(echo $MERGED_FREEBSD_2 | sed 's/,/ /')
+  for i in $(echo $MERGED_FREEBSD | sed 's/,/ /')
   do
     ensure_absent .ref-$i
   done
@@ -616,12 +599,18 @@ verify()
     sort -u |
     wc -l)
 
-  N_EXPECTED=58
+  N_EXPECTED=44
   if [ $N_HASH -lt $N_EXPECTED ]
   then
     echo "Found $N_HASH versions in FreeBSD 3.0.0 proc.h; expected $N_EXPECTED" 1>&2
     exit 1
   fi
+
+  if blame -C -C -M -M FreeBSD-releng/15.0 -- lib/libc/gen/timezone.c | grep 'Dennis Ritchie' ; then
+    echo "Unable to find dmr in modern timezone.c" 1>&2
+    exit 1
+  fi
+
   echo Verification finished
 }
 
@@ -710,7 +699,7 @@ while : ; do
   case "$1" in
     -d|--debug)
       # When debugging import only a few representative files
-      export DEBUG=-p\ '([su]1\.s)|(a1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket))\.c)|(open\.2)|(((sysexits)|(proc)|(stat)|(telextrn))\.h)'
+      export DEBUG=-p\ '([su]1\.s)|(a1\.s)|(((nami)|(c00)|(ex_addr)|(sys_socket)|(timezone))\.c)|(open\.2)|(((sysexits)|(proc)|(stat)|(telextrn))\.h)'
       shift
       ;;
     -g|--git-fast-import-dump)
