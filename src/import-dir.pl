@@ -39,6 +39,12 @@ my %ignore_map;
 # A map containing paths of files to add when merging
 my %merge_add_map;
 
+# A map containing refs to add at specific SHAs
+my %merge_sha_ref_map;
+
+# Number of the map's entries that haven't been used
+my $pending_sha_refs = 0;
+
 # Subsitute $ with an id to get a contributor's email address
 my $address_template;
 
@@ -78,7 +84,7 @@ Usage: $0 [options ...] directory branch_name [ version_name tz_offset ]
 	during incremental import, and add when merging
 -l	When importing symbolic links use linked file's date
 -m T	The commit(s) from which the import will be merged
--M S:R  Add a merge of ref R at imported SHA S
+-M S:R,…Add a merge of ref R at imported SHA S
 -n file	Map between contributor login names and full names
 -P path	Path to prepend to file paths (branches for Git) being committed
 -p re	Regular expression of files to process
@@ -149,6 +155,16 @@ $dev_branch = $opt_P . $dev_branch if ($opt_P);
 print STDERR "\n\n\nImport $dev_branch from $directory\n" if ($opt_v);
 
 create_name_map() if (defined($opt_n));
+
+# Set reference to merge at specified match.
+if ($opt_M) {
+	for my $pair (split /,/, $opt_M) {
+		my ($sha, $ref) = split /:/, $pair, 2;
+		$merge_sha_ref_map{$sha} = $ref;
+		$pending_sha_refs += 1;
+
+	}
+}
 
 # Fast exit for Git import
 if ($opt_G) {
@@ -903,12 +919,6 @@ git_import
 	# Commits that have reference files in their ancestors
 	my @has_ref;
 
-	# Set reference to merge at specified match.
-	my ($merge_sha, $merge_ref);
-	if ($opt_M) {
-		($merge_sha, $merge_ref) = split(/:/, $opt_M);
-	}
-
 	while (my $block = $export->next_block()) {
 		# print STDERR $block->{header}, ":", join(' ', keys(%$block)), "\n";
 		# Prepend the specified string to branch names
@@ -966,17 +976,17 @@ git_import
 			undef($ref_mark);
 		}
 		# Add any specified merge if needed
-		if ($merge_sha) {
+		if ($pending_sha_refs) {
 			# warn Dumper($block);
 			# Obtain block's SHA
 			my $block_sha = $block->{original}
 			    && $block->{original}[0] =~ /^original-oid ([0-9a-f]{40})$/
 				? $1
 				: undef;
-			if ($block_sha eq $merge_sha) {
+			if (my $merge_ref = $merge_sha_ref_map{$block_sha}) {
 				$block->{merge} //= [];
 				push @{ $block->{merge} }, "merge $merge_ref";
-				undef $merge_sha;
+				$pending_sha_refs -= 1;
 			}
 		}
 		print $block->as_string();

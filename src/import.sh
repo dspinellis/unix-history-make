@@ -364,15 +364,11 @@ EOF
   # and Lite2 merges between Aug 2 1995 and Aug 30 1999.
   # Indicate them as a merges after the last corresponding commit.
   # Remove files one day after FreeBSD 1.1.5.1 release/1.1.5.1_cvs
-  #
-  # Could also specify a BSD4.4-Lite merge with
-  # -M 26f9a76710a312a951848542b9ca1f44100450e2:BSD-4_4_Lite1 \
-  # but what was actually merged in 26f9a767 isn't clear;
-  # it doesn't look like any of the two Lite tips.
   perl ../import-dir.pl $VERBOSE \
     -r $MERGED_FREEBSD -m $MERGED_FREEBSD \
     -R 1994-07-02 \
     -n ../freebsd.au \
+    -M 18bc25c1733fd8cd749502ec5ec9333e672c7397:BSD-4_4_Lite1,158562983ed457f824f6fcc0578eaabac35d0878:BSD-4_4_Lite2 \
     -G 'Diomidis Spinellis <dds@FreeBSD.org> 739659600 +0000' \
     -P FreeBSD- $ARCHIVE/freebsd.git/ $REFS | gfi
 
