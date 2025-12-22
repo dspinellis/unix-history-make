@@ -5,20 +5,20 @@
 The history and evolution of the Unix operating system is made available
 as a revision management repository, covering the period from its
 inception in 1970 as a 2.5 thousand line kernel and 48 commands,
-to 2022 as a widely-used 30 million line system. The 1.5GB repository
-contains about half a million commits and more than two thousand merges.
+to 2025 as a widely-used 41 million line system. The 12 GB repository
+contains about 850 thousand commits and more than two thousand merges.
 The repository employs Git system for its storage and is hosted on GitHub.
-It has been created by synthesizing with custom software 24 snapshots of
+It has been created by synthesizing with custom software 22 snapshots of
 systems developed at Bell Labs, the University of California at Berkeley,
-and the 386BSD team, two legacy repositories, and the modern repository
-of the open source FreeBSD system.
-In total, about one thousand individual contributors are identified,
+and the 386BSD team, and the modern repository of the open source
+FreeBSD system.
+In total, about 2700 individual contributors are identified,
 the early ones through primary research.
 The data set can be used for empirical research in software engineering,
 information systems, and software archaeology.
 
 You can read more details about the contents, creation, and uses of this
-repository through [this link](http://www.dmst.aueb.gr/dds/pubs/jrnl/2016-EMPSE-unix-history/html/unix-history.html).
+repository through [this link](https://rdcu.be/b7FzE).
 
 Two repositories are associated with the project:
 * [unix-history-repo](https://github.com/dspinellis/unix-history-repo) is
@@ -40,9 +40,7 @@ The project has achieved its major goal with the establishment of a continuous t
 * the CSRG SCCS history,
 * two releases of 386BSD,
 * the 386BSD patchkit,
-* the FreeBSD 1.0 to 1.1.5 CVS history,
-* an import of the FreeBSD repository starting from its initial imports that led to FreeBSD 2.0, and
-* the current FreeBSD repository.
+* the current FreeBSD repository, which now contains its full history.
 
 The files appear to be added in the repository in chronological order according to their modification time, and large parts of the source code have been attributed to their actual authors.  Commands like `git blame` and `git log` produce the expected results.
 
@@ -50,8 +48,6 @@ The repository contains a number of two-way merges.
 
 * 3 BSD is merged from Unix/32V and Research Edition 6
 * Various BSD releases are merged from the development branch and a time point of BSD-SCCS
-* FreeBSD 1.0 is merged from Net/2 BSD and 386BSD-0.1-patchkit
-* FreeBSD 2.0 is merged from BSD 4.4/Lite1 and FreeBSD 1.1.5
 
 Blame is apportioned appropriately.
 
@@ -67,18 +63,8 @@ The following tags or branch names mark specific releases, listed in rough chron
 * BSD-3, 4, 4\_1\_snap, 4\_1c\_2, 4\_2, 4\_3, 4\_3\_Reno, 4\_3\_Net\_1, 4\_3\_Tahoe, 4\_3\_Net\_2, 4\_4, 4\_4\_Lite1, 4\_4\_Lite2
 SCCS-END,
 * 386BSD-0.0, 0.1, patchkit
-* FreeBSD-release/1.0, 1.1, 1.1.5
-* FreeBSD-release/2.0 2.0.5, 2.1.0, 2.1.5, 2.1.6, 2.1.6.1, 2.1.7, 2.2.0, 2.2.1, 2.2.2, 2.2.5, 2.2.6, 2.2.7, 2.2.8
-* FreeBSD-release/3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.4.0, 3.5.0
-* FreeBSD-release/4.0.0 4.1.0, 4.1.1, 4.2.0, 4.3.0, 4.4.0, 4.5.0, 4.6.0, 4.6.1, 4.6.2, 4.7.0, 4.8.0, 4.9.0, 4.10.0, 4.11.0
-* FreeBSD-release/5.0.0 5.1.0, 5.2.0, 5.2.1, 5.3.0, 5.4.0, 5.5.0
-* FreeBSD-release/6.0.0, 6.1.0, 6.2.0, 6.3.0, 6.4.0
-* FreeBSD-release/7.0.0, 7.1.0, 7.2.0, 7.3.0, 7.4.0
-* FreeBSD-release/8.0.0, 8.1.0, 8.2.0, 8.3.0, 8.4.0
-* FreeBSD-release/9.0.0, 9.1.0, 9.2.0, 9.3.0
-* FreeBSD-release/10.0.0, 10.1.0, 10.2.0, 10.3.0, 10.4.0
-* FreeBSD-release/11.0.0, 11.0.1, 11.1.0, 11.2.0, 11.3.0, 11.4.0
-* FreeBSD-release/12.0.0, 12.1.0
+* All release and releng branches found in the
+  [FreeBSD Git repository](https://github.com/freebsd/freebsd)
 
 A detailed description of the major tags is available in the
 file [releases.md](https://github.com/dspinellis/unix-history-make/blob/master/releases.md).
@@ -89,7 +75,7 @@ More tags and branches are available.
 
 ## Cool things you can do
 
-If you have a broadband network connection and about 1.5GB of free disk space,
+If you have a broadband network connection and about 12 GB of free disk space,
 you can download the repository and run Git commands that go back decades.
 Run
 ```sh
@@ -196,6 +182,27 @@ to see how the Unix pipe functionality evolved over the years.
 6d632e85 usr/sys/ken/pipe.c     (Ken Thompson 1975-07-17 10:33:37 -0500 139) 		return;
 6d632e85 usr/sys/ken/pipe.c     (Ken Thompson 1975-07-17 10:33:37 -0500 140) 	}
 ```
+
+### Marvel at the oldest code in a modern Unix system
+Run
+```
+git blame -C -C -M -M FreeBSD-releng/15.0 -- lib/libc/gen/timezone.c | grep Ritchie
+```
+to see code written by Dennis Ritchie in 1979 still part of the 2025
+FreeBSD 15.0 C library.
+```
+dbf40ea3ff692 usr/src/libc/gen/timezone.c                     (Dennis Ritchie    1979-01-10 14:58:57 -0500  73) static struct zone {
+dbf40ea3ff692 usr/src/libc/gen/timezone.c                     (Dennis Ritchie    1979-01-10 14:58:57 -0500  74)       int     offset;
+dbf40ea3ff692 usr/src/libc/gen/timezone.c                     (Dennis Ritchie    1979-01-10 14:58:57 -0500  75)       char    *stdzone;
+dbf40ea3ff692 usr/src/libc/gen/timezone.c                     (Dennis Ritchie    1979-01-10 14:58:57 -0500  76)       char    *dlzone;
+dbf40ea3ff692 usr/src/libc/gen/timezone.c                     (Dennis Ritchie    1979-01-10 14:58:57 -0500  77) } zonetab[] = {
+dbf40ea3ff692 usr/src/libc/gen/timezone.c                     (Dennis Ritchie    1979-01-10 14:58:57 -0500 111)                       if (dst && zp->dlzone)
+dbf40ea3ff692 usr/src/libc/gen/timezone.c                     (Dennis Ritchie    1979-01-10 14:58:57 -0500 112)                               return(zp->dlzone);
+dbf40ea3ff692 usr/src/libc/gen/timezone.c                     (Dennis Ritchie    1979-01-10 14:58:57 -0500 113)                       if (!dst && zp->stdzone)
+dbf40ea3ff692 usr/src/libc/gen/timezone.c                     (Dennis Ritchie    1979-01-10 14:58:57 -0500 114)                               return(zp->stdzone);
+dbf40ea3ff692 usr/src/libc/gen/timezone.c                     (Dennis Ritchie    1979-01-10 14:58:57 -0500 115)
+```
+
 ## How you can help
 You can help if you were there at the time, or if you can locate a
 source that contains information that is currently missing.

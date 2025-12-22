@@ -1,5 +1,5 @@
-sys/dmr/.*		dmr
-sys/ken/.*		ken
+usr/sys/dmr/.*		dmr
+usr/sys/ken/.*		ken
 
 # Based on v2man.pdf
 man/man1/as\.1		dmr
@@ -133,6 +133,225 @@ man/man1/troff\.1	jfo
 
 # From Doug McIlroy email 2016-12-03
 man/man1/tr\.1	doug
+
+# Sources based on previously established authors found with
+# find usr/source -type f |
+# sort -t/ -k4 |
+# awk -F/ '{print $4}' |
+# sed 's/[0-9]*\..*//' |
+# sort -u |
+# (cd ../../author-path/ ; while read x ; do
+#   echo "### $x ###"
+#   git grep -w $x
+# done ) |
+# more
+
+usr/c/.*		dmr
+
+# Pair with above by ordering with
+# find usr/source -type f | sort -t/ -k4
+# and then sorting back by directory.
+usr/source/s1/as.*	dmr
+usr/source/s1/bas.*	ken
+usr/source/s1/cal\.c	ken
+usr/source/s1/cat\.s	ken,dmr
+usr/source/s1/cc\.c	dmr
+usr/source/s1/cdb\.c	dmr
+usr/source/s1/check\.c	ken,dmr
+usr/source/s1/chmod\.c	ken,dmr
+usr/source/s1/chown\.s	ken,dmr
+usr/source/s1/clri\.s	ken,dmr
+usr/source/s1/cmp\.s	dmr
+usr/source/s1/comm\.c	lem
+usr/source/s1/cp\.c	ken,dmr
+usr/source/s1/date\.c	dmr
+usr/source/s1/db.\.s	dmr
+usr/source/s1/dd\.c	ken
+usr/source/s1/df\.c	ken,dmr
+usr/source/s1/diff.\.c	doug
+usr/source/s1/dsw\.s	ken,dmr
+usr/source/s1/dump\.c	ken,dmr
+usr/source/s1/du\.s	dmr
+usr/source/s1/echo\.c	doug
+usr/source/s1/ed.\.s	ken,dmr,jfo
+usr/source/s1/exit\.c	dmr
+usr/source/s1/fc\.c	ken,dmr
+usr/source/s1/fed.\.s	rhm,ken
+usr/source/s1/find\.c	haight
+usr/source/s1/form.\.s	rhm,llc
+usr/source/s1/getty\.s	dmr,ken,jfo
+usr/source/s1/glob\.c	dmr
+usr/source/s1/goto\.c	dmr
+usr/source/s1/grep\.s	ken,lem
+usr/source/s1/if\.c	ken,dmr
+usr/source/s1/init\.c	ken,dmr
+usr/source/s1/kill\.s	ken,dmr
+usr/source/s1/ld.\.s	dmr
+usr/source/s1/ldx\.s	ken,dmr
+usr/source/s1/ln\.c	ken,dmr
+usr/source/s1/login\.c	ken,dmr
+usr/source/s1/lpd\.s	ken,dmr
+usr/source/s1/lpr\.c	ken,dmr
+usr/source/s1/ls\.c	ken,dmr
+usr/source/s2/mail\.c	ken
+usr/source/s2/mesg\.s	ken,dmr
+usr/source/s2/mkdir\.s	ken,dmr
+usr/source/s2/mkfs\.c	ken,dmr
+usr/source/s2/mknod\.c	ken,dmr
+usr/source/s2/mount\.c	ken,dmr
+usr/source/s2/msh\.s	ken,dmr
+usr/source/s2/mv\.c	ken,dmr
+usr/source/s2/nice\.c	ken,dmr
+usr/source/s2/nm\.c	ken,dmr
+usr/source/s2/nohup\.c	ken,dmr
+usr/source/s2/od\.c	ken,dmr
+usr/source/s2/passwd\.s	ken,dmr
+usr/source/s2/pfe\.s	ken,dmr
+usr/source/s2/pr\.c	ken,dmr
+usr/source/s2/prof\.c	ken,dmr
+usr/source/s2/ps\.c	ken,dmr
+usr/source/s2/pwd\.c	ken,dmr
+usr/source/s2/restor\.c	ken,dmr
+usr/source/s2/rew\.s	ken,dmr
+usr/source/s2/rm\.c	ken,dmr
+usr/source/s2/rmdir\.s	ken,dmr
+usr/source/s2/sa\.c	ken
+usr/source/s2/sh\.c	ken
+usr/source/s2/size\.c	ken,dmr
+usr/source/s2/sleep\.c	ken,dmr
+usr/source/s2/sort\.c	ken,doug
+usr/source/s2/split\.c	ken,dmr
+usr/source/s2/strip\.s	dmr
+usr/source/s2/stty\.c	ken,dmr
+usr/source/s2/su\.c	ken,dmr
+usr/source/s2/sum\.s	ken
+usr/source/s2/sync\.c	ken,dmr
+usr/source/s2/tee\.c	doug
+usr/source/s2/time\.s	ken,dmr
+usr/source/s2/tp1\.s	ken,dmr
+usr/source/s2/tp2\.s	ken,dmr
+usr/source/s2/tp3\.s	ken,dmr
+usr/source/s2/tp4\.s	ken,dmr
+usr/source/s2/tr\.c	doug
+usr/source/s2/tty\.s	ken,dmr
+usr/source/s2/typo\.c	ken,dmr
+usr/source/s2/umount\.c	ken,dmr
+usr/source/s2/uniq\.c	ken
+usr/source/s2/update\.s	ken,dmr
+usr/source/s2/wc\.c	jfo
+usr/source/s2/who\.c	ken,dmr
+usr/source/s2/write\.s	ken,dmr
+usr/source/s3/atof\.s	ken
+usr/source/s3/compar\.s	ken,dmr
+usr/source/s3/crypt\.s	rhm
+usr/source/s3/ctime\.c	dmr
+usr/source/s3/dpadd\.s	ken,dmr
+usr/source/s3/ecvt\.s	rhm,dmr,ken
+usr/source/s3/exp\.s	rhm,dmr,ken
+usr/source/s3/fakfp\.s	ken,dmr
+usr/source/s3/fp1\.s	ken,dmr
+usr/source/s3/fp2\.s	ken,dmr
+usr/source/s3/fp3\.s	ken,dmr
+usr/source/s3/fpx\.s	ken,dmr
+usr/source/s3/gamma\.s	ken,dmr
+usr/source/s3/get\.s	ken,dmr
+usr/source/s3/hypot\.s	ken,dmr
+usr/source/s3/ldiv\.s	ken,dmr
+usr/source/s3/log\.s	ken
+usr/source/s3/mesg\.s	ken,dmr
+usr/source/s3/mon\.s	ken,dmr
+usr/source/s3/nlist\.s	ken,dmr
+usr/source/s3/pow\.s	ken
+usr/source/s3/put\.s	ken,dmr
+usr/source/s3/qsort\.s	ken,dmr
+usr/source/s3/rand\.s	ken,dmr
+usr/source/s3/sin\.s	ken,dmr
+usr/source/s3/sqrt\.s	rhm,dmr,ken
+usr/source/s3/switch\.s	ken,dmr
+usr/source/s3/ttyn\.s	ken,dmr
+usr/source/s4/atof\.s	ken
+usr/source/s4/chdir\.s	ken,dmr
+usr/source/s4/chmod\.s	ken,dmr
+usr/source/s4/chown\.s	ken,dmr
+usr/source/s4/close\.s	ken,dmr
+usr/source/s4/cos\.s	ken,dmr
+usr/source/s4/crand\.s	ken,dmr
+usr/source/s4/creat\.s	ken,dmr
+usr/source/s4/crt0\.s	ken,dmr
+usr/source/s4/crypt\.s	rhm
+usr/source/s4/dup\.s	ken,dmr
+usr/source/s4/ecvt\.s	rhm,dmr,ken
+usr/source/s4/errlst\.c	ken,dmr
+usr/source/s4/execl\.s	ken,dmr
+usr/source/s4/execv\.s	ken,dmr
+usr/source/s4/exit\.s	dmr
+usr/source/s4/exp\.s	rhm,dmr,ken
+usr/source/s4/ffltpr\.s	ken,dmr
+usr/source/s4/floor\.s	ken,dmr
+usr/source/s4/fltpr\.s	ken,dmr
+usr/source/s4/fmod\.s	ken,dmr
+usr/source/s4/fork\.s	ken,dmr
+usr/source/s4/fstat\.s	ken,dmr
+usr/source/s4/gamma\.s	ken,dmr
+usr/source/s4/getchr\.s	ken,dmr
+usr/source/s4/getc\.s	dmr
+usr/source/s4/getcsw\.s	ken,dmr
+usr/source/s4/getgid\.s	ken,dmr
+usr/source/s4/getpw\.c	ken,dmr
+usr/source/s4/getuid\.s	ken,dmr
+usr/source/s4/gtty\.s	ken,dmr
+usr/source/s4/hmul\.s	ken,dmr
+usr/source/s4/hsw\.s	ken,dmr
+usr/source/s4/kill\.s	ken,dmr
+usr/source/s4/link\.s	ken,dmr
+usr/source/s4/locv\.s	ken,dmr
+usr/source/s4/log\.s	ken
+usr/source/s4/ltod\.s	ken,dmr
+usr/source/s4/makdir\.s	ken,dmr
+usr/source/s4/mcrt0\.s	ken,dmr
+usr/source/s4/mdate\.s	ken,dmr
+usr/source/s4/mknod\.s	ken,dmr
+usr/source/s4/mon\.c	ken,dmr
+usr/source/s4/mount\.s	ken,dmr
+usr/source/s4/nargs\.s	ken,dmr
+usr/source/s4/nice\.s	ken,dmr
+usr/source/s4/nlist\.s	ken
+usr/source/s4/open\.s	ken,dmr
+usr/source/s4/perror\.c	ken,dmr
+usr/source/s4/pipe\.s	ken,dmr
+usr/source/s4/pow\.s	ken
+usr/source/s4/printf\.s	ken,dmr
+usr/source/s4/prof\.s	ken,dmr
+usr/source/s4/putchr\.s	ken,dmr
+usr/source/s4/putc\.s	dmr
+usr/source/s4/qsort\.c	ken
+usr/source/s4/read\.s	ken,dmr
+usr/source/s4/reset\.s	ken,dmr
+usr/source/s4/retrn\.s	ken,dmr
+usr/source/s4/rin\.c	ken,dmr
+usr/source/s4/rsave\.s	ken,dmr
+usr/source/s4/sbrk\.s	ken,dmr
+usr/source/s4/seek\.s	ken,dmr
+usr/source/s4/setgid\.s	ken,dmr
+usr/source/s4/setuid\.s	ken,dmr
+usr/source/s4/signal\.s	ken,dmr
+usr/source/s4/sin\.s	ken,dmr
+usr/source/s4/sleep\.s	ken,dmr
+usr/source/s4/sqrt\.s	rhm,dmr,ken
+usr/source/s4/ssw\.s	ken,dmr
+usr/source/s4/stat\.s	ken,dmr
+usr/source/s4/stime\.s	ken,dmr
+usr/source/s4/stty\.s	jfo
+usr/source/s4/switch\.s	ken,dmr
+usr/source/s4/sync\.s	ken,dmr
+usr/source/s4/time\.s	ken,dmr
+usr/source/s4/times\.s	ken,dmr
+usr/source/s4/umount\.s	ken,dmr
+usr/source/s4/unlink\.s	ken,dmr
+usr/source/s4/wait\.s	ken,dmr
+usr/source/s4/write\.s	ken,dmr
+usr/source/s7/roff.\.s	jfo
+usr/source/s7/suftab\.s	jfo
 
 # Default
 # Regarding the order of names

@@ -41,6 +41,7 @@ usage()
 Usage: $0 [--debug] [--no-import] [--no-verify] [--verbose]
 
 -d|--debug	Import only a small subset, and generate debugging information
+-G|--no-gc      Skip garbage collection
 -g|--git-fast-import-dump Dump the import to git-fast-import to gfi.in
 -I|--no-import	Skip importing phase
 -V|--no-verify	Skip verification phase
@@ -154,12 +155,12 @@ import()
     -n ../bell.au $DEBUG \
     -u ../unmatched/Research-V2 $ARCHIVE/v2 Research V2 -0500 | gfi
 
-  # V3: Part of the C compiler, manual pages
+  # V3: C kernel, Part of the C compiler, manual pages
   perl ../import-dir.pl $VERBOSE -m Research-V2 -c ../author-path/Research-V3 \
     -n ../bell.au -r Research-V2 $DEBUG \
     -u ../unmatched/Research-V3 $ARCHIVE/v3 Research V3 -0500 | gfi
 
-  # V4: C kernel, manual pages
+  # V4: Full
   perl ../import-dir.pl $VERBOSE -m Research-V3 -c ../author-path/Research-V4 \
     -n ../bell.au -r Research-V3 $DEBUG \
     -u ../unmatched/Research-V4 $ARCHIVE/v4 Research V4 -0500 | gfi
@@ -359,6 +360,9 @@ EOF
   # Initial import, 0.1 + pk 0.2.4-B1
   # date +%s -d '1993-06-10'
   # 739659600
+  # Several BSD 4.4. Lite merges occurred during May 24-30 1994.
+  # and Lite2 merges between Aug 2 1995 and Aug 30 1999.
+  # Indicate them as a merges after the last corresponding commit.
   # Remove files one day after FreeBSD 1.1.5.1 release/1.1.5.1_cvs
   #
   # Could also specify a BSD4.4-Lite merge with
@@ -406,8 +410,11 @@ verify_same_text()
 # Ensure that the specified directory is present
 ensure_present()
 {
-  if ! [ -d "$1" ] ; then
-    echo "Directory $1 not found" 1>&2
+  local ref="$1"
+  local dir="$2"
+
+  if ! git ls-tree -r --name-only "$ref" -- | grep -q "^$dir\$" ; then
+    echo "Directory $dir not found" 1>&2
     exit 1
   fi
 }
@@ -415,8 +422,11 @@ ensure_present()
 # Ensure that the specified directory is not present
 ensure_absent()
 {
-  if [ -d "$1" ] ; then
-    echo "Directory $1 should not be there" 1>&2
+  local ref="$1"
+  local dir="$2"
+
+  if git ls-tree -r --name-only "$ref" -- | grep -q "^$dir\$" ; then
+    echo "Directory $dir should not be there" 1>&2
     exit 1
   fi
 }
@@ -486,7 +496,7 @@ verify()
   # Verify that trees go back all the way to the first commit
   for i in 386BSD-0.1-patchkit FreeBSD-releng/1 FreeBSD-release/2.0 \
     FreeBSD-release/3.0.0 ; do
-    if ! git log --oneline --reverse $i -- | head -1 | grep "$FIRST_COMMIT" >/dev/null ; then
+    if ! git log --oneline --reverse $i -- | head -1 | grep -q "$FIRST_COMMIT" ; then
       echo "Incorrect parent for $i" 1>&2
       exit 1
     fi
@@ -566,35 +576,22 @@ verify()
 
   # Verify that we're not including ignored directory
   if [ -z "$DEBUG" ] ; then
-    git checkout 386BSD-0.1
-    ensure_absent usr/include
+    ensure_absent 386BSD-0.1 usr/include
   fi
 
-  git checkout FreeBSD-releng/1
   for i in $(echo $MERGED_FREEBSD_1 | sed 's/,/ /')
   do
-    ensure_present .ref-$i
+    ensure_present FreeBSD-releng/1 .ref-$i
   done
-
 
   # Actually 33 1220 54
   # Missing files are GNU utilities
   compare_repo FreeBSD-releng/1 ../archive/FreeBSD-1.1.5.1/filesys/usr/src/ 40 1300 55 0
 
-  git checkout FreeBSD-release/2.0
-  for i in $(echo $MERGED_FREEBSD | sed 's/,/ /')
-  do
-    ensure_present .ref-$i
-  done
+  ensure_absent FreeBSD-release/2.0 .ref-$MERGED_FREEBSD
 
-  git checkout FreeBSD-release/3.0.0
-  for i in $(echo $MERGED_FREEBSD | sed 's/,/ /')
-  do
-    ensure_absent .ref-$i
-  done
-
-  echo Verify FreeBSD merge
-  N_HASH=$(git blame -C -C sys/sys/proc.h |
+  echo Verify FreeBSD merge after the Lite2 merges
+  N_HASH=$(git blame -C -C FreeBSD-release/3.4.0 -- sys/sys/proc.h |
     awk '{print $1}' |
     sort -u |
     wc -l)
@@ -606,7 +603,7 @@ verify()
     exit 1
   fi
 
-  if blame -C -C -M -M FreeBSD-releng/15.0 -- lib/libc/gen/timezone.c | grep 'Dennis Ritchie' ; then
+  if ! git blame -C -C -M -M FreeBSD-releng/15.0 -- lib/libc/gen/timezone.c | grep -q 'Dennis Ritchie' ; then
     echo "Unable to find dmr in modern timezone.c" 1>&2
     exit 1
   fi

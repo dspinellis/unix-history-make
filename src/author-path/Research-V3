@@ -1,3 +1,6 @@
+sys/dmr/.*		dmr
+sys/ken/.*		ken
+
 c/.*		dmr
 
 # Generated from other editions by running

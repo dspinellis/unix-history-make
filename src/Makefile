@@ -81,7 +81,7 @@ archive/v2: newoldar arcv
 		../../../tools/remake-v2.sh
 	# C compiler
 	mkdir -p $@/c
-	curl https://minnie.tuhs.org/Archive/Applications/Early_C_Compilers/last1120c.tar.gz | tar --strip-components=1 -C $@/c -xzf -
+	curl https://www.tuhs.org/Archive/Applications/Early_C_Compilers/last1120c.tar.gz | tar --strip-components=1 -C $@/c -xzf -
 	find $@/c -name \*.o | xargs rm
 	rm $@/c/nc1/c1 $@/c/cvopt $@/c/nc $@/c/nc0/c0
 	# C library
@@ -92,15 +92,22 @@ archive/v2: newoldar arcv
 
 archive/v3:
 	mkdir -p $@/man
-	curl -s https://minnie.tuhs.org/Archive/Distributions/Research/Dennis_v3/v3man.tar.gz | tar -C $@/man -xzf -
+	curl -s https://www.tuhs.org/Archive/Distributions/Research/Dennis_v3/v3man.tar.gz | tar -C $@/man -xzf -
 	mkdir -p $@/c
-	curl -s https://minnie.tuhs.org/Archive/Applications/Early_C_Compilers/prestructc.tar.gz | tar --strip-components=1 -C $@/c -xzf -
+	curl -s https://www.tuhs.org/Archive/Applications/Early_C_Compilers/prestructc.tar.gz | tar --strip-components=1 -C $@/c -xzf -
+	mkdir -p $@/sys
+	curl -s https://www.tuhs.org/Archive/Distributions/Research/Dennis_v3/nsys.tar.gz | tar -C $@/sys -xzf -
 
 archive/v4:
 	mkdir -p $@/man
 	curl -s https://www.tuhs.org/Archive/Distributions/Research/Dennis_v4/v4man.tar.gz | tar -C $@/man -xzf -
-	mkdir -p $@/sys
-	curl -s https://www.tuhs.org/Archive/Distributions/Research/Dennis_v3/nsys.tar.gz | tar -C $@/sys -xzf -
+	curl -s http://squoze.net/UNIX/v4/unix_v4.tar | tar --strip-components=1 -C $@ -xf -
+	find $@ -name '*.[oa]' | xargs rm
+	rm -rf $@/bin $@/usr/bin $@/usr/games $@/lib $@/dev
+	bash -c 'rm $@/etc/{lpd,init,msh,getty,mkfs,mknod,glob,update,umount,mount}'
+	rm $@/unix
+	rm $@/usr/mdec/[tm]boot $@/usr/sys/conf/mkconf $@/usr/fort/fc1
+	rm $@/usr/c/cvopt $@/usr/lib/suftab
 
 archive/v5:
 	mkdir -p $@

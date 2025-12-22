@@ -36,18 +36,20 @@ last C compiler used on the PDP-11/20 and the corresponding C library.
 ## Research-V3
 The 3rd Edition (February 1973) contains
 part of the C compiler (just before it started using structures in
-its own source code) and the manual pages.
+its own source code), the manual pages, and the kernel.
+The kernel consists of 7609 lines of which just 768 are written in
+PDP-11 assembly and the rest are written in C.
 
 ## Research-V4
-The 4th Edition (November 1973) contains
-the Unix kernel and the source markup of the manual pages.
-The kernel predates the actual edition by a few months.
-It consists of 7609 lines of which just 768 are written in
-PDP-11 assembly and the rest are written in C.
-This was the first Unix version to support pipes.
-However, the C kernel found here had not yet included the pipe
-support from the assembly language kernel.
+Following a [widely reported](https://github.com/thaliaarchi/unix-history/blob/main/users/utah/v4.md#News)
+discovery of a Fourth Edition Unix magnetic tape at the University of Utah
+in July 2025 and its successful restoration,
+the 4th Edition (November 1973) contains the source
+code of the Unix kernel and commands, as well as
+the source markup of the manual pages.
+It is the first edition that appears in the repository in complete form.
 The manual pages comprise 18975 lines of *troff* code.
+This was the first Unix version to support pipes.
 
 ## Research-V5
 The 5th Edition (June 1974) is missing
@@ -55,8 +57,7 @@ the source markup of the manual pages. This edition was officially
 made available to universities for educational use.
 
 ## Research-V6
-The 6th Edition (May 1975), is the first that
-appears in the repository in complete form, and the first that became
+The 6th Edition (May 1975), is the first that became
 widely available outside Bell Labs through licenses to commercial and
 government users. It was also the last bearing the names of Thompson and
 Ritchie on the manuals’ title page. The 6th Edition is the one John
