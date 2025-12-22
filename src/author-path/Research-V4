@@ -147,6 +147,7 @@ man/man1/tr\.1	doug
 # more
 
 usr/c/.*		dmr
+usr/sno/.*		ken
 
 # Pair with above by ordering with
 # find usr/source -type f | sort -t/ -k4
@@ -249,13 +250,11 @@ usr/source/s3/dpadd\.s	ken,dmr
 usr/source/s3/ecvt\.s	rhm,dmr,ken
 usr/source/s3/exp\.s	rhm,dmr,ken
 usr/source/s3/fakfp\.s	ken,dmr
-usr/source/s3/fp1\.s	ken,dmr
-usr/source/s3/fp2\.s	ken,dmr
-usr/source/s3/fp3\.s	ken,dmr
+usr/source/s3/fp.\.s	ken,dmr,rhm
 usr/source/s3/fpx\.s	ken,dmr
 usr/source/s3/gamma\.s	ken,dmr
 usr/source/s3/get\.s	ken,dmr
-usr/source/s3/hypot\.s	ken,dmr
+usr/source/s3/hypot\.s	rhm
 usr/source/s3/ldiv\.s	ken,dmr
 usr/source/s3/log\.s	ken
 usr/source/s3/mesg\.s	ken,dmr
@@ -265,7 +264,7 @@ usr/source/s3/pow\.s	ken
 usr/source/s3/put\.s	ken,dmr
 usr/source/s3/qsort\.s	ken,dmr
 usr/source/s3/rand\.s	ken,dmr
-usr/source/s3/sin\.s	ken,dmr
+usr/source/s3/sin\.s	rhm
 usr/source/s3/sqrt\.s	rhm,dmr,ken
 usr/source/s3/switch\.s	ken,dmr
 usr/source/s3/ttyn\.s	ken,dmr
@@ -274,7 +273,7 @@ usr/source/s4/chdir\.s	ken,dmr
 usr/source/s4/chmod\.s	ken,dmr
 usr/source/s4/chown\.s	ken,dmr
 usr/source/s4/close\.s	ken,dmr
-usr/source/s4/cos\.s	ken,dmr
+usr/source/s4/cos\.s	rhm
 usr/source/s4/crand\.s	ken,dmr
 usr/source/s4/creat\.s	ken,dmr
 usr/source/s4/crt0\.s	ken,dmr
@@ -292,7 +291,7 @@ usr/source/s4/fltpr\.s	ken,dmr
 usr/source/s4/fmod\.s	ken,dmr
 usr/source/s4/fork\.s	ken,dmr
 usr/source/s4/fstat\.s	ken,dmr
-usr/source/s4/gamma\.s	ken,dmr
+usr/source/s4/gamma\.s	rhm
 usr/source/s4/getchr\.s	ken,dmr
 usr/source/s4/getc\.s	dmr
 usr/source/s4/getcsw\.s	ken,dmr
