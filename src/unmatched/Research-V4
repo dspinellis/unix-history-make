@@ -147,11 +147,6 @@ usr/pub/ascii
 usr/pub/greek
 usr/pub/kbd
 usr/pub/tabs
-usr/sno/sno.h
-usr/sno/sno1.c
-usr/sno/sno2.c
-usr/sno/sno3.c
-usr/sno/sno4.c
 usr/source/s1/ac.c
 usr/source/s1/ar.s
 usr/source/s1/dc1.s
@@ -160,11 +155,6 @@ usr/source/s1/dc3.s
 usr/source/s1/dc4.s
 usr/source/s1/dc5.s
 usr/source/s1/diff2.s
-usr/source/s3/atan.s
-usr/source/s3/atoi.s
-usr/source/s4/abort.s
-usr/source/s4/atan.s
-usr/source/s4/atan2.s
 usr/sys/buf.h
 usr/sys/conf.h
 usr/sys/conf/conf.c
