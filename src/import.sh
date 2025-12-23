@@ -167,7 +167,7 @@ import()
 
   # V5: Full (apart from manual pages)
   perl ../import-dir.pl $VERBOSE -m Research-V4 -c ../author-path/Research-V5 \
-    -n ../bell.au -r Research-V3,Research-V4 $DEBUG \
+    -n ../bell.au -r Research-V4 $DEBUG \
     -u ../unmatched/Research-V5 $ARCHIVE/v5 Research V5 -0500 | gfi
 
   # V6: Full
