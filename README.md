@@ -6,7 +6,7 @@ The history and evolution of the Unix operating system is made available
 as a revision management repository, covering the period from its
 inception in 1970 as a 2.5 thousand line kernel and 48 commands,
 to 2025 as a widely-used 41 million line system. The 2 GB repository
-contains about 850 thousand commits and more than two thousand merges.
+contains about 850 thousand commits and more than eight thousand merges.
 The repository employs Git system for its storage and is hosted on GitHub.
 It has been created by synthesizing with custom software 22 snapshots of
 systems developed at Bell Labs, the University of California at Berkeley,
