@@ -68,7 +68,7 @@ archive/v1:
 	cd $@/sys/ && for i in *.orig ; do mv $$i `expr $$i : '\(.*\)\.orig'` ; done
 	rm $@/sys/Makefile
 	# Date based on the 6/20/72 mark on p. 2 of
-	#http://bitsavers.informatik.uni-stuttgart.de/pdf/bellLabs/unix/PreliminaryUnixImplementationDocument_Jun72.pdf
+	# https://www.tuhs.org/Archive/Distributions/Research/Dennis_v1/PreliminaryUnixImplementationDocument_Jun72.pdf
 	touch -d '1972-06-20 12:00' $@/sys/*
 
 # The things remaining from V2 are formatted manual pages and a few fragments
