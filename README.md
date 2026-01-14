@@ -186,7 +186,7 @@ to see how the Unix pipe functionality evolved over the years.
 ### Marvel at the oldest code in a modern Unix system
 Run
 ```
-git blame -C -C -M -M FreeBSD-releng/15.0 -- lib/libc/gen/timezone.c | grep Ritchie
+git blame -C -C -M -M origin/FreeBSD-releng/15.0 -- lib/libc/gen/timezone.c | grep Ritchie
 ```
 to see code written by Dennis Ritchie in 1979 still part of the 2025
 FreeBSD 15.0 C library.
