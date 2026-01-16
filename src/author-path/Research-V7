@@ -37,6 +37,9 @@ usr/src/cmd/deroff\.c		llc
 usr/man/man1/tar.1		ken
 usr/src/cmd/tar/.*		ken
 
+# From header comment in tp.h
+usr/src/cmd/tp/.*		x-mf
+
 # 1. Owner listed in V1/man
 # http://minnie.tuhs.org/cgi-bin/utree.pl?file=V1/man/man1
 
